@@ -1,2 +1,8 @@
 
+useDynLib("OpenBabelR")
+
+export(
+	"convertFormat","convertFormatFile"
+
+)
 
