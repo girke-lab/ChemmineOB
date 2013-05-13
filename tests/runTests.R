@@ -1,1 +1,1 @@
-BiocGenerics:::testPackage("OpenBabelR")
+BiocGenerics:::testPackage("ChemmineOB")

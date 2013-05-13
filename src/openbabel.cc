@@ -94,3 +94,7 @@ SEXP ob_convert(SEXP fromE,SEXP toE, SEXP sourceStrE)
    return sdfString;
 }
 
+SEXP genAPDescriptors(char* sdf)
+{
+
+}
