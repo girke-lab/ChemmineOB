@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage[authoryear,round]{natbib}
+\usepackage{hyperref}
+\hypersetup{
+       colorlinks,
+       citecolor=black,
+       filecolor=black,
+       linkcolor=red,
+       urlcolor=black
+}
+\usepackage[OT1]{fontenc}
+
+%\usepackage{a4wide}
+
+\title{ChemmineOB}
+\author{Kevin Horan}
+
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\clearpage
+
+<<echo=false>>=
+	library(ChemmineOB)
+@
+
+
+
+\section{Introduction}
+ChemmineOB provides a partial wrapper of the OpenBabel library. It is 
+intended to be used as a library for ChemmineR and not used directly. 
+Currently, the only functionality wrapped is converting files or strings
+from one compound format to another. 
+
+\section{Installation}
+This package requires OpenBabel 2.3.0 or greater to be installed on the system. On Linux
+systems, the header files are also needed to compile. 
+
+\section{Format Conversions}
+The functions \texttt{convertFormat} and \texttt{convertFormatFile} can be used
+to convert files or strings between any two formats supported by OpenBabel.
+For example, to convert a SMILES string to an SDF string you would do:
+
+<<>>=
+sdfStr = convertFormat("SMI","SDF","CC(=O)OC1=CC=CC=C1C(=O)O\ttest_name")
+@
+
+If you want to convert a file from one format to another, you could do:
+<<eval=false>>=
+convertFormatFile("SMI","SDF","test.smiles","test.sdf")
+@
+
+
+\end{document}
