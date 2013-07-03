@@ -2,6 +2,7 @@
 \usepackage[margin=0.75in]{geometry}
 \usepackage[authoryear,round]{natbib}
 \usepackage{hyperref}
+\usepackage{url}
 \hypersetup{
        colorlinks,
        citecolor=black,
@@ -30,16 +31,44 @@
 
 
 \section{Introduction}
-ChemmineOB provides a partial wrapper of the OpenBabel library. It is 
-intended to be used as a library for ChemmineR and not used directly. 
-Currently, the only functionality wrapped is converting files or strings
-from one compound format to another. 
+ChemmineOB provides a partial wrapper of the OpenBabel library. 
+OpenBabel is an open source chemical library. It provides functions to 
+perform searches, convert file formats, analyze data, and store data in
+the areas of molecular modeling, chemistry, solid-state materials, biochemistry
+and others. Since it is written in C/C++, it can do all these things
+faster than an equivalent pure R implementation. ChemineOB aims to make these
+efficient functions available in R. Right now ChemmineOB  is 
+primarily intended to be used as a library for ChemmineR and not used directly. 
+
+ChemmineR is a cheminformatics library, primarily for analyzing drug-like small molecules.
+It contains functions for efficient processing of large small molecule data sets, physicochemical/structural
+property predictions, structural similarity searching, classification and clustering of compounds, and
+others. ChemmineR also provides visualization tools. The ChemmineOB library is used by ChemmineR
+to provide faster versions of certain tasks. Thus far this only includes chemical format
+conversions, but as different functions are required by ChemmineR, they will be wrapped in
+ChemmineOB. 
+
+There are two main reasons for keeping ChemmineOB separate from ChemmineR. First is to keep
+the dependency on OpenBabel optional. There are many uses for ChemmineR that do not require the 
+OpenBabel library to be installed and we don't want to make life any more difficult than it 
+has to be. By keeping ChemmineOB as a separate package, ChemmineR can easily test for its
+existence and then act accordingly. Sometimes it may substitute a slower R implementation or it
+might just report an error. 
+
+The second reason is that ChemmineOB may eventually become a general purpose OpenBabel wrapper, useful
+to anyone wanting to access OpenBabel functions from within R, and independent of ChemmineR. However,
+as that is not our primary purpose, we don't have the manpower to put into making ChemmineOB a 
+comprehensive wrapper of OpenBabel anytime soon. Help is always welcome though!
 
 \section{Installation}
 This package requires OpenBabel 2.3.0 or greater to be installed on the system. On Linux
-systems, the header files are also needed to compile. 
+systems, the header files are also needed to compile.  The OpenBabel site
+provides excellent instructions for installing on Windows, Mac, or Linux. You can
+find them at \url{http://openbabel.org/wiki/Get_Open_Babel}
 
 \section{Format Conversions}
+ChemmineOB provides access the compound format conversion functions of OpenBabel.
+Currently, over 160 formats are supported by OpenBabel.
 The functions \texttt{convertFormat} and \texttt{convertFormatFile} can be used
 to convert files or strings between any two formats supported by OpenBabel.
 For example, to convert a SMILES string to an SDF string you would do:
@@ -53,5 +82,8 @@ If you want to convert a file from one format to another, you could do:
 convertFormatFile("SMI","SDF","test.smiles","test.sdf")
 @
 
+To see the whole list of supported file formats and their names you can
+run the \texttt{obabel} command that comes with OpenBabel. You would run it as:
+``obabel -L formats''
 
 \end{document}
