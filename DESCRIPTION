@@ -1,7 +1,7 @@
 Package: ChemmineOB
 Type: Package
 Title:  Wraps parts of OpenBabel needed for ChemmineR package.
-Version: 0.99.1
+Version: 0.99.2
 Date: 2013-05-13
 Author: Kevin Horan
 Maintainer: Kevin Horan <khoran@cs.ucr.edu>
