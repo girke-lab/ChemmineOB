@@ -1,5 +1,4 @@
 
-useDynLib("ChemmineOB")
 
 export(
 	"convertFormat","convertFormatFile"
