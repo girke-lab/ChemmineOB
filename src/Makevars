@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 OPEN_BABEL_INC=${OPEN_BABEL_INCDIR}
 OPEN_BABEL_LIB=${OPEN_BABEL_LIBDIR}
 
 PKG_CXXFLAGS +=  -I${OPEN_BABEL_INC}
 PKG_LIBS += -L${OPEN_BABEL_LIB} -lopenbabel
-
-=======
-
-PKG_CXXFLAGS +=  -I/usr/include/openbabel-2.0 
-PKG_LIBS += -lopenbabel
->>>>>>> added conversion functions for strings and files
