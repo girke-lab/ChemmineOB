@@ -1,6 +1,1 @@
-
-OPEN_BABEL_INC=/home/khoran/raw_src/openbabel-2.3.2/include 
-OPEN_BABEL_LIB=/home/khoran/raw_src/openbabel-2.3.2/build/lib 
-
-PKG_CXXFLAGS +=  -I${OPEN_BABEL_INC}
-PKG_LIBS += -L${OPEN_BABEL_LIB} -lopenbabel
+PKG_LIBS += -lopenbabel
