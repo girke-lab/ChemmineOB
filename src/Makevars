@@ -1,6 +1,6 @@
 
-OPEN_BABEL_INC=/opt/openbabel/2.3.2/include/openbabel-2.0
-OPEN_BABEL_LIB=/opt/openbabel/2.3.2/lib
+OPEN_BABEL_INC=${OPEN_BABEL_INCDIR}
+OPEN_BABEL_LIB=${OPEN_BABEL_LIBDIR}
 
 PKG_CXXFLAGS +=  -I${OPEN_BABEL_INC}
 PKG_LIBS += -L${OPEN_BABEL_LIB} -lopenbabel
