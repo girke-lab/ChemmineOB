@@ -1,23 +1,23 @@
+%% \VignetteIndexEntry{ChemmineOB Vignette}
+% Manual compile
+% Sweave("ChemmineOB.Rnw"); system("pdflatex ChemmineOB.tex; bibtex ChemmineOB; pdflatex ChemmineOB.tex; pdflatex ChemmineOB.tex")
+% echo 'Sweave("ChemmineOB.Rnw")' | R --slave; echo 'Stangle("ChemmineOB.Rnw")' | R --slave; pdflatex ChemmineOB.tex;  bibtex ChemmineOB; pdflatex ChemmineOB.tex
 \documentclass{article}
-\usepackage[margin=0.75in]{geometry}
-\usepackage[authoryear,round]{natbib}
+
+<<style, echo=FALSE, results=tex>>=
+BiocStyle::latex()
+@
 \usepackage{hyperref}
 \usepackage{url}
-\hypersetup{
-       colorlinks,
-       citecolor=black,
-       filecolor=black,
-       linkcolor=red,
-       urlcolor=black
-}
-\usepackage[OT1]{fontenc}
+\usepackage[authoryear,round]{natbib}
+\usepackage{graphicx}
+\bibliographystyle{plainnat}
+\def\bibsection{\section{References}}
 
 %\usepackage{a4wide}
 
 \title{ChemmineOB}
-\author{Kevin Horan}
-
-
+\author{Kevin Horan \& Thomas Girke}
 
 \begin{document}
 \maketitle
@@ -28,72 +28,56 @@
 	library(ChemmineOB)
 @
 
-
-
 \section{Introduction}
-ChemmineOB provides a partial wrapper of the OpenBabel library. 
-OpenBabel is an open source chemical library. It provides functions to 
-perform searches, convert file formats, analyze data, and store data in
-the areas of molecular modeling, chemistry, solid-state materials, biochemistry
-and others. Since it is written in C/C++, it can do all these things
-faster than an equivalent pure R implementation. ChemineOB aims to make these
-efficient functions available in R. Right now ChemmineOB  is 
-primarily intended to be used as a library for ChemmineR and not used directly. 
-In most cases the functionality provided here will also be provided by ChemmineR in a 
-more convenient and integrated form. Thus, we recommend reading the ChemmineR vignette 
-for details about how to accomplish the same things within ChemmineR.
-
-ChemmineR is a cheminformatics library, primarily for analyzing drug-like small molecules.
-It contains functions for efficient processing of large small molecule data sets, physicochemical/structural
-property predictions, structural similarity searching, classification and clustering of compounds, and
-others. ChemmineR also provides visualization tools. The ChemmineOB library is used by ChemmineR
-to provide faster versions of certain tasks. Thus far this only includes chemical format
-conversions, but as different functions are required by ChemmineR, they will be wrapped in
-ChemmineOB. 
-
-There are two main reasons for keeping ChemmineOB separate from ChemmineR. First is to keep
-the dependency on OpenBabel optional. There are many uses for ChemmineR that do not require the 
-OpenBabel library to be installed and we don't want to make life any more difficult than it 
-has to be. By keeping ChemmineOB as a separate package, ChemmineR can easily test for its
-existence and then act accordingly. Sometimes it may substitute a slower R implementation or it
-might just report an error. 
-
-The second reason is that ChemmineOB may eventually become a general purpose OpenBabel wrapper, useful
-to anyone wanting to access OpenBabel functions from within R, and independent of ChemmineR. However,
-as that is not our primary purpose, we don't have the manpower to put into making ChemmineOB a 
-comprehensive wrapper of OpenBabel anytime soon. Help is always welcome though!
+\Rpackage{ChemmineOB} provides an R interface to a subset of cheminformatics
+functionalities implemented by the OpelBabel C++ project \citep{OBoyle2008a}. OpenBabel is an
+open source cheminformatics toolbox that includes utilities for structure
+format interconversions, descriptor calculations, compound similarity searching
+and more. \Rpackage{ChemineOB} aims to make a subset of these utilities
+available from within R. For non-developers, \Rpackage{ChemineOB} is primarily
+intended to be used from \Rpackage{ChemmineR} \citep{Cao2008c, Backman2011a, Wang2013a} 
+as an add-on package rather than used directly. 
 
 \section{Installation}
-This package requires OpenBabel 2.3.0 or greater to be installed on the system. On Linux
-systems, the header files are also needed to compile.  The OpenBabel site
-provides excellent instructions for installing on Windows, Mac, or Linux. You can
-find them at \url{http://openbabel.org/wiki/Get_Open_Babel}
+To use the \Rpackage{ChemmineOB} package, OpenBabel 2.3.0 or greater needs to
+be installed on a system. On Linux systems, the header files are also required
+to compile. The OpenBabel site
+(\url{http://openbabel.org/wiki/Get_Open_Babel}) provides excellent
+instructions for installing the OpenBabel software on Windows, Mac, or Linux
+systems. The \Rpackage{ChemmineR} and \Rpackage{ChemmineOB} packages can be
+installed from within R with the \Rfunction{biocLite} install script.
 
-\section{Format Conversions}
-ChemmineOB provides access the compound format conversion functions of OpenBabel.
-Currently, over 160 formats are supported by OpenBabel.
-The functions \texttt{convertFormat} and \texttt{convertFormatFile} can be used
-to convert files or strings between any two formats supported by OpenBabel.
-For example, to convert a SMILES string to an SDF string you would do:
-
-<<>>=
-sdfStr = convertFormat("SMI","SDF","CC(=O)OC1=CC=CC=C1C(=O)O\ttest_name")
+<<eval=FALSE, keep.source=TRUE>>=
+source("http://bioconductor.org/biocLite.R") 
+biocLite(c("ChemmineR", "ChemmineOB"))
+library("ChemmineR")
+library("ChemmineOB")
 @
 
-This will return the given compound as an SDF formatted string. 2D coordinates are
-also computed and included in the resulting SDF string.
+\section{User Manual in \Rpackage{ChemmineR} Vignette}
+Detailed instructions for using \Rpackage{ChemmineOB} are provided in the
+vignette of the \Rpackage{ChemmineR} package instead of this document.  The
+main reason for consolidating the documentation in one central document rather
+than distributing it across several vignettes is that it helps minimizing
+duplications and inconsistencies. It also is the more suitable format for
+providing a task-oriented description of functionalities for users. To obtain
+an overview of the OpenBabel utilities supported by \Rpackage{ChemmineOB}, we
+recommend consulting the \emph{OpenBabel Functions} section of the
+\Rpackage{ChemmineR} vignette. To open the \Rpackage{ChemmineR} vignette from
+R, one can use the following command.
 
-If you want to convert a file from one format to another, you could do:
-<<eval=false>>=
-convertFormatFile("SMI","SDF","test.smiles","test.sdf")
+<<eval=FALSE, keep.source=TRUE>>=
+vignette("ChemmineR") 
 @
 
-This conversion can also be done from within ChemmineR with the \texttt{sdf2smiles}
-and \texttt{smiles2sdf} functions. These functions will also work with SDFset objects. See
-the ChemmineR vignette and man pages for more details.
+\section{Version Information}
+<<sessionInfo, results=tex, print=TRUE>>=
+toLatex(sessionInfo())
+@
 
-To see the whole list of supported file formats and their names you can
-run the \texttt{obabel} command that comes with OpenBabel. You would run it as:
-``obabel -L formats''
+\section{Funding}
+This software was developed with funding from the National Science Foundation: \href{http://www.nsf.gov/awardsearch/showAward.do?AwardNumber=0957099}{{\textcolor{blue}{ABI-0957099}}}, 2010-0520325 and IGERT-0504249.
+
+\bibliography{bibtex}
 
 \end{document}

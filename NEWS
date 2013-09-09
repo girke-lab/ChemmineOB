@@ -1,0 +1,6 @@
+CHANGES IN VERSION ChemmineOB 0.99.x
+-------------------------
+
+NEW FEATURES
+
+    o New package providing an R interface to a subset of OpenBabel functionalities
