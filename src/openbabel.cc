@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <openbabel/obconversion.h>
+#include <openbabel/descriptor.h>
 #include <openbabel/mol.h>
 #include <openbabel/oberror.h>
 #include <R.h>
@@ -16,6 +17,7 @@ using namespace OpenBabel;
 extern "C" {
 	SEXP ob_convert_file(SEXP fromE,SEXP toE, SEXP sourceFileE,SEXP destinationFileE);
 	SEXP ob_convert(SEXP fromE,SEXP toE, SEXP sourceStrE);
+	SEXP genDescriptors(SEXP fromFormatE, SEXP sourceStrE);
 }
 
 
@@ -97,4 +99,41 @@ SEXP ob_convert(SEXP fromE,SEXP toE, SEXP sourceStrE)
 SEXP genAPDescriptors(char* sdf)
 {
 
+}
+SEXP genDescriptors(SEXP fromFormatE, SEXP sourceStrE)
+{
+	const int numDescriptors = 14;
+	const char* descriptorNames[] = {"abonds", "atoms", "bonds", "dbonds", "HBA1", "HBA2", "HBD", "logP", "MR", "MW", "nF", "sbonds", "tbonds", "TPSA"};
+
+	const char* from = CHAR(STRING_ELT(fromFormatE,0));
+	istringstream ifs(CHAR(STRING_ELT(sourceStrE,0)));
+   OpenBabel::OBConversion conv(&ifs);
+	OBMol mol;
+	if(conv.SetInFormat(from) && conv.Read(&mol))
+	{
+		SEXP result;
+		PROTECT(result = allocVector(REALSXP,numDescriptors));
+
+		OBDescriptor* pDescr;
+		for(int i=0; i < numDescriptors; i++){
+			if(pDescr =OBDescriptor::FindType(descriptorNames[i]) ){
+				double val = pDescr->Predict(&mol);
+
+				REAL(result)[i] = val;
+
+			} else{
+				error("Could not find descriptor  %s",descriptorNames[i]);
+				UNPROTECT(1);
+				return R_NilValue;
+		   }
+
+		}
+
+		UNPROTECT(1);
+		return result;
+
+	}else{
+		error("Could not read given compound in format %s",from);
+		return R_NilValue;
+	}
 }

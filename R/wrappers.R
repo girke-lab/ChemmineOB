@@ -19,4 +19,7 @@ convertFormatFile <- function(from,to,fromFile,toFile){
 	.Call("ob_convert_file",as.character(from),as.character(to),as.character(fromFile),as.character(toFile),PACKAGE=packageName)
 }
 
+genDescriptors <- function(from,source) {
+	.Call("genDescriptors",as.character(from),as.character(source),PACKAGE=packageName)
+}
 
