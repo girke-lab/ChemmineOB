@@ -1,5 +1,5 @@
-\name{propOB}
-\alias{propOB}
+\name{prop_OB}
+\alias{prop_OB}
 \title{
 	Properties from OpenBabel
 }
@@ -8,7 +8,7 @@
 	'abonds', 'atoms', 'bonds', 'dbonds', 'HBA1', 'HBA2', 'HBD', 'logP', 'MR', 'MW', 'nF', 'sbonds', 'tbonds', 'TPSA'.
 }
 \usage{
-propOB(from, source)
+prop_OB(from, source)
 }
 \arguments{
   \item{from}{
@@ -28,5 +28,5 @@ propOB(from, source)
 }
 
 \examples{
-	propOB("SMILES","C1CCCCC1\ttest-compound-name")
+	prop_OB("SMILES","C1CCCCC1\ttest-compound-name")
 }
