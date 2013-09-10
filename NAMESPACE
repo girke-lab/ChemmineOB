@@ -2,7 +2,7 @@
 
 export(
 	"convertFormat","convertFormatFile",
-	"genDescriptors"
+	"prop_OB"
 
 )
 

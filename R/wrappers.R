@@ -19,7 +19,12 @@ convertFormatFile <- function(from,to,fromFile,toFile){
 	.Call("ob_convert_file",as.character(from),as.character(to),as.character(fromFile),as.character(toFile),PACKAGE=packageName)
 }
 
-genDescriptors <- function(from,source) {
-	.Call("genDescriptors",as.character(from),as.character(source),PACKAGE=packageName)
+prop_OB<- function(from,source) {
+	descriptorNames = c("abonds", "atoms", "bonds", "dbonds", "HBA1", "HBA2", "HBD", "logP", "MR",
+							 "MW", "nF", "sbonds", "tbonds", "TPSA")
+	values = .Call("propOB",as.character(from),as.character(source),PACKAGE=packageName)
+	df = as.data.frame(values)
+	colnames(df) = descriptorNames
+	df
 }
 
