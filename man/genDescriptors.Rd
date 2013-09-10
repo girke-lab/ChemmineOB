@@ -1,14 +1,14 @@
-\name{genDescriptors}
-\alias{genDescriptors}
+\name{propOB}
+\alias{propOB}
 \title{
-	Generate Descriptors
+	Properties from OpenBabel
 }
 \description{
-	Generated the following descriptors in the given order:
+	Generates the following descriptors: 
 	'abonds', 'atoms', 'bonds', 'dbonds', 'HBA1', 'HBA2', 'HBD', 'logP', 'MR', 'MW', 'nF', 'sbonds', 'tbonds', 'TPSA'.
 }
 \usage{
-genDescriptors(from, source)
+propOB(from, source)
 }
 \arguments{
   \item{from}{
@@ -20,7 +20,7 @@ genDescriptors(from, source)
 	}
 }
 \value{
-	Returns a vector of the following OpenBabel descriptors:
+	Returns a data frame with the following OpenBabel descriptors:
 	'abonds', 'atoms', 'bonds', 'dbonds', 'HBA1', 'HBA2', 'HBD', 'logP', 'MR', 'MW', 'nF', 'sbonds', 'tbonds', 'TPSA'.
 }
 \author{
@@ -28,5 +28,5 @@ genDescriptors(from, source)
 }
 
 \examples{
-	genDescriptors("SMILES","C1CCCCC1\ttest-compound-name")
+	propOB("SMILES","C1CCCCC1\ttest-compound-name")
 }
