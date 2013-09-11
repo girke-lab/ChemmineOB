@@ -42,4 +42,13 @@ prop_OB<- function(from,source) {
 	colnames(df) = descriptorNames
 	df
 }
+prop_OBPtr <- function(from , source) {
+
+	molPtr = .Call("getMol",as.character(from),as.character(source),PACKAGE=packageName)
+	values = .Call("propOBPtr",molPtr,PACKAGE=packageName)
+	print(values)
+
+	values
+
+}
 

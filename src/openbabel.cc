@@ -18,8 +18,15 @@ extern "C" {
 	SEXP ob_convert_file(SEXP fromE,SEXP toE, SEXP sourceFileE,SEXP destinationFileE);
 	SEXP ob_convert(SEXP fromE,SEXP toE, SEXP sourceStrE);
 	SEXP propOB(SEXP fromFormatE, SEXP sourceStrE);
+	SEXP propOBPtr(SEXP molPtrE);
+	SEXP freeMol(SEXP molPtrE);
+	SEXP getMol(SEXP fromFormateE, SEXP sourceStrE);
 }
 
+const int numDescriptors = 14;
+const char* descriptorNames[] = {"abonds", "atoms", "bonds", "dbonds", "HBA1", "HBA2", "HBD", "logP", "MR", "MW", "nF", "sbonds", "tbonds", "TPSA"};
+
+OBMol* asMol(SEXP molPtrE);
 
 SEXP ob_convert_file(SEXP fromE,SEXP toE, SEXP sourceFileE,SEXP destinationFileE)
 {
@@ -96,14 +103,33 @@ SEXP ob_convert(SEXP fromE,SEXP toE, SEXP sourceStrE)
    return sdfString;
 }
 
-SEXP genAPDescriptors(char* sdf)
+SEXP propOBPtr(SEXP molPtrE)
 {
+	OBMol *mol = asMol(molPtrE);
+	if(mol == NULL)
+	{
+		error("found null value for Mol pointer");
+		return R_NilValue;
+	}
 
+	SEXP result;
+	PROTECT(result = allocVector(REALSXP,numDescriptors));
+	OBDescriptor* pDescr;
+	for(int i=0; i < numDescriptors; i++){
+		if(pDescr =OBDescriptor::FindType(descriptorNames[i]) ){
+			double val = pDescr->Predict(mol);
+			REAL(result)[i]=val;
+		}else{
+			error("Could not find descriptor  %s",descriptorNames[i]);
+			UNPROTECT(1);
+			return R_NilValue;
+		}
+	}
+	UNPROTECT(1);
+	return result;
 }
 SEXP propOB(SEXP fromFormatE, SEXP sourceStrE)
 {
-	const int numDescriptors = 14;
-	const char* descriptorNames[] = {"abonds", "atoms", "bonds", "dbonds", "HBA1", "HBA2", "HBD", "logP", "MR", "MW", "nF", "sbonds", "tbonds", "TPSA"};
 
 	const char* from = CHAR(STRING_ELT(fromFormatE,0));
 	istringstream ifs(CHAR(STRING_ELT(sourceStrE,0)));
@@ -142,4 +168,38 @@ SEXP propOB(SEXP fromFormatE, SEXP sourceStrE)
 		error("Could not read given compound in format %s",from);
 		return R_NilValue;
 	}
+}
+
+SEXP getMol(SEXP fromFormatE, SEXP sourceStrE)
+{
+	const char* from = CHAR(STRING_ELT(fromFormatE,0));
+	istringstream ifs(CHAR(STRING_ELT(sourceStrE,0)));
+   OpenBabel::OBConversion conv(&ifs);
+	OBMol *mol = new OBMol();
+	if(!conv.SetInFormat(from))
+	{
+		error("Could not read given compound in format %s",from);
+		return R_NilValue;
+	}
+
+	SEXP molPtr = R_MakeExternalPtr(mol,R_NilValue,R_NilValue);
+
+	conv.Read(mol);
+
+	return molPtr;
+}
+SEXP freeMol(SEXP molPtrE)
+{
+	OBMol *mol = asMol(molPtrE);
+	if(mol != NULL)
+		delete mol;
+	return R_NilValue;
+}
+
+OBMol* asMol(SEXP molPtrE)
+{
+	void* ptr = R_ExternalPtrAddr(molPtrE);
+	if(!ptr)
+		return NULL;
+	return reinterpret_cast<OBMol*>(ptr);
 }

@@ -1,6 +1,8 @@
-debug =0
+debug =1
 
 test.propOB <-function(){
+
+	ChemmineOB:::prop_OBPtr("SMI","C1CCCCC1")
 
 	p1 = prop_OB("SMI","C1CCCCC1")
 	if(debug) print(p1)
