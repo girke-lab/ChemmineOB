@@ -7,7 +7,22 @@ packageName = "ChemmineOB"
 	# functions from this library, you must set PACKAGE=packageName in the .Call function
 	# or it will not find any of the symbols.
 
-	dyn.load(file.path(libname,pkgname,"libs",paste(pkgname,"so",sep=".")),local=FALSE)
+	library.dynam(pkgname,package=pkgname,lib.loc=libname,local=FALSE)
+
+#	arch = R.version$arch
+#	libPrefix = file.path(libname,pkgname,"libs")
+#	sharedLibName = paste(pkgname,"so",sep=".")
+#
+#	candidates = c( file.path(libPrefix,sharedLibName),file.path(libPrefix,arch,sharedLibName))
+#
+#	lib = Find(file.exists,candidates)
+#	if(is.null(lib))
+#		stop("Could not find shared library, looked in these places: ",
+#			  paste(candidates,collapse=","))
+#
+#
+#	#dyn.load(file.path(libname,pkgname,"libs",paste(pkgname,"so",sep=".")),local=FALSE)
+#	dyn.load(lib,local=FALSE)
 
 }
 
