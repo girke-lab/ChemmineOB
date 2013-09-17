@@ -1,5 +1,3 @@
-OPEN_BABEL_INC=${OPEN_BABEL_SRC}${R_ARCH}/include
-
 PKG_CXXFLAGS +=  -I${OPEN_BABEL_SRC}${R_ARCH}/include
 PKG_LIBS += -L${OPEN_BABEL_BIN}${R_ARCH}/bin -lopenbabel
 
