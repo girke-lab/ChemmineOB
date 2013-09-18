@@ -1,14 +1,17 @@
 PKG_CXXFLAGS +=  -I${OPEN_BABEL_SRC}${R_ARCH}/include
 PKG_LIBS += -L${OPEN_BABEL_BIN}${R_ARCH}/bin -lopenbabel
 
-ZLIB_CFLAGS+=$(shell echo zlibbioc::pkgconfig("PKG_CFLAGS")| "${R_HOME}/bin
--vanilla --slave)
 
-PKG_LIBS+=$(shell echo zlibbioc::pkgconfig("PKG_LIBS_shared") | "${R_HOME}/
-" --vanilla --slave)
+ZLIB_CFLAGS+=$(shell echo 'zlibbioc::pkgconfig("PKG_CFLAGS")'|\
+    "${R_HOME}/bin/R" --vanilla --slave)
+PKG_LIBS+=$(shell echo 'zlibbioc::pkgconfig("PKG_LIBS_shared")' |\
+    "${R_HOME}/bin/R" --vanilla --slave)
 
 %.o: %.c
         $(CC) $(ZLIB_CFLAGS) $(ALL_CPPFLAGS) $(ALL_CFLAGS) -c $< -o $@
-
 %.o: %.cc
         $(CXX) $(ZLIB_CFLAGS) $(ALL_CPPFLAGS) $(ALL_CXXFLAGS) -c $< -o $@
+%.o: %.cpp
+        $(CXX) $(ZLIB_CFLAGS) $(ALL_CPPFLAGS) $(ALL_CXXFLAGS) -c $< -o $@
+
+
