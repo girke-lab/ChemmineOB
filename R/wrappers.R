@@ -32,7 +32,6 @@ convertFormat <- function(from,to,source){
 
 convertFormatFile <- function(from,to,fromFile,toFile){
 	.Call("ob_convert_file",as.character(from),as.character(to),as.character(fromFile),as.character(toFile),PACKAGE=packageName)
-<<<<<<< HEAD
 }
 
 prop_OB<- function(from,source) {
@@ -42,8 +41,6 @@ prop_OB<- function(from,source) {
 	df = as.data.frame(values)
 	colnames(df) = descriptorNames
 	df
-=======
->>>>>>> incorperate bug fix for loading openbabel plugins. see debugging branch
 }
 
 

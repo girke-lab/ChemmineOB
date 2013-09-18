@@ -3,10 +3,7 @@
 
 #include <iostream>
 #include <openbabel/obconversion.h>
-<<<<<<< HEAD
 #include <openbabel/descriptor.h>
-=======
->>>>>>> added conversion functions for strings and files
 #include <openbabel/mol.h>
 #include <openbabel/oberror.h>
 #include <R.h>
@@ -20,10 +17,7 @@ using namespace OpenBabel;
 extern "C" {
 	SEXP ob_convert_file(SEXP fromE,SEXP toE, SEXP sourceFileE,SEXP destinationFileE);
 	SEXP ob_convert(SEXP fromE,SEXP toE, SEXP sourceStrE);
-<<<<<<< HEAD
 	SEXP propOB(SEXP fromFormatE, SEXP sourceStrE);
-=======
->>>>>>> added conversion functions for strings and files
 }
 
 
