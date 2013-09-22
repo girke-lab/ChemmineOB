@@ -30,13 +30,14 @@ BiocStyle::latex()
 
 \section{Introduction}
 \Rpackage{ChemmineOB} provides an R interface to a subset of cheminformatics
-functionalities implemented by the OpelBabel C++ project \citep{OBoyle2008a}. OpenBabel is an
-open source cheminformatics toolbox that includes utilities for structure
-format interconversions, descriptor calculations, compound similarity searching
-and more. \Rpackage{ChemineOB} aims to make a subset of these utilities
-available from within R. For non-developers, \Rpackage{ChemineOB} is primarily
-intended to be used from \Rpackage{ChemmineR} \citep{Cao2008c, Backman2011a, Wang2013a} 
-as an add-on package rather than used directly. 
+functionalities implemented by the OpelBabel C++ project \citep{OBoyle2008a,
+OBoyle2011a}. OpenBabel is an open source cheminformatics toolbox that includes
+utilities for structure format interconversions, descriptor calculations,
+compound similarity searching and more. \Rpackage{ChemineOB} aims to make a
+subset of these utilities available from within R. For non-developers,
+\Rpackage{ChemineOB} is primarily intended to be used from \Rpackage{ChemmineR}
+\citep{Cao2008c, Backman2011a, Wang2013a} as an add-on package rather than used
+directly. 
 
 \section{Installation}
 To use the \Rpackage{ChemmineOB} package, OpenBabel 2.3.0 or greater needs to
