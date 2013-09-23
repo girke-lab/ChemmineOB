@@ -1,4 +1,3 @@
-
 packageName = "ChemmineOB"
 
 .onLoad <- function(libname,pkgname) {
