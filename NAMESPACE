@@ -3,5 +3,4 @@ import(zlibbioc)
 export(
 	"convertFormat","convertFormatFile",
 	"prop_OB"
-
 )
