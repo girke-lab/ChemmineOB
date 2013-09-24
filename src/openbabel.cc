@@ -17,7 +17,7 @@ using namespace OpenBabel;
 extern "C" {
 	SEXP ob_convert_file(SEXP fromE,SEXP toE, SEXP sourceFileE,SEXP destinationFileE);
 	SEXP ob_convert(SEXP fromE,SEXP toE, SEXP sourceStrE);
-	SEXP propOB(SEXP fromFormatE, SEXP sourceStrE);
+	SEXP propOB(SEXP fromFormatE, SEXP sourceStrE,SEXP descriptorNamesE);
 }
 
 
@@ -96,14 +96,10 @@ SEXP ob_convert(SEXP fromE,SEXP toE, SEXP sourceStrE)
    return sdfString;
 }
 
-SEXP genAPDescriptors(char* sdf)
+SEXP propOB(SEXP fromFormatE, SEXP sourceStrE,SEXP descriptorNamesE)
 {
-
-}
-SEXP propOB(SEXP fromFormatE, SEXP sourceStrE)
-{
-	const int numDescriptors = 14;
-	const char* descriptorNames[] = {"abonds", "atoms", "bonds", "dbonds", "HBA1", "HBA2", "HBD", "logP", "MR", "MW", "nF", "sbonds", "tbonds", "TPSA"};
+	const int numDescriptors = length(descriptorNamesE);
+	//const char* descriptorNames[] = 
 
 	const char* from = CHAR(STRING_ELT(fromFormatE,0));
 	istringstream ifs(CHAR(STRING_ELT(sourceStrE,0)));
@@ -120,14 +116,14 @@ SEXP propOB(SEXP fromFormatE, SEXP sourceStrE)
 		{
 			OBDescriptor* pDescr;
 			for(int i=0; i < numDescriptors; i++){
-				if(pDescr =OBDescriptor::FindType(descriptorNames[i]) ){
+				if(pDescr =OBDescriptor::FindType( CHAR(STRING_ELT(descriptorNamesE,i)) ) ){
 					double val = pDescr->Predict(&mol);
 
 					//REAL(result)[count*numDescriptors + i] = val;
 					REAL(result)[i*numObjects +count] = val;
 
 				} else{
-					error("Could not find descriptor  %s",descriptorNames[i]);
+					error("Could not find descriptor  %s",CHAR(STRING_ELT(descriptorNamesE,i)));
 					UNPROTECT(1);
 					return R_NilValue;
 				}

@@ -34,12 +34,28 @@ convertFormatFile <- function(from,to,fromFile,toFile){
 }
 
 prop_OB<- function(from,source) {
-	descriptorNames = c("abonds", "atoms", "bonds", "dbonds", "HBA1", "HBA2", "HBD", "logP", "MR",
-							 "MW", "nF", "sbonds", "tbonds", "TPSA")
-	values = .Call("propOB",as.character(from),as.character(source),PACKAGE=packageName)
+#	descriptorNames = c("abonds", "atoms", "bonds", "dbonds", "HBA1", "HBA2", "HBD", "logP", "MR",
+#							 "MW", "nF", "sbonds", "tbonds", "TPSA")
+	descriptorNames = c(
+							  "cansmi",
+							  "cansmiNS",
+							  "formula",
+							  "HBA1",
+							  "HBA2",
+							  "HBD",
+							  "InChI",
+							  "InChIKey",
+							  "logP",
+							  "MR",
+							  "MW",
+							  "nF",
+							  "s",
+							  "smarts",
+							  "title",
+							  "TPSA")
+	values = .Call("propOB",as.character(from),as.character(source),descriptorNames,PACKAGE=packageName)
 	df = as.data.frame(values)
 	colnames(df) = descriptorNames
 	df
 }
-
 
