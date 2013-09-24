@@ -1,8 +1,8 @@
 Package: ChemmineOB
 Type: Package
 Title: R interface to a subset of OpenBabel functionalities
-Version: 0.99.8
-Date: 2013-09-23
+Version: 0.99.9
+Date: 2013-09-24
 Author: Kevin Horan
 Maintainer: Kevin Horan <khoran@cs.ucr.edu>
 Suggests: ChemmineR, BiocStyle
