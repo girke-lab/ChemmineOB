@@ -5,7 +5,8 @@
 }
 \description{
 	Generates the following descriptors: 
-	'abonds', 'atoms', 'bonds', 'dbonds', 'HBA1', 'HBA2', 'HBD', 'logP', 'MR', 'MW', 'nF', 'sbonds', 'tbonds', 'TPSA'.
+  "cansmi", "cansmiNS", "formula", "HBA1", "HBA2", "HBD", "InChI", "InChIKey", 
+  "logP", "MR", "MW", "nF", "s", "smarts", "title", "TPSA".
 }
 \usage{
 prop_OB(from, source)
@@ -21,7 +22,8 @@ prop_OB(from, source)
 }
 \value{
 	Returns a data frame with the following OpenBabel descriptors:
-	'abonds', 'atoms', 'bonds', 'dbonds', 'HBA1', 'HBA2', 'HBD', 'logP', 'MR', 'MW', 'nF', 'sbonds', 'tbonds', 'TPSA'.
+  "cansmi", "cansmiNS", "formula", "HBA1", "HBA2", "HBD", "InChI", "InChIKey", 
+  "logP", "MR", "MW", "nF", "s", "smarts", "title", "TPSA".
 }
 \author{
 	Kevin Horan

@@ -1,12 +1,13 @@
 debug =0
 
 test.propOB <-function(){
+	numDescs = 16 # this can change
 
 	p1 = prop_OB("SMI","C1CCCCC1")
 	if(debug) print(p1)
 	checkEquals(nrow(p1),1)
-	checkEquals(ncol(p1),14)
-	checkEquals(p1$atoms,6)
+	checkEquals(ncol(p1),numDescs)
+	#checkEquals(p1$atoms,6)
 	checkEquals(p1$MW,84.15948)
 
 	require(ChemmineR)
@@ -17,7 +18,7 @@ test.propOB <-function(){
 
 	if(debug) print(p2)
 	checkEquals(nrow(p2),n)
-	checkEquals(ncol(p2),14)
+	checkEquals(ncol(p2),numDescs)
 	checkEquals(p2$MW[2],MW(sdfsample[2])[[1]])
 
 }
