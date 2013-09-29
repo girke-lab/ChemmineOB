@@ -116,7 +116,7 @@ SEXP propOB(SEXP fromFormatE, SEXP sourceStrE,SEXP descriptorNamesE)
 		{
 			OBDescriptor* pDescr;
 			for(int i=0; i < numDescriptors; i++){
-				if(pDescr =OBDescriptor::FindType( CHAR(STRING_ELT(descriptorNamesE,i)) ) ){
+				if((pDescr =OBDescriptor::FindType( CHAR(STRING_ELT(descriptorNamesE,i)) ) )){
 					double val = pDescr->Predict(&mol);
 
 					//REAL(result)[count*numDescriptors + i] = val;
