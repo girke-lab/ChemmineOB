@@ -36,6 +36,7 @@ convertFormatFile <- function(from,to,fromFile,toFile){
 prop_OB<- function(from,source) {
 #	descriptorNames = c("abonds", "atoms", "bonds", "dbonds", "HBA1", "HBA2", "HBD", "logP", "MR",
 #							 "MW", "nF", "sbonds", "tbonds", "TPSA")
+	#  "InChIKey",  not availabel on bioc servers
 	descriptorNames = c(
 							  "cansmi",
 							  "cansmiNS",
@@ -44,7 +45,6 @@ prop_OB<- function(from,source) {
 							  "HBA2",
 							  "HBD",
 							  "InChI",
-							  "InChIKey",
 							  "logP",
 							  "MR",
 							  "MW",
