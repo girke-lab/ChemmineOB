@@ -5,7 +5,7 @@
 }
 \description{
 	Generates the following descriptors: 
-  "cansmi", "cansmiNS", "formula", "HBA1", "HBA2", "HBD", "InChI", "InChIKey", 
+  "cansmi", "cansmiNS", "formula", "HBA1", "HBA2", "HBD", "InChI",
   "logP", "MR", "MW", "nF", "s", "smarts", "title", "TPSA".
 }
 \usage{
@@ -22,7 +22,7 @@ prop_OB(from, source)
 }
 \value{
 	Returns a data frame with the following OpenBabel descriptors:
-  "cansmi", "cansmiNS", "formula", "HBA1", "HBA2", "HBD", "InChI", "InChIKey", 
+  "cansmi", "cansmiNS", "formula", "HBA1", "HBA2", "HBD", "InChI",
   "logP", "MR", "MW", "nF", "s", "smarts", "title", "TPSA".
 }
 \author{
