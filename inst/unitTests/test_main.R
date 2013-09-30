@@ -22,3 +22,12 @@ test.propOB <-function(){
 	checkEquals(p2$MW[2],MW(sdfsample[2])[[1]])
 
 }
+test.fingerprintOB <-function(){
+
+	f1 = fingerprint_OB("SMI","C1CCCCC1","FP2")
+	checkEquals(which(f1==1)-1,c(260,384,429,441,670,984))
+	#print(paste(f1[1,],collapse=""))
+	
+}
+
+
