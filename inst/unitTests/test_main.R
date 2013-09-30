@@ -24,8 +24,9 @@ test.propOB <-function(){
 }
 test.fingerprintOB <-function(){
 
-	f1 = fingerprint_OB("SMI","C1CCCCC1","FP3")
+	f1 = fingerprint_OB("SMI","C1CCCCC1","FP2")
 	print(paste(f1[1,],collapse=""))
+	print(which(f1==1)-1)
 	
 }
 

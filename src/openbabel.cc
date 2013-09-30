@@ -11,6 +11,7 @@
 #include <Rinternals.h>
 #include <Rdefines.h>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 using namespace OpenBabel;
@@ -141,6 +142,27 @@ SEXP propOB(SEXP fromFormatE, SEXP sourceStrE,SEXP descriptorNamesE)
 		return R_NilValue;
 	}
 }
+ 
+static inline unsigned short bswap_16(unsigned short x) {
+      return (x>>8) | (x<<8);
+}
+
+static inline unsigned int bswap_32(unsigned int x) {
+	  return (bswap_16(x&0xffff)<<16) | (bswap_16(x>>16));
+}
+
+char *binary (unsigned int v) {
+	static char binstr[17] ;
+	int i ;
+
+	binstr[16] = '\0' ;
+	for (i=0; i<16; i++) {
+		binstr[15-i] = v & 1 ? '1' : '0' ;
+		v = v / 2 ;
+	}
+
+	return binstr ;
+}
 
 SEXP fingerprintOB(SEXP fromFormatE, SEXP sourceStrE,SEXP fingerprintNameE)
 {
@@ -148,7 +170,7 @@ SEXP fingerprintOB(SEXP fromFormatE, SEXP sourceStrE,SEXP fingerprintNameE)
 	istringstream ifs(CHAR(STRING_ELT(sourceStrE,0)));
    OpenBabel::OBConversion conv(&ifs);
 	OBMol mol;
-	int numBits=64;//4096;
+	int numBits=1024;//4096;
 
 	OBFingerprint* pFP = OBFingerprint::FindFingerprint(CHAR(STRING_ELT(fingerprintNameE,0)));
 
@@ -163,9 +185,31 @@ SEXP fingerprintOB(SEXP fromFormatE, SEXP sourceStrE,SEXP fingerprintNameE)
 		{
 			vector<unsigned int> fp;
 			if(pFP!=0){
-				pFP->GetFingerprint(&mol,fp,numBits);
+				//pFP->GetFingerprint(&mol,fp,numBits);
+				pFP->GetFingerprint(&mol,fp,0);
 				for(int i=0; i< numBits; i++)
 					REAL(result)[i*numObjects +count] = pFP->GetBit(fp,i)?1:0;
+
+				stringstream ss;
+				for(int i=0;i<(numBits+31)/32; i++){
+					ss<<hex<<setw(8)<<setfill('0');
+					ss<<bswap_32(fp[i]);
+				}
+				stringstream ssb;
+				for(int i=0;i<(numBits+31)/32; i++){
+					//ssb<<binary(bswap_32(fp[i]));
+					ssb<<binary(fp[i]);
+				}
+
+				cout<<ss.str()<<endl<<endl;
+				cout<<"     "<<ssb.str()<<endl<<endl;
+				//cout<<dec<<ss.str().erase(2*((numBits+7)/8))<<endl;
+
+				cout<<"bits at ";
+				for(int i=0; i< numBits;i++)
+					if(pFP->GetBit(fp,i))
+						cout<<i<<",";
+				cout<<endl;
 
 			}else{
 					error("Could not find fingerping %s",CHAR(STRING_ELT(fingerprintNameE,0)));
