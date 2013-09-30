@@ -22,6 +22,8 @@ packageName = "ChemmineOB"
 #
 #	#dyn.load(file.path(libname,pkgname,"libs",paste(pkgname,"so",sep=".")),local=FALSE)
 #	dyn.load(lib,local=FALSE)
+	if(.Platform$OS == "windows")
+	 Sys.setenv(BABEL_DATADIR=system.file("openbabel_data",package=pkgname))
 
 }
 
