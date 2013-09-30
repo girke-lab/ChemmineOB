@@ -62,6 +62,5 @@ obCall <-function(...)
 	.Call(...,PACKAGE=packageName)
 
 fingerprint_OB <- function(format,source, fingerprintName){
-	m = obCall("fingerprintOB",as.character(format),as.character(source),as.character(fingerprintName))
-	m
+	obCall("fingerprintOB",as.character(format),as.character(source),as.character(fingerprintName))
 }

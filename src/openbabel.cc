@@ -170,7 +170,7 @@ SEXP fingerprintOB(SEXP fromFormatE, SEXP sourceStrE,SEXP fingerprintNameE)
 	istringstream ifs(CHAR(STRING_ELT(sourceStrE,0)));
    OpenBabel::OBConversion conv(&ifs);
 	OBMol mol;
-	int numBits=1024;//4096;
+	int numBits=-1;//4096;
 
 	OBFingerprint* pFP = OBFingerprint::FindFingerprint(CHAR(STRING_ELT(fingerprintNameE,0)));
 
@@ -179,37 +179,26 @@ SEXP fingerprintOB(SEXP fromFormatE, SEXP sourceStrE,SEXP fingerprintNameE)
 		SEXP result;
 		int numObjects = conv.NumInputObjects();
 		//Rprintf("found %d compounds in input string\n",numObjects);
-		PROTECT(result = allocMatrix(REALSXP,numObjects,numBits));
 		int count=0;
 		while( conv.Read(&mol))
 		{
 			vector<unsigned int> fp;
 			if(pFP!=0){
-				//pFP->GetFingerprint(&mol,fp,numBits);
-				pFP->GetFingerprint(&mol,fp,0);
+				pFP->GetFingerprint(&mol,fp);
+				if(numBits == -1) { //not initalized yet
+					numBits = fp.size()*sizeof(int)*8;
+					//cout<<"real bits: "<<numBits<<endl;
+					PROTECT(result = allocMatrix(REALSXP,numObjects,numBits));
+				}
+
 				for(int i=0; i< numBits; i++)
 					REAL(result)[i*numObjects +count] = pFP->GetBit(fp,i)?1:0;
 
-				stringstream ss;
-				for(int i=0;i<(numBits+31)/32; i++){
-					ss<<hex<<setw(8)<<setfill('0');
-					ss<<bswap_32(fp[i]);
-				}
-				stringstream ssb;
-				for(int i=0;i<(numBits+31)/32; i++){
-					//ssb<<binary(bswap_32(fp[i]));
-					ssb<<binary(fp[i]);
-				}
-
-				cout<<ss.str()<<endl<<endl;
-				cout<<"     "<<ssb.str()<<endl<<endl;
-				//cout<<dec<<ss.str().erase(2*((numBits+7)/8))<<endl;
-
-				cout<<"bits at ";
-				for(int i=0; i< numBits;i++)
-					if(pFP->GetBit(fp,i))
-						cout<<i<<",";
-				cout<<endl;
+				//cout<<"bits at ";
+				//for(int i=0; i< numBits;i++)
+				//	if(pFP->GetBit(fp,i))
+				//		cout<<i<<",";
+				//cout<<endl;
 
 			}else{
 					error("Could not find fingerping %s",CHAR(STRING_ELT(fingerprintNameE,0)));
