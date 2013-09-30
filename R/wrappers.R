@@ -58,5 +58,9 @@ prop_OB<- function(from,source) {
 	colnames(df) = descriptorNames
 	df
 }
+obCall <-function(...)
+	.Call(...,PACKAGE=packageName)
 
-
+fingerprint_OB <- function(format,source, fingerprintName){
+	obCall("fingerprintOB",as.character(format),as.character(source),as.character(fingerprintName))
+}

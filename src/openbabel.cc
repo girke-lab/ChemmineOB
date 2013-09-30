@@ -4,12 +4,14 @@
 #include <iostream>
 #include <openbabel/obconversion.h>
 #include <openbabel/descriptor.h>
+#include <openbabel/fingerprint.h>
 #include <openbabel/mol.h>
 #include <openbabel/oberror.h>
 #include <R.h>
 #include <Rinternals.h>
 #include <Rdefines.h>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 using namespace OpenBabel;
@@ -18,6 +20,7 @@ extern "C" {
 	SEXP ob_convert_file(SEXP fromE,SEXP toE, SEXP sourceFileE,SEXP destinationFileE);
 	SEXP ob_convert(SEXP fromE,SEXP toE, SEXP sourceStrE);
 	SEXP propOB(SEXP fromFormatE, SEXP sourceStrE,SEXP descriptorNamesE);
+	SEXP fingerprintOB(SEXP fromFormatE, SEXP sourceStrE,SEXP fiingerprintNameE);
 }
 
 
@@ -138,4 +141,79 @@ SEXP propOB(SEXP fromFormatE, SEXP sourceStrE,SEXP descriptorNamesE)
 		error("Could not read given compound in format %s",from);
 		return R_NilValue;
 	}
+}
+ 
+static inline unsigned short bswap_16(unsigned short x) {
+      return (x>>8) | (x<<8);
+}
+
+static inline unsigned int bswap_32(unsigned int x) {
+	  return (bswap_16(x&0xffff)<<16) | (bswap_16(x>>16));
+}
+
+char *binary (unsigned int v) {
+	static char binstr[17] ;
+	int i ;
+
+	binstr[16] = '\0' ;
+	for (i=0; i<16; i++) {
+		binstr[15-i] = v & 1 ? '1' : '0' ;
+		v = v / 2 ;
+	}
+
+	return binstr ;
+}
+
+SEXP fingerprintOB(SEXP fromFormatE, SEXP sourceStrE,SEXP fingerprintNameE)
+{
+	const char* from = CHAR(STRING_ELT(fromFormatE,0));
+	istringstream ifs(CHAR(STRING_ELT(sourceStrE,0)));
+   OpenBabel::OBConversion conv(&ifs);
+	OBMol mol;
+	int numBits=-1;//4096;
+
+	OBFingerprint* pFP = OBFingerprint::FindFingerprint(CHAR(STRING_ELT(fingerprintNameE,0)));
+
+	if(conv.SetInFormat(from))
+	{
+		SEXP result;
+		int numObjects = conv.NumInputObjects();
+		//Rprintf("found %d compounds in input string\n",numObjects);
+		int count=0;
+		while( conv.Read(&mol))
+		{
+			vector<unsigned int> fp;
+			if(pFP!=0){
+				pFP->GetFingerprint(&mol,fp);
+				if(numBits == -1) { //not initalized yet
+					numBits = fp.size()*sizeof(int)*8;
+					//cout<<"real bits: "<<numBits<<endl;
+					PROTECT(result = allocMatrix(REALSXP,numObjects,numBits));
+				}
+
+				for(int i=0; i< numBits; i++)
+					REAL(result)[i*numObjects +count] = pFP->GetBit(fp,i)?1:0;
+
+				//cout<<"bits at ";
+				//for(int i=0; i< numBits;i++)
+				//	if(pFP->GetBit(fp,i))
+				//		cout<<i<<",";
+				//cout<<endl;
+
+			}else{
+					error("Could not find fingerping %s",CHAR(STRING_ELT(fingerprintNameE,0)));
+					UNPROTECT(1);
+					return R_NilValue;
+			}
+			count++;
+		}
+
+		UNPROTECT(1);
+		return result;
+
+	}else{
+		error("Could not read given compound in format %s",from);
+		return R_NilValue;
+	}
+
 }
