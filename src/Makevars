@@ -1,5 +1,34 @@
-OPEN_BABEL_INC=${OPEN_BABEL_INCDIR}
-OPEN_BABEL_LIB=${OPEN_BABEL_LIBDIR}
 
-PKG_CXXFLAGS +=  -I${OPEN_BABEL_INC}
-PKG_LIBS += -L${OPEN_BABEL_LIB} -lopenbabel
+#OPEN_BABEL_INC := $(shell if test -n "$(OPEN_BABEL_INCDIR)"; then OPENB_BABEL_INC = -I${OPEN_BABEL_INCDIR} fi)
+#OPEN_BABEL_LIB := $(shell if test -n "$(OPEN_BABEL_LIBDIR)"; then OPENB_BABEL_LIB = -I${OPEN_BABEL_LIBDIR} fi)
+
+#if test -n "$(OPEN_BABEL_INCDIR)"; then  \
+#\
+#OPEN_BABEL_INC=-I${OPEN_BABEL_INCDIR}  \
+#\
+#fi 
+
+
+
+#ifneq "$(OPEN_BABEL_INCDIR)" ""
+#OPEN_BABEL_INC=-I${OPEN_BABEL_INCDIR}
+#endif
+#
+#ifneq "$(OPEN_BABEL_LIBDIR)" ""
+#OPEN_BABEL_LIB=-L${OPEN_BABEL_LIBDIR}
+#endif
+
+#PKG_CXXFLAGS +=  ${OPEN_BABEL_INC}
+#PKG_LIBS += ${OPEN_BABEL_LIB} -lopenbabel
+
+all: $(SHLIB)
+
+$(SHLIB): setup
+    echo "$(SHLIB): $(OPEN_BABEL_INCDIR)"
+
+setup:
+	 PKG_CXXFLAGS += -I${OPEN_BABEL_INCDIR} 
+    PKG_LIBS += ${OPEN_BABEL_LIB} -lopenbabel
+
+
+
