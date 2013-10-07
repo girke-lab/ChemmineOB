@@ -12,6 +12,15 @@ there is no need to install Open Babel seperataly, but also that Open Babel cann
 updated outside of the ChemmineOB package. If you need to compile ChemmineOB from source
 on windows you can follow the instructions below.
 
+Compling with OpenBabel in a non-standard location
+---------------------------------------------------
+If the OpenBabel include and/or library files are not in one of the default
+search paths (e.g., /usr/lib,/usr/include, /usr/local/lib,/usr/local/include), then you must set the
+following environment variables before installing the ChemmineOB package:
+
+OPEN_BABEL_INCDIR = path to header files
+OPEN_BABEL_LIBDIR = path to shared (.so) library file
+
 Compiling on Windows
 ---------------------
 
