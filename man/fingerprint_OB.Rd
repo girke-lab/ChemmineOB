@@ -22,7 +22,7 @@ fingerprint_OB(format, source, fingerprintName)
 	}
   \item{fingerprintName}{
 	  The name of the fingerprint to generate. A list of available names can be found with 
-	  "obabel -L fingerprints".
+	  "obabel -L fingerprints". Currently that list is: "FP2", "FP3", "FP4", and "MACCS".
 	}
 }
 \value{
