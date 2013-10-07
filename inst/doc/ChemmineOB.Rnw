@@ -42,13 +42,22 @@ subset of these utilities available from within R. For non-developers,
 directly. 
 
 \section{Installation}
-To use the \Rpackage{ChemmineOB} package, OpenBabel 2.3.0 or greater needs to
+To use the \Rpackage{ChemmineOB} package on Linux or Mac, OpenBabel 2.3.0 or greater needs to
 be installed on a system. On Linux systems, the header files are also required
-to compile. The OpenBabel site
-(\url{http://openbabel.org/wiki/Get_Open_Babel}) provides excellent
-instructions for installing the OpenBabel software on Windows, Mac, or Linux
-systems. The \Rpackage{ChemmineR} and \Rpackage{ChemmineOB} packages can be
+to compile. The windows distribution will include its own version of OpenBabel.
+The OpenBabel site (\url{http://openbabel.org/wiki/Get_Open_Babel}) provides excellent
+instructions for installing the OpenBabel software on Mac or Linux
+systems.  The \Rpackage{ChemmineR} and \Rpackage{ChemmineOB} packages can be
 installed from within R with the \Rfunction{biocLite} install script.
+
+If the installation fails on Linux, you may need to manually set the locations of the 
+open babel libraries and header files. This is best done through configure flags. For
+example, at the command prompt do:
+
+\$ R CMD INSTALL  --configure-args='--with-openbabel-include=... --with-openbabel-lib=...' ChemmineOB
+
+\noindent
+where the '\ldots' are replaced by the relevant paths. See the README file for more details.
 
 <<eval=FALSE, keep.source=TRUE>>=
 source("http://bioconductor.org/biocLite.R") 

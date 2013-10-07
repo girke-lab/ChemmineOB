@@ -21,6 +21,12 @@ following environment variables before installing the ChemmineOB package:
 OPEN_BABEL_INCDIR = path to header files
 OPEN_BABEL_LIBDIR = path to shared (.so) library file
 
+These values can also be set through command line switches to the configure scripts:
+
+R CMD INSTALL --configure-args='--with-openbabel-include=... --with-openbabel-lib=...' ChemmineOB
+
+where the '...' are replaced by the relevant paths.
+
 Compiling on Windows
 ---------------------
 
