@@ -1,7 +1,7 @@
 debug =0
 
 test.propOB <-function(){
-	numDescs = 15 # this can change
+	numDescs = 12 # this can change
 
 	p1 = prop_OB("SMI","C1CCCCC1")
 	if(debug) print(p1)
