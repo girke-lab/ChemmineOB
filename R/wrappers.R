@@ -39,25 +39,27 @@ prop_OB<- function(from,source) {
 #	descriptorNames = c("abonds", "atoms", "bonds", "dbonds", "HBA1", "HBA2", "HBD", "logP", "MR",
 #							 "MW", "nF", "sbonds", "tbonds", "TPSA")
 	#  "InChIKey",  not availabel on bioc servers
-	descriptorNames = c(
-							  "cansmi",
+	strDescrNames = c( "cansmi",
 							  "cansmiNS",
 							  "formula",
+							  "title")
+	descriptorNames = c(
 							  "HBA1",
 							  "HBA2",
 							  "HBD",
-							  "InChI",
+							  #"InChI",
 							  "logP",
 							  "MR",
 							  "MW",
 							  "nF",
-							  "s",
-							  "smarts",
-							  "title",
+							  #"s",
+							  #"smarts",
 							  "TPSA")
-	values = .Call("propOB",as.character(from),as.character(source),descriptorNames,PACKAGE=packageName)
+	values = obCall("propOB",as.character(from),as.character(source),descriptorNames,strDescrNames)
+	#print(values)
 	df = as.data.frame(values)
-	colnames(df) = descriptorNames
+	#print(df)
+	colnames(df) = c(descriptorNames,strDescrNames)
 	df
 }
 obCall <-function(...)

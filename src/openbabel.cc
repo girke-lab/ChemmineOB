@@ -19,7 +19,8 @@ using namespace OpenBabel;
 extern "C" {
 	SEXP ob_convert_file(SEXP fromE,SEXP toE, SEXP sourceFileE,SEXP destinationFileE);
 	SEXP ob_convert(SEXP fromE,SEXP toE, SEXP sourceStrE);
-	SEXP propOB(SEXP fromFormatE, SEXP sourceStrE,SEXP descriptorNamesE);
+	//SEXP propOB(SEXP fromFormatE, SEXP sourceStrE,SEXP descriptorNamesE);
+	SEXP propOB(SEXP fromFormatE, SEXP sourceStrE,SEXP descriptorNamesE, SEXP strDescNamesE);
 	SEXP fingerprintOB(SEXP fromFormatE, SEXP sourceStrE,SEXP fiingerprintNameE);
 }
 
@@ -99,9 +100,10 @@ SEXP ob_convert(SEXP fromE,SEXP toE, SEXP sourceStrE)
    return sdfString;
 }
 
-SEXP propOB(SEXP fromFormatE, SEXP sourceStrE,SEXP descriptorNamesE)
+SEXP propOB(SEXP fromFormatE, SEXP sourceStrE,SEXP descriptorNamesE, SEXP strDescNamesE)
 {
 	const int numDescriptors = length(descriptorNamesE);
+	const int numStrDescriptors = length(strDescNamesE);
 	//const char* descriptorNames[] = 
 
 	const char* from = CHAR(STRING_ELT(fromFormatE,0));
@@ -110,21 +112,29 @@ SEXP propOB(SEXP fromFormatE, SEXP sourceStrE,SEXP descriptorNamesE)
 	OBMol mol;
 	if(conv.SetInFormat(from))
 	{
-		SEXP result;
+		SEXP doubleResults,stringResults;
 		int numObjects = conv.NumInputObjects();
 		//Rprintf("found %d compounds in input string\n",numObjects);
-		PROTECT(result = allocMatrix(REALSXP,numObjects,numDescriptors));
+		PROTECT(doubleResults= allocMatrix(REALSXP,numObjects,numDescriptors));
+		PROTECT(stringResults= allocMatrix(STRSXP,numObjects,numStrDescriptors));
 		int count=0;
 		while( conv.Read(&mol))
 		{
 			OBDescriptor* pDescr;
 			for(int i=0; i < numDescriptors; i++){
 				if((pDescr =OBDescriptor::FindType( CHAR(STRING_ELT(descriptorNamesE,i)) ) )){
-					double val = pDescr->Predict(&mol);
-
-					//REAL(result)[count*numDescriptors + i] = val;
-					REAL(result)[i*numObjects +count] = val;
-
+					REAL(doubleResults)[i*numObjects +count] = pDescr->Predict(&mol);
+				} else{
+					error("Could not find descriptor  %s",CHAR(STRING_ELT(descriptorNamesE,i)));
+					UNPROTECT(1);
+					return R_NilValue;
+				}
+			}
+			for(int i=0; i < numStrDescriptors; i++){
+				if((pDescr =OBDescriptor::FindType( CHAR(STRING_ELT(strDescNamesE,i)) ) )){
+					string value;
+					pDescr->GetStringValue(&mol,value);
+					SET_STRING_ELT(stringResults,i*numObjects +count, mkChar(value.c_str()));
 				} else{
 					error("Could not find descriptor  %s",CHAR(STRING_ELT(descriptorNamesE,i)));
 					UNPROTECT(1);
@@ -134,7 +144,12 @@ SEXP propOB(SEXP fromFormatE, SEXP sourceStrE,SEXP descriptorNamesE)
 			count++;
 		}
 
-		UNPROTECT(1);
+		SEXP result;
+		PROTECT(result =  allocVector(VECSXP,2));
+		SET_VECTOR_ELT(result,0,doubleResults);
+		SET_VECTOR_ELT(result,1,stringResults);
+		
+		UNPROTECT(3);
 		return result;
 
 	}else{
