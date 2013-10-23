@@ -9,7 +9,6 @@ BiocStyle::latex()
 @
 \usepackage{hyperref}
 \usepackage{url}
-\usepackage[authoryear,round]{natbib}
 \usepackage{graphicx}
 \bibliographystyle{plainnat}
 \def\bibsection{\section{References}}
