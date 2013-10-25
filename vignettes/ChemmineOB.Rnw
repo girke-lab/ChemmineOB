@@ -5,12 +5,12 @@
 \documentclass{article}
 
 <<style, echo=FALSE, results=tex>>=
-BiocStyle::latex()
+BiocStyle::latex(bibstyle="plainnat")
 @
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{graphicx}
-\bibliographystyle{plainnat}
+\usepackage[authoryear,round]{natbib}
 \def\bibsection{\section{References}}
 
 %\usepackage{a4wide}
