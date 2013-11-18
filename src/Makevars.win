@@ -2,3 +2,4 @@ PKG_CXXFLAGS +=  -I${OPEN_BABEL_SRC}${R_ARCH}/include
 PKG_LIBS += -L${OPEN_BABEL_BIN}${R_ARCH}/bin -lopenbabel 
 
 PKG_LIBS += $(shell echo 'zlibbioc::pkgconfig("PKG_LIBS_shared")' | "${R_HOME}/bin/R" --vanilla --slave)
+PKG_LIBS += $(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" -e "Rcpp:::LdFlags()")

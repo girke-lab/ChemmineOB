@@ -7,6 +7,7 @@ packageName = "ChemmineOB"
 	# or it will not find any of the symbols.
 
 	library.dynam(pkgname,package=pkgname,lib.loc=libname,local=FALSE)
+	loadModule("test_mod",TRUE)
 
 #	arch = R.version$arch
 #	libPrefix = file.path(libname,pkgname,"libs")

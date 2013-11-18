@@ -1,6 +1,11 @@
+#useDynLib(ChemmineOB)
 import(zlibbioc)
+import(Rcpp)
+
 
 export(
 	"convertFormat","convertFormatFile",
 	"prop_OB","fingerprint_OB"
+	, "normx"
+
 )

@@ -1,2 +1,2 @@
 PKG_CXXFLAGS +=  @OPENBABEL_CFLAGS@
-PKG_LIBS += @OPENBABEL_LIBS@ 
+PKG_LIBS += @OPENBABEL_LIBS@ `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"`
