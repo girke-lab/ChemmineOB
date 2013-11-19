@@ -5,6 +5,7 @@ packageName = "ChemmineOB"
 	# the openbabel plugins to load properly. Further, when calling
 	# functions from this library, you must set PACKAGE=packageName in the .Call function
 	# or it will not find any of the symbols.
+#	message("pkgname: ",pkgname," libname: ",libname)
 
 	library.dynam(pkgname,package=pkgname,lib.loc=libname,local=FALSE)
 
@@ -28,11 +29,36 @@ packageName = "ChemmineOB"
 }
 
 convertFormat <- function(from,to,source){
-	.Call("ob_convert",as.character(from),as.character(to),as.character(source),PACKAGE=packageName)
+	#.Call("ob_convert",as.character(from),as.character(to),as.character(source),PACKAGE=packageName)
+	
+	inStr = istreamFromString(source)
+	outStr = ostreamToString()
+
+	conv = OBConversion(inStr,outStr)
+
+	if(!OBConversion_SetInAndOutFormats(conv,from,to))
+		stop("failed to set 'from' and
+			  'to' formats: ",from," ",to)
+	OBConversion_AddOption(conv,"gen2D","GENOPTIONS")
+	OBConversion_Convert(conv)
+
+	stringFromOstream(outStr)
 }
 
 convertFormatFile <- function(from,to,fromFile,toFile){
-	.Call("ob_convert_file",as.character(from),as.character(to),as.character(fromFile),as.character(toFile),PACKAGE=packageName)
+	#.Call("ob_convert_file",as.character(from),as.character(to),as.character(fromFile),as.character(toFile),PACKAGE=packageName)
+	is= istreamFromFile(fromFile)
+	os= ostreamToFile(toFile)
+
+	conv = OBConversion(is,os)
+
+	if(!OBConversion_SetInAndOutFormats(conv,from,to))
+		stop("failed to set 'from' and 'to' formats: ",from," ",to)
+	OBConversion_AddOption(conv,"gen2D","GENOPTIONS")
+	OBConversion_Convert(conv)
+
+	stringFromOstream(outStr)
+
 }
 
 prop_OB<- function(from,source) {
@@ -56,6 +82,10 @@ prop_OB<- function(from,source) {
 							  #"smarts",
 							  "TPSA")
 	values = obCall("propOB",as.character(from),as.character(source),descriptorNames,strDescrNames)
+
+
+
+
 	#print(values)
 	df = as.data.frame(values)
 	#print(df)
