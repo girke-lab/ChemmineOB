@@ -24,9 +24,9 @@ test.propOB <-function(){
 }
 test.fingerprintOB <-function(){
 
-	f1 = fingerprint_OB("SMI","C1CCCCC1","FP2")
-	checkEquals(which(f1==1)-1,c(260,384,429,441,670,984))
-	#print(paste(f1[1,],collapse=""))
+	f1 = fingerprint_OB("SMI","C1CCCCC1\ncc1ccc1","FP2")
+	print(dim(f1))
+	checkEquals(which(f1[1,]==1)-1,c(260,384,429,441,670,984))
 	
 }
 
