@@ -1,2 +1,2 @@
-PKG_CXXFLAGS +=  @OPENBABEL_CFLAGS@  -I/usr/include/eigen3
+PKG_CXXFLAGS +=  @OPENBABEL_CFLAGS@  -I/usr/include/eigen3 
 PKG_LIBS += @OPENBABEL_LIBS@ 
