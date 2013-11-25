@@ -1,3 +1,4 @@
+debug=1
 packageName = "ChemmineOB"
 
 .onLoad <- function(libname,pkgname) {
@@ -62,9 +63,6 @@ convertFormatFile <- function(from,to,fromFile,toFile){
 }
 
 prop_OB<- function(from,source) {
-#	descriptorNames = c("abonds", "atoms", "bonds", "dbonds", "HBA1", "HBA2", "HBD", "logP", "MR",
-#							 "MW", "nF", "sbonds", "tbonds", "TPSA")
-	#  "InChIKey",  not availabel on bioc servers
 	strDescrNames = c( "cansmi",
 							  "cansmiNS",
 							  "formula",
@@ -73,28 +71,74 @@ prop_OB<- function(from,source) {
 							  "HBA1",
 							  "HBA2",
 							  "HBD",
-							  #"InChI",
 							  "logP",
 							  "MR",
 							  "MW",
 							  "nF",
-							  #"s",
-							  #"smarts",
 							  "TPSA")
-	values = obCall("propOB",as.character(from),as.character(source),descriptorNames,strDescrNames)
+	#values = obCall("propOB",as.character(from),as.character(source),descriptorNames,strDescrNames)
 
-
-
-
-	#print(values)
-	df = as.data.frame(values)
-	#print(df)
-	colnames(df) = c(descriptorNames,strDescrNames)
-	df
+	forEachMol(from,source,rbind,function(mol){
+			row=list()
+			for(descName  in strDescrNames){
+				desc = OBDescriptor_FindType(descName)
+				result = stringp()
+				OBDescriptor_GetStringValue(desc,mol,result$cast())
+				row[[descName]] = result$value()
+			}
+			for(descName in descriptorNames){
+				desc = OBDescriptor_FindType(descName)
+				row[[descName]] =OBDescriptor_Predict(desc,mol)
+			}
+			#if(debug) print(row)
+			as.data.frame(row)
+	  })
 }
-obCall <-function(...)
-	.Call(...,PACKAGE=packageName)
+#obCall <-function(...)
+	#.Call(...,PACKAGE=packageName)
 
 fingerprint_OB <- function(format,source, fingerprintName){
-	obCall("fingerprintOB",as.character(format),as.character(source),as.character(fingerprintName))
+	#obCall("fingerprintOB",as.character(format),as.character(source),as.character(fingerprintName))
+
+
+	numBits = -1;
+	fpHandle = OBFingerprint_FindFingerprint(fingerprintName)
+	data = forEachMol(format,source,rbind,function(mol){
+		fp = vectorUnsignedInt(1)
+
+		OBFingerprint_GetFingerprint(fpHandle,mol,fp)
+		if(numBits == -1)
+			numBits = vectorUnsignedInt_size(fp) * 4 * 8
+		row = unlist(Map(function(i){
+					 #message(class(fpHandle),", ",class(fp),", ",class(i))
+					 #r=OBFingerprint_GetBit(fpHandle,fp,i-1)
+					 #i=i-1
+					 #message("i=",i)
+					 r=OBFingerprint_GetBit(fpHandle,fp,i-1)
+					 #message(class(r),": ",r)
+					 r
+				},seq(1,numBits,length.out=numBits)))
+		if(debug) print(row)
+
+		row
+	  })
+
+	#if(debug) print(data)
+
+	data
+}
+forEachMol <- function(inFormat,inString,reduce,f){
+	inStr = istreamFromString(inString)
+	conv = OBConversion(inStr)
+
+	if(!OBConversion_SetInFormat(conv,inFormat))
+		stop("failed to set input format: ",inFormat)
+	
+	mol = OBMol()
+	numMols = OBConversion_NumInputObjects(conv)
+	Reduce(reduce,Map(function(i){
+		if(!OBConversion_Read(conv,mol))
+			stop("failed to read ",numMols," from input")
+		f(mol)
+	},seq(1,numMols,length.out=numMols)))
 }

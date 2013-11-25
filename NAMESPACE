@@ -1,4 +1,5 @@
 import(zlibbioc)
+#exportPattern("^[^\\.]")
 
 export(
 	"convertFormat","convertFormatFile",
