@@ -5,7 +5,7 @@
 # the SWIG interface file instead.
 
 ##   Generated via the command line invocation:
-##	 /usr/bin/swig2.0 -r -package ChemmineOB -c++ -small -O -templatereduce -naturalvar -I/home/khoran/raw_src/openbabel/include -I/home/khoran/raw_src/openbabel/build/include -o /home/khoran/raw_src/openbabel/scripts/R/ChemmineOB.cpp -outdir /home/khoran/raw_src/openbabel/build/scripts/R /home/khoran/raw_src/openbabel/scripts/openbabel-R.i
+##	 /usr/bin/swig2.0 -r -package ChemmineOB -c++ -small -O -templatereduce -naturalvar -I/home/khoran/raw_src/openbabel-2.3.2/include -I/home/khoran/raw_src/openbabel-2.3.2/build/include -o /home/khoran/raw_src/openbabel-2.3.2/scripts/R/ChemmineOB.cpp -outdir /home/khoran/raw_src/openbabel-2.3.2/build/scripts/R /home/khoran/raw_src/openbabel-2.3.2/scripts/openbabel-R.i
 
 
 #                         srun.swg                            #
@@ -200,8 +200,6 @@ setClass('_p_OpenBabel__OBGlobalDataBase', contains = 'C++Reference')
 setClass('_p_OpenBabel__OBElement', contains = 'C++Reference')
 setClass('_p_OpenBabel__OBElementTable', contains = c('_p_OpenBabel__OBGlobalDataBase'))
 setClass('_p_OpenBabel__OBIsotopeTable', contains = c('_p_OpenBabel__OBGlobalDataBase'))
-setClass('_p_OpenBabel__OBAtomHOF', contains = 'C++Reference')
-setClass('_p_OpenBabel__OBAtomicHeatOfFormationTable', contains = c('_p_OpenBabel__OBGlobalDataBase'))
 setClass('_p_OpenBabel__OBTypeTable', contains = c('_p_OpenBabel__OBGlobalDataBase'))
 setClass('_p_OpenBabel__OBResidueData', contains = c('_p_OpenBabel__OBGlobalDataBase'))
 setClass('_p_OpenBabel__DoubleType', contains = 'ExternalReference')
@@ -247,8 +245,6 @@ setClass('_p_OpenBabel__OBElectronicTransitionData', contains = c('_p_OpenBabel_
 setClass('_p_OpenBabel__OBRotationData', contains = c('_p_OpenBabel__OBGenericData'))
 setClass('_p_OpenBabel__OBVectorData', contains = c('_p_OpenBabel__OBGenericData'))
 setClass('_p_OpenBabel__OBMatrixData', contains = c('_p_OpenBabel__OBGenericData'))
-setClass('_p_OpenBabel__OBFreeGridPoint', contains = 'C++Reference')
-setClass('_p_OpenBabel__OBFreeGrid', contains = c('_p_OpenBabel__OBGenericData'))
 setClass('_p_OpenBabel__OBGridData', contains = c('_p_OpenBabel__OBGenericData'))
 setClass('_p_OpenBabel__OBChainsParser', contains = 'C++Reference')
 setClass('_p_OpenBabel__OBAtomTyper', contains = c('_p_OpenBabel__OBGlobalDataBase'))
@@ -2288,100 +2284,6 @@ setMethod('$', '_p_OpenBabel__OBIsotopeTable', function(x, name) { accessorFuns 
 );
 # end of accessor method for OpenBabel::OBIsotopeTable
 setMethod('delete', '_p_OpenBabel__OBIsotopeTable', function(obj) {delete_OpenBabel__OBIsotopeTable(obj)})
-# Start of new_OBAtomHOF
-`OBAtomHOF` = function(element, method, desc, T, value, multiplicity) { element = as(element, "character"); 
-  method = as(method, "character");  desc = as(desc, "character");  multiplicity = as.integer(multiplicity); 
-  if(length(multiplicity) > 1) { warning("using only the first element of multiplicity"); } ;
-  ;ans = .Call('R_swig_new_OBAtomHOF', element, method, desc, T, value, multiplicity, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBAtomHOF"; reg.finalizer(ans, delete_OBAtomHOF); ans }
-attr(`OBAtomHOF`, 'returnType') = '_p_OpenBabel__OBAtomHOF'
-attr(`OBAtomHOF`, "inputTypes") = c('character', 'character', 'character', 'numeric', 'numeric', 'integer')
-class(`OBAtomHOF`) = c("SWIGFunction", class('OBAtomHOF'))
-
-# Start of delete_OBAtomHOF
-`delete_OBAtomHOF` = function(self) { ;.Call('R_swig_delete_OBAtomHOF', self, PACKAGE='ChemmineOB'); }
-attr(`delete_OBAtomHOF`, 'returnType') = 'void'
-attr(`delete_OBAtomHOF`, "inputTypes") = c('_p_OpenBabel__OBAtomHOF')
-class(`delete_OBAtomHOF`) = c("SWIGFunction", class('delete_OBAtomHOF'))
-
-# Start of OBAtomHOF_Element
-`OBAtomHOF_Element` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBAtomHOF_Element', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtomHOF_Element`, 'returnType') = 'character'
-attr(`OBAtomHOF_Element`, "inputTypes") = c('_p_OpenBabel__OBAtomHOF')
-class(`OBAtomHOF_Element`) = c("SWIGFunction", class('OBAtomHOF_Element'))
-
-# Start of OBAtomHOF_Method
-`OBAtomHOF_Method` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBAtomHOF_Method', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtomHOF_Method`, 'returnType') = 'character'
-attr(`OBAtomHOF_Method`, "inputTypes") = c('_p_OpenBabel__OBAtomHOF')
-class(`OBAtomHOF_Method`) = c("SWIGFunction", class('OBAtomHOF_Method'))
-
-# Start of OBAtomHOF_Desc
-`OBAtomHOF_Desc` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBAtomHOF_Desc', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtomHOF_Desc`, 'returnType') = 'character'
-attr(`OBAtomHOF_Desc`, "inputTypes") = c('_p_OpenBabel__OBAtomHOF')
-class(`OBAtomHOF_Desc`) = c("SWIGFunction", class('OBAtomHOF_Desc'))
-
-# Start of OBAtomHOF_T
-`OBAtomHOF_T` = function(self, .copy = FALSE) { ;.Call('R_swig_OBAtomHOF_T', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtomHOF_T`, 'returnType') = 'numeric'
-attr(`OBAtomHOF_T`, "inputTypes") = c('_p_OpenBabel__OBAtomHOF')
-class(`OBAtomHOF_T`) = c("SWIGFunction", class('OBAtomHOF_T'))
-
-# Start of OBAtomHOF_Value
-`OBAtomHOF_Value` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBAtomHOF_Value', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtomHOF_Value`, 'returnType') = 'numeric'
-attr(`OBAtomHOF_Value`, "inputTypes") = c('_p_OpenBabel__OBAtomHOF')
-class(`OBAtomHOF_Value`) = c("SWIGFunction", class('OBAtomHOF_Value'))
-
-# Start of OBAtomHOF_Multiplicity
-`OBAtomHOF_Multiplicity` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBAtomHOF_Multiplicity', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtomHOF_Multiplicity`, 'returnType') = 'integer'
-attr(`OBAtomHOF_Multiplicity`, "inputTypes") = c('_p_OpenBabel__OBAtomHOF')
-class(`OBAtomHOF_Multiplicity`) = c("SWIGFunction", class('OBAtomHOF_Multiplicity'))
-
-# Start of accessor method for OpenBabel::OBAtomHOF
-setMethod('$', '_p_OpenBabel__OBAtomHOF', function(x, name) {
-  accessorFuns = list('Element' = OBAtomHOF_Element, 'Method' = OBAtomHOF_Method, 'Desc' = OBAtomHOF_Desc, 'T' = OBAtomHOF_T, 'Value' = OBAtomHOF_Value, 'Multiplicity' = OBAtomHOF_Multiplicity);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
-  function(...){ f(x, ...)} ; }
-);
-# end of accessor method for OpenBabel::OBAtomHOF
-setMethod('delete', '_p_OpenBabel__OBAtomHOF', function(obj) {delete_OpenBabel__OBAtomHOF(obj)})
-# Start of new_OBAtomicHeatOfFormationTable
-`OBAtomicHeatOfFormationTable` = function() { ;ans = .Call('R_swig_new_OBAtomicHeatOfFormationTable', PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBAtomicHeatOfFormationTable"; reg.finalizer(ans, delete_OBAtomicHeatOfFormationTable); ans }
-attr(`OBAtomicHeatOfFormationTable`, 'returnType') = '_p_OpenBabel__OBAtomicHeatOfFormationTable'
-class(`OBAtomicHeatOfFormationTable`) = c("SWIGFunction", class('OBAtomicHeatOfFormationTable'))
-
-# Start of delete_OBAtomicHeatOfFormationTable
-`delete_OBAtomicHeatOfFormationTable` = function(self) {
-  ;.Call('R_swig_delete_OBAtomicHeatOfFormationTable', self, PACKAGE='ChemmineOB'); }
-attr(`delete_OBAtomicHeatOfFormationTable`, 'returnType') = 'void'
-attr(`delete_OBAtomicHeatOfFormationTable`, "inputTypes") = c('_p_OpenBabel__OBAtomicHeatOfFormationTable')
-class(`delete_OBAtomicHeatOfFormationTable`) = c("SWIGFunction", class('delete_OBAtomicHeatOfFormationTable'))
-
-# Start of OBAtomicHeatOfFormationTable_GetHeatOfFormation
-`OBAtomicHeatOfFormationTable_GetHeatOfFormation` = function(self, elem, method, multiplicity, dhof0, dhof298, .copy = FALSE) {
-  elem = as(elem, "character");  method = as(method, "character");  multiplicity = as.integer(multiplicity); 
-  if(length(multiplicity) > 1) { warning("using only the first element of multiplicity"); } ;
-  ;.Call('R_swig_OBAtomicHeatOfFormationTable_GetHeatOfFormation', self, elem, method, multiplicity, dhof0, dhof298, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtomicHeatOfFormationTable_GetHeatOfFormation`, 'returnType') = 'integer'
-attr(`OBAtomicHeatOfFormationTable_GetHeatOfFormation`, "inputTypes") = c('_p_OpenBabel__OBAtomicHeatOfFormationTable', 'character', 'character', 'integer', 'numeric', 'numeric')
-class(`OBAtomicHeatOfFormationTable_GetHeatOfFormation`) = c("SWIGFunction", class('OBAtomicHeatOfFormationTable_GetHeatOfFormation'))
-
-# Start of accessor method for OpenBabel::OBAtomicHeatOfFormationTable
-setMethod('$', '_p_OpenBabel__OBAtomicHeatOfFormationTable', function(x, name) { accessorFuns = list('GetHeatOfFormation' = OBAtomicHeatOfFormationTable_GetHeatOfFormation);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
-  function(...){ f(x, ...)} ; }
-);
-# end of accessor method for OpenBabel::OBAtomicHeatOfFormationTable
-setMethod('delete', '_p_OpenBabel__OBAtomicHeatOfFormationTable', function(obj) {delete_OpenBabel__OBAtomicHeatOfFormationTable(obj)})
 # Start of new_OBTypeTable
 `OBTypeTable` = function() { ;ans = .Call('R_swig_new_OBTypeTable', PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__OBTypeTable"; reg.finalizer(ans, delete_OBTypeTable); ans }
@@ -3547,13 +3449,6 @@ attr(`SpaceGroup_GetId`, 'returnType') = 'integer'
 attr(`SpaceGroup_GetId`, "inputTypes") = c('_p_OpenBabel__SpaceGroup')
 class(`SpaceGroup_GetId`) = c("SWIGFunction", class('SpaceGroup_GetId'))
 
-# Start of SpaceGroup_GetOriginAlternative
-`SpaceGroup_GetOriginAlternative` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_SpaceGroup_GetOriginAlternative', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`SpaceGroup_GetOriginAlternative`, 'returnType') = 'integer'
-attr(`SpaceGroup_GetOriginAlternative`, "inputTypes") = c('_p_OpenBabel__SpaceGroup')
-class(`SpaceGroup_GetOriginAlternative`) = c("SWIGFunction", class('SpaceGroup_GetOriginAlternative'))
-
 # Start of SpaceGroup_Transform
 `SpaceGroup_Transform` = function(self, v, .copy = FALSE) {
   ;ans = .Call('R_swig_SpaceGroup_Transform', self, v, as.logical(.copy), PACKAGE='ChemmineOB');
@@ -3625,7 +3520,7 @@ class(`SpaceGroup_IsValid`) = c("SWIGFunction", class('SpaceGroup_IsValid'))
 
 # Start of accessor method for OpenBabel::SpaceGroup
 setMethod('$', '_p_OpenBabel__SpaceGroup', function(x, name) {
-  accessorFuns = list('SetHMName' = SpaceGroup_SetHMName, 'SetHallName' = SpaceGroup_SetHallName, 'SetId' = SpaceGroup_SetId, 'AddTransform' = SpaceGroup_AddTransform, 'GetHMName' = SpaceGroup_GetHMName, 'GetHallName' = SpaceGroup_GetHallName, 'GetId' = SpaceGroup_GetId, 'GetOriginAlternative' = SpaceGroup_GetOriginAlternative, 'Transform' = SpaceGroup_Transform, 'BeginTransform' = SpaceGroup_BeginTransform, 'NextTransform' = SpaceGroup_NextTransform, 'IsValid' = SpaceGroup_IsValid);
+  accessorFuns = list('SetHMName' = SpaceGroup_SetHMName, 'SetHallName' = SpaceGroup_SetHallName, 'SetId' = SpaceGroup_SetId, 'AddTransform' = SpaceGroup_AddTransform, 'GetHMName' = SpaceGroup_GetHMName, 'GetHallName' = SpaceGroup_GetHallName, 'GetId' = SpaceGroup_GetId, 'Transform' = SpaceGroup_Transform, 'BeginTransform' = SpaceGroup_BeginTransform, 'NextTransform' = SpaceGroup_NextTransform, 'IsValid' = SpaceGroup_IsValid);
   ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
   function(...){ f(x, ...)} ; }
 );
@@ -4558,190 +4453,69 @@ attr(`OBUnitCell_FillUnitCell`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', '_
 class(`OBUnitCell_FillUnitCell`) = c("SWIGFunction", class('OBUnitCell_FillUnitCell'))
 
 # Start of OBUnitCell_GetA
-`OBUnitCell_GetA__SWIG_0` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetA__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetA__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBUnitCell_GetA__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetA__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetA__SWIG_0'))
-
-# Start of OBUnitCell_GetA
-`OBUnitCell_GetA__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetA__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetA__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBUnitCell_GetA__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetA__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetA__SWIG_1'))
-
-`OBUnitCell_GetA` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetA__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetA__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetA with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBUnitCell_GetB
-`OBUnitCell_GetB__SWIG_0` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetB__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetB__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBUnitCell_GetB__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetB__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetB__SWIG_0'))
+`OBUnitCell_GetA` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBUnitCell_GetA', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBUnitCell_GetA`, 'returnType') = 'numeric'
+attr(`OBUnitCell_GetA`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetA`) = c("SWIGFunction", class('OBUnitCell_GetA'))
 
 # Start of OBUnitCell_GetB
-`OBUnitCell_GetB__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetB__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetB__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBUnitCell_GetB__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetB__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetB__SWIG_1'))
-
-`OBUnitCell_GetB` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetB__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetB__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetB with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBUnitCell_GetC
-`OBUnitCell_GetC__SWIG_0` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetC__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetC__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBUnitCell_GetC__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetC__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetC__SWIG_0'))
+`OBUnitCell_GetB` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBUnitCell_GetB', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBUnitCell_GetB`, 'returnType') = 'numeric'
+attr(`OBUnitCell_GetB`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetB`) = c("SWIGFunction", class('OBUnitCell_GetB'))
 
 # Start of OBUnitCell_GetC
-`OBUnitCell_GetC__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetC__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetC__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBUnitCell_GetC__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetC__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetC__SWIG_1'))
-
-`OBUnitCell_GetC` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetC__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetC__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetC with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBUnitCell_GetAlpha
-`OBUnitCell_GetAlpha__SWIG_0` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetAlpha__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetAlpha__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBUnitCell_GetAlpha__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetAlpha__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetAlpha__SWIG_0'))
+`OBUnitCell_GetC` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBUnitCell_GetC', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBUnitCell_GetC`, 'returnType') = 'numeric'
+attr(`OBUnitCell_GetC`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetC`) = c("SWIGFunction", class('OBUnitCell_GetC'))
 
 # Start of OBUnitCell_GetAlpha
-`OBUnitCell_GetAlpha__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetAlpha__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetAlpha__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBUnitCell_GetAlpha__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetAlpha__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetAlpha__SWIG_1'))
-
-`OBUnitCell_GetAlpha` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetAlpha__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetAlpha__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetAlpha with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBUnitCell_GetBeta
-`OBUnitCell_GetBeta__SWIG_0` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetBeta__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetBeta__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBUnitCell_GetBeta__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetBeta__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetBeta__SWIG_0'))
+`OBUnitCell_GetAlpha` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBUnitCell_GetAlpha', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBUnitCell_GetAlpha`, 'returnType') = 'numeric'
+attr(`OBUnitCell_GetAlpha`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetAlpha`) = c("SWIGFunction", class('OBUnitCell_GetAlpha'))
 
 # Start of OBUnitCell_GetBeta
-`OBUnitCell_GetBeta__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetBeta__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetBeta__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBUnitCell_GetBeta__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetBeta__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetBeta__SWIG_1'))
-
-`OBUnitCell_GetBeta` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetBeta__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetBeta__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetBeta with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBUnitCell_GetGamma
-`OBUnitCell_GetGamma__SWIG_0` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetGamma__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetGamma__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBUnitCell_GetGamma__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetGamma__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetGamma__SWIG_0'))
+`OBUnitCell_GetBeta` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBUnitCell_GetBeta', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBUnitCell_GetBeta`, 'returnType') = 'numeric'
+attr(`OBUnitCell_GetBeta`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetBeta`) = c("SWIGFunction", class('OBUnitCell_GetBeta'))
 
 # Start of OBUnitCell_GetGamma
-`OBUnitCell_GetGamma__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetGamma__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetGamma__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBUnitCell_GetGamma__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetGamma__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetGamma__SWIG_1'))
-
-`OBUnitCell_GetGamma` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetGamma__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetGamma__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetGamma with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBUnitCell_GetOffset
-`OBUnitCell_GetOffset__SWIG_0` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_GetOffset__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBUnitCell_GetOffset__SWIG_0`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBUnitCell_GetOffset__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetOffset__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetOffset__SWIG_0'))
+`OBUnitCell_GetGamma` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBUnitCell_GetGamma', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBUnitCell_GetGamma`, 'returnType') = 'numeric'
+attr(`OBUnitCell_GetGamma`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetGamma`) = c("SWIGFunction", class('OBUnitCell_GetGamma'))
 
 # Start of OBUnitCell_GetOffset
-`OBUnitCell_GetOffset__SWIG_1` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_GetOffset__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB');
+`OBUnitCell_GetOffset` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBUnitCell_GetOffset', self, as.logical(.copy), PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBUnitCell_GetOffset__SWIG_1`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBUnitCell_GetOffset__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetOffset__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetOffset__SWIG_1'))
-
-`OBUnitCell_GetOffset` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetOffset__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetOffset__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetOffset with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBUnitCell_GetSpaceGroup
-`OBUnitCell_GetSpaceGroup__SWIG_0` = function(self) {
-  ;ans = .Call('R_swig_OBUnitCell_GetSpaceGroup__SWIG_0', self, PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__SpaceGroup";
-  ans }
-attr(`OBUnitCell_GetSpaceGroup__SWIG_0`, 'returnType') = '_p_OpenBabel__SpaceGroup'
-attr(`OBUnitCell_GetSpaceGroup__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetSpaceGroup__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetSpaceGroup__SWIG_0'))
+attr(`OBUnitCell_GetOffset`, 'returnType') = '_p_OpenBabel__vector3'
+attr(`OBUnitCell_GetOffset`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetOffset`) = c("SWIGFunction", class('OBUnitCell_GetOffset'))
 
 # Start of OBUnitCell_GetSpaceGroup
-`OBUnitCell_GetSpaceGroup__SWIG_1` = function(self) {
-  ;ans = .Call('R_swig_OBUnitCell_GetSpaceGroup__SWIG_1', self, PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__SpaceGroup";
-  ans }
-attr(`OBUnitCell_GetSpaceGroup__SWIG_1`, 'returnType') = '_p_OpenBabel__SpaceGroup'
-attr(`OBUnitCell_GetSpaceGroup__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetSpaceGroup__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetSpaceGroup__SWIG_1'))
-
-`OBUnitCell_GetSpaceGroup` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetSpaceGroup__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetSpaceGroup__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetSpaceGroup with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBUnitCell_GetSpaceGroupName
-`OBUnitCell_GetSpaceGroupName__SWIG_0` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetSpaceGroupName__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetSpaceGroupName__SWIG_0`, 'returnType') = 'character'
-attr(`OBUnitCell_GetSpaceGroupName__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetSpaceGroupName__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetSpaceGroupName__SWIG_0'))
+`OBUnitCell_GetSpaceGroup` = function(self) { ;ans = .Call('R_swig_OBUnitCell_GetSpaceGroup', self, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__SpaceGroup"; ans }
+attr(`OBUnitCell_GetSpaceGroup`, 'returnType') = '_p_OpenBabel__SpaceGroup'
+attr(`OBUnitCell_GetSpaceGroup`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetSpaceGroup`) = c("SWIGFunction", class('OBUnitCell_GetSpaceGroup'))
 
 # Start of OBUnitCell_GetSpaceGroupName
-`OBUnitCell_GetSpaceGroupName__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetSpaceGroupName__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetSpaceGroupName__SWIG_1`, 'returnType') = 'character'
-attr(`OBUnitCell_GetSpaceGroupName__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetSpaceGroupName__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetSpaceGroupName__SWIG_1'))
+`OBUnitCell_GetSpaceGroupName` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBUnitCell_GetSpaceGroupName', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBUnitCell_GetSpaceGroupName`, 'returnType') = 'character'
+attr(`OBUnitCell_GetSpaceGroupName`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetSpaceGroupName`) = c("SWIGFunction", class('OBUnitCell_GetSpaceGroupName'))
 
-`OBUnitCell_GetSpaceGroupName` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetSpaceGroupName__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetSpaceGroupName__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetSpaceGroupName with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
 # Start of OBUnitCell_GetLatticeType
 `OBUnitCell_GetLatticeType__SWIG_0` = function(self, spacegroup, .copy = FALSE) { spacegroup = as.integer(spacegroup); 
   if(length(spacegroup) > 1) { warning("using only the first element of spacegroup"); } ;
@@ -4752,257 +4526,93 @@ attr(`OBUnitCell_GetLatticeType__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUni
 class(`OBUnitCell_GetLatticeType__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetLatticeType__SWIG_0'))
 
 # Start of OBUnitCell_GetLatticeType
-`OBUnitCell_GetLatticeType__SWIG_1` = function(self, spacegroup, .copy = FALSE) { spacegroup = as.integer(spacegroup); 
-  if(length(spacegroup) > 1) { warning("using only the first element of spacegroup"); } ;
-  ;ans = .Call('R_swig_OBUnitCell_GetLatticeType__SWIG_1', self, spacegroup, as.logical(.copy), PACKAGE='ChemmineOB');
+`OBUnitCell_GetLatticeType__SWIG_1` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBUnitCell_GetLatticeType__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB');
   ans = enumFromInteger(ans, "_OpenBabel__OBUnitCell__LatticeType"); ans }
 attr(`OBUnitCell_GetLatticeType__SWIG_1`, 'returnType') = 'character'
-attr(`OBUnitCell_GetLatticeType__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', 'integer')
+attr(`OBUnitCell_GetLatticeType__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
 class(`OBUnitCell_GetLatticeType__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetLatticeType__SWIG_1'))
 
-# Start of OBUnitCell_GetLatticeType
-`OBUnitCell_GetLatticeType__SWIG_2` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_GetLatticeType__SWIG_2', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  ans = enumFromInteger(ans, "_OpenBabel__OBUnitCell__LatticeType"); ans }
-attr(`OBUnitCell_GetLatticeType__SWIG_2`, 'returnType') = 'character'
-attr(`OBUnitCell_GetLatticeType__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetLatticeType__SWIG_2`) = c("SWIGFunction", class('OBUnitCell_GetLatticeType__SWIG_2'))
-
-# Start of OBUnitCell_GetLatticeType
-`OBUnitCell_GetLatticeType__SWIG_3` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_GetLatticeType__SWIG_3', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  ans = enumFromInteger(ans, "_OpenBabel__OBUnitCell__LatticeType"); ans }
-attr(`OBUnitCell_GetLatticeType__SWIG_3`, 'returnType') = 'character'
-attr(`OBUnitCell_GetLatticeType__SWIG_3`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetLatticeType__SWIG_3`) = c("SWIGFunction", class('OBUnitCell_GetLatticeType__SWIG_3'))
-
 `OBUnitCell_GetLatticeType` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 4
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetLatticeType__SWIG_2; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetLatticeType__SWIG_3; }  }
+# dispatch functions 2
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetLatticeType__SWIG_1; }  }
    else if (argc == 2) {
     if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
-      f <- OBUnitCell_GetLatticeType__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
-      f <- OBUnitCell_GetLatticeType__SWIG_1; }  }  else {
+      f <- OBUnitCell_GetLatticeType__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBUnitCell_GetLatticeType with argtypes (",toString(argtypes),")"); } ; f(...); }
 # Dispatch function
 # Start of OBUnitCell_GetCellVectors
-`OBUnitCell_GetCellVectors__SWIG_0` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_GetCellVectors__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB');
+`OBUnitCell_GetCellVectors` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBUnitCell_GetCellVectors', self, as.logical(.copy), PACKAGE='ChemmineOB');
   class(ans) <- "_p_std__vectorT_OpenBabel__vector3_std__allocatorT_OpenBabel__vector3_t_t"; ans }
-attr(`OBUnitCell_GetCellVectors__SWIG_0`, 'returnType') = '_p_std__vectorT_OpenBabel__vector3_std__allocatorT_OpenBabel__vector3_t_t'
-attr(`OBUnitCell_GetCellVectors__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetCellVectors__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetCellVectors__SWIG_0'))
-
-# Start of OBUnitCell_GetCellVectors
-`OBUnitCell_GetCellVectors__SWIG_1` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_GetCellVectors__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_std__vectorT_OpenBabel__vector3_std__allocatorT_OpenBabel__vector3_t_t"; ans }
-attr(`OBUnitCell_GetCellVectors__SWIG_1`, 'returnType') = '_p_std__vectorT_OpenBabel__vector3_std__allocatorT_OpenBabel__vector3_t_t'
-attr(`OBUnitCell_GetCellVectors__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetCellVectors__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetCellVectors__SWIG_1'))
-
-`OBUnitCell_GetCellVectors` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetCellVectors__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetCellVectors__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetCellVectors with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBUnitCell_GetCellMatrix
-`OBUnitCell_GetCellMatrix__SWIG_0` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_GetCellMatrix__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__matrix3x3"; ans }
-attr(`OBUnitCell_GetCellMatrix__SWIG_0`, 'returnType') = '_p_OpenBabel__matrix3x3'
-attr(`OBUnitCell_GetCellMatrix__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetCellMatrix__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetCellMatrix__SWIG_0'))
+attr(`OBUnitCell_GetCellVectors`, 'returnType') = '_p_std__vectorT_OpenBabel__vector3_std__allocatorT_OpenBabel__vector3_t_t'
+attr(`OBUnitCell_GetCellVectors`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetCellVectors`) = c("SWIGFunction", class('OBUnitCell_GetCellVectors'))
 
 # Start of OBUnitCell_GetCellMatrix
-`OBUnitCell_GetCellMatrix__SWIG_1` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_GetCellMatrix__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB');
+`OBUnitCell_GetCellMatrix` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBUnitCell_GetCellMatrix', self, as.logical(.copy), PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__matrix3x3"; ans }
-attr(`OBUnitCell_GetCellMatrix__SWIG_1`, 'returnType') = '_p_OpenBabel__matrix3x3'
-attr(`OBUnitCell_GetCellMatrix__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetCellMatrix__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetCellMatrix__SWIG_1'))
-
-`OBUnitCell_GetCellMatrix` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetCellMatrix__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetCellMatrix__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetCellMatrix with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBUnitCell_GetOrthoMatrix
-`OBUnitCell_GetOrthoMatrix__SWIG_0` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_GetOrthoMatrix__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__matrix3x3"; ans }
-attr(`OBUnitCell_GetOrthoMatrix__SWIG_0`, 'returnType') = '_p_OpenBabel__matrix3x3'
-attr(`OBUnitCell_GetOrthoMatrix__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetOrthoMatrix__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetOrthoMatrix__SWIG_0'))
+attr(`OBUnitCell_GetCellMatrix`, 'returnType') = '_p_OpenBabel__matrix3x3'
+attr(`OBUnitCell_GetCellMatrix`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetCellMatrix`) = c("SWIGFunction", class('OBUnitCell_GetCellMatrix'))
 
 # Start of OBUnitCell_GetOrthoMatrix
-`OBUnitCell_GetOrthoMatrix__SWIG_1` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_GetOrthoMatrix__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB');
+`OBUnitCell_GetOrthoMatrix` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBUnitCell_GetOrthoMatrix', self, as.logical(.copy), PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__matrix3x3"; ans }
-attr(`OBUnitCell_GetOrthoMatrix__SWIG_1`, 'returnType') = '_p_OpenBabel__matrix3x3'
-attr(`OBUnitCell_GetOrthoMatrix__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetOrthoMatrix__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetOrthoMatrix__SWIG_1'))
-
-`OBUnitCell_GetOrthoMatrix` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetOrthoMatrix__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetOrthoMatrix__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetOrthoMatrix with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBUnitCell_GetOrientationMatrix
-`OBUnitCell_GetOrientationMatrix__SWIG_0` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_GetOrientationMatrix__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__matrix3x3"; ans }
-attr(`OBUnitCell_GetOrientationMatrix__SWIG_0`, 'returnType') = '_p_OpenBabel__matrix3x3'
-attr(`OBUnitCell_GetOrientationMatrix__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetOrientationMatrix__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetOrientationMatrix__SWIG_0'))
+attr(`OBUnitCell_GetOrthoMatrix`, 'returnType') = '_p_OpenBabel__matrix3x3'
+attr(`OBUnitCell_GetOrthoMatrix`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetOrthoMatrix`) = c("SWIGFunction", class('OBUnitCell_GetOrthoMatrix'))
 
 # Start of OBUnitCell_GetOrientationMatrix
-`OBUnitCell_GetOrientationMatrix__SWIG_1` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_GetOrientationMatrix__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB');
+`OBUnitCell_GetOrientationMatrix` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBUnitCell_GetOrientationMatrix', self, as.logical(.copy), PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__matrix3x3"; ans }
-attr(`OBUnitCell_GetOrientationMatrix__SWIG_1`, 'returnType') = '_p_OpenBabel__matrix3x3'
-attr(`OBUnitCell_GetOrientationMatrix__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetOrientationMatrix__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetOrientationMatrix__SWIG_1'))
-
-`OBUnitCell_GetOrientationMatrix` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetOrientationMatrix__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetOrientationMatrix__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetOrientationMatrix with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
-# Start of OBUnitCell_GetFractionalMatrix
-`OBUnitCell_GetFractionalMatrix__SWIG_0` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_GetFractionalMatrix__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__matrix3x3"; ans }
-attr(`OBUnitCell_GetFractionalMatrix__SWIG_0`, 'returnType') = '_p_OpenBabel__matrix3x3'
-attr(`OBUnitCell_GetFractionalMatrix__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetFractionalMatrix__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetFractionalMatrix__SWIG_0'))
+attr(`OBUnitCell_GetOrientationMatrix`, 'returnType') = '_p_OpenBabel__matrix3x3'
+attr(`OBUnitCell_GetOrientationMatrix`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetOrientationMatrix`) = c("SWIGFunction", class('OBUnitCell_GetOrientationMatrix'))
 
 # Start of OBUnitCell_GetFractionalMatrix
-`OBUnitCell_GetFractionalMatrix__SWIG_1` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_GetFractionalMatrix__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB');
+`OBUnitCell_GetFractionalMatrix` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBUnitCell_GetFractionalMatrix', self, as.logical(.copy), PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__matrix3x3"; ans }
-attr(`OBUnitCell_GetFractionalMatrix__SWIG_1`, 'returnType') = '_p_OpenBabel__matrix3x3'
-attr(`OBUnitCell_GetFractionalMatrix__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetFractionalMatrix__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetFractionalMatrix__SWIG_1'))
-
-`OBUnitCell_GetFractionalMatrix` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetFractionalMatrix__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetFractionalMatrix__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetFractionalMatrix with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
-# Start of OBUnitCell_FractionalToCartesian
-`OBUnitCell_FractionalToCartesian__SWIG_0` = function(self, frac, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_FractionalToCartesian__SWIG_0', self, frac, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBUnitCell_FractionalToCartesian__SWIG_0`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBUnitCell_FractionalToCartesian__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', '_p_OpenBabel__vector3')
-class(`OBUnitCell_FractionalToCartesian__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_FractionalToCartesian__SWIG_0'))
+attr(`OBUnitCell_GetFractionalMatrix`, 'returnType') = '_p_OpenBabel__matrix3x3'
+attr(`OBUnitCell_GetFractionalMatrix`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetFractionalMatrix`) = c("SWIGFunction", class('OBUnitCell_GetFractionalMatrix'))
 
 # Start of OBUnitCell_FractionalToCartesian
-`OBUnitCell_FractionalToCartesian__SWIG_1` = function(self, frac, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_FractionalToCartesian__SWIG_1', self, frac, as.logical(.copy), PACKAGE='ChemmineOB');
+`OBUnitCell_FractionalToCartesian` = function(self, frac, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBUnitCell_FractionalToCartesian', self, frac, as.logical(.copy), PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBUnitCell_FractionalToCartesian__SWIG_1`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBUnitCell_FractionalToCartesian__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', '_p_OpenBabel__vector3')
-class(`OBUnitCell_FractionalToCartesian__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_FractionalToCartesian__SWIG_1'))
-
-`OBUnitCell_FractionalToCartesian` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell') && extends(argtypes[2], '_p_OpenBabel__vector3') && length(argv[[2]]) == 1) {
-      f <- OBUnitCell_FractionalToCartesian__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell') && extends(argtypes[2], '_p_OpenBabel__vector3') && length(argv[[2]]) == 1) {
-      f <- OBUnitCell_FractionalToCartesian__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_FractionalToCartesian with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
-# Start of OBUnitCell_CartesianToFractional
-`OBUnitCell_CartesianToFractional__SWIG_0` = function(self, cart, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_CartesianToFractional__SWIG_0', self, cart, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBUnitCell_CartesianToFractional__SWIG_0`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBUnitCell_CartesianToFractional__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', '_p_OpenBabel__vector3')
-class(`OBUnitCell_CartesianToFractional__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_CartesianToFractional__SWIG_0'))
+attr(`OBUnitCell_FractionalToCartesian`, 'returnType') = '_p_OpenBabel__vector3'
+attr(`OBUnitCell_FractionalToCartesian`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', '_p_OpenBabel__vector3')
+class(`OBUnitCell_FractionalToCartesian`) = c("SWIGFunction", class('OBUnitCell_FractionalToCartesian'))
 
 # Start of OBUnitCell_CartesianToFractional
-`OBUnitCell_CartesianToFractional__SWIG_1` = function(self, cart, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_CartesianToFractional__SWIG_1', self, cart, as.logical(.copy), PACKAGE='ChemmineOB');
+`OBUnitCell_CartesianToFractional` = function(self, cart, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBUnitCell_CartesianToFractional', self, cart, as.logical(.copy), PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBUnitCell_CartesianToFractional__SWIG_1`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBUnitCell_CartesianToFractional__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', '_p_OpenBabel__vector3')
-class(`OBUnitCell_CartesianToFractional__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_CartesianToFractional__SWIG_1'))
-
-`OBUnitCell_CartesianToFractional` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell') && extends(argtypes[2], '_p_OpenBabel__vector3') && length(argv[[2]]) == 1) {
-      f <- OBUnitCell_CartesianToFractional__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell') && extends(argtypes[2], '_p_OpenBabel__vector3') && length(argv[[2]]) == 1) {
-      f <- OBUnitCell_CartesianToFractional__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_CartesianToFractional with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
-# Start of OBUnitCell_WrapCartesianCoordinate
-`OBUnitCell_WrapCartesianCoordinate__SWIG_0` = function(self, cart, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_WrapCartesianCoordinate__SWIG_0', self, cart, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBUnitCell_WrapCartesianCoordinate__SWIG_0`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBUnitCell_WrapCartesianCoordinate__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', '_p_OpenBabel__vector3')
-class(`OBUnitCell_WrapCartesianCoordinate__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_WrapCartesianCoordinate__SWIG_0'))
+attr(`OBUnitCell_CartesianToFractional`, 'returnType') = '_p_OpenBabel__vector3'
+attr(`OBUnitCell_CartesianToFractional`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', '_p_OpenBabel__vector3')
+class(`OBUnitCell_CartesianToFractional`) = c("SWIGFunction", class('OBUnitCell_CartesianToFractional'))
 
 # Start of OBUnitCell_WrapCartesianCoordinate
-`OBUnitCell_WrapCartesianCoordinate__SWIG_1` = function(self, cart, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_WrapCartesianCoordinate__SWIG_1', self, cart, as.logical(.copy), PACKAGE='ChemmineOB');
+`OBUnitCell_WrapCartesianCoordinate` = function(self, cart, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBUnitCell_WrapCartesianCoordinate', self, cart, as.logical(.copy), PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBUnitCell_WrapCartesianCoordinate__SWIG_1`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBUnitCell_WrapCartesianCoordinate__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', '_p_OpenBabel__vector3')
-class(`OBUnitCell_WrapCartesianCoordinate__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_WrapCartesianCoordinate__SWIG_1'))
-
-`OBUnitCell_WrapCartesianCoordinate` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell') && extends(argtypes[2], '_p_OpenBabel__vector3') && length(argv[[2]]) == 1) {
-      f <- OBUnitCell_WrapCartesianCoordinate__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell') && extends(argtypes[2], '_p_OpenBabel__vector3') && length(argv[[2]]) == 1) {
-      f <- OBUnitCell_WrapCartesianCoordinate__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_WrapCartesianCoordinate with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
-# Start of OBUnitCell_WrapFractionalCoordinate
-`OBUnitCell_WrapFractionalCoordinate__SWIG_0` = function(self, frac, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_WrapFractionalCoordinate__SWIG_0', self, frac, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBUnitCell_WrapFractionalCoordinate__SWIG_0`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBUnitCell_WrapFractionalCoordinate__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', '_p_OpenBabel__vector3')
-class(`OBUnitCell_WrapFractionalCoordinate__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_WrapFractionalCoordinate__SWIG_0'))
+attr(`OBUnitCell_WrapCartesianCoordinate`, 'returnType') = '_p_OpenBabel__vector3'
+attr(`OBUnitCell_WrapCartesianCoordinate`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', '_p_OpenBabel__vector3')
+class(`OBUnitCell_WrapCartesianCoordinate`) = c("SWIGFunction", class('OBUnitCell_WrapCartesianCoordinate'))
 
 # Start of OBUnitCell_WrapFractionalCoordinate
-`OBUnitCell_WrapFractionalCoordinate__SWIG_1` = function(self, frac, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBUnitCell_WrapFractionalCoordinate__SWIG_1', self, frac, as.logical(.copy), PACKAGE='ChemmineOB');
+`OBUnitCell_WrapFractionalCoordinate` = function(self, frac, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBUnitCell_WrapFractionalCoordinate', self, frac, as.logical(.copy), PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBUnitCell_WrapFractionalCoordinate__SWIG_1`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBUnitCell_WrapFractionalCoordinate__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', '_p_OpenBabel__vector3')
-class(`OBUnitCell_WrapFractionalCoordinate__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_WrapFractionalCoordinate__SWIG_1'))
+attr(`OBUnitCell_WrapFractionalCoordinate`, 'returnType') = '_p_OpenBabel__vector3'
+attr(`OBUnitCell_WrapFractionalCoordinate`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', '_p_OpenBabel__vector3')
+class(`OBUnitCell_WrapFractionalCoordinate`) = c("SWIGFunction", class('OBUnitCell_WrapFractionalCoordinate'))
 
-`OBUnitCell_WrapFractionalCoordinate` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell') && extends(argtypes[2], '_p_OpenBabel__vector3') && length(argv[[2]]) == 1) {
-      f <- OBUnitCell_WrapFractionalCoordinate__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell') && extends(argtypes[2], '_p_OpenBabel__vector3') && length(argv[[2]]) == 1) {
-      f <- OBUnitCell_WrapFractionalCoordinate__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_WrapFractionalCoordinate with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
 # Start of OBUnitCell_GetSpaceGroupNumber
 `OBUnitCell_GetSpaceGroupNumber__SWIG_0` = function(self, name, .copy = FALSE) { name = as(name, "character"); 
   ;.Call('R_swig_OBUnitCell_GetSpaceGroupNumber__SWIG_0', self, name, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -5017,52 +4627,22 @@ attr(`OBUnitCell_GetSpaceGroupNumber__SWIG_1`, 'returnType') = 'integer'
 attr(`OBUnitCell_GetSpaceGroupNumber__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
 class(`OBUnitCell_GetSpaceGroupNumber__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetSpaceGroupNumber__SWIG_1'))
 
-# Start of OBUnitCell_GetSpaceGroupNumber
-`OBUnitCell_GetSpaceGroupNumber__SWIG_2` = function(self, name, .copy = FALSE) { name = as(name, "character"); 
-  ;.Call('R_swig_OBUnitCell_GetSpaceGroupNumber__SWIG_2', self, name, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetSpaceGroupNumber__SWIG_2`, 'returnType') = 'integer'
-attr(`OBUnitCell_GetSpaceGroupNumber__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBUnitCell', 'character')
-class(`OBUnitCell_GetSpaceGroupNumber__SWIG_2`) = c("SWIGFunction", class('OBUnitCell_GetSpaceGroupNumber__SWIG_2'))
-
-# Start of OBUnitCell_GetSpaceGroupNumber
-`OBUnitCell_GetSpaceGroupNumber__SWIG_3` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetSpaceGroupNumber__SWIG_3', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetSpaceGroupNumber__SWIG_3`, 'returnType') = 'integer'
-attr(`OBUnitCell_GetSpaceGroupNumber__SWIG_3`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetSpaceGroupNumber__SWIG_3`) = c("SWIGFunction", class('OBUnitCell_GetSpaceGroupNumber__SWIG_3'))
-
 `OBUnitCell_GetSpaceGroupNumber` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 4
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetSpaceGroupNumber__SWIG_1; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetSpaceGroupNumber__SWIG_3; }  }
+# dispatch functions 2
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetSpaceGroupNumber__SWIG_1; }  }
    else if (argc == 2) {
     if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell') && is.character(argv[[2]]) && length(argv[[2]]) == 1) {
-      f <- OBUnitCell_GetSpaceGroupNumber__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell') && is.character(argv[[2]]) && length(argv[[2]]) == 1) {
-      f <- OBUnitCell_GetSpaceGroupNumber__SWIG_2; }  }  else {
+      f <- OBUnitCell_GetSpaceGroupNumber__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBUnitCell_GetSpaceGroupNumber with argtypes (",toString(argtypes),")"); } ;
   f(...); }
 # Dispatch function
 # Start of OBUnitCell_GetCellVolume
-`OBUnitCell_GetCellVolume__SWIG_0` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetCellVolume__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetCellVolume__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBUnitCell_GetCellVolume__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetCellVolume__SWIG_0`) = c("SWIGFunction", class('OBUnitCell_GetCellVolume__SWIG_0'))
+`OBUnitCell_GetCellVolume` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBUnitCell_GetCellVolume', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBUnitCell_GetCellVolume`, 'returnType') = 'numeric'
+attr(`OBUnitCell_GetCellVolume`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
+class(`OBUnitCell_GetCellVolume`) = c("SWIGFunction", class('OBUnitCell_GetCellVolume'))
 
-# Start of OBUnitCell_GetCellVolume
-`OBUnitCell_GetCellVolume__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBUnitCell_GetCellVolume__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBUnitCell_GetCellVolume__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBUnitCell_GetCellVolume__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBUnitCell')
-class(`OBUnitCell_GetCellVolume__SWIG_1`) = c("SWIGFunction", class('OBUnitCell_GetCellVolume__SWIG_1'))
-
-`OBUnitCell_GetCellVolume` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetCellVolume__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBUnitCell')) { f <- OBUnitCell_GetCellVolume__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBUnitCell_GetCellVolume with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
 # Start of accessor method for OpenBabel::OBUnitCell
 setMethod('$', '_p_OpenBabel__OBUnitCell', function(x, name) {
   accessorFuns = list('SetData' = OBUnitCell_SetData, 'SetSpaceGroup' = OBUnitCell_SetSpaceGroup, 'SetLatticeType' = OBUnitCell_SetLatticeType, 'FillUnitCell' = OBUnitCell_FillUnitCell, 'GetA' = OBUnitCell_GetA, 'GetB' = OBUnitCell_GetB, 'GetC' = OBUnitCell_GetC, 'GetAlpha' = OBUnitCell_GetAlpha, 'GetBeta' = OBUnitCell_GetBeta, 'GetGamma' = OBUnitCell_GetGamma, 'GetSpaceGroup' = OBUnitCell_GetSpaceGroup, 'GetSpaceGroupName' = OBUnitCell_GetSpaceGroupName, 'GetLatticeType' = OBUnitCell_GetLatticeType, 'GetCellVectors' = OBUnitCell_GetCellVectors, 'GetCellMatrix' = OBUnitCell_GetCellMatrix, 'GetOrthoMatrix' = OBUnitCell_GetOrthoMatrix, 'GetOrientationMatrix' = OBUnitCell_GetOrientationMatrix, 'GetFractionalMatrix' = OBUnitCell_GetFractionalMatrix, 'FractionalToCartesian' = OBUnitCell_FractionalToCartesian, 'CartesianToFractional' = OBUnitCell_CartesianToFractional, 'WrapCartesianCoordinate' = OBUnitCell_WrapCartesianCoordinate, 'WrapFractionalCoordinate' = OBUnitCell_WrapFractionalCoordinate, 'GetSpaceGroupNumber' = OBUnitCell_GetSpaceGroupNumber, 'GetCellVolume' = OBUnitCell_GetCellVolume);
@@ -6327,157 +5907,6 @@ setMethod('$', '_p_OpenBabel__OBMatrixData', function(x, name) { accessorFuns = 
 );
 # end of accessor method for OpenBabel::OBMatrixData
 setMethod('delete', '_p_OpenBabel__OBMatrixData', function(obj) {delete_OpenBabel__OBMatrixData(obj)})
-# Start of new_OBFreeGridPoint
-`OBFreeGridPoint__SWIG_0` = function() { ;ans = .Call('R_swig_new_OBFreeGridPoint__SWIG_0', PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBFreeGridPoint"; reg.finalizer(ans, delete_OBFreeGridPoint); ans }
-attr(`OBFreeGridPoint__SWIG_0`, 'returnType') = '_p_OpenBabel__OBFreeGridPoint'
-class(`OBFreeGridPoint__SWIG_0`) = c("SWIGFunction", class('OBFreeGridPoint__SWIG_0'))
-
-# Start of new_OBFreeGridPoint
-`OBFreeGridPoint__SWIG_1` = function(x, y, z, V) {
-  ;ans = .Call('R_swig_new_OBFreeGridPoint__SWIG_1', x, y, z, V, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBFreeGridPoint"; reg.finalizer(ans, delete_OBFreeGridPoint); ans }
-attr(`OBFreeGridPoint__SWIG_1`, 'returnType') = '_p_OpenBabel__OBFreeGridPoint'
-attr(`OBFreeGridPoint__SWIG_1`, "inputTypes") = c('numeric', 'numeric', 'numeric', 'numeric')
-class(`OBFreeGridPoint__SWIG_1`) = c("SWIGFunction", class('OBFreeGridPoint__SWIG_1'))
-
-`OBFreeGridPoint` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 0) { f <- OBFreeGridPoint__SWIG_0; }  else if (argc == 4) {
-    if (( is.numeric(argv[[1]]) && length(argv[[1]]) == 1 ) && ( is.numeric(argv[[2]]) && length(argv[[2]]) == 1 ) && ( is.numeric(argv[[3]]) && length(argv[[3]]) == 1 ) && ( is.numeric(argv[[4]]) && length(argv[[4]]) == 1 )) {
-      f <- OBFreeGridPoint__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBFreeGridPoint with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of delete_OBFreeGridPoint
-`delete_OBFreeGridPoint` = function(self) { ;.Call('R_swig_delete_OBFreeGridPoint', self, PACKAGE='ChemmineOB'); }
-attr(`delete_OBFreeGridPoint`, 'returnType') = 'void'
-attr(`delete_OBFreeGridPoint`, "inputTypes") = c('_p_OpenBabel__OBFreeGridPoint')
-class(`delete_OBFreeGridPoint`) = c("SWIGFunction", class('delete_OBFreeGridPoint'))
-
-# Start of OBFreeGridPoint_GetX
-`OBFreeGridPoint_GetX` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFreeGridPoint_GetX', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFreeGridPoint_GetX`, 'returnType') = 'numeric'
-attr(`OBFreeGridPoint_GetX`, "inputTypes") = c('_p_OpenBabel__OBFreeGridPoint')
-class(`OBFreeGridPoint_GetX`) = c("SWIGFunction", class('OBFreeGridPoint_GetX'))
-
-# Start of OBFreeGridPoint_GetY
-`OBFreeGridPoint_GetY` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFreeGridPoint_GetY', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFreeGridPoint_GetY`, 'returnType') = 'numeric'
-attr(`OBFreeGridPoint_GetY`, "inputTypes") = c('_p_OpenBabel__OBFreeGridPoint')
-class(`OBFreeGridPoint_GetY`) = c("SWIGFunction", class('OBFreeGridPoint_GetY'))
-
-# Start of OBFreeGridPoint_GetZ
-`OBFreeGridPoint_GetZ` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFreeGridPoint_GetZ', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFreeGridPoint_GetZ`, 'returnType') = 'numeric'
-attr(`OBFreeGridPoint_GetZ`, "inputTypes") = c('_p_OpenBabel__OBFreeGridPoint')
-class(`OBFreeGridPoint_GetZ`) = c("SWIGFunction", class('OBFreeGridPoint_GetZ'))
-
-# Start of OBFreeGridPoint_GetV
-`OBFreeGridPoint_GetV` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFreeGridPoint_GetV', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFreeGridPoint_GetV`, 'returnType') = 'numeric'
-attr(`OBFreeGridPoint_GetV`, "inputTypes") = c('_p_OpenBabel__OBFreeGridPoint')
-class(`OBFreeGridPoint_GetV`) = c("SWIGFunction", class('OBFreeGridPoint_GetV'))
-
-# Start of OBFreeGridPoint_SetX
-`OBFreeGridPoint_SetX` = function(self, x) { ;.Call('R_swig_OBFreeGridPoint_SetX', self, x, PACKAGE='ChemmineOB'); }
-attr(`OBFreeGridPoint_SetX`, 'returnType') = 'void'
-attr(`OBFreeGridPoint_SetX`, "inputTypes") = c('_p_OpenBabel__OBFreeGridPoint', 'numeric')
-class(`OBFreeGridPoint_SetX`) = c("SWIGFunction", class('OBFreeGridPoint_SetX'))
-
-# Start of OBFreeGridPoint_SetY
-`OBFreeGridPoint_SetY` = function(self, y) { ;.Call('R_swig_OBFreeGridPoint_SetY', self, y, PACKAGE='ChemmineOB'); }
-attr(`OBFreeGridPoint_SetY`, 'returnType') = 'void'
-attr(`OBFreeGridPoint_SetY`, "inputTypes") = c('_p_OpenBabel__OBFreeGridPoint', 'numeric')
-class(`OBFreeGridPoint_SetY`) = c("SWIGFunction", class('OBFreeGridPoint_SetY'))
-
-# Start of OBFreeGridPoint_SetZ
-`OBFreeGridPoint_SetZ` = function(self, z) { ;.Call('R_swig_OBFreeGridPoint_SetZ', self, z, PACKAGE='ChemmineOB'); }
-attr(`OBFreeGridPoint_SetZ`, 'returnType') = 'void'
-attr(`OBFreeGridPoint_SetZ`, "inputTypes") = c('_p_OpenBabel__OBFreeGridPoint', 'numeric')
-class(`OBFreeGridPoint_SetZ`) = c("SWIGFunction", class('OBFreeGridPoint_SetZ'))
-
-# Start of OBFreeGridPoint_SetV
-`OBFreeGridPoint_SetV` = function(self, V) { ;.Call('R_swig_OBFreeGridPoint_SetV', self, V, PACKAGE='ChemmineOB'); }
-attr(`OBFreeGridPoint_SetV`, 'returnType') = 'void'
-attr(`OBFreeGridPoint_SetV`, "inputTypes") = c('_p_OpenBabel__OBFreeGridPoint', 'numeric')
-class(`OBFreeGridPoint_SetV`) = c("SWIGFunction", class('OBFreeGridPoint_SetV'))
-
-# Start of accessor method for OpenBabel::OBFreeGridPoint
-setMethod('$', '_p_OpenBabel__OBFreeGridPoint', function(x, name) {
-  accessorFuns = list('GetX' = OBFreeGridPoint_GetX, 'GetY' = OBFreeGridPoint_GetY, 'GetZ' = OBFreeGridPoint_GetZ, 'GetV' = OBFreeGridPoint_GetV, 'SetX' = OBFreeGridPoint_SetX, 'SetY' = OBFreeGridPoint_SetY, 'SetZ' = OBFreeGridPoint_SetZ, 'SetV' = OBFreeGridPoint_SetV);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
-  function(...){ f(x, ...)} ; }
-);
-# end of accessor method for OpenBabel::OBFreeGridPoint
-setMethod('delete', '_p_OpenBabel__OBFreeGridPoint', function(obj) {delete_OpenBabel__OBFreeGridPoint(obj)})
-# Start of new_OBFreeGrid
-`OBFreeGrid` = function() { ;ans = .Call('R_swig_new_OBFreeGrid', PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBFreeGrid"; reg.finalizer(ans, delete_OBFreeGrid); ans }
-attr(`OBFreeGrid`, 'returnType') = '_p_OpenBabel__OBFreeGrid'
-class(`OBFreeGrid`) = c("SWIGFunction", class('OBFreeGrid'))
-
-# Start of delete_OBFreeGrid
-`delete_OBFreeGrid` = function(self) { ;.Call('R_swig_delete_OBFreeGrid', self, PACKAGE='ChemmineOB'); }
-attr(`delete_OBFreeGrid`, 'returnType') = 'void'
-attr(`delete_OBFreeGrid`, "inputTypes") = c('_p_OpenBabel__OBFreeGrid')
-class(`delete_OBFreeGrid`) = c("SWIGFunction", class('delete_OBFreeGrid'))
-
-# Start of OBFreeGrid_NumPoints
-`OBFreeGrid_NumPoints` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFreeGrid_NumPoints', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFreeGrid_NumPoints`, 'returnType') = 'integer'
-attr(`OBFreeGrid_NumPoints`, "inputTypes") = c('_p_OpenBabel__OBFreeGrid')
-class(`OBFreeGrid_NumPoints`) = c("SWIGFunction", class('OBFreeGrid_NumPoints'))
-
-# Start of OBFreeGrid_AddPoint
-`OBFreeGrid_AddPoint` = function(self, x, y, z, V) {
-  ;.Call('R_swig_OBFreeGrid_AddPoint', self, x, y, z, V, PACKAGE='ChemmineOB'); }
-attr(`OBFreeGrid_AddPoint`, 'returnType') = 'void'
-attr(`OBFreeGrid_AddPoint`, "inputTypes") = c('_p_OpenBabel__OBFreeGrid', 'numeric', 'numeric', 'numeric', 'numeric')
-class(`OBFreeGrid_AddPoint`) = c("SWIGFunction", class('OBFreeGrid_AddPoint'))
-
-# Start of OBFreeGrid_BeginPoints
-`OBFreeGrid_BeginPoints` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBFreeGrid_BeginPoints', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_std__vectorT_OpenBabel__OBFreeGridPoint_p_std__allocatorT_OpenBabel__OBFreeGridPoint_p_t_t__iterator"; ans }
-attr(`OBFreeGrid_BeginPoints`, 'returnType') = '_p_std__vectorT_OpenBabel__OBFreeGridPoint_p_std__allocatorT_OpenBabel__OBFreeGridPoint_p_t_t__iterator'
-attr(`OBFreeGrid_BeginPoints`, "inputTypes") = c('_p_OpenBabel__OBFreeGrid')
-class(`OBFreeGrid_BeginPoints`) = c("SWIGFunction", class('OBFreeGrid_BeginPoints'))
-
-# Start of OBFreeGrid_EndPoints
-`OBFreeGrid_EndPoints` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBFreeGrid_EndPoints', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_std__vectorT_OpenBabel__OBFreeGridPoint_p_std__allocatorT_OpenBabel__OBFreeGridPoint_p_t_t__iterator"; ans }
-attr(`OBFreeGrid_EndPoints`, 'returnType') = '_p_std__vectorT_OpenBabel__OBFreeGridPoint_p_std__allocatorT_OpenBabel__OBFreeGridPoint_p_t_t__iterator'
-attr(`OBFreeGrid_EndPoints`, "inputTypes") = c('_p_OpenBabel__OBFreeGrid')
-class(`OBFreeGrid_EndPoints`) = c("SWIGFunction", class('OBFreeGrid_EndPoints'))
-
-# Start of OBFreeGrid_BeginPoint
-`OBFreeGrid_BeginPoint` = function(self, i) { ;ans = .Call('R_swig_OBFreeGrid_BeginPoint', self, i, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBFreeGridPoint"; ans }
-attr(`OBFreeGrid_BeginPoint`, 'returnType') = '_p_OpenBabel__OBFreeGridPoint'
-attr(`OBFreeGrid_BeginPoint`, "inputTypes") = c('_p_OpenBabel__OBFreeGrid', '_p_std__vectorT_OpenBabel__OBFreeGridPoint_p_std__allocatorT_OpenBabel__OBFreeGridPoint_p_t_t__iterator')
-class(`OBFreeGrid_BeginPoint`) = c("SWIGFunction", class('OBFreeGrid_BeginPoint'))
-
-# Start of OBFreeGrid_NextPoint
-`OBFreeGrid_NextPoint` = function(self, i) { ;ans = .Call('R_swig_OBFreeGrid_NextPoint', self, i, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBFreeGridPoint"; ans }
-attr(`OBFreeGrid_NextPoint`, 'returnType') = '_p_OpenBabel__OBFreeGridPoint'
-attr(`OBFreeGrid_NextPoint`, "inputTypes") = c('_p_OpenBabel__OBFreeGrid', '_p_std__vectorT_OpenBabel__OBFreeGridPoint_p_std__allocatorT_OpenBabel__OBFreeGridPoint_p_t_t__iterator')
-class(`OBFreeGrid_NextPoint`) = c("SWIGFunction", class('OBFreeGrid_NextPoint'))
-
-# Start of accessor method for OpenBabel::OBFreeGrid
-setMethod('$', '_p_OpenBabel__OBFreeGrid', function(x, name) {
-  accessorFuns = list('NumPoints' = OBFreeGrid_NumPoints, 'AddPoint' = OBFreeGrid_AddPoint, 'BeginPoints' = OBFreeGrid_BeginPoints, 'EndPoints' = OBFreeGrid_EndPoints, 'BeginPoint' = OBFreeGrid_BeginPoint, 'NextPoint' = OBFreeGrid_NextPoint);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
-  function(...){ f(x, ...)} ; }
-);
-# end of accessor method for OpenBabel::OBFreeGrid
-setMethod('delete', '_p_OpenBabel__OBFreeGrid', function(obj) {delete_OpenBabel__OBFreeGrid(obj)})
 # Start of new_OBGridData
 `OBGridData` = function() { ;ans = .Call('R_swig_new_OBGridData', PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__OBGridData"; reg.finalizer(ans, delete_OBGridData); ans }
@@ -6837,30 +6266,12 @@ attr(`OBAtomTyper_AssignTypes`, "inputTypes") = c('_p_OpenBabel__OBAtomTyper', '
 class(`OBAtomTyper_AssignTypes`) = c("SWIGFunction", class('OBAtomTyper_AssignTypes'))
 
 # Start of OBAtomTyper_AssignImplicitValence
-`OBAtomTyper_AssignImplicitValence__SWIG_0` = function(self, s_arg2, CanBeLessThanActual) {
-  CanBeLessThanActual = as.logical(CanBeLessThanActual);
-  ;.Call('R_swig_OBAtomTyper_AssignImplicitValence__SWIG_0', self, s_arg2, CanBeLessThanActual, PACKAGE='ChemmineOB'); }
-attr(`OBAtomTyper_AssignImplicitValence__SWIG_0`, 'returnType') = 'void'
-attr(`OBAtomTyper_AssignImplicitValence__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBAtomTyper', '_p_OpenBabel__OBMol', 'logical')
-class(`OBAtomTyper_AssignImplicitValence__SWIG_0`) = c("SWIGFunction", class('OBAtomTyper_AssignImplicitValence__SWIG_0'))
+`OBAtomTyper_AssignImplicitValence` = function(self, s_arg2) {
+  ;.Call('R_swig_OBAtomTyper_AssignImplicitValence', self, s_arg2, PACKAGE='ChemmineOB'); }
+attr(`OBAtomTyper_AssignImplicitValence`, 'returnType') = 'void'
+attr(`OBAtomTyper_AssignImplicitValence`, "inputTypes") = c('_p_OpenBabel__OBAtomTyper', '_p_OpenBabel__OBMol')
+class(`OBAtomTyper_AssignImplicitValence`) = c("SWIGFunction", class('OBAtomTyper_AssignImplicitValence'))
 
-# Start of OBAtomTyper_AssignImplicitValence
-`OBAtomTyper_AssignImplicitValence__SWIG_1` = function(self, s_arg2) {
-  ;.Call('R_swig_OBAtomTyper_AssignImplicitValence__SWIG_1', self, s_arg2, PACKAGE='ChemmineOB'); }
-attr(`OBAtomTyper_AssignImplicitValence__SWIG_1`, 'returnType') = 'void'
-attr(`OBAtomTyper_AssignImplicitValence__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBAtomTyper', '_p_OpenBabel__OBMol')
-class(`OBAtomTyper_AssignImplicitValence__SWIG_1`) = c("SWIGFunction", class('OBAtomTyper_AssignImplicitValence__SWIG_1'))
-
-`OBAtomTyper_AssignImplicitValence` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBAtomTyper') && extends(argtypes[2], '_p_OpenBabel__OBMol') && length(argv[[2]]) == 1) {
-      f <- OBAtomTyper_AssignImplicitValence__SWIG_1; }  }  else if (argc == 3) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBAtomTyper') && extends(argtypes[2], '_p_OpenBabel__OBMol') && length(argv[[2]]) == 1 && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
-      f <- OBAtomTyper_AssignImplicitValence__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBAtomTyper_AssignImplicitValence with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
 # Start of OBAtomTyper_CorrectAromaticNitrogens
 `OBAtomTyper_CorrectAromaticNitrogens` = function(self, s_arg2) {
   ;.Call('R_swig_OBAtomTyper_CorrectAromaticNitrogens', self, s_arg2, PACKAGE='ChemmineOB'); }
@@ -7962,13 +7373,6 @@ attr(`OBConversion_GetInFilename`, 'returnType') = 'character'
 attr(`OBConversion_GetInFilename`, "inputTypes") = c('_p_OpenBabel__OBConversion')
 class(`OBConversion_GetInFilename`) = c("SWIGFunction", class('OBConversion_GetInFilename'))
 
-# Start of OBConversion_GetOutFilename
-`OBConversion_GetOutFilename` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBConversion_GetOutFilename', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBConversion_GetOutFilename`, 'returnType') = 'character'
-attr(`OBConversion_GetOutFilename`, "inputTypes") = c('_p_OpenBabel__OBConversion')
-class(`OBConversion_GetOutFilename`) = c("SWIGFunction", class('OBConversion_GetOutFilename'))
-
 # Start of OBConversion_GetInPos
 `OBConversion_GetInPos` = function(self, .copy = FALSE) {
   ;ans = .Call('R_swig_OBConversion_GetInPos', self, as.logical(.copy), PACKAGE='ChemmineOB');
@@ -8474,7 +7878,7 @@ class(`OBConversion_NumInputObjects`) = c("SWIGFunction", class('OBConversion_Nu
 
 # Start of accessor method for OpenBabel::OBConversion
 setMethod('$', '_p_OpenBabel__OBConversion', function(x, name) {
-  accessorFuns = list('GetInStream' = OBConversion_GetInStream, 'GetOutStream' = OBConversion_GetOutStream, 'SetInStream' = OBConversion_SetInStream, 'SetOutStream' = OBConversion_SetOutStream, 'SetInAndOutFormats' = OBConversion_SetInAndOutFormats, 'SetInFormat' = OBConversion_SetInFormat, 'SetOutFormat' = OBConversion_SetOutFormat, 'GetInFormat' = OBConversion_GetInFormat, 'GetOutFormat' = OBConversion_GetOutFormat, 'GetInFilename' = OBConversion_GetInFilename, 'GetOutFilename' = OBConversion_GetOutFilename, 'GetInPos' = OBConversion_GetInPos, 'GetInLen' = OBConversion_GetInLen, 'GetTitle' = OBConversion_GetTitle, 'GetAuxConv' = OBConversion_GetAuxConv, 'SetAuxConv' = OBConversion_SetAuxConv, 'IsOption' = OBConversion_IsOption, 'GetOptions' = OBConversion_GetOptions, 'AddOption' = OBConversion_AddOption, 'RemoveOption' = OBConversion_RemoveOption, 'SetOptions' = OBConversion_SetOptions, 'CopyOptions' = OBConversion_CopyOptions, 'GetSupportedInputFormat' = OBConversion_GetSupportedInputFormat, 'GetSupportedOutputFormat' = OBConversion_GetSupportedOutputFormat, 'Convert' = OBConversion_Convert, 'FullConvert' = OBConversion_FullConvert, 'AddChemObject' = OBConversion_AddChemObject, 'GetChemObject' = OBConversion_GetChemObject, 'IsLast' = OBConversion_IsLast, 'IsFirstInput' = OBConversion_IsFirstInput, 'SetFirstInput' = OBConversion_SetFirstInput, 'GetOutputIndex' = OBConversion_GetOutputIndex, 'SetOutputIndex' = OBConversion_SetOutputIndex, 'SetMoreFilesToCome' = OBConversion_SetMoreFilesToCome, 'SetOneObjectOnly' = OBConversion_SetOneObjectOnly, 'SetLast' = OBConversion_SetLast, 'IsLastFile' = OBConversion_IsLastFile, 'GetCount' = OBConversion_GetCount, 'Write' = OBConversion_Write, 'WriteString' = OBConversion_WriteString, 'WriteFile' = OBConversion_WriteFile, 'CloseOutFile' = OBConversion_CloseOutFile, 'Read' = OBConversion_Read, 'ReadString' = OBConversion_ReadString, 'ReadFile' = OBConversion_ReadFile, 'OpenInAndOutFiles' = OBConversion_OpenInAndOutFiles, 'ReportNumberConverted' = OBConversion_ReportNumberConverted, 'NumInputObjects' = OBConversion_NumInputObjects);
+  accessorFuns = list('GetInStream' = OBConversion_GetInStream, 'GetOutStream' = OBConversion_GetOutStream, 'SetInStream' = OBConversion_SetInStream, 'SetOutStream' = OBConversion_SetOutStream, 'SetInAndOutFormats' = OBConversion_SetInAndOutFormats, 'SetInFormat' = OBConversion_SetInFormat, 'SetOutFormat' = OBConversion_SetOutFormat, 'GetInFormat' = OBConversion_GetInFormat, 'GetOutFormat' = OBConversion_GetOutFormat, 'GetInFilename' = OBConversion_GetInFilename, 'GetInPos' = OBConversion_GetInPos, 'GetInLen' = OBConversion_GetInLen, 'GetTitle' = OBConversion_GetTitle, 'GetAuxConv' = OBConversion_GetAuxConv, 'SetAuxConv' = OBConversion_SetAuxConv, 'IsOption' = OBConversion_IsOption, 'GetOptions' = OBConversion_GetOptions, 'AddOption' = OBConversion_AddOption, 'RemoveOption' = OBConversion_RemoveOption, 'SetOptions' = OBConversion_SetOptions, 'CopyOptions' = OBConversion_CopyOptions, 'GetSupportedInputFormat' = OBConversion_GetSupportedInputFormat, 'GetSupportedOutputFormat' = OBConversion_GetSupportedOutputFormat, 'Convert' = OBConversion_Convert, 'FullConvert' = OBConversion_FullConvert, 'AddChemObject' = OBConversion_AddChemObject, 'GetChemObject' = OBConversion_GetChemObject, 'IsLast' = OBConversion_IsLast, 'IsFirstInput' = OBConversion_IsFirstInput, 'SetFirstInput' = OBConversion_SetFirstInput, 'GetOutputIndex' = OBConversion_GetOutputIndex, 'SetOutputIndex' = OBConversion_SetOutputIndex, 'SetMoreFilesToCome' = OBConversion_SetMoreFilesToCome, 'SetOneObjectOnly' = OBConversion_SetOneObjectOnly, 'SetLast' = OBConversion_SetLast, 'IsLastFile' = OBConversion_IsLastFile, 'GetCount' = OBConversion_GetCount, 'Write' = OBConversion_Write, 'WriteString' = OBConversion_WriteString, 'WriteFile' = OBConversion_WriteFile, 'CloseOutFile' = OBConversion_CloseOutFile, 'Read' = OBConversion_Read, 'ReadString' = OBConversion_ReadString, 'ReadFile' = OBConversion_ReadFile, 'OpenInAndOutFiles' = OBConversion_OpenInAndOutFiles, 'ReportNumberConverted' = OBConversion_ReportNumberConverted, 'NumInputObjects' = OBConversion_NumInputObjects);
   ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
   function(...){ f(x, ...)} ; }
 );
@@ -9523,19 +8927,10 @@ attr(`OBAtom_GetDistance__SWIG_1`, 'returnType') = 'numeric'
 attr(`OBAtom_GetDistance__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBAtom', '_p_OpenBabel__OBAtom')
 class(`OBAtom_GetDistance__SWIG_1`) = c("SWIGFunction", class('OBAtom_GetDistance__SWIG_1'))
 
-# Start of OBAtom_GetDistance
-`OBAtom_GetDistance__SWIG_2` = function(self, v, .copy = FALSE) {
-  ;.Call('R_swig_OBAtom_GetDistance__SWIG_2', self, v, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtom_GetDistance__SWIG_2`, 'returnType') = 'numeric'
-attr(`OBAtom_GetDistance__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBAtom', '_p_OpenBabel__vector3')
-class(`OBAtom_GetDistance__SWIG_2`) = c("SWIGFunction", class('OBAtom_GetDistance__SWIG_2'))
-
 `OBAtom_GetDistance` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 3
+# dispatch functions 2
    if (argc == 2) { if (extends(argtypes[1], '_p_OpenBabel__OBAtom') && extends(argtypes[2], '_p_OpenBabel__OBAtom')) {
       f <- OBAtom_GetDistance__SWIG_1; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBAtom') && extends(argtypes[2], '_p_OpenBabel__vector3')) {
-      f <- OBAtom_GetDistance__SWIG_2; } 
     else if (extends(argtypes[1], '_p_OpenBabel__OBAtom') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
       f <- OBAtom_GetDistance__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBAtom_GetDistance with argtypes (",toString(argtypes),")"); } ; f(...); }
@@ -9656,13 +9051,6 @@ attr(`OBAtom_CountFreeOxygens`, 'returnType') = 'integer'
 attr(`OBAtom_CountFreeOxygens`, "inputTypes") = c('_p_OpenBabel__OBAtom')
 class(`OBAtom_CountFreeOxygens`) = c("SWIGFunction", class('OBAtom_CountFreeOxygens'))
 
-# Start of OBAtom_CountFreeSulfurs
-`OBAtom_CountFreeSulfurs` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBAtom_CountFreeSulfurs', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtom_CountFreeSulfurs`, 'returnType') = 'integer'
-attr(`OBAtom_CountFreeSulfurs`, "inputTypes") = c('_p_OpenBabel__OBAtom')
-class(`OBAtom_CountFreeSulfurs`) = c("SWIGFunction", class('OBAtom_CountFreeSulfurs'))
-
 # Start of OBAtom_ImplicitHydrogenCount
 `OBAtom_ImplicitHydrogenCount` = function(self, .copy = FALSE) {
   ;.Call('R_swig_OBAtom_ImplicitHydrogenCount', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -9741,14 +9129,6 @@ class(`OBAtom_BOSum`) = c("SWIGFunction", class('OBAtom_BOSum'))
 attr(`OBAtom_KBOSum`, 'returnType') = 'integer'
 attr(`OBAtom_KBOSum`, "inputTypes") = c('_p_OpenBabel__OBAtom')
 class(`OBAtom_KBOSum`) = c("SWIGFunction", class('OBAtom_KBOSum'))
-
-# Start of OBAtom_LewisAcidBaseCounts
-`OBAtom_LewisAcidBaseCounts` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBAtom_LewisAcidBaseCounts', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_std__pairT_int_int_t"; ans }
-attr(`OBAtom_LewisAcidBaseCounts`, 'returnType') = '_p_std__pairT_int_int_t'
-attr(`OBAtom_LewisAcidBaseCounts`, "inputTypes") = c('_p_OpenBabel__OBAtom')
-class(`OBAtom_LewisAcidBaseCounts`) = c("SWIGFunction", class('OBAtom_LewisAcidBaseCounts'))
 
 # Start of OBAtom_HasResidue
 `OBAtom_HasResidue` = function(self, .copy = FALSE) {
@@ -9855,13 +9235,6 @@ class(`OBAtom_IsOneFour`) = c("SWIGFunction", class('OBAtom_IsOneFour'))
 attr(`OBAtom_IsCarboxylOxygen`, 'returnType') = 'logical'
 attr(`OBAtom_IsCarboxylOxygen`, "inputTypes") = c('_p_OpenBabel__OBAtom')
 class(`OBAtom_IsCarboxylOxygen`) = c("SWIGFunction", class('OBAtom_IsCarboxylOxygen'))
-
-# Start of OBAtom_IsThiocarboxylSulfur
-`OBAtom_IsThiocarboxylSulfur` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBAtom_IsThiocarboxylSulfur', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtom_IsThiocarboxylSulfur`, 'returnType') = 'logical'
-attr(`OBAtom_IsThiocarboxylSulfur`, "inputTypes") = c('_p_OpenBabel__OBAtom')
-class(`OBAtom_IsThiocarboxylSulfur`) = c("SWIGFunction", class('OBAtom_IsThiocarboxylSulfur'))
 
 # Start of OBAtom_IsPhosphateOxygen
 `OBAtom_IsPhosphateOxygen` = function(self, .copy = FALSE) {
@@ -9989,13 +9362,6 @@ attr(`OBAtom_IsHbondDonorH`, 'returnType') = 'logical'
 attr(`OBAtom_IsHbondDonorH`, "inputTypes") = c('_p_OpenBabel__OBAtom')
 class(`OBAtom_IsHbondDonorH`) = c("SWIGFunction", class('OBAtom_IsHbondDonorH'))
 
-# Start of OBAtom_IsMetal
-`OBAtom_IsMetal` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBAtom_IsMetal', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtom_IsMetal`, 'returnType') = 'logical'
-attr(`OBAtom_IsMetal`, "inputTypes") = c('_p_OpenBabel__OBAtom')
-class(`OBAtom_IsMetal`) = c("SWIGFunction", class('OBAtom_IsMetal'))
-
 # Start of OBAtom_HasAlphaBetaUnsat
 `OBAtom_HasAlphaBetaUnsat__SWIG_0` = function(self, includePandS, .copy = FALSE) { includePandS = as.logical(includePandS);
   ;.Call('R_swig_OBAtom_HasAlphaBetaUnsat__SWIG_0', self, includePandS, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -10071,7 +9437,7 @@ class(`OBAtom_MatchesSMARTS`) = c("SWIGFunction", class('OBAtom_MatchesSMARTS'))
 
 # Start of accessor method for OpenBabel::OBAtom
 setMethod('$', '_p_OpenBabel__OBAtom', function(x, name) {
-  accessorFuns = list('Visit' = OBAtom_Visit_get, 'Duplicate' = OBAtom_Duplicate, 'SetIdx' = OBAtom_SetIdx, 'SetId' = OBAtom_SetId, 'SetHyb' = OBAtom_SetHyb, 'SetAtomicNum' = OBAtom_SetAtomicNum, 'SetIsotope' = OBAtom_SetIsotope, 'SetImplicitValence' = OBAtom_SetImplicitValence, 'IncrementImplicitValence' = OBAtom_IncrementImplicitValence, 'DecrementImplicitValence' = OBAtom_DecrementImplicitValence, 'SetFormalCharge' = OBAtom_SetFormalCharge, 'SetSpinMultiplicity' = OBAtom_SetSpinMultiplicity, 'SetType' = OBAtom_SetType, 'SetPartialCharge' = OBAtom_SetPartialCharge, 'SetVector' = OBAtom_SetVector, 'SetCoordPtr' = OBAtom_SetCoordPtr, 'SetResidue' = OBAtom_SetResidue, 'SetParent' = OBAtom_SetParent, 'SetAromatic' = OBAtom_SetAromatic, 'UnsetAromatic' = OBAtom_UnsetAromatic, 'SetClockwiseStereo' = OBAtom_SetClockwiseStereo, 'SetAntiClockwiseStereo' = OBAtom_SetAntiClockwiseStereo, 'SetPositiveStereo' = OBAtom_SetPositiveStereo, 'SetNegativeStereo' = OBAtom_SetNegativeStereo, 'UnsetStereo' = OBAtom_UnsetStereo, 'SetInRing' = OBAtom_SetInRing, 'SetChiral' = OBAtom_SetChiral, 'ClearCoordPtr' = OBAtom_ClearCoordPtr, 'GetFormalCharge' = OBAtom_GetFormalCharge, 'GetAtomicNum' = OBAtom_GetAtomicNum, 'GetIsotope' = OBAtom_GetIsotope, 'GetSpinMultiplicity' = OBAtom_GetSpinMultiplicity, 'GetAtomicMass' = OBAtom_GetAtomicMass, 'GetExactMass' = OBAtom_GetExactMass, 'GetIdx' = OBAtom_GetIdx, 'GetIndex' = OBAtom_GetIndex, 'GetId' = OBAtom_GetId, 'GetCoordinateIdx' = OBAtom_GetCoordinateIdx, 'GetCIdx' = OBAtom_GetCIdx, 'GetValence' = OBAtom_GetValence, 'GetHyb' = OBAtom_GetHyb, 'GetImplicitValence' = OBAtom_GetImplicitValence, 'GetHvyValence' = OBAtom_GetHvyValence, 'GetHeteroValence' = OBAtom_GetHeteroValence, 'GetType' = OBAtom_GetType, 'GetX' = OBAtom_GetX, 'GetY' = OBAtom_GetY, 'GetZ' = OBAtom_GetZ, 'x' = OBAtom_x, 'y' = OBAtom_y, 'z' = OBAtom_z, 'GetCoordinate' = OBAtom_GetCoordinate, 'GetVector' = OBAtom_GetVector, 'GetPartialCharge' = OBAtom_GetPartialCharge, 'GetResidue' = OBAtom_GetResidue, 'GetParent' = OBAtom_GetParent, 'GetNewBondVector' = OBAtom_GetNewBondVector, 'GetBond' = OBAtom_GetBond, 'GetNextAtom' = OBAtom_GetNextAtom, 'BeginBonds' = OBAtom_BeginBonds, 'EndBonds' = OBAtom_EndBonds, 'BeginBond' = OBAtom_BeginBond, 'NextBond' = OBAtom_NextBond, 'BeginNbrAtom' = OBAtom_BeginNbrAtom, 'NextNbrAtom' = OBAtom_NextNbrAtom, 'GetDistance' = OBAtom_GetDistance, 'GetAngle' = OBAtom_GetAngle, 'NewResidue' = OBAtom_NewResidue, 'AddResidue' = OBAtom_AddResidue, 'DeleteResidue' = OBAtom_DeleteResidue, 'AddBond' = OBAtom_AddBond, 'InsertBond' = OBAtom_InsertBond, 'DeleteBond' = OBAtom_DeleteBond, 'ClearBond' = OBAtom_ClearBond, 'HtoMethyl' = OBAtom_HtoMethyl, 'SetHybAndGeom' = OBAtom_SetHybAndGeom, 'ForceNoH' = OBAtom_ForceNoH, 'HasNoHForced' = OBAtom_HasNoHForced, 'ForceImplH' = OBAtom_ForceImplH, 'HasImplHForced' = OBAtom_HasImplHForced, 'CountFreeOxygens' = OBAtom_CountFreeOxygens, 'CountFreeSulfurs' = OBAtom_CountFreeSulfurs, 'ImplicitHydrogenCount' = OBAtom_ImplicitHydrogenCount, 'ExplicitHydrogenCount' = OBAtom_ExplicitHydrogenCount, 'MemberOfRingCount' = OBAtom_MemberOfRingCount, 'MemberOfRingSize' = OBAtom_MemberOfRingSize, 'CountRingBonds' = OBAtom_CountRingBonds, 'SmallestBondAngle' = OBAtom_SmallestBondAngle, 'AverageBondAngle' = OBAtom_AverageBondAngle, 'BOSum' = OBAtom_BOSum, 'KBOSum' = OBAtom_KBOSum, 'LewisAcidBaseCounts' = OBAtom_LewisAcidBaseCounts, 'HasResidue' = OBAtom_HasResidue, 'IsCarbon' = OBAtom_IsCarbon, 'IsNitrogen' = OBAtom_IsNitrogen, 'IsOxygen' = OBAtom_IsOxygen, 'IsSulfur' = OBAtom_IsSulfur, 'IsPhosphorus' = OBAtom_IsPhosphorus, 'IsAromatic' = OBAtom_IsAromatic, 'IsInRing' = OBAtom_IsInRing, 'IsInRingSize' = OBAtom_IsInRingSize, 'IsHeteroatom' = OBAtom_IsHeteroatom, 'IsNotCorH' = OBAtom_IsNotCorH, 'IsConnected' = OBAtom_IsConnected, 'IsOneThree' = OBAtom_IsOneThree, 'IsOneFour' = OBAtom_IsOneFour, 'IsCarboxylOxygen' = OBAtom_IsCarboxylOxygen, 'IsThiocarboxylSulfur' = OBAtom_IsThiocarboxylSulfur, 'IsPhosphateOxygen' = OBAtom_IsPhosphateOxygen, 'IsSulfateOxygen' = OBAtom_IsSulfateOxygen, 'IsNitroOxygen' = OBAtom_IsNitroOxygen, 'IsAmideNitrogen' = OBAtom_IsAmideNitrogen, 'IsPolarHydrogen' = OBAtom_IsPolarHydrogen, 'IsNonPolarHydrogen' = OBAtom_IsNonPolarHydrogen, 'IsAromaticNOxide' = OBAtom_IsAromaticNOxide, 'IsChiral' = OBAtom_IsChiral, 'IsAxial' = OBAtom_IsAxial, 'IsClockwise' = OBAtom_IsClockwise, 'IsAntiClockwise' = OBAtom_IsAntiClockwise, 'IsPositiveStereo' = OBAtom_IsPositiveStereo, 'IsNegativeStereo' = OBAtom_IsNegativeStereo, 'HasChiralitySpecified' = OBAtom_HasChiralitySpecified, 'HasChiralVolume' = OBAtom_HasChiralVolume, 'IsHbondAcceptor' = OBAtom_IsHbondAcceptor, 'IsHbondDonor' = OBAtom_IsHbondDonor, 'IsHbondDonorH' = OBAtom_IsHbondDonorH, 'IsMetal' = OBAtom_IsMetal, 'HasAlphaBetaUnsat' = OBAtom_HasAlphaBetaUnsat, 'HasBondOfOrder' = OBAtom_HasBondOfOrder, 'CountBondsOfOrder' = OBAtom_CountBondsOfOrder, 'HasNonSingleBond' = OBAtom_HasNonSingleBond, 'HasSingleBond' = OBAtom_HasSingleBond, 'HasDoubleBond' = OBAtom_HasDoubleBond, 'HasAromaticBond' = OBAtom_HasAromaticBond, 'MatchesSMARTS' = OBAtom_MatchesSMARTS);
+  accessorFuns = list('Visit' = OBAtom_Visit_get, 'Duplicate' = OBAtom_Duplicate, 'SetIdx' = OBAtom_SetIdx, 'SetId' = OBAtom_SetId, 'SetHyb' = OBAtom_SetHyb, 'SetAtomicNum' = OBAtom_SetAtomicNum, 'SetIsotope' = OBAtom_SetIsotope, 'SetImplicitValence' = OBAtom_SetImplicitValence, 'IncrementImplicitValence' = OBAtom_IncrementImplicitValence, 'DecrementImplicitValence' = OBAtom_DecrementImplicitValence, 'SetFormalCharge' = OBAtom_SetFormalCharge, 'SetSpinMultiplicity' = OBAtom_SetSpinMultiplicity, 'SetType' = OBAtom_SetType, 'SetPartialCharge' = OBAtom_SetPartialCharge, 'SetVector' = OBAtom_SetVector, 'SetCoordPtr' = OBAtom_SetCoordPtr, 'SetResidue' = OBAtom_SetResidue, 'SetParent' = OBAtom_SetParent, 'SetAromatic' = OBAtom_SetAromatic, 'UnsetAromatic' = OBAtom_UnsetAromatic, 'SetClockwiseStereo' = OBAtom_SetClockwiseStereo, 'SetAntiClockwiseStereo' = OBAtom_SetAntiClockwiseStereo, 'SetPositiveStereo' = OBAtom_SetPositiveStereo, 'SetNegativeStereo' = OBAtom_SetNegativeStereo, 'UnsetStereo' = OBAtom_UnsetStereo, 'SetInRing' = OBAtom_SetInRing, 'SetChiral' = OBAtom_SetChiral, 'ClearCoordPtr' = OBAtom_ClearCoordPtr, 'GetFormalCharge' = OBAtom_GetFormalCharge, 'GetAtomicNum' = OBAtom_GetAtomicNum, 'GetIsotope' = OBAtom_GetIsotope, 'GetSpinMultiplicity' = OBAtom_GetSpinMultiplicity, 'GetAtomicMass' = OBAtom_GetAtomicMass, 'GetExactMass' = OBAtom_GetExactMass, 'GetIdx' = OBAtom_GetIdx, 'GetIndex' = OBAtom_GetIndex, 'GetId' = OBAtom_GetId, 'GetCoordinateIdx' = OBAtom_GetCoordinateIdx, 'GetCIdx' = OBAtom_GetCIdx, 'GetValence' = OBAtom_GetValence, 'GetHyb' = OBAtom_GetHyb, 'GetImplicitValence' = OBAtom_GetImplicitValence, 'GetHvyValence' = OBAtom_GetHvyValence, 'GetHeteroValence' = OBAtom_GetHeteroValence, 'GetType' = OBAtom_GetType, 'GetX' = OBAtom_GetX, 'GetY' = OBAtom_GetY, 'GetZ' = OBAtom_GetZ, 'x' = OBAtom_x, 'y' = OBAtom_y, 'z' = OBAtom_z, 'GetCoordinate' = OBAtom_GetCoordinate, 'GetVector' = OBAtom_GetVector, 'GetPartialCharge' = OBAtom_GetPartialCharge, 'GetResidue' = OBAtom_GetResidue, 'GetParent' = OBAtom_GetParent, 'GetNewBondVector' = OBAtom_GetNewBondVector, 'GetBond' = OBAtom_GetBond, 'GetNextAtom' = OBAtom_GetNextAtom, 'BeginBonds' = OBAtom_BeginBonds, 'EndBonds' = OBAtom_EndBonds, 'BeginBond' = OBAtom_BeginBond, 'NextBond' = OBAtom_NextBond, 'BeginNbrAtom' = OBAtom_BeginNbrAtom, 'NextNbrAtom' = OBAtom_NextNbrAtom, 'GetDistance' = OBAtom_GetDistance, 'GetAngle' = OBAtom_GetAngle, 'NewResidue' = OBAtom_NewResidue, 'AddResidue' = OBAtom_AddResidue, 'DeleteResidue' = OBAtom_DeleteResidue, 'AddBond' = OBAtom_AddBond, 'InsertBond' = OBAtom_InsertBond, 'DeleteBond' = OBAtom_DeleteBond, 'ClearBond' = OBAtom_ClearBond, 'HtoMethyl' = OBAtom_HtoMethyl, 'SetHybAndGeom' = OBAtom_SetHybAndGeom, 'ForceNoH' = OBAtom_ForceNoH, 'HasNoHForced' = OBAtom_HasNoHForced, 'ForceImplH' = OBAtom_ForceImplH, 'HasImplHForced' = OBAtom_HasImplHForced, 'CountFreeOxygens' = OBAtom_CountFreeOxygens, 'ImplicitHydrogenCount' = OBAtom_ImplicitHydrogenCount, 'ExplicitHydrogenCount' = OBAtom_ExplicitHydrogenCount, 'MemberOfRingCount' = OBAtom_MemberOfRingCount, 'MemberOfRingSize' = OBAtom_MemberOfRingSize, 'CountRingBonds' = OBAtom_CountRingBonds, 'SmallestBondAngle' = OBAtom_SmallestBondAngle, 'AverageBondAngle' = OBAtom_AverageBondAngle, 'BOSum' = OBAtom_BOSum, 'KBOSum' = OBAtom_KBOSum, 'HasResidue' = OBAtom_HasResidue, 'IsCarbon' = OBAtom_IsCarbon, 'IsNitrogen' = OBAtom_IsNitrogen, 'IsOxygen' = OBAtom_IsOxygen, 'IsSulfur' = OBAtom_IsSulfur, 'IsPhosphorus' = OBAtom_IsPhosphorus, 'IsAromatic' = OBAtom_IsAromatic, 'IsInRing' = OBAtom_IsInRing, 'IsInRingSize' = OBAtom_IsInRingSize, 'IsHeteroatom' = OBAtom_IsHeteroatom, 'IsNotCorH' = OBAtom_IsNotCorH, 'IsConnected' = OBAtom_IsConnected, 'IsOneThree' = OBAtom_IsOneThree, 'IsOneFour' = OBAtom_IsOneFour, 'IsCarboxylOxygen' = OBAtom_IsCarboxylOxygen, 'IsPhosphateOxygen' = OBAtom_IsPhosphateOxygen, 'IsSulfateOxygen' = OBAtom_IsSulfateOxygen, 'IsNitroOxygen' = OBAtom_IsNitroOxygen, 'IsAmideNitrogen' = OBAtom_IsAmideNitrogen, 'IsPolarHydrogen' = OBAtom_IsPolarHydrogen, 'IsNonPolarHydrogen' = OBAtom_IsNonPolarHydrogen, 'IsAromaticNOxide' = OBAtom_IsAromaticNOxide, 'IsChiral' = OBAtom_IsChiral, 'IsAxial' = OBAtom_IsAxial, 'IsClockwise' = OBAtom_IsClockwise, 'IsAntiClockwise' = OBAtom_IsAntiClockwise, 'IsPositiveStereo' = OBAtom_IsPositiveStereo, 'IsNegativeStereo' = OBAtom_IsNegativeStereo, 'HasChiralitySpecified' = OBAtom_HasChiralitySpecified, 'HasChiralVolume' = OBAtom_HasChiralVolume, 'IsHbondAcceptor' = OBAtom_IsHbondAcceptor, 'IsHbondDonor' = OBAtom_IsHbondDonor, 'IsHbondDonorH' = OBAtom_IsHbondDonorH, 'HasAlphaBetaUnsat' = OBAtom_HasAlphaBetaUnsat, 'HasBondOfOrder' = OBAtom_HasBondOfOrder, 'CountBondsOfOrder' = OBAtom_CountBondsOfOrder, 'HasNonSingleBond' = OBAtom_HasNonSingleBond, 'HasSingleBond' = OBAtom_HasSingleBond, 'HasDoubleBond' = OBAtom_HasDoubleBond, 'HasAromaticBond' = OBAtom_HasAromaticBond, 'MatchesSMARTS' = OBAtom_MatchesSMARTS);
   vaccessors = c('Visit'); ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name));
   f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}  else f(x); }
 );
@@ -10473,13 +9839,6 @@ attr(`OBBond_IsTertiaryAmide`, 'returnType') = 'logical'
 attr(`OBBond_IsTertiaryAmide`, "inputTypes") = c('_p_OpenBabel__OBBond')
 class(`OBBond_IsTertiaryAmide`) = c("SWIGFunction", class('OBBond_IsTertiaryAmide'))
 
-# Start of OBBond_IsAmidine
-`OBBond_IsAmidine` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBBond_IsAmidine', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBBond_IsAmidine`, 'returnType') = 'logical'
-attr(`OBBond_IsAmidine`, "inputTypes") = c('_p_OpenBabel__OBBond')
-class(`OBBond_IsAmidine`) = c("SWIGFunction", class('OBBond_IsAmidine'))
-
 # Start of OBBond_IsEster
 `OBBond_IsEster` = function(self, .copy = FALSE) {
   ;.Call('R_swig_OBBond_IsEster', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -10493,13 +9852,6 @@ class(`OBBond_IsEster`) = c("SWIGFunction", class('OBBond_IsEster'))
 attr(`OBBond_IsCarbonyl`, 'returnType') = 'logical'
 attr(`OBBond_IsCarbonyl`, "inputTypes") = c('_p_OpenBabel__OBBond')
 class(`OBBond_IsCarbonyl`) = c("SWIGFunction", class('OBBond_IsCarbonyl'))
-
-# Start of OBBond_IsImide
-`OBBond_IsImide` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBBond_IsImide', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBBond_IsImide`, 'returnType') = 'logical'
-attr(`OBBond_IsImide`, "inputTypes") = c('_p_OpenBabel__OBBond')
-class(`OBBond_IsImide`) = c("SWIGFunction", class('OBBond_IsImide'))
 
 # Start of OBBond_IsSingle
 `OBBond_IsSingle` = function(self, .copy = FALSE) {
@@ -10600,7 +9952,7 @@ class(`OBBond_IsDoubleBondGeometry`) = c("SWIGFunction", class('OBBond_IsDoubleB
 
 # Start of accessor method for OpenBabel::OBBond
 setMethod('$', '_p_OpenBabel__OBBond', function(x, name) {
-  accessorFuns = list('Visit' = OBBond_Visit_get, 'SetIdx' = OBBond_SetIdx, 'SetId' = OBBond_SetId, 'SetBO' = OBBond_SetBO, 'SetBondOrder' = OBBond_SetBondOrder, 'SetBegin' = OBBond_SetBegin, 'SetEnd' = OBBond_SetEnd, 'SetParent' = OBBond_SetParent, 'SetLength' = OBBond_SetLength, 'Set' = OBBond_Set, 'SetKSingle' = OBBond_SetKSingle, 'SetKDouble' = OBBond_SetKDouble, 'SetKTriple' = OBBond_SetKTriple, 'SetAromatic' = OBBond_SetAromatic, 'SetWedge' = OBBond_SetWedge, 'SetHash' = OBBond_SetHash, 'SetWedgeOrHash' = OBBond_SetWedgeOrHash, 'SetUp' = OBBond_SetUp, 'SetDown' = OBBond_SetDown, 'SetInRing' = OBBond_SetInRing, 'SetClosure' = OBBond_SetClosure, 'UnsetHash' = OBBond_UnsetHash, 'UnsetWedge' = OBBond_UnsetWedge, 'UnsetUp' = OBBond_UnsetUp, 'UnsetDown' = OBBond_UnsetDown, 'UnsetAromatic' = OBBond_UnsetAromatic, 'UnsetKekule' = OBBond_UnsetKekule, 'GetIdx' = OBBond_GetIdx, 'GetId' = OBBond_GetId, 'GetBO' = OBBond_GetBO, 'GetBondOrder' = OBBond_GetBondOrder, 'GetFlags' = OBBond_GetFlags, 'GetBeginAtomIdx' = OBBond_GetBeginAtomIdx, 'GetEndAtomIdx' = OBBond_GetEndAtomIdx, 'GetBeginAtom' = OBBond_GetBeginAtom, 'GetEndAtom' = OBBond_GetEndAtom, 'GetNbrAtom' = OBBond_GetNbrAtom, 'GetParent' = OBBond_GetParent, 'GetEquibLength' = OBBond_GetEquibLength, 'GetLength' = OBBond_GetLength, 'GetNbrAtomIdx' = OBBond_GetNbrAtomIdx, 'FindSmallestRing' = OBBond_FindSmallestRing, 'IsAromatic' = OBBond_IsAromatic, 'IsInRing' = OBBond_IsInRing, 'IsRotor' = OBBond_IsRotor, 'IsAmide' = OBBond_IsAmide, 'IsPrimaryAmide' = OBBond_IsPrimaryAmide, 'IsSecondaryAmide' = OBBond_IsSecondaryAmide, 'IsTertiaryAmide' = OBBond_IsTertiaryAmide, 'IsAmidine' = OBBond_IsAmidine, 'IsEster' = OBBond_IsEster, 'IsCarbonyl' = OBBond_IsCarbonyl, 'IsImide' = OBBond_IsImide, 'IsSingle' = OBBond_IsSingle, 'IsDouble' = OBBond_IsDouble, 'IsTriple' = OBBond_IsTriple, 'IsKSingle' = OBBond_IsKSingle, 'IsKDouble' = OBBond_IsKDouble, 'IsKTriple' = OBBond_IsKTriple, 'IsClosure' = OBBond_IsClosure, 'IsUp' = OBBond_IsUp, 'IsDown' = OBBond_IsDown, 'IsWedge' = OBBond_IsWedge, 'IsHash' = OBBond_IsHash, 'IsWedgeOrHash' = OBBond_IsWedgeOrHash, 'IsCisOrTrans' = OBBond_IsCisOrTrans, 'IsDoubleBondGeometry' = OBBond_IsDoubleBondGeometry);
+  accessorFuns = list('Visit' = OBBond_Visit_get, 'SetIdx' = OBBond_SetIdx, 'SetId' = OBBond_SetId, 'SetBO' = OBBond_SetBO, 'SetBondOrder' = OBBond_SetBondOrder, 'SetBegin' = OBBond_SetBegin, 'SetEnd' = OBBond_SetEnd, 'SetParent' = OBBond_SetParent, 'SetLength' = OBBond_SetLength, 'Set' = OBBond_Set, 'SetKSingle' = OBBond_SetKSingle, 'SetKDouble' = OBBond_SetKDouble, 'SetKTriple' = OBBond_SetKTriple, 'SetAromatic' = OBBond_SetAromatic, 'SetWedge' = OBBond_SetWedge, 'SetHash' = OBBond_SetHash, 'SetWedgeOrHash' = OBBond_SetWedgeOrHash, 'SetUp' = OBBond_SetUp, 'SetDown' = OBBond_SetDown, 'SetInRing' = OBBond_SetInRing, 'SetClosure' = OBBond_SetClosure, 'UnsetHash' = OBBond_UnsetHash, 'UnsetWedge' = OBBond_UnsetWedge, 'UnsetUp' = OBBond_UnsetUp, 'UnsetDown' = OBBond_UnsetDown, 'UnsetAromatic' = OBBond_UnsetAromatic, 'UnsetKekule' = OBBond_UnsetKekule, 'GetIdx' = OBBond_GetIdx, 'GetId' = OBBond_GetId, 'GetBO' = OBBond_GetBO, 'GetBondOrder' = OBBond_GetBondOrder, 'GetFlags' = OBBond_GetFlags, 'GetBeginAtomIdx' = OBBond_GetBeginAtomIdx, 'GetEndAtomIdx' = OBBond_GetEndAtomIdx, 'GetBeginAtom' = OBBond_GetBeginAtom, 'GetEndAtom' = OBBond_GetEndAtom, 'GetNbrAtom' = OBBond_GetNbrAtom, 'GetParent' = OBBond_GetParent, 'GetEquibLength' = OBBond_GetEquibLength, 'GetLength' = OBBond_GetLength, 'GetNbrAtomIdx' = OBBond_GetNbrAtomIdx, 'FindSmallestRing' = OBBond_FindSmallestRing, 'IsAromatic' = OBBond_IsAromatic, 'IsInRing' = OBBond_IsInRing, 'IsRotor' = OBBond_IsRotor, 'IsAmide' = OBBond_IsAmide, 'IsPrimaryAmide' = OBBond_IsPrimaryAmide, 'IsSecondaryAmide' = OBBond_IsSecondaryAmide, 'IsTertiaryAmide' = OBBond_IsTertiaryAmide, 'IsEster' = OBBond_IsEster, 'IsCarbonyl' = OBBond_IsCarbonyl, 'IsSingle' = OBBond_IsSingle, 'IsDouble' = OBBond_IsDouble, 'IsTriple' = OBBond_IsTriple, 'IsKSingle' = OBBond_IsKSingle, 'IsKDouble' = OBBond_IsKDouble, 'IsKTriple' = OBBond_IsKTriple, 'IsClosure' = OBBond_IsClosure, 'IsUp' = OBBond_IsUp, 'IsDown' = OBBond_IsDown, 'IsWedge' = OBBond_IsWedge, 'IsHash' = OBBond_IsHash, 'IsWedgeOrHash' = OBBond_IsWedgeOrHash, 'IsCisOrTrans' = OBBond_IsCisOrTrans, 'IsDoubleBondGeometry' = OBBond_IsDoubleBondGeometry);
   vaccessors = c('Visit'); ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name));
   f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}  else f(x); }
 );
@@ -10638,57 +9990,57 @@ class(`OBReaction_NumProducts`) = c("SWIGFunction", class('OBReaction_NumProduct
 # Start of OBReaction_AddReactant
 `OBReaction_AddReactant` = function(self, sp) { ;.Call('R_swig_OBReaction_AddReactant', self, sp, PACKAGE='ChemmineOB'); }
 attr(`OBReaction_AddReactant`, 'returnType') = 'void'
-attr(`OBReaction_AddReactant`, "inputTypes") = c('_p_OpenBabel__OBReaction', '_p_obsharedptrT_OpenBabel__OBMol_t')
+attr(`OBReaction_AddReactant`, "inputTypes") = c('_p_OpenBabel__OBReaction', '_p_shared_ptrT_OpenBabel__OBMol_t')
 class(`OBReaction_AddReactant`) = c("SWIGFunction", class('OBReaction_AddReactant'))
 
 # Start of OBReaction_AddProduct
 `OBReaction_AddProduct` = function(self, sp) { ;.Call('R_swig_OBReaction_AddProduct', self, sp, PACKAGE='ChemmineOB'); }
 attr(`OBReaction_AddProduct`, 'returnType') = 'void'
-attr(`OBReaction_AddProduct`, "inputTypes") = c('_p_OpenBabel__OBReaction', '_p_obsharedptrT_OpenBabel__OBMol_t')
+attr(`OBReaction_AddProduct`, "inputTypes") = c('_p_OpenBabel__OBReaction', '_p_shared_ptrT_OpenBabel__OBMol_t')
 class(`OBReaction_AddProduct`) = c("SWIGFunction", class('OBReaction_AddProduct'))
 
 # Start of OBReaction_SetTransitionState
 `OBReaction_SetTransitionState` = function(self, sp) {
   ;.Call('R_swig_OBReaction_SetTransitionState', self, sp, PACKAGE='ChemmineOB'); }
 attr(`OBReaction_SetTransitionState`, 'returnType') = 'void'
-attr(`OBReaction_SetTransitionState`, "inputTypes") = c('_p_OpenBabel__OBReaction', '_p_obsharedptrT_OpenBabel__OBMol_t')
+attr(`OBReaction_SetTransitionState`, "inputTypes") = c('_p_OpenBabel__OBReaction', '_p_shared_ptrT_OpenBabel__OBMol_t')
 class(`OBReaction_SetTransitionState`) = c("SWIGFunction", class('OBReaction_SetTransitionState'))
 
 # Start of OBReaction_AddAgent
 `OBReaction_AddAgent` = function(self, sp) { ;.Call('R_swig_OBReaction_AddAgent', self, sp, PACKAGE='ChemmineOB'); }
 attr(`OBReaction_AddAgent`, 'returnType') = 'void'
-attr(`OBReaction_AddAgent`, "inputTypes") = c('_p_OpenBabel__OBReaction', '_p_obsharedptrT_OpenBabel__OBMol_t')
+attr(`OBReaction_AddAgent`, "inputTypes") = c('_p_OpenBabel__OBReaction', '_p_shared_ptrT_OpenBabel__OBMol_t')
 class(`OBReaction_AddAgent`) = c("SWIGFunction", class('OBReaction_AddAgent'))
 
 # Start of OBReaction_GetReactant
 `OBReaction_GetReactant` = function(self, i, .copy = FALSE) { if(length(i) > 1) { warning("using only the first element of i"); }
   ; ;ans = .Call('R_swig_OBReaction_GetReactant', self, i, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_obsharedptrT_OpenBabel__OBMol_t"; ans }
-attr(`OBReaction_GetReactant`, 'returnType') = '_p_obsharedptrT_OpenBabel__OBMol_t'
+  class(ans) <- "_p_shared_ptrT_OpenBabel__OBMol_t"; ans }
+attr(`OBReaction_GetReactant`, 'returnType') = '_p_shared_ptrT_OpenBabel__OBMol_t'
 attr(`OBReaction_GetReactant`, "inputTypes") = c('_p_OpenBabel__OBReaction', 'integer')
 class(`OBReaction_GetReactant`) = c("SWIGFunction", class('OBReaction_GetReactant'))
 
 # Start of OBReaction_GetProduct
 `OBReaction_GetProduct` = function(self, i, .copy = FALSE) { if(length(i) > 1) { warning("using only the first element of i"); }
   ; ;ans = .Call('R_swig_OBReaction_GetProduct', self, i, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_obsharedptrT_OpenBabel__OBMol_t"; ans }
-attr(`OBReaction_GetProduct`, 'returnType') = '_p_obsharedptrT_OpenBabel__OBMol_t'
+  class(ans) <- "_p_shared_ptrT_OpenBabel__OBMol_t"; ans }
+attr(`OBReaction_GetProduct`, 'returnType') = '_p_shared_ptrT_OpenBabel__OBMol_t'
 attr(`OBReaction_GetProduct`, "inputTypes") = c('_p_OpenBabel__OBReaction', 'integer')
 class(`OBReaction_GetProduct`) = c("SWIGFunction", class('OBReaction_GetProduct'))
 
 # Start of OBReaction_GetTransitionState
 `OBReaction_GetTransitionState` = function(self, .copy = FALSE) {
   ;ans = .Call('R_swig_OBReaction_GetTransitionState', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_obsharedptrT_OpenBabel__OBMol_t"; ans }
-attr(`OBReaction_GetTransitionState`, 'returnType') = '_p_obsharedptrT_OpenBabel__OBMol_t'
+  class(ans) <- "_p_shared_ptrT_OpenBabel__OBMol_t"; ans }
+attr(`OBReaction_GetTransitionState`, 'returnType') = '_p_shared_ptrT_OpenBabel__OBMol_t'
 attr(`OBReaction_GetTransitionState`, "inputTypes") = c('_p_OpenBabel__OBReaction')
 class(`OBReaction_GetTransitionState`) = c("SWIGFunction", class('OBReaction_GetTransitionState'))
 
 # Start of OBReaction_GetAgent
 `OBReaction_GetAgent` = function(self, .copy = FALSE) {
   ;ans = .Call('R_swig_OBReaction_GetAgent', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_obsharedptrT_OpenBabel__OBMol_t"; ans }
-attr(`OBReaction_GetAgent`, 'returnType') = '_p_obsharedptrT_OpenBabel__OBMol_t'
+  class(ans) <- "_p_shared_ptrT_OpenBabel__OBMol_t"; ans }
+attr(`OBReaction_GetAgent`, 'returnType') = '_p_shared_ptrT_OpenBabel__OBMol_t'
 attr(`OBReaction_GetAgent`, "inputTypes") = c('_p_OpenBabel__OBReaction')
 class(`OBReaction_GetAgent`) = c("SWIGFunction", class('OBReaction_GetAgent'))
 
@@ -10768,12 +10120,6 @@ setMethod('$', '_p_OpenBabel__OBReaction', function(x, name) {
 );
 # end of accessor method for OpenBabel::OBReaction
 setMethod('delete', '_p_OpenBabel__OBReaction', function(obj) {delete_OpenBabel__OBReaction(obj)})
-defineEnumeration('_OpenBabel__HydrogenType',
-                    .values = c(
-                        'AllHydrogen' = 0, 
-                        'PolarHydrogen' = 1, 
-                        'NonPolarHydrogen' = 2
-))
 # Start of new_OBMol
 `OBMol__SWIG_0` = function() { ;ans = .Call('R_swig_new_OBMol__SWIG_0', PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__OBMol"; reg.finalizer(ans, delete_OBMol); ans }
@@ -10847,28 +10193,12 @@ attr(`OBMol_DestroyResidue`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_OpenBa
 class(`OBMol_DestroyResidue`) = c("SWIGFunction", class('OBMol_DestroyResidue'))
 
 # Start of OBMol_AddAtom
-`OBMol_AddAtom__SWIG_0` = function(self, atom, forceNewId, .copy = FALSE) { forceNewId = as.logical(forceNewId);
-  ;.Call('R_swig_OBMol_AddAtom__SWIG_0', self, atom, forceNewId, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMol_AddAtom__SWIG_0`, 'returnType') = 'logical'
-attr(`OBMol_AddAtom__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_OpenBabel__OBAtom', 'logical')
-class(`OBMol_AddAtom__SWIG_0`) = c("SWIGFunction", class('OBMol_AddAtom__SWIG_0'))
+`OBMol_AddAtom` = function(self, s_arg2, .copy = FALSE) {
+  ;.Call('R_swig_OBMol_AddAtom', self, s_arg2, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBMol_AddAtom`, 'returnType') = 'logical'
+attr(`OBMol_AddAtom`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_OpenBabel__OBAtom')
+class(`OBMol_AddAtom`) = c("SWIGFunction", class('OBMol_AddAtom'))
 
-# Start of OBMol_AddAtom
-`OBMol_AddAtom__SWIG_1` = function(self, atom, .copy = FALSE) {
-  ;.Call('R_swig_OBMol_AddAtom__SWIG_1', self, atom, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMol_AddAtom__SWIG_1`, 'returnType') = 'logical'
-attr(`OBMol_AddAtom__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_OpenBabel__OBAtom')
-class(`OBMol_AddAtom__SWIG_1`) = c("SWIGFunction", class('OBMol_AddAtom__SWIG_1'))
-
-`OBMol_AddAtom` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_OpenBabel__OBAtom') && length(argv[[2]]) == 1) {
-      f <- OBMol_AddAtom__SWIG_1; }  }  else if (argc == 3) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_OpenBabel__OBAtom') && length(argv[[2]]) == 1 && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
-      f <- OBMol_AddAtom__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBMol_AddAtom with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
 # Start of OBMol_InsertAtom
 `OBMol_InsertAtom` = function(self, s_arg2, .copy = FALSE) {
   ;.Call('R_swig_OBMol_InsertAtom', self, s_arg2, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -11636,12 +10966,6 @@ attr(`OBMol_UnsetSSSRPerceived`, 'returnType') = 'void'
 attr(`OBMol_UnsetSSSRPerceived`, "inputTypes") = c('_p_OpenBabel__OBMol')
 class(`OBMol_UnsetSSSRPerceived`) = c("SWIGFunction", class('OBMol_UnsetSSSRPerceived'))
 
-# Start of OBMol_UnsetLSSRPerceived
-`OBMol_UnsetLSSRPerceived` = function(self) { ;.Call('R_swig_OBMol_UnsetLSSRPerceived', self, PACKAGE='ChemmineOB'); }
-attr(`OBMol_UnsetLSSRPerceived`, 'returnType') = 'void'
-attr(`OBMol_UnsetLSSRPerceived`, "inputTypes") = c('_p_OpenBabel__OBMol')
-class(`OBMol_UnsetLSSRPerceived`) = c("SWIGFunction", class('OBMol_UnsetLSSRPerceived'))
-
 # Start of OBMol_UnsetRingTypesPerceived
 `OBMol_UnsetRingTypesPerceived` = function(self) { ;.Call('R_swig_OBMol_UnsetRingTypesPerceived', self, PACKAGE='ChemmineOB'); }
 attr(`OBMol_UnsetRingTypesPerceived`, 'returnType') = 'void'
@@ -11837,13 +11161,6 @@ class(`OBMol_DeleteHydrogens__SWIG_1`) = c("SWIGFunction", class('OBMol_DeleteHy
       f <- OBMol_DeleteHydrogens__SWIG_1; }  }  else {
     stop("cannot find overloaded function for OBMol_DeleteHydrogens with argtypes (",toString(argtypes),")"); } ; f(...); }
 # Dispatch function
-# Start of OBMol_DeletePolarHydrogens
-`OBMol_DeletePolarHydrogens` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMol_DeletePolarHydrogens', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMol_DeletePolarHydrogens`, 'returnType') = 'logical'
-attr(`OBMol_DeletePolarHydrogens`, "inputTypes") = c('_p_OpenBabel__OBMol')
-class(`OBMol_DeletePolarHydrogens`) = c("SWIGFunction", class('OBMol_DeletePolarHydrogens'))
-
 # Start of OBMol_DeleteNonPolarHydrogens
 `OBMol_DeleteNonPolarHydrogens` = function(self, .copy = FALSE) {
   ;.Call('R_swig_OBMol_DeleteNonPolarHydrogens', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -11915,50 +11232,6 @@ attr(`OBMol_AddPolarHydrogens`, 'returnType') = 'logical'
 attr(`OBMol_AddPolarHydrogens`, "inputTypes") = c('_p_OpenBabel__OBMol')
 class(`OBMol_AddPolarHydrogens`) = c("SWIGFunction", class('OBMol_AddPolarHydrogens'))
 
-# Start of OBMol_AddNonPolarHydrogens
-`OBMol_AddNonPolarHydrogens` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMol_AddNonPolarHydrogens', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMol_AddNonPolarHydrogens`, 'returnType') = 'logical'
-attr(`OBMol_AddNonPolarHydrogens`, "inputTypes") = c('_p_OpenBabel__OBMol')
-class(`OBMol_AddNonPolarHydrogens`) = c("SWIGFunction", class('OBMol_AddNonPolarHydrogens'))
-
-# Start of OBMol_AddNewHydrogens
-`OBMol_AddNewHydrogens__SWIG_0` = function(self, whichHydrogen, correctForPH, pH, .copy = FALSE) {
-  whichHydrogen = enumToInteger(whichHydrogen, "_OpenBabel__HydrogenType");  if(length(whichHydrogen) > 1) {
-    warning("using only the first element of whichHydrogen"); } ; correctForPH = as.logical(correctForPH);
-  ;.Call('R_swig_OBMol_AddNewHydrogens__SWIG_0', self, whichHydrogen, correctForPH, pH, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMol_AddNewHydrogens__SWIG_0`, 'returnType') = 'logical'
-attr(`OBMol_AddNewHydrogens__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', 'character', 'logical', 'numeric')
-class(`OBMol_AddNewHydrogens__SWIG_0`) = c("SWIGFunction", class('OBMol_AddNewHydrogens__SWIG_0'))
-
-# Start of OBMol_AddNewHydrogens
-`OBMol_AddNewHydrogens__SWIG_1` = function(self, whichHydrogen, correctForPH, .copy = FALSE) {
-  whichHydrogen = enumToInteger(whichHydrogen, "_OpenBabel__HydrogenType");  if(length(whichHydrogen) > 1) {
-    warning("using only the first element of whichHydrogen"); } ; correctForPH = as.logical(correctForPH);
-  ;.Call('R_swig_OBMol_AddNewHydrogens__SWIG_1', self, whichHydrogen, correctForPH, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMol_AddNewHydrogens__SWIG_1`, 'returnType') = 'logical'
-attr(`OBMol_AddNewHydrogens__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol', 'character', 'logical')
-class(`OBMol_AddNewHydrogens__SWIG_1`) = c("SWIGFunction", class('OBMol_AddNewHydrogens__SWIG_1'))
-
-# Start of OBMol_AddNewHydrogens
-`OBMol_AddNewHydrogens__SWIG_2` = function(self, whichHydrogen, .copy = FALSE) {
-  whichHydrogen = enumToInteger(whichHydrogen, "_OpenBabel__HydrogenType");  if(length(whichHydrogen) > 1) {
-    warning("using only the first element of whichHydrogen"); } ;
-  ;.Call('R_swig_OBMol_AddNewHydrogens__SWIG_2', self, whichHydrogen, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMol_AddNewHydrogens__SWIG_2`, 'returnType') = 'logical'
-attr(`OBMol_AddNewHydrogens__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBMol', 'character')
-class(`OBMol_AddNewHydrogens__SWIG_2`) = c("SWIGFunction", class('OBMol_AddNewHydrogens__SWIG_2'))
-
-`OBMol_AddNewHydrogens` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 3
-   if (argc == 2) { if (extends(argtypes[1], '_p_OpenBabel__OBMol') && is.character(argv[[2]]) && length(argv[[2]]) == 1) {
-      f <- OBMol_AddNewHydrogens__SWIG_2; }  }  else if (argc == 3) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && is.character(argv[[2]]) && length(argv[[2]]) == 1 && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
-      f <- OBMol_AddNewHydrogens__SWIG_1; }  }  else if (argc == 4) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && is.character(argv[[2]]) && length(argv[[2]]) == 1 && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 ) && ( is.numeric(argv[[4]]) && length(argv[[4]]) == 1 )) {
-      f <- OBMol_AddNewHydrogens__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBMol_AddNewHydrogens with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
 # Start of OBMol_StripSalts
 `OBMol_StripSalts__SWIG_0` = function(self, threshold, .copy = FALSE) { threshold = as.integer(threshold); 
   if(length(threshold) > 1) { warning("using only the first element of threshold"); } ;
@@ -12020,20 +11293,6 @@ attr(`OBMol_ConvertDativeBonds`, 'returnType') = 'logical'
 attr(`OBMol_ConvertDativeBonds`, "inputTypes") = c('_p_OpenBabel__OBMol')
 class(`OBMol_ConvertDativeBonds`) = c("SWIGFunction", class('OBMol_ConvertDativeBonds'))
 
-# Start of OBMol_MakeDativeBonds
-`OBMol_MakeDativeBonds` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMol_MakeDativeBonds', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMol_MakeDativeBonds`, 'returnType') = 'logical'
-attr(`OBMol_MakeDativeBonds`, "inputTypes") = c('_p_OpenBabel__OBMol')
-class(`OBMol_MakeDativeBonds`) = c("SWIGFunction", class('OBMol_MakeDativeBonds'))
-
-# Start of OBMol_ConvertZeroBonds
-`OBMol_ConvertZeroBonds` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMol_ConvertZeroBonds', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMol_ConvertZeroBonds`, 'returnType') = 'logical'
-attr(`OBMol_ConvertZeroBonds`, "inputTypes") = c('_p_OpenBabel__OBMol')
-class(`OBMol_ConvertZeroBonds`) = c("SWIGFunction", class('OBMol_ConvertZeroBonds'))
-
 # Start of OBMol_CorrectForPH
 `OBMol_CorrectForPH__SWIG_0` = function(self, pH, .copy = FALSE) {
   ;.Call('R_swig_OBMol_CorrectForPH__SWIG_0', self, pH, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -12079,14 +11338,6 @@ class(`OBMol_AssignSpinMultiplicity__SWIG_1`) = c("SWIGFunction", class('OBMol_A
     stop("cannot find overloaded function for OBMol_AssignSpinMultiplicity with argtypes (",toString(argtypes),")"); } ;
   f(...); }
 # Dispatch function
-# Start of OBMol_AssignTotalChargeToAtoms
-`OBMol_AssignTotalChargeToAtoms` = function(self, charge, .copy = FALSE) { charge = as.integer(charge); 
-  if(length(charge) > 1) { warning("using only the first element of charge"); } ;
-  ;.Call('R_swig_OBMol_AssignTotalChargeToAtoms', self, charge, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMol_AssignTotalChargeToAtoms`, 'returnType') = 'logical'
-attr(`OBMol_AssignTotalChargeToAtoms`, "inputTypes") = c('_p_OpenBabel__OBMol', 'integer')
-class(`OBMol_AssignTotalChargeToAtoms`) = c("SWIGFunction", class('OBMol_AssignTotalChargeToAtoms'))
-
 # Start of OBMol_SetIsPatternStructure
 `OBMol_SetIsPatternStructure` = function(self) { ;.Call('R_swig_OBMol_SetIsPatternStructure', self, PACKAGE='ChemmineOB'); }
 attr(`OBMol_SetIsPatternStructure`, 'returnType') = 'void'
@@ -12511,7 +11762,7 @@ class(`OBMol_NextInternalCoord`) = c("SWIGFunction", class('OBMol_NextInternalCo
 
 # Start of accessor method for OpenBabel::OBMol
 setMethod('$', '_p_OpenBabel__OBMol', function(x, name) {
-  accessorFuns = list('ReserveAtoms' = OBMol_ReserveAtoms, 'CreateAtom' = OBMol_CreateAtom, 'CreateBond' = OBMol_CreateBond, 'CreateResidue' = OBMol_CreateResidue, 'DestroyAtom' = OBMol_DestroyAtom, 'DestroyBond' = OBMol_DestroyBond, 'DestroyResidue' = OBMol_DestroyResidue, 'AddAtom' = OBMol_AddAtom, 'InsertAtom' = OBMol_InsertAtom, 'AddBond' = OBMol_AddBond, 'AddResidue' = OBMol_AddResidue, 'NewAtom' = OBMol_NewAtom, 'NewBond' = OBMol_NewBond, 'NewResidue' = OBMol_NewResidue, 'DeleteAtom' = OBMol_DeleteAtom, 'DeleteBond' = OBMol_DeleteBond, 'DeleteResidue' = OBMol_DeleteResidue, 'BeginModify' = OBMol_BeginModify, 'EndModify' = OBMol_EndModify, 'GetMod' = OBMol_GetMod, 'IncrementMod' = OBMol_IncrementMod, 'DecrementMod' = OBMol_DecrementMod, 'GetFlags' = OBMol_GetFlags, 'GetTitle' = OBMol_GetTitle, 'NumAtoms' = OBMol_NumAtoms, 'NumBonds' = OBMol_NumBonds, 'NumHvyAtoms' = OBMol_NumHvyAtoms, 'NumResidues' = OBMol_NumResidues, 'NumRotors' = OBMol_NumRotors, 'GetAtom' = OBMol_GetAtom, 'GetAtomById' = OBMol_GetAtomById, 'GetFirstAtom' = OBMol_GetFirstAtom, 'GetBond' = OBMol_GetBond, 'GetBondById' = OBMol_GetBondById, 'GetResidue' = OBMol_GetResidue, 'GetInternalCoord' = OBMol_GetInternalCoord, 'GetTorsion' = OBMol_GetTorsion, 'GetAngle' = OBMol_GetAngle, 'GetFormula' = OBMol_GetFormula, 'GetSpacedFormula' = OBMol_GetSpacedFormula, 'GetEnergy' = OBMol_GetEnergy, 'GetMolWt' = OBMol_GetMolWt, 'GetExactMass' = OBMol_GetExactMass, 'GetTotalCharge' = OBMol_GetTotalCharge, 'GetTotalSpinMultiplicity' = OBMol_GetTotalSpinMultiplicity, 'GetDimension' = OBMol_GetDimension, 'GetCoordinates' = OBMol_GetCoordinates, 'GetSSSR' = OBMol_GetSSSR, 'GetLSSR' = OBMol_GetLSSR, 'AutomaticFormalCharge' = OBMol_AutomaticFormalCharge, 'AutomaticPartialCharge' = OBMol_AutomaticPartialCharge, 'SetTitle' = OBMol_SetTitle, 'SetFormula' = OBMol_SetFormula, 'SetEnergy' = OBMol_SetEnergy, 'SetDimension' = OBMol_SetDimension, 'SetTotalCharge' = OBMol_SetTotalCharge, 'SetTotalSpinMultiplicity' = OBMol_SetTotalSpinMultiplicity, 'SetInternalCoord' = OBMol_SetInternalCoord, 'SetAutomaticFormalCharge' = OBMol_SetAutomaticFormalCharge, 'SetAutomaticPartialCharge' = OBMol_SetAutomaticPartialCharge, 'SetAromaticPerceived' = OBMol_SetAromaticPerceived, 'SetSSSRPerceived' = OBMol_SetSSSRPerceived, 'SetLSSRPerceived' = OBMol_SetLSSRPerceived, 'SetRingAtomsAndBondsPerceived' = OBMol_SetRingAtomsAndBondsPerceived, 'SetAtomTypesPerceived' = OBMol_SetAtomTypesPerceived, 'SetRingTypesPerceived' = OBMol_SetRingTypesPerceived, 'SetChainsPerceived' = OBMol_SetChainsPerceived, 'SetChiralityPerceived' = OBMol_SetChiralityPerceived, 'SetPartialChargesPerceived' = OBMol_SetPartialChargesPerceived, 'SetHybridizationPerceived' = OBMol_SetHybridizationPerceived, 'SetImplicitValencePerceived' = OBMol_SetImplicitValencePerceived, 'SetKekulePerceived' = OBMol_SetKekulePerceived, 'SetClosureBondsPerceived' = OBMol_SetClosureBondsPerceived, 'SetHydrogensAdded' = OBMol_SetHydrogensAdded, 'SetCorrectedForPH' = OBMol_SetCorrectedForPH, 'SetAromaticCorrected' = OBMol_SetAromaticCorrected, 'SetSpinMultiplicityAssigned' = OBMol_SetSpinMultiplicityAssigned, 'SetFlags' = OBMol_SetFlags, 'UnsetAromaticPerceived' = OBMol_UnsetAromaticPerceived, 'UnsetSSSRPerceived' = OBMol_UnsetSSSRPerceived, 'UnsetLSSRPerceived' = OBMol_UnsetLSSRPerceived, 'UnsetRingTypesPerceived' = OBMol_UnsetRingTypesPerceived, 'UnsetPartialChargesPerceived' = OBMol_UnsetPartialChargesPerceived, 'UnsetImplicitValencePerceived' = OBMol_UnsetImplicitValencePerceived, 'UnsetHydrogensAdded' = OBMol_UnsetHydrogensAdded, 'UnsetFlag' = OBMol_UnsetFlag, 'RenumberAtoms' = OBMol_RenumberAtoms, 'SetCoordinates' = OBMol_SetCoordinates, 'ToInertialFrame' = OBMol_ToInertialFrame, 'Translate' = OBMol_Translate, 'Rotate' = OBMol_Rotate, 'Center' = OBMol_Center, 'Kekulize' = OBMol_Kekulize, 'PerceiveKekuleBonds' = OBMol_PerceiveKekuleBonds, 'NewPerceiveKekuleBonds' = OBMol_NewPerceiveKekuleBonds, 'DeleteHydrogens' = OBMol_DeleteHydrogens, 'DeletePolarHydrogens' = OBMol_DeletePolarHydrogens, 'DeleteNonPolarHydrogens' = OBMol_DeleteNonPolarHydrogens, 'DeleteHydrogen' = OBMol_DeleteHydrogen, 'AddHydrogens' = OBMol_AddHydrogens, 'AddPolarHydrogens' = OBMol_AddPolarHydrogens, 'AddNonPolarHydrogens' = OBMol_AddNonPolarHydrogens, 'AddNewHydrogens' = OBMol_AddNewHydrogens, 'StripSalts' = OBMol_StripSalts, 'Separate' = OBMol_Separate, 'GetNextFragment' = OBMol_GetNextFragment, 'ConvertDativeBonds' = OBMol_ConvertDativeBonds, 'MakeDativeBonds' = OBMol_MakeDativeBonds, 'ConvertZeroBonds' = OBMol_ConvertZeroBonds, 'CorrectForPH' = OBMol_CorrectForPH, 'AssignSpinMultiplicity' = OBMol_AssignSpinMultiplicity, 'AssignTotalChargeToAtoms' = OBMol_AssignTotalChargeToAtoms, 'SetIsPatternStructure' = OBMol_SetIsPatternStructure, 'SetTorsion' = OBMol_SetTorsion, 'FindSSSR' = OBMol_FindSSSR, 'FindLSSR' = OBMol_FindLSSR, 'FindRingAtomsAndBonds' = OBMol_FindRingAtomsAndBonds, 'FindChiralCenters' = OBMol_FindChiralCenters, 'FindChildren' = OBMol_FindChildren, 'FindLargestFragment' = OBMol_FindLargestFragment, 'ContigFragList' = OBMol_ContigFragList, 'Align' = OBMol_Align, 'ConnectTheDots' = OBMol_ConnectTheDots, 'PerceiveBondOrders' = OBMol_PerceiveBondOrders, 'FindAngles' = OBMol_FindAngles, 'FindTorsions' = OBMol_FindTorsions, 'GetGTDVector' = OBMol_GetGTDVector, 'GetGIVector' = OBMol_GetGIVector, 'GetGIDVector' = OBMol_GetGIDVector, 'Has2D' = OBMol_Has2D, 'Has3D' = OBMol_Has3D, 'HasNonZeroCoords' = OBMol_HasNonZeroCoords, 'HasAromaticPerceived' = OBMol_HasAromaticPerceived, 'HasSSSRPerceived' = OBMol_HasSSSRPerceived, 'HasLSSRPerceived' = OBMol_HasLSSRPerceived, 'HasRingAtomsAndBondsPerceived' = OBMol_HasRingAtomsAndBondsPerceived, 'HasAtomTypesPerceived' = OBMol_HasAtomTypesPerceived, 'HasRingTypesPerceived' = OBMol_HasRingTypesPerceived, 'HasChiralityPerceived' = OBMol_HasChiralityPerceived, 'HasPartialChargesPerceived' = OBMol_HasPartialChargesPerceived, 'HasHybridizationPerceived' = OBMol_HasHybridizationPerceived, 'HasImplicitValencePerceived' = OBMol_HasImplicitValencePerceived, 'HasKekulePerceived' = OBMol_HasKekulePerceived, 'HasClosureBondsPerceived' = OBMol_HasClosureBondsPerceived, 'HasChainsPerceived' = OBMol_HasChainsPerceived, 'HasHydrogensAdded' = OBMol_HasHydrogensAdded, 'HasAromaticCorrected' = OBMol_HasAromaticCorrected, 'IsCorrectedForPH' = OBMol_IsCorrectedForPH, 'HasSpinMultiplicityAssigned' = OBMol_HasSpinMultiplicityAssigned, 'IsChiral' = OBMol_IsChiral, 'Empty' = OBMol_Empty, 'NumConformers' = OBMol_NumConformers, 'SetConformers' = OBMol_SetConformers, 'AddConformer' = OBMol_AddConformer, 'SetConformer' = OBMol_SetConformer, 'CopyConformer' = OBMol_CopyConformer, 'DeleteConformer' = OBMol_DeleteConformer, 'GetConformer' = OBMol_GetConformer, 'SetEnergies' = OBMol_SetEnergies, 'GetEnergies' = OBMol_GetEnergies, 'BeginConformer' = OBMol_BeginConformer, 'NextConformer' = OBMol_NextConformer, 'GetConformers' = OBMol_GetConformers, 'BeginInternalCoord' = OBMol_BeginInternalCoord, 'NextInternalCoord' = OBMol_NextInternalCoord);
+  accessorFuns = list('ReserveAtoms' = OBMol_ReserveAtoms, 'CreateAtom' = OBMol_CreateAtom, 'CreateBond' = OBMol_CreateBond, 'CreateResidue' = OBMol_CreateResidue, 'DestroyAtom' = OBMol_DestroyAtom, 'DestroyBond' = OBMol_DestroyBond, 'DestroyResidue' = OBMol_DestroyResidue, 'AddAtom' = OBMol_AddAtom, 'InsertAtom' = OBMol_InsertAtom, 'AddBond' = OBMol_AddBond, 'AddResidue' = OBMol_AddResidue, 'NewAtom' = OBMol_NewAtom, 'NewBond' = OBMol_NewBond, 'NewResidue' = OBMol_NewResidue, 'DeleteAtom' = OBMol_DeleteAtom, 'DeleteBond' = OBMol_DeleteBond, 'DeleteResidue' = OBMol_DeleteResidue, 'BeginModify' = OBMol_BeginModify, 'EndModify' = OBMol_EndModify, 'GetMod' = OBMol_GetMod, 'IncrementMod' = OBMol_IncrementMod, 'DecrementMod' = OBMol_DecrementMod, 'GetFlags' = OBMol_GetFlags, 'GetTitle' = OBMol_GetTitle, 'NumAtoms' = OBMol_NumAtoms, 'NumBonds' = OBMol_NumBonds, 'NumHvyAtoms' = OBMol_NumHvyAtoms, 'NumResidues' = OBMol_NumResidues, 'NumRotors' = OBMol_NumRotors, 'GetAtom' = OBMol_GetAtom, 'GetAtomById' = OBMol_GetAtomById, 'GetFirstAtom' = OBMol_GetFirstAtom, 'GetBond' = OBMol_GetBond, 'GetBondById' = OBMol_GetBondById, 'GetResidue' = OBMol_GetResidue, 'GetInternalCoord' = OBMol_GetInternalCoord, 'GetTorsion' = OBMol_GetTorsion, 'GetAngle' = OBMol_GetAngle, 'GetFormula' = OBMol_GetFormula, 'GetSpacedFormula' = OBMol_GetSpacedFormula, 'GetEnergy' = OBMol_GetEnergy, 'GetMolWt' = OBMol_GetMolWt, 'GetExactMass' = OBMol_GetExactMass, 'GetTotalCharge' = OBMol_GetTotalCharge, 'GetTotalSpinMultiplicity' = OBMol_GetTotalSpinMultiplicity, 'GetDimension' = OBMol_GetDimension, 'GetCoordinates' = OBMol_GetCoordinates, 'GetSSSR' = OBMol_GetSSSR, 'GetLSSR' = OBMol_GetLSSR, 'AutomaticFormalCharge' = OBMol_AutomaticFormalCharge, 'AutomaticPartialCharge' = OBMol_AutomaticPartialCharge, 'SetTitle' = OBMol_SetTitle, 'SetFormula' = OBMol_SetFormula, 'SetEnergy' = OBMol_SetEnergy, 'SetDimension' = OBMol_SetDimension, 'SetTotalCharge' = OBMol_SetTotalCharge, 'SetTotalSpinMultiplicity' = OBMol_SetTotalSpinMultiplicity, 'SetInternalCoord' = OBMol_SetInternalCoord, 'SetAutomaticFormalCharge' = OBMol_SetAutomaticFormalCharge, 'SetAutomaticPartialCharge' = OBMol_SetAutomaticPartialCharge, 'SetAromaticPerceived' = OBMol_SetAromaticPerceived, 'SetSSSRPerceived' = OBMol_SetSSSRPerceived, 'SetLSSRPerceived' = OBMol_SetLSSRPerceived, 'SetRingAtomsAndBondsPerceived' = OBMol_SetRingAtomsAndBondsPerceived, 'SetAtomTypesPerceived' = OBMol_SetAtomTypesPerceived, 'SetRingTypesPerceived' = OBMol_SetRingTypesPerceived, 'SetChainsPerceived' = OBMol_SetChainsPerceived, 'SetChiralityPerceived' = OBMol_SetChiralityPerceived, 'SetPartialChargesPerceived' = OBMol_SetPartialChargesPerceived, 'SetHybridizationPerceived' = OBMol_SetHybridizationPerceived, 'SetImplicitValencePerceived' = OBMol_SetImplicitValencePerceived, 'SetKekulePerceived' = OBMol_SetKekulePerceived, 'SetClosureBondsPerceived' = OBMol_SetClosureBondsPerceived, 'SetHydrogensAdded' = OBMol_SetHydrogensAdded, 'SetCorrectedForPH' = OBMol_SetCorrectedForPH, 'SetAromaticCorrected' = OBMol_SetAromaticCorrected, 'SetSpinMultiplicityAssigned' = OBMol_SetSpinMultiplicityAssigned, 'SetFlags' = OBMol_SetFlags, 'UnsetAromaticPerceived' = OBMol_UnsetAromaticPerceived, 'UnsetSSSRPerceived' = OBMol_UnsetSSSRPerceived, 'UnsetRingTypesPerceived' = OBMol_UnsetRingTypesPerceived, 'UnsetPartialChargesPerceived' = OBMol_UnsetPartialChargesPerceived, 'UnsetImplicitValencePerceived' = OBMol_UnsetImplicitValencePerceived, 'UnsetHydrogensAdded' = OBMol_UnsetHydrogensAdded, 'UnsetFlag' = OBMol_UnsetFlag, 'RenumberAtoms' = OBMol_RenumberAtoms, 'SetCoordinates' = OBMol_SetCoordinates, 'ToInertialFrame' = OBMol_ToInertialFrame, 'Translate' = OBMol_Translate, 'Rotate' = OBMol_Rotate, 'Center' = OBMol_Center, 'Kekulize' = OBMol_Kekulize, 'PerceiveKekuleBonds' = OBMol_PerceiveKekuleBonds, 'NewPerceiveKekuleBonds' = OBMol_NewPerceiveKekuleBonds, 'DeleteHydrogens' = OBMol_DeleteHydrogens, 'DeleteNonPolarHydrogens' = OBMol_DeleteNonPolarHydrogens, 'DeleteHydrogen' = OBMol_DeleteHydrogen, 'AddHydrogens' = OBMol_AddHydrogens, 'AddPolarHydrogens' = OBMol_AddPolarHydrogens, 'StripSalts' = OBMol_StripSalts, 'Separate' = OBMol_Separate, 'GetNextFragment' = OBMol_GetNextFragment, 'ConvertDativeBonds' = OBMol_ConvertDativeBonds, 'CorrectForPH' = OBMol_CorrectForPH, 'AssignSpinMultiplicity' = OBMol_AssignSpinMultiplicity, 'SetIsPatternStructure' = OBMol_SetIsPatternStructure, 'SetTorsion' = OBMol_SetTorsion, 'FindSSSR' = OBMol_FindSSSR, 'FindLSSR' = OBMol_FindLSSR, 'FindRingAtomsAndBonds' = OBMol_FindRingAtomsAndBonds, 'FindChiralCenters' = OBMol_FindChiralCenters, 'FindChildren' = OBMol_FindChildren, 'FindLargestFragment' = OBMol_FindLargestFragment, 'ContigFragList' = OBMol_ContigFragList, 'Align' = OBMol_Align, 'ConnectTheDots' = OBMol_ConnectTheDots, 'PerceiveBondOrders' = OBMol_PerceiveBondOrders, 'FindAngles' = OBMol_FindAngles, 'FindTorsions' = OBMol_FindTorsions, 'GetGTDVector' = OBMol_GetGTDVector, 'GetGIVector' = OBMol_GetGIVector, 'GetGIDVector' = OBMol_GetGIDVector, 'Has2D' = OBMol_Has2D, 'Has3D' = OBMol_Has3D, 'HasNonZeroCoords' = OBMol_HasNonZeroCoords, 'HasAromaticPerceived' = OBMol_HasAromaticPerceived, 'HasSSSRPerceived' = OBMol_HasSSSRPerceived, 'HasLSSRPerceived' = OBMol_HasLSSRPerceived, 'HasRingAtomsAndBondsPerceived' = OBMol_HasRingAtomsAndBondsPerceived, 'HasAtomTypesPerceived' = OBMol_HasAtomTypesPerceived, 'HasRingTypesPerceived' = OBMol_HasRingTypesPerceived, 'HasChiralityPerceived' = OBMol_HasChiralityPerceived, 'HasPartialChargesPerceived' = OBMol_HasPartialChargesPerceived, 'HasHybridizationPerceived' = OBMol_HasHybridizationPerceived, 'HasImplicitValencePerceived' = OBMol_HasImplicitValencePerceived, 'HasKekulePerceived' = OBMol_HasKekulePerceived, 'HasClosureBondsPerceived' = OBMol_HasClosureBondsPerceived, 'HasChainsPerceived' = OBMol_HasChainsPerceived, 'HasHydrogensAdded' = OBMol_HasHydrogensAdded, 'HasAromaticCorrected' = OBMol_HasAromaticCorrected, 'IsCorrectedForPH' = OBMol_IsCorrectedForPH, 'HasSpinMultiplicityAssigned' = OBMol_HasSpinMultiplicityAssigned, 'IsChiral' = OBMol_IsChiral, 'Empty' = OBMol_Empty, 'NumConformers' = OBMol_NumConformers, 'SetConformers' = OBMol_SetConformers, 'AddConformer' = OBMol_AddConformer, 'SetConformer' = OBMol_SetConformer, 'CopyConformer' = OBMol_CopyConformer, 'DeleteConformer' = OBMol_DeleteConformer, 'GetConformer' = OBMol_GetConformer, 'SetEnergies' = OBMol_SetEnergies, 'GetEnergies' = OBMol_GetEnergies, 'BeginConformer' = OBMol_BeginConformer, 'NextConformer' = OBMol_NextConformer, 'GetConformers' = OBMol_GetConformers, 'BeginInternalCoord' = OBMol_BeginInternalCoord, 'NextInternalCoord' = OBMol_NextInternalCoord);
   ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
   function(...){ f(x, ...)} ; }
 );
@@ -15813,15 +15064,6 @@ attr(`StereoRefToImplicit`, 'returnType') = 'void'
 attr(`StereoRefToImplicit`, "inputTypes") = c('_p_OpenBabel__OBMol', 'integer')
 class(`StereoRefToImplicit`) = c("SWIGFunction", class('StereoRefToImplicit'))
 
-# Start of ImplicitRefToStereo
-`ImplicitRefToStereo` = function(mol, centerId, newId) { if(length(centerId) > 1) {
-    warning("using only the first element of centerId"); } ; if(length(newId) > 1) {
-    warning("using only the first element of newId"); } ;
-  ;.Call('R_swig_ImplicitRefToStereo', mol, centerId, newId, PACKAGE='ChemmineOB'); }
-attr(`ImplicitRefToStereo`, 'returnType') = 'void'
-attr(`ImplicitRefToStereo`, "inputTypes") = c('_p_OpenBabel__OBMol', 'integer', 'integer')
-class(`ImplicitRefToStereo`) = c("SWIGFunction", class('ImplicitRefToStereo'))
-
 # Start of CisTransFrom0D
 `CisTransFrom0D__SWIG_0` = function(mol, stereoUnits, addToMol, .copy = FALSE) { addToMol = as.logical(addToMol);
   ;ans = .Call('R_swig_CisTransFrom0D__SWIG_0', mol, stereoUnits, addToMol, as.logical(.copy), PACKAGE='ChemmineOB');
@@ -16078,7 +15320,7 @@ class(`OBBitVec_Negate`) = c("SWIGFunction", class('OBBitVec_Negate'))
 # Start of OBBitVec_GetWords
 `OBBitVec_GetWords` = function(self, vec) { ;.Call('R_swig_OBBitVec_GetWords', self, vec, PACKAGE='ChemmineOB'); }
 attr(`OBBitVec_GetWords`, 'returnType') = 'void'
-attr(`OBBitVec_GetWords`, "inputTypes") = c('_p_OpenBabel__OBBitVec', '_p_std__vectorT_uint32_t_std__allocatorT_uint32_t_t_t')
+attr(`OBBitVec_GetWords`, "inputTypes") = c('_p_OpenBabel__OBBitVec', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t')
 class(`OBBitVec_GetWords`) = c("SWIGFunction", class('OBBitVec_GetWords'))
 
 # Start of Minus
@@ -17836,19 +17078,10 @@ attr(`OBMolAtomIter_GetDistance__SWIG_1`, 'returnType') = 'numeric'
 attr(`OBMolAtomIter_GetDistance__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMolAtomIter', '_p_OpenBabel__OBAtom')
 class(`OBMolAtomIter_GetDistance__SWIG_1`) = c("SWIGFunction", class('OBMolAtomIter_GetDistance__SWIG_1'))
 
-# Start of OBMolAtomIter_GetDistance
-`OBMolAtomIter_GetDistance__SWIG_2` = function(self, v, .copy = FALSE) {
-  ;.Call('R_swig_OBMolAtomIter_GetDistance__SWIG_2', self, v, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolAtomIter_GetDistance__SWIG_2`, 'returnType') = 'numeric'
-attr(`OBMolAtomIter_GetDistance__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBMolAtomIter', '_p_OpenBabel__vector3')
-class(`OBMolAtomIter_GetDistance__SWIG_2`) = c("SWIGFunction", class('OBMolAtomIter_GetDistance__SWIG_2'))
-
 `OBMolAtomIter_GetDistance` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 3
+# dispatch functions 2
    if (argc == 2) { if (extends(argtypes[1], '_p_OpenBabel__OBMolAtomIter') && extends(argtypes[2], '_p_OpenBabel__OBAtom')) {
       f <- OBMolAtomIter_GetDistance__SWIG_1; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBMolAtomIter') && extends(argtypes[2], '_p_OpenBabel__vector3')) {
-      f <- OBMolAtomIter_GetDistance__SWIG_2; } 
     else if (extends(argtypes[1], '_p_OpenBabel__OBMolAtomIter') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
       f <- OBMolAtomIter_GetDistance__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBMolAtomIter_GetDistance with argtypes (",toString(argtypes),")"); } ; f(...); }
@@ -17970,13 +17203,6 @@ attr(`OBMolAtomIter_CountFreeOxygens`, 'returnType') = 'integer'
 attr(`OBMolAtomIter_CountFreeOxygens`, "inputTypes") = c('_p_OpenBabel__OBMolAtomIter')
 class(`OBMolAtomIter_CountFreeOxygens`) = c("SWIGFunction", class('OBMolAtomIter_CountFreeOxygens'))
 
-# Start of OBMolAtomIter_CountFreeSulfurs
-`OBMolAtomIter_CountFreeSulfurs` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMolAtomIter_CountFreeSulfurs', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolAtomIter_CountFreeSulfurs`, 'returnType') = 'integer'
-attr(`OBMolAtomIter_CountFreeSulfurs`, "inputTypes") = c('_p_OpenBabel__OBMolAtomIter')
-class(`OBMolAtomIter_CountFreeSulfurs`) = c("SWIGFunction", class('OBMolAtomIter_CountFreeSulfurs'))
-
 # Start of OBMolAtomIter_ImplicitHydrogenCount
 `OBMolAtomIter_ImplicitHydrogenCount` = function(self, .copy = FALSE) {
   ;.Call('R_swig_OBMolAtomIter_ImplicitHydrogenCount', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -18056,14 +17282,6 @@ class(`OBMolAtomIter_BOSum`) = c("SWIGFunction", class('OBMolAtomIter_BOSum'))
 attr(`OBMolAtomIter_KBOSum`, 'returnType') = 'integer'
 attr(`OBMolAtomIter_KBOSum`, "inputTypes") = c('_p_OpenBabel__OBMolAtomIter')
 class(`OBMolAtomIter_KBOSum`) = c("SWIGFunction", class('OBMolAtomIter_KBOSum'))
-
-# Start of OBMolAtomIter_LewisAcidBaseCounts
-`OBMolAtomIter_LewisAcidBaseCounts` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBMolAtomIter_LewisAcidBaseCounts', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_std__pairT_int_int_t"; ans }
-attr(`OBMolAtomIter_LewisAcidBaseCounts`, 'returnType') = '_p_std__pairT_int_int_t'
-attr(`OBMolAtomIter_LewisAcidBaseCounts`, "inputTypes") = c('_p_OpenBabel__OBMolAtomIter')
-class(`OBMolAtomIter_LewisAcidBaseCounts`) = c("SWIGFunction", class('OBMolAtomIter_LewisAcidBaseCounts'))
 
 # Start of OBMolAtomIter_HasResidue
 `OBMolAtomIter_HasResidue` = function(self, .copy = FALSE) {
@@ -18170,13 +17388,6 @@ class(`OBMolAtomIter_IsOneFour`) = c("SWIGFunction", class('OBMolAtomIter_IsOneF
 attr(`OBMolAtomIter_IsCarboxylOxygen`, 'returnType') = 'logical'
 attr(`OBMolAtomIter_IsCarboxylOxygen`, "inputTypes") = c('_p_OpenBabel__OBMolAtomIter')
 class(`OBMolAtomIter_IsCarboxylOxygen`) = c("SWIGFunction", class('OBMolAtomIter_IsCarboxylOxygen'))
-
-# Start of OBMolAtomIter_IsThiocarboxylSulfur
-`OBMolAtomIter_IsThiocarboxylSulfur` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMolAtomIter_IsThiocarboxylSulfur', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolAtomIter_IsThiocarboxylSulfur`, 'returnType') = 'logical'
-attr(`OBMolAtomIter_IsThiocarboxylSulfur`, "inputTypes") = c('_p_OpenBabel__OBMolAtomIter')
-class(`OBMolAtomIter_IsThiocarboxylSulfur`) = c("SWIGFunction", class('OBMolAtomIter_IsThiocarboxylSulfur'))
 
 # Start of OBMolAtomIter_IsPhosphateOxygen
 `OBMolAtomIter_IsPhosphateOxygen` = function(self, .copy = FALSE) {
@@ -18303,13 +17514,6 @@ class(`OBMolAtomIter_IsHbondDonor`) = c("SWIGFunction", class('OBMolAtomIter_IsH
 attr(`OBMolAtomIter_IsHbondDonorH`, 'returnType') = 'logical'
 attr(`OBMolAtomIter_IsHbondDonorH`, "inputTypes") = c('_p_OpenBabel__OBMolAtomIter')
 class(`OBMolAtomIter_IsHbondDonorH`) = c("SWIGFunction", class('OBMolAtomIter_IsHbondDonorH'))
-
-# Start of OBMolAtomIter_IsMetal
-`OBMolAtomIter_IsMetal` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMolAtomIter_IsMetal', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolAtomIter_IsMetal`, 'returnType') = 'logical'
-attr(`OBMolAtomIter_IsMetal`, "inputTypes") = c('_p_OpenBabel__OBMolAtomIter')
-class(`OBMolAtomIter_IsMetal`) = c("SWIGFunction", class('OBMolAtomIter_IsMetal'))
 
 # Start of OBMolAtomIter_HasAlphaBetaUnsat
 `OBMolAtomIter_HasAlphaBetaUnsat__SWIG_0` = function(self, includePandS, .copy = FALSE) {
@@ -18590,7 +17794,7 @@ class(`OBMolAtomIter_EndData`) = c("SWIGFunction", class('OBMolAtomIter_EndData'
 
 # Start of accessor method for OpenBabel::OBMolAtomIter
 setMethod('$', '_p_OpenBabel__OBMolAtomIter', function(x, name) {
-  accessorFuns = list('HasMore' = OBMolAtomIter_HasMore, 'inc' = OBMolAtomIter_inc, '__deref__' = OBMolAtomIter___deref__, '__ref__' = OBMolAtomIter___ref__, 'Visit' = OBMolAtomIter_Visit_get, 'Duplicate' = OBMolAtomIter_Duplicate, 'SetIdx' = OBMolAtomIter_SetIdx, 'SetId' = OBMolAtomIter_SetId, 'SetHyb' = OBMolAtomIter_SetHyb, 'SetAtomicNum' = OBMolAtomIter_SetAtomicNum, 'SetIsotope' = OBMolAtomIter_SetIsotope, 'SetImplicitValence' = OBMolAtomIter_SetImplicitValence, 'IncrementImplicitValence' = OBMolAtomIter_IncrementImplicitValence, 'DecrementImplicitValence' = OBMolAtomIter_DecrementImplicitValence, 'SetFormalCharge' = OBMolAtomIter_SetFormalCharge, 'SetSpinMultiplicity' = OBMolAtomIter_SetSpinMultiplicity, 'SetType' = OBMolAtomIter_SetType, 'SetPartialCharge' = OBMolAtomIter_SetPartialCharge, 'SetVector' = OBMolAtomIter_SetVector, 'SetCoordPtr' = OBMolAtomIter_SetCoordPtr, 'SetResidue' = OBMolAtomIter_SetResidue, 'SetParent' = OBMolAtomIter_SetParent, 'SetAromatic' = OBMolAtomIter_SetAromatic, 'UnsetAromatic' = OBMolAtomIter_UnsetAromatic, 'SetClockwiseStereo' = OBMolAtomIter_SetClockwiseStereo, 'SetAntiClockwiseStereo' = OBMolAtomIter_SetAntiClockwiseStereo, 'SetPositiveStereo' = OBMolAtomIter_SetPositiveStereo, 'SetNegativeStereo' = OBMolAtomIter_SetNegativeStereo, 'UnsetStereo' = OBMolAtomIter_UnsetStereo, 'SetInRing' = OBMolAtomIter_SetInRing, 'SetChiral' = OBMolAtomIter_SetChiral, 'ClearCoordPtr' = OBMolAtomIter_ClearCoordPtr, 'GetFormalCharge' = OBMolAtomIter_GetFormalCharge, 'GetAtomicNum' = OBMolAtomIter_GetAtomicNum, 'GetIsotope' = OBMolAtomIter_GetIsotope, 'GetSpinMultiplicity' = OBMolAtomIter_GetSpinMultiplicity, 'GetAtomicMass' = OBMolAtomIter_GetAtomicMass, 'GetExactMass' = OBMolAtomIter_GetExactMass, 'GetIdx' = OBMolAtomIter_GetIdx, 'GetIndex' = OBMolAtomIter_GetIndex, 'GetId' = OBMolAtomIter_GetId, 'GetCoordinateIdx' = OBMolAtomIter_GetCoordinateIdx, 'GetCIdx' = OBMolAtomIter_GetCIdx, 'GetValence' = OBMolAtomIter_GetValence, 'GetHyb' = OBMolAtomIter_GetHyb, 'GetImplicitValence' = OBMolAtomIter_GetImplicitValence, 'GetHvyValence' = OBMolAtomIter_GetHvyValence, 'GetHeteroValence' = OBMolAtomIter_GetHeteroValence, 'GetType' = OBMolAtomIter_GetType, 'GetX' = OBMolAtomIter_GetX, 'GetY' = OBMolAtomIter_GetY, 'GetZ' = OBMolAtomIter_GetZ, 'x' = OBMolAtomIter_x, 'y' = OBMolAtomIter_y, 'z' = OBMolAtomIter_z, 'GetCoordinate' = OBMolAtomIter_GetCoordinate, 'GetVector' = OBMolAtomIter_GetVector, 'GetPartialCharge' = OBMolAtomIter_GetPartialCharge, 'GetResidue' = OBMolAtomIter_GetResidue, 'GetParent' = OBMolAtomIter_GetParent, 'GetNewBondVector' = OBMolAtomIter_GetNewBondVector, 'GetBond' = OBMolAtomIter_GetBond, 'GetNextAtom' = OBMolAtomIter_GetNextAtom, 'BeginBonds' = OBMolAtomIter_BeginBonds, 'EndBonds' = OBMolAtomIter_EndBonds, 'BeginBond' = OBMolAtomIter_BeginBond, 'NextBond' = OBMolAtomIter_NextBond, 'BeginNbrAtom' = OBMolAtomIter_BeginNbrAtom, 'NextNbrAtom' = OBMolAtomIter_NextNbrAtom, 'GetDistance' = OBMolAtomIter_GetDistance, 'GetAngle' = OBMolAtomIter_GetAngle, 'NewResidue' = OBMolAtomIter_NewResidue, 'AddResidue' = OBMolAtomIter_AddResidue, 'DeleteResidue' = OBMolAtomIter_DeleteResidue, 'AddBond' = OBMolAtomIter_AddBond, 'InsertBond' = OBMolAtomIter_InsertBond, 'DeleteBond' = OBMolAtomIter_DeleteBond, 'ClearBond' = OBMolAtomIter_ClearBond, 'HtoMethyl' = OBMolAtomIter_HtoMethyl, 'SetHybAndGeom' = OBMolAtomIter_SetHybAndGeom, 'ForceNoH' = OBMolAtomIter_ForceNoH, 'HasNoHForced' = OBMolAtomIter_HasNoHForced, 'ForceImplH' = OBMolAtomIter_ForceImplH, 'HasImplHForced' = OBMolAtomIter_HasImplHForced, 'CountFreeOxygens' = OBMolAtomIter_CountFreeOxygens, 'CountFreeSulfurs' = OBMolAtomIter_CountFreeSulfurs, 'ImplicitHydrogenCount' = OBMolAtomIter_ImplicitHydrogenCount, 'ExplicitHydrogenCount' = OBMolAtomIter_ExplicitHydrogenCount, 'MemberOfRingCount' = OBMolAtomIter_MemberOfRingCount, 'MemberOfRingSize' = OBMolAtomIter_MemberOfRingSize, 'CountRingBonds' = OBMolAtomIter_CountRingBonds, 'SmallestBondAngle' = OBMolAtomIter_SmallestBondAngle, 'AverageBondAngle' = OBMolAtomIter_AverageBondAngle, 'BOSum' = OBMolAtomIter_BOSum, 'KBOSum' = OBMolAtomIter_KBOSum, 'LewisAcidBaseCounts' = OBMolAtomIter_LewisAcidBaseCounts, 'HasResidue' = OBMolAtomIter_HasResidue, 'IsCarbon' = OBMolAtomIter_IsCarbon, 'IsNitrogen' = OBMolAtomIter_IsNitrogen, 'IsOxygen' = OBMolAtomIter_IsOxygen, 'IsSulfur' = OBMolAtomIter_IsSulfur, 'IsPhosphorus' = OBMolAtomIter_IsPhosphorus, 'IsAromatic' = OBMolAtomIter_IsAromatic, 'IsInRing' = OBMolAtomIter_IsInRing, 'IsInRingSize' = OBMolAtomIter_IsInRingSize, 'IsHeteroatom' = OBMolAtomIter_IsHeteroatom, 'IsNotCorH' = OBMolAtomIter_IsNotCorH, 'IsConnected' = OBMolAtomIter_IsConnected, 'IsOneThree' = OBMolAtomIter_IsOneThree, 'IsOneFour' = OBMolAtomIter_IsOneFour, 'IsCarboxylOxygen' = OBMolAtomIter_IsCarboxylOxygen, 'IsThiocarboxylSulfur' = OBMolAtomIter_IsThiocarboxylSulfur, 'IsPhosphateOxygen' = OBMolAtomIter_IsPhosphateOxygen, 'IsSulfateOxygen' = OBMolAtomIter_IsSulfateOxygen, 'IsNitroOxygen' = OBMolAtomIter_IsNitroOxygen, 'IsAmideNitrogen' = OBMolAtomIter_IsAmideNitrogen, 'IsPolarHydrogen' = OBMolAtomIter_IsPolarHydrogen, 'IsNonPolarHydrogen' = OBMolAtomIter_IsNonPolarHydrogen, 'IsAromaticNOxide' = OBMolAtomIter_IsAromaticNOxide, 'IsChiral' = OBMolAtomIter_IsChiral, 'IsAxial' = OBMolAtomIter_IsAxial, 'IsClockwise' = OBMolAtomIter_IsClockwise, 'IsAntiClockwise' = OBMolAtomIter_IsAntiClockwise, 'IsPositiveStereo' = OBMolAtomIter_IsPositiveStereo, 'IsNegativeStereo' = OBMolAtomIter_IsNegativeStereo, 'HasChiralitySpecified' = OBMolAtomIter_HasChiralitySpecified, 'HasChiralVolume' = OBMolAtomIter_HasChiralVolume, 'IsHbondAcceptor' = OBMolAtomIter_IsHbondAcceptor, 'IsHbondDonor' = OBMolAtomIter_IsHbondDonor, 'IsHbondDonorH' = OBMolAtomIter_IsHbondDonorH, 'IsMetal' = OBMolAtomIter_IsMetal, 'HasAlphaBetaUnsat' = OBMolAtomIter_HasAlphaBetaUnsat, 'HasBondOfOrder' = OBMolAtomIter_HasBondOfOrder, 'CountBondsOfOrder' = OBMolAtomIter_CountBondsOfOrder, 'HasNonSingleBond' = OBMolAtomIter_HasNonSingleBond, 'HasSingleBond' = OBMolAtomIter_HasSingleBond, 'HasDoubleBond' = OBMolAtomIter_HasDoubleBond, 'HasAromaticBond' = OBMolAtomIter_HasAromaticBond, 'MatchesSMARTS' = OBMolAtomIter_MatchesSMARTS, 'Clear' = OBMolAtomIter_Clear, 'DoTransformations' = OBMolAtomIter_DoTransformations, 'ClassDescription' = OBMolAtomIter_ClassDescription, 'GetTitle' = OBMolAtomIter_GetTitle, 'SetTitle' = OBMolAtomIter_SetTitle, 'HasData' = OBMolAtomIter_HasData, 'DeleteData' = OBMolAtomIter_DeleteData, 'CloneData' = OBMolAtomIter_CloneData, 'DataSize' = OBMolAtomIter_DataSize, 'GetData' = OBMolAtomIter_GetData, 'GetAllData' = OBMolAtomIter_GetAllData, 'BeginData' = OBMolAtomIter_BeginData, 'EndData' = OBMolAtomIter_EndData);
+  accessorFuns = list('HasMore' = OBMolAtomIter_HasMore, 'inc' = OBMolAtomIter_inc, '__deref__' = OBMolAtomIter___deref__, '__ref__' = OBMolAtomIter___ref__, 'Visit' = OBMolAtomIter_Visit_get, 'Duplicate' = OBMolAtomIter_Duplicate, 'SetIdx' = OBMolAtomIter_SetIdx, 'SetId' = OBMolAtomIter_SetId, 'SetHyb' = OBMolAtomIter_SetHyb, 'SetAtomicNum' = OBMolAtomIter_SetAtomicNum, 'SetIsotope' = OBMolAtomIter_SetIsotope, 'SetImplicitValence' = OBMolAtomIter_SetImplicitValence, 'IncrementImplicitValence' = OBMolAtomIter_IncrementImplicitValence, 'DecrementImplicitValence' = OBMolAtomIter_DecrementImplicitValence, 'SetFormalCharge' = OBMolAtomIter_SetFormalCharge, 'SetSpinMultiplicity' = OBMolAtomIter_SetSpinMultiplicity, 'SetType' = OBMolAtomIter_SetType, 'SetPartialCharge' = OBMolAtomIter_SetPartialCharge, 'SetVector' = OBMolAtomIter_SetVector, 'SetCoordPtr' = OBMolAtomIter_SetCoordPtr, 'SetResidue' = OBMolAtomIter_SetResidue, 'SetParent' = OBMolAtomIter_SetParent, 'SetAromatic' = OBMolAtomIter_SetAromatic, 'UnsetAromatic' = OBMolAtomIter_UnsetAromatic, 'SetClockwiseStereo' = OBMolAtomIter_SetClockwiseStereo, 'SetAntiClockwiseStereo' = OBMolAtomIter_SetAntiClockwiseStereo, 'SetPositiveStereo' = OBMolAtomIter_SetPositiveStereo, 'SetNegativeStereo' = OBMolAtomIter_SetNegativeStereo, 'UnsetStereo' = OBMolAtomIter_UnsetStereo, 'SetInRing' = OBMolAtomIter_SetInRing, 'SetChiral' = OBMolAtomIter_SetChiral, 'ClearCoordPtr' = OBMolAtomIter_ClearCoordPtr, 'GetFormalCharge' = OBMolAtomIter_GetFormalCharge, 'GetAtomicNum' = OBMolAtomIter_GetAtomicNum, 'GetIsotope' = OBMolAtomIter_GetIsotope, 'GetSpinMultiplicity' = OBMolAtomIter_GetSpinMultiplicity, 'GetAtomicMass' = OBMolAtomIter_GetAtomicMass, 'GetExactMass' = OBMolAtomIter_GetExactMass, 'GetIdx' = OBMolAtomIter_GetIdx, 'GetIndex' = OBMolAtomIter_GetIndex, 'GetId' = OBMolAtomIter_GetId, 'GetCoordinateIdx' = OBMolAtomIter_GetCoordinateIdx, 'GetCIdx' = OBMolAtomIter_GetCIdx, 'GetValence' = OBMolAtomIter_GetValence, 'GetHyb' = OBMolAtomIter_GetHyb, 'GetImplicitValence' = OBMolAtomIter_GetImplicitValence, 'GetHvyValence' = OBMolAtomIter_GetHvyValence, 'GetHeteroValence' = OBMolAtomIter_GetHeteroValence, 'GetType' = OBMolAtomIter_GetType, 'GetX' = OBMolAtomIter_GetX, 'GetY' = OBMolAtomIter_GetY, 'GetZ' = OBMolAtomIter_GetZ, 'x' = OBMolAtomIter_x, 'y' = OBMolAtomIter_y, 'z' = OBMolAtomIter_z, 'GetCoordinate' = OBMolAtomIter_GetCoordinate, 'GetVector' = OBMolAtomIter_GetVector, 'GetPartialCharge' = OBMolAtomIter_GetPartialCharge, 'GetResidue' = OBMolAtomIter_GetResidue, 'GetParent' = OBMolAtomIter_GetParent, 'GetNewBondVector' = OBMolAtomIter_GetNewBondVector, 'GetBond' = OBMolAtomIter_GetBond, 'GetNextAtom' = OBMolAtomIter_GetNextAtom, 'BeginBonds' = OBMolAtomIter_BeginBonds, 'EndBonds' = OBMolAtomIter_EndBonds, 'BeginBond' = OBMolAtomIter_BeginBond, 'NextBond' = OBMolAtomIter_NextBond, 'BeginNbrAtom' = OBMolAtomIter_BeginNbrAtom, 'NextNbrAtom' = OBMolAtomIter_NextNbrAtom, 'GetDistance' = OBMolAtomIter_GetDistance, 'GetAngle' = OBMolAtomIter_GetAngle, 'NewResidue' = OBMolAtomIter_NewResidue, 'AddResidue' = OBMolAtomIter_AddResidue, 'DeleteResidue' = OBMolAtomIter_DeleteResidue, 'AddBond' = OBMolAtomIter_AddBond, 'InsertBond' = OBMolAtomIter_InsertBond, 'DeleteBond' = OBMolAtomIter_DeleteBond, 'ClearBond' = OBMolAtomIter_ClearBond, 'HtoMethyl' = OBMolAtomIter_HtoMethyl, 'SetHybAndGeom' = OBMolAtomIter_SetHybAndGeom, 'ForceNoH' = OBMolAtomIter_ForceNoH, 'HasNoHForced' = OBMolAtomIter_HasNoHForced, 'ForceImplH' = OBMolAtomIter_ForceImplH, 'HasImplHForced' = OBMolAtomIter_HasImplHForced, 'CountFreeOxygens' = OBMolAtomIter_CountFreeOxygens, 'ImplicitHydrogenCount' = OBMolAtomIter_ImplicitHydrogenCount, 'ExplicitHydrogenCount' = OBMolAtomIter_ExplicitHydrogenCount, 'MemberOfRingCount' = OBMolAtomIter_MemberOfRingCount, 'MemberOfRingSize' = OBMolAtomIter_MemberOfRingSize, 'CountRingBonds' = OBMolAtomIter_CountRingBonds, 'SmallestBondAngle' = OBMolAtomIter_SmallestBondAngle, 'AverageBondAngle' = OBMolAtomIter_AverageBondAngle, 'BOSum' = OBMolAtomIter_BOSum, 'KBOSum' = OBMolAtomIter_KBOSum, 'HasResidue' = OBMolAtomIter_HasResidue, 'IsCarbon' = OBMolAtomIter_IsCarbon, 'IsNitrogen' = OBMolAtomIter_IsNitrogen, 'IsOxygen' = OBMolAtomIter_IsOxygen, 'IsSulfur' = OBMolAtomIter_IsSulfur, 'IsPhosphorus' = OBMolAtomIter_IsPhosphorus, 'IsAromatic' = OBMolAtomIter_IsAromatic, 'IsInRing' = OBMolAtomIter_IsInRing, 'IsInRingSize' = OBMolAtomIter_IsInRingSize, 'IsHeteroatom' = OBMolAtomIter_IsHeteroatom, 'IsNotCorH' = OBMolAtomIter_IsNotCorH, 'IsConnected' = OBMolAtomIter_IsConnected, 'IsOneThree' = OBMolAtomIter_IsOneThree, 'IsOneFour' = OBMolAtomIter_IsOneFour, 'IsCarboxylOxygen' = OBMolAtomIter_IsCarboxylOxygen, 'IsPhosphateOxygen' = OBMolAtomIter_IsPhosphateOxygen, 'IsSulfateOxygen' = OBMolAtomIter_IsSulfateOxygen, 'IsNitroOxygen' = OBMolAtomIter_IsNitroOxygen, 'IsAmideNitrogen' = OBMolAtomIter_IsAmideNitrogen, 'IsPolarHydrogen' = OBMolAtomIter_IsPolarHydrogen, 'IsNonPolarHydrogen' = OBMolAtomIter_IsNonPolarHydrogen, 'IsAromaticNOxide' = OBMolAtomIter_IsAromaticNOxide, 'IsChiral' = OBMolAtomIter_IsChiral, 'IsAxial' = OBMolAtomIter_IsAxial, 'IsClockwise' = OBMolAtomIter_IsClockwise, 'IsAntiClockwise' = OBMolAtomIter_IsAntiClockwise, 'IsPositiveStereo' = OBMolAtomIter_IsPositiveStereo, 'IsNegativeStereo' = OBMolAtomIter_IsNegativeStereo, 'HasChiralitySpecified' = OBMolAtomIter_HasChiralitySpecified, 'HasChiralVolume' = OBMolAtomIter_HasChiralVolume, 'IsHbondAcceptor' = OBMolAtomIter_IsHbondAcceptor, 'IsHbondDonor' = OBMolAtomIter_IsHbondDonor, 'IsHbondDonorH' = OBMolAtomIter_IsHbondDonorH, 'HasAlphaBetaUnsat' = OBMolAtomIter_HasAlphaBetaUnsat, 'HasBondOfOrder' = OBMolAtomIter_HasBondOfOrder, 'CountBondsOfOrder' = OBMolAtomIter_CountBondsOfOrder, 'HasNonSingleBond' = OBMolAtomIter_HasNonSingleBond, 'HasSingleBond' = OBMolAtomIter_HasSingleBond, 'HasDoubleBond' = OBMolAtomIter_HasDoubleBond, 'HasAromaticBond' = OBMolAtomIter_HasAromaticBond, 'MatchesSMARTS' = OBMolAtomIter_MatchesSMARTS, 'Clear' = OBMolAtomIter_Clear, 'DoTransformations' = OBMolAtomIter_DoTransformations, 'ClassDescription' = OBMolAtomIter_ClassDescription, 'GetTitle' = OBMolAtomIter_GetTitle, 'SetTitle' = OBMolAtomIter_SetTitle, 'HasData' = OBMolAtomIter_HasData, 'DeleteData' = OBMolAtomIter_DeleteData, 'CloneData' = OBMolAtomIter_CloneData, 'DataSize' = OBMolAtomIter_DataSize, 'GetData' = OBMolAtomIter_GetData, 'GetAllData' = OBMolAtomIter_GetAllData, 'BeginData' = OBMolAtomIter_BeginData, 'EndData' = OBMolAtomIter_EndData);
   vaccessors = c('Visit'); ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name));
   f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}  else f(x); }
 );
@@ -19229,20 +18433,11 @@ attr(`OBMolAtomDFSIter_GetDistance__SWIG_1`, 'returnType') = 'numeric'
 attr(`OBMolAtomDFSIter_GetDistance__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMolAtomDFSIter', '_p_OpenBabel__OBAtom')
 class(`OBMolAtomDFSIter_GetDistance__SWIG_1`) = c("SWIGFunction", class('OBMolAtomDFSIter_GetDistance__SWIG_1'))
 
-# Start of OBMolAtomDFSIter_GetDistance
-`OBMolAtomDFSIter_GetDistance__SWIG_2` = function(self, v, .copy = FALSE) {
-  ;.Call('R_swig_OBMolAtomDFSIter_GetDistance__SWIG_2', self, v, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolAtomDFSIter_GetDistance__SWIG_2`, 'returnType') = 'numeric'
-attr(`OBMolAtomDFSIter_GetDistance__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBMolAtomDFSIter', '_p_OpenBabel__vector3')
-class(`OBMolAtomDFSIter_GetDistance__SWIG_2`) = c("SWIGFunction", class('OBMolAtomDFSIter_GetDistance__SWIG_2'))
-
 `OBMolAtomDFSIter_GetDistance` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 3
+# dispatch functions 2
    if (argc == 2) {
     if (extends(argtypes[1], '_p_OpenBabel__OBMolAtomDFSIter') && extends(argtypes[2], '_p_OpenBabel__OBAtom')) {
       f <- OBMolAtomDFSIter_GetDistance__SWIG_1; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBMolAtomDFSIter') && extends(argtypes[2], '_p_OpenBabel__vector3')) {
-      f <- OBMolAtomDFSIter_GetDistance__SWIG_2; } 
     else if (extends(argtypes[1], '_p_OpenBabel__OBMolAtomDFSIter') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
       f <- OBMolAtomDFSIter_GetDistance__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBMolAtomDFSIter_GetDistance with argtypes (",toString(argtypes),")"); } ;
@@ -19368,13 +18563,6 @@ attr(`OBMolAtomDFSIter_CountFreeOxygens`, 'returnType') = 'integer'
 attr(`OBMolAtomDFSIter_CountFreeOxygens`, "inputTypes") = c('_p_OpenBabel__OBMolAtomDFSIter')
 class(`OBMolAtomDFSIter_CountFreeOxygens`) = c("SWIGFunction", class('OBMolAtomDFSIter_CountFreeOxygens'))
 
-# Start of OBMolAtomDFSIter_CountFreeSulfurs
-`OBMolAtomDFSIter_CountFreeSulfurs` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMolAtomDFSIter_CountFreeSulfurs', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolAtomDFSIter_CountFreeSulfurs`, 'returnType') = 'integer'
-attr(`OBMolAtomDFSIter_CountFreeSulfurs`, "inputTypes") = c('_p_OpenBabel__OBMolAtomDFSIter')
-class(`OBMolAtomDFSIter_CountFreeSulfurs`) = c("SWIGFunction", class('OBMolAtomDFSIter_CountFreeSulfurs'))
-
 # Start of OBMolAtomDFSIter_ImplicitHydrogenCount
 `OBMolAtomDFSIter_ImplicitHydrogenCount` = function(self, .copy = FALSE) {
   ;.Call('R_swig_OBMolAtomDFSIter_ImplicitHydrogenCount', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -19454,14 +18642,6 @@ class(`OBMolAtomDFSIter_BOSum`) = c("SWIGFunction", class('OBMolAtomDFSIter_BOSu
 attr(`OBMolAtomDFSIter_KBOSum`, 'returnType') = 'integer'
 attr(`OBMolAtomDFSIter_KBOSum`, "inputTypes") = c('_p_OpenBabel__OBMolAtomDFSIter')
 class(`OBMolAtomDFSIter_KBOSum`) = c("SWIGFunction", class('OBMolAtomDFSIter_KBOSum'))
-
-# Start of OBMolAtomDFSIter_LewisAcidBaseCounts
-`OBMolAtomDFSIter_LewisAcidBaseCounts` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBMolAtomDFSIter_LewisAcidBaseCounts', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_std__pairT_int_int_t"; ans }
-attr(`OBMolAtomDFSIter_LewisAcidBaseCounts`, 'returnType') = '_p_std__pairT_int_int_t'
-attr(`OBMolAtomDFSIter_LewisAcidBaseCounts`, "inputTypes") = c('_p_OpenBabel__OBMolAtomDFSIter')
-class(`OBMolAtomDFSIter_LewisAcidBaseCounts`) = c("SWIGFunction", class('OBMolAtomDFSIter_LewisAcidBaseCounts'))
 
 # Start of OBMolAtomDFSIter_HasResidue
 `OBMolAtomDFSIter_HasResidue` = function(self, .copy = FALSE) {
@@ -19568,13 +18748,6 @@ class(`OBMolAtomDFSIter_IsOneFour`) = c("SWIGFunction", class('OBMolAtomDFSIter_
 attr(`OBMolAtomDFSIter_IsCarboxylOxygen`, 'returnType') = 'logical'
 attr(`OBMolAtomDFSIter_IsCarboxylOxygen`, "inputTypes") = c('_p_OpenBabel__OBMolAtomDFSIter')
 class(`OBMolAtomDFSIter_IsCarboxylOxygen`) = c("SWIGFunction", class('OBMolAtomDFSIter_IsCarboxylOxygen'))
-
-# Start of OBMolAtomDFSIter_IsThiocarboxylSulfur
-`OBMolAtomDFSIter_IsThiocarboxylSulfur` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMolAtomDFSIter_IsThiocarboxylSulfur', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolAtomDFSIter_IsThiocarboxylSulfur`, 'returnType') = 'logical'
-attr(`OBMolAtomDFSIter_IsThiocarboxylSulfur`, "inputTypes") = c('_p_OpenBabel__OBMolAtomDFSIter')
-class(`OBMolAtomDFSIter_IsThiocarboxylSulfur`) = c("SWIGFunction", class('OBMolAtomDFSIter_IsThiocarboxylSulfur'))
 
 # Start of OBMolAtomDFSIter_IsPhosphateOxygen
 `OBMolAtomDFSIter_IsPhosphateOxygen` = function(self, .copy = FALSE) {
@@ -19701,13 +18874,6 @@ class(`OBMolAtomDFSIter_IsHbondDonor`) = c("SWIGFunction", class('OBMolAtomDFSIt
 attr(`OBMolAtomDFSIter_IsHbondDonorH`, 'returnType') = 'logical'
 attr(`OBMolAtomDFSIter_IsHbondDonorH`, "inputTypes") = c('_p_OpenBabel__OBMolAtomDFSIter')
 class(`OBMolAtomDFSIter_IsHbondDonorH`) = c("SWIGFunction", class('OBMolAtomDFSIter_IsHbondDonorH'))
-
-# Start of OBMolAtomDFSIter_IsMetal
-`OBMolAtomDFSIter_IsMetal` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMolAtomDFSIter_IsMetal', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolAtomDFSIter_IsMetal`, 'returnType') = 'logical'
-attr(`OBMolAtomDFSIter_IsMetal`, "inputTypes") = c('_p_OpenBabel__OBMolAtomDFSIter')
-class(`OBMolAtomDFSIter_IsMetal`) = c("SWIGFunction", class('OBMolAtomDFSIter_IsMetal'))
 
 # Start of OBMolAtomDFSIter_HasAlphaBetaUnsat
 `OBMolAtomDFSIter_HasAlphaBetaUnsat__SWIG_0` = function(self, includePandS, .copy = FALSE) {
@@ -19989,7 +19155,7 @@ class(`OBMolAtomDFSIter_EndData`) = c("SWIGFunction", class('OBMolAtomDFSIter_En
 
 # Start of accessor method for OpenBabel::OBMolAtomDFSIter
 setMethod('$', '_p_OpenBabel__OBMolAtomDFSIter', function(x, name) {
-  accessorFuns = list('HasMore' = OBMolAtomDFSIter_HasMore, 'inc' = OBMolAtomDFSIter_inc, '__deref__' = OBMolAtomDFSIter___deref__, '__ref__' = OBMolAtomDFSIter___ref__, '_next' = OBMolAtomDFSIter__next, 'Visit' = OBMolAtomDFSIter_Visit_get, 'Duplicate' = OBMolAtomDFSIter_Duplicate, 'SetIdx' = OBMolAtomDFSIter_SetIdx, 'SetId' = OBMolAtomDFSIter_SetId, 'SetHyb' = OBMolAtomDFSIter_SetHyb, 'SetAtomicNum' = OBMolAtomDFSIter_SetAtomicNum, 'SetIsotope' = OBMolAtomDFSIter_SetIsotope, 'SetImplicitValence' = OBMolAtomDFSIter_SetImplicitValence, 'IncrementImplicitValence' = OBMolAtomDFSIter_IncrementImplicitValence, 'DecrementImplicitValence' = OBMolAtomDFSIter_DecrementImplicitValence, 'SetFormalCharge' = OBMolAtomDFSIter_SetFormalCharge, 'SetSpinMultiplicity' = OBMolAtomDFSIter_SetSpinMultiplicity, 'SetType' = OBMolAtomDFSIter_SetType, 'SetPartialCharge' = OBMolAtomDFSIter_SetPartialCharge, 'SetVector' = OBMolAtomDFSIter_SetVector, 'SetCoordPtr' = OBMolAtomDFSIter_SetCoordPtr, 'SetResidue' = OBMolAtomDFSIter_SetResidue, 'SetParent' = OBMolAtomDFSIter_SetParent, 'SetAromatic' = OBMolAtomDFSIter_SetAromatic, 'UnsetAromatic' = OBMolAtomDFSIter_UnsetAromatic, 'SetClockwiseStereo' = OBMolAtomDFSIter_SetClockwiseStereo, 'SetAntiClockwiseStereo' = OBMolAtomDFSIter_SetAntiClockwiseStereo, 'SetPositiveStereo' = OBMolAtomDFSIter_SetPositiveStereo, 'SetNegativeStereo' = OBMolAtomDFSIter_SetNegativeStereo, 'UnsetStereo' = OBMolAtomDFSIter_UnsetStereo, 'SetInRing' = OBMolAtomDFSIter_SetInRing, 'SetChiral' = OBMolAtomDFSIter_SetChiral, 'ClearCoordPtr' = OBMolAtomDFSIter_ClearCoordPtr, 'GetFormalCharge' = OBMolAtomDFSIter_GetFormalCharge, 'GetAtomicNum' = OBMolAtomDFSIter_GetAtomicNum, 'GetIsotope' = OBMolAtomDFSIter_GetIsotope, 'GetSpinMultiplicity' = OBMolAtomDFSIter_GetSpinMultiplicity, 'GetAtomicMass' = OBMolAtomDFSIter_GetAtomicMass, 'GetExactMass' = OBMolAtomDFSIter_GetExactMass, 'GetIdx' = OBMolAtomDFSIter_GetIdx, 'GetIndex' = OBMolAtomDFSIter_GetIndex, 'GetId' = OBMolAtomDFSIter_GetId, 'GetCoordinateIdx' = OBMolAtomDFSIter_GetCoordinateIdx, 'GetCIdx' = OBMolAtomDFSIter_GetCIdx, 'GetValence' = OBMolAtomDFSIter_GetValence, 'GetHyb' = OBMolAtomDFSIter_GetHyb, 'GetImplicitValence' = OBMolAtomDFSIter_GetImplicitValence, 'GetHvyValence' = OBMolAtomDFSIter_GetHvyValence, 'GetHeteroValence' = OBMolAtomDFSIter_GetHeteroValence, 'GetType' = OBMolAtomDFSIter_GetType, 'GetX' = OBMolAtomDFSIter_GetX, 'GetY' = OBMolAtomDFSIter_GetY, 'GetZ' = OBMolAtomDFSIter_GetZ, 'x' = OBMolAtomDFSIter_x, 'y' = OBMolAtomDFSIter_y, 'z' = OBMolAtomDFSIter_z, 'GetCoordinate' = OBMolAtomDFSIter_GetCoordinate, 'GetVector' = OBMolAtomDFSIter_GetVector, 'GetPartialCharge' = OBMolAtomDFSIter_GetPartialCharge, 'GetResidue' = OBMolAtomDFSIter_GetResidue, 'GetParent' = OBMolAtomDFSIter_GetParent, 'GetNewBondVector' = OBMolAtomDFSIter_GetNewBondVector, 'GetBond' = OBMolAtomDFSIter_GetBond, 'GetNextAtom' = OBMolAtomDFSIter_GetNextAtom, 'BeginBonds' = OBMolAtomDFSIter_BeginBonds, 'EndBonds' = OBMolAtomDFSIter_EndBonds, 'BeginBond' = OBMolAtomDFSIter_BeginBond, 'NextBond' = OBMolAtomDFSIter_NextBond, 'BeginNbrAtom' = OBMolAtomDFSIter_BeginNbrAtom, 'NextNbrAtom' = OBMolAtomDFSIter_NextNbrAtom, 'GetDistance' = OBMolAtomDFSIter_GetDistance, 'GetAngle' = OBMolAtomDFSIter_GetAngle, 'NewResidue' = OBMolAtomDFSIter_NewResidue, 'AddResidue' = OBMolAtomDFSIter_AddResidue, 'DeleteResidue' = OBMolAtomDFSIter_DeleteResidue, 'AddBond' = OBMolAtomDFSIter_AddBond, 'InsertBond' = OBMolAtomDFSIter_InsertBond, 'DeleteBond' = OBMolAtomDFSIter_DeleteBond, 'ClearBond' = OBMolAtomDFSIter_ClearBond, 'HtoMethyl' = OBMolAtomDFSIter_HtoMethyl, 'SetHybAndGeom' = OBMolAtomDFSIter_SetHybAndGeom, 'ForceNoH' = OBMolAtomDFSIter_ForceNoH, 'HasNoHForced' = OBMolAtomDFSIter_HasNoHForced, 'ForceImplH' = OBMolAtomDFSIter_ForceImplH, 'HasImplHForced' = OBMolAtomDFSIter_HasImplHForced, 'CountFreeOxygens' = OBMolAtomDFSIter_CountFreeOxygens, 'CountFreeSulfurs' = OBMolAtomDFSIter_CountFreeSulfurs, 'ImplicitHydrogenCount' = OBMolAtomDFSIter_ImplicitHydrogenCount, 'ExplicitHydrogenCount' = OBMolAtomDFSIter_ExplicitHydrogenCount, 'MemberOfRingCount' = OBMolAtomDFSIter_MemberOfRingCount, 'MemberOfRingSize' = OBMolAtomDFSIter_MemberOfRingSize, 'CountRingBonds' = OBMolAtomDFSIter_CountRingBonds, 'SmallestBondAngle' = OBMolAtomDFSIter_SmallestBondAngle, 'AverageBondAngle' = OBMolAtomDFSIter_AverageBondAngle, 'BOSum' = OBMolAtomDFSIter_BOSum, 'KBOSum' = OBMolAtomDFSIter_KBOSum, 'LewisAcidBaseCounts' = OBMolAtomDFSIter_LewisAcidBaseCounts, 'HasResidue' = OBMolAtomDFSIter_HasResidue, 'IsCarbon' = OBMolAtomDFSIter_IsCarbon, 'IsNitrogen' = OBMolAtomDFSIter_IsNitrogen, 'IsOxygen' = OBMolAtomDFSIter_IsOxygen, 'IsSulfur' = OBMolAtomDFSIter_IsSulfur, 'IsPhosphorus' = OBMolAtomDFSIter_IsPhosphorus, 'IsAromatic' = OBMolAtomDFSIter_IsAromatic, 'IsInRing' = OBMolAtomDFSIter_IsInRing, 'IsInRingSize' = OBMolAtomDFSIter_IsInRingSize, 'IsHeteroatom' = OBMolAtomDFSIter_IsHeteroatom, 'IsNotCorH' = OBMolAtomDFSIter_IsNotCorH, 'IsConnected' = OBMolAtomDFSIter_IsConnected, 'IsOneThree' = OBMolAtomDFSIter_IsOneThree, 'IsOneFour' = OBMolAtomDFSIter_IsOneFour, 'IsCarboxylOxygen' = OBMolAtomDFSIter_IsCarboxylOxygen, 'IsThiocarboxylSulfur' = OBMolAtomDFSIter_IsThiocarboxylSulfur, 'IsPhosphateOxygen' = OBMolAtomDFSIter_IsPhosphateOxygen, 'IsSulfateOxygen' = OBMolAtomDFSIter_IsSulfateOxygen, 'IsNitroOxygen' = OBMolAtomDFSIter_IsNitroOxygen, 'IsAmideNitrogen' = OBMolAtomDFSIter_IsAmideNitrogen, 'IsPolarHydrogen' = OBMolAtomDFSIter_IsPolarHydrogen, 'IsNonPolarHydrogen' = OBMolAtomDFSIter_IsNonPolarHydrogen, 'IsAromaticNOxide' = OBMolAtomDFSIter_IsAromaticNOxide, 'IsChiral' = OBMolAtomDFSIter_IsChiral, 'IsAxial' = OBMolAtomDFSIter_IsAxial, 'IsClockwise' = OBMolAtomDFSIter_IsClockwise, 'IsAntiClockwise' = OBMolAtomDFSIter_IsAntiClockwise, 'IsPositiveStereo' = OBMolAtomDFSIter_IsPositiveStereo, 'IsNegativeStereo' = OBMolAtomDFSIter_IsNegativeStereo, 'HasChiralitySpecified' = OBMolAtomDFSIter_HasChiralitySpecified, 'HasChiralVolume' = OBMolAtomDFSIter_HasChiralVolume, 'IsHbondAcceptor' = OBMolAtomDFSIter_IsHbondAcceptor, 'IsHbondDonor' = OBMolAtomDFSIter_IsHbondDonor, 'IsHbondDonorH' = OBMolAtomDFSIter_IsHbondDonorH, 'IsMetal' = OBMolAtomDFSIter_IsMetal, 'HasAlphaBetaUnsat' = OBMolAtomDFSIter_HasAlphaBetaUnsat, 'HasBondOfOrder' = OBMolAtomDFSIter_HasBondOfOrder, 'CountBondsOfOrder' = OBMolAtomDFSIter_CountBondsOfOrder, 'HasNonSingleBond' = OBMolAtomDFSIter_HasNonSingleBond, 'HasSingleBond' = OBMolAtomDFSIter_HasSingleBond, 'HasDoubleBond' = OBMolAtomDFSIter_HasDoubleBond, 'HasAromaticBond' = OBMolAtomDFSIter_HasAromaticBond, 'MatchesSMARTS' = OBMolAtomDFSIter_MatchesSMARTS, 'Clear' = OBMolAtomDFSIter_Clear, 'DoTransformations' = OBMolAtomDFSIter_DoTransformations, 'ClassDescription' = OBMolAtomDFSIter_ClassDescription, 'GetTitle' = OBMolAtomDFSIter_GetTitle, 'SetTitle' = OBMolAtomDFSIter_SetTitle, 'HasData' = OBMolAtomDFSIter_HasData, 'DeleteData' = OBMolAtomDFSIter_DeleteData, 'CloneData' = OBMolAtomDFSIter_CloneData, 'DataSize' = OBMolAtomDFSIter_DataSize, 'GetData' = OBMolAtomDFSIter_GetData, 'GetAllData' = OBMolAtomDFSIter_GetAllData, 'BeginData' = OBMolAtomDFSIter_BeginData, 'EndData' = OBMolAtomDFSIter_EndData);
+  accessorFuns = list('HasMore' = OBMolAtomDFSIter_HasMore, 'inc' = OBMolAtomDFSIter_inc, '__deref__' = OBMolAtomDFSIter___deref__, '__ref__' = OBMolAtomDFSIter___ref__, '_next' = OBMolAtomDFSIter__next, 'Visit' = OBMolAtomDFSIter_Visit_get, 'Duplicate' = OBMolAtomDFSIter_Duplicate, 'SetIdx' = OBMolAtomDFSIter_SetIdx, 'SetId' = OBMolAtomDFSIter_SetId, 'SetHyb' = OBMolAtomDFSIter_SetHyb, 'SetAtomicNum' = OBMolAtomDFSIter_SetAtomicNum, 'SetIsotope' = OBMolAtomDFSIter_SetIsotope, 'SetImplicitValence' = OBMolAtomDFSIter_SetImplicitValence, 'IncrementImplicitValence' = OBMolAtomDFSIter_IncrementImplicitValence, 'DecrementImplicitValence' = OBMolAtomDFSIter_DecrementImplicitValence, 'SetFormalCharge' = OBMolAtomDFSIter_SetFormalCharge, 'SetSpinMultiplicity' = OBMolAtomDFSIter_SetSpinMultiplicity, 'SetType' = OBMolAtomDFSIter_SetType, 'SetPartialCharge' = OBMolAtomDFSIter_SetPartialCharge, 'SetVector' = OBMolAtomDFSIter_SetVector, 'SetCoordPtr' = OBMolAtomDFSIter_SetCoordPtr, 'SetResidue' = OBMolAtomDFSIter_SetResidue, 'SetParent' = OBMolAtomDFSIter_SetParent, 'SetAromatic' = OBMolAtomDFSIter_SetAromatic, 'UnsetAromatic' = OBMolAtomDFSIter_UnsetAromatic, 'SetClockwiseStereo' = OBMolAtomDFSIter_SetClockwiseStereo, 'SetAntiClockwiseStereo' = OBMolAtomDFSIter_SetAntiClockwiseStereo, 'SetPositiveStereo' = OBMolAtomDFSIter_SetPositiveStereo, 'SetNegativeStereo' = OBMolAtomDFSIter_SetNegativeStereo, 'UnsetStereo' = OBMolAtomDFSIter_UnsetStereo, 'SetInRing' = OBMolAtomDFSIter_SetInRing, 'SetChiral' = OBMolAtomDFSIter_SetChiral, 'ClearCoordPtr' = OBMolAtomDFSIter_ClearCoordPtr, 'GetFormalCharge' = OBMolAtomDFSIter_GetFormalCharge, 'GetAtomicNum' = OBMolAtomDFSIter_GetAtomicNum, 'GetIsotope' = OBMolAtomDFSIter_GetIsotope, 'GetSpinMultiplicity' = OBMolAtomDFSIter_GetSpinMultiplicity, 'GetAtomicMass' = OBMolAtomDFSIter_GetAtomicMass, 'GetExactMass' = OBMolAtomDFSIter_GetExactMass, 'GetIdx' = OBMolAtomDFSIter_GetIdx, 'GetIndex' = OBMolAtomDFSIter_GetIndex, 'GetId' = OBMolAtomDFSIter_GetId, 'GetCoordinateIdx' = OBMolAtomDFSIter_GetCoordinateIdx, 'GetCIdx' = OBMolAtomDFSIter_GetCIdx, 'GetValence' = OBMolAtomDFSIter_GetValence, 'GetHyb' = OBMolAtomDFSIter_GetHyb, 'GetImplicitValence' = OBMolAtomDFSIter_GetImplicitValence, 'GetHvyValence' = OBMolAtomDFSIter_GetHvyValence, 'GetHeteroValence' = OBMolAtomDFSIter_GetHeteroValence, 'GetType' = OBMolAtomDFSIter_GetType, 'GetX' = OBMolAtomDFSIter_GetX, 'GetY' = OBMolAtomDFSIter_GetY, 'GetZ' = OBMolAtomDFSIter_GetZ, 'x' = OBMolAtomDFSIter_x, 'y' = OBMolAtomDFSIter_y, 'z' = OBMolAtomDFSIter_z, 'GetCoordinate' = OBMolAtomDFSIter_GetCoordinate, 'GetVector' = OBMolAtomDFSIter_GetVector, 'GetPartialCharge' = OBMolAtomDFSIter_GetPartialCharge, 'GetResidue' = OBMolAtomDFSIter_GetResidue, 'GetParent' = OBMolAtomDFSIter_GetParent, 'GetNewBondVector' = OBMolAtomDFSIter_GetNewBondVector, 'GetBond' = OBMolAtomDFSIter_GetBond, 'GetNextAtom' = OBMolAtomDFSIter_GetNextAtom, 'BeginBonds' = OBMolAtomDFSIter_BeginBonds, 'EndBonds' = OBMolAtomDFSIter_EndBonds, 'BeginBond' = OBMolAtomDFSIter_BeginBond, 'NextBond' = OBMolAtomDFSIter_NextBond, 'BeginNbrAtom' = OBMolAtomDFSIter_BeginNbrAtom, 'NextNbrAtom' = OBMolAtomDFSIter_NextNbrAtom, 'GetDistance' = OBMolAtomDFSIter_GetDistance, 'GetAngle' = OBMolAtomDFSIter_GetAngle, 'NewResidue' = OBMolAtomDFSIter_NewResidue, 'AddResidue' = OBMolAtomDFSIter_AddResidue, 'DeleteResidue' = OBMolAtomDFSIter_DeleteResidue, 'AddBond' = OBMolAtomDFSIter_AddBond, 'InsertBond' = OBMolAtomDFSIter_InsertBond, 'DeleteBond' = OBMolAtomDFSIter_DeleteBond, 'ClearBond' = OBMolAtomDFSIter_ClearBond, 'HtoMethyl' = OBMolAtomDFSIter_HtoMethyl, 'SetHybAndGeom' = OBMolAtomDFSIter_SetHybAndGeom, 'ForceNoH' = OBMolAtomDFSIter_ForceNoH, 'HasNoHForced' = OBMolAtomDFSIter_HasNoHForced, 'ForceImplH' = OBMolAtomDFSIter_ForceImplH, 'HasImplHForced' = OBMolAtomDFSIter_HasImplHForced, 'CountFreeOxygens' = OBMolAtomDFSIter_CountFreeOxygens, 'ImplicitHydrogenCount' = OBMolAtomDFSIter_ImplicitHydrogenCount, 'ExplicitHydrogenCount' = OBMolAtomDFSIter_ExplicitHydrogenCount, 'MemberOfRingCount' = OBMolAtomDFSIter_MemberOfRingCount, 'MemberOfRingSize' = OBMolAtomDFSIter_MemberOfRingSize, 'CountRingBonds' = OBMolAtomDFSIter_CountRingBonds, 'SmallestBondAngle' = OBMolAtomDFSIter_SmallestBondAngle, 'AverageBondAngle' = OBMolAtomDFSIter_AverageBondAngle, 'BOSum' = OBMolAtomDFSIter_BOSum, 'KBOSum' = OBMolAtomDFSIter_KBOSum, 'HasResidue' = OBMolAtomDFSIter_HasResidue, 'IsCarbon' = OBMolAtomDFSIter_IsCarbon, 'IsNitrogen' = OBMolAtomDFSIter_IsNitrogen, 'IsOxygen' = OBMolAtomDFSIter_IsOxygen, 'IsSulfur' = OBMolAtomDFSIter_IsSulfur, 'IsPhosphorus' = OBMolAtomDFSIter_IsPhosphorus, 'IsAromatic' = OBMolAtomDFSIter_IsAromatic, 'IsInRing' = OBMolAtomDFSIter_IsInRing, 'IsInRingSize' = OBMolAtomDFSIter_IsInRingSize, 'IsHeteroatom' = OBMolAtomDFSIter_IsHeteroatom, 'IsNotCorH' = OBMolAtomDFSIter_IsNotCorH, 'IsConnected' = OBMolAtomDFSIter_IsConnected, 'IsOneThree' = OBMolAtomDFSIter_IsOneThree, 'IsOneFour' = OBMolAtomDFSIter_IsOneFour, 'IsCarboxylOxygen' = OBMolAtomDFSIter_IsCarboxylOxygen, 'IsPhosphateOxygen' = OBMolAtomDFSIter_IsPhosphateOxygen, 'IsSulfateOxygen' = OBMolAtomDFSIter_IsSulfateOxygen, 'IsNitroOxygen' = OBMolAtomDFSIter_IsNitroOxygen, 'IsAmideNitrogen' = OBMolAtomDFSIter_IsAmideNitrogen, 'IsPolarHydrogen' = OBMolAtomDFSIter_IsPolarHydrogen, 'IsNonPolarHydrogen' = OBMolAtomDFSIter_IsNonPolarHydrogen, 'IsAromaticNOxide' = OBMolAtomDFSIter_IsAromaticNOxide, 'IsChiral' = OBMolAtomDFSIter_IsChiral, 'IsAxial' = OBMolAtomDFSIter_IsAxial, 'IsClockwise' = OBMolAtomDFSIter_IsClockwise, 'IsAntiClockwise' = OBMolAtomDFSIter_IsAntiClockwise, 'IsPositiveStereo' = OBMolAtomDFSIter_IsPositiveStereo, 'IsNegativeStereo' = OBMolAtomDFSIter_IsNegativeStereo, 'HasChiralitySpecified' = OBMolAtomDFSIter_HasChiralitySpecified, 'HasChiralVolume' = OBMolAtomDFSIter_HasChiralVolume, 'IsHbondAcceptor' = OBMolAtomDFSIter_IsHbondAcceptor, 'IsHbondDonor' = OBMolAtomDFSIter_IsHbondDonor, 'IsHbondDonorH' = OBMolAtomDFSIter_IsHbondDonorH, 'HasAlphaBetaUnsat' = OBMolAtomDFSIter_HasAlphaBetaUnsat, 'HasBondOfOrder' = OBMolAtomDFSIter_HasBondOfOrder, 'CountBondsOfOrder' = OBMolAtomDFSIter_CountBondsOfOrder, 'HasNonSingleBond' = OBMolAtomDFSIter_HasNonSingleBond, 'HasSingleBond' = OBMolAtomDFSIter_HasSingleBond, 'HasDoubleBond' = OBMolAtomDFSIter_HasDoubleBond, 'HasAromaticBond' = OBMolAtomDFSIter_HasAromaticBond, 'MatchesSMARTS' = OBMolAtomDFSIter_MatchesSMARTS, 'Clear' = OBMolAtomDFSIter_Clear, 'DoTransformations' = OBMolAtomDFSIter_DoTransformations, 'ClassDescription' = OBMolAtomDFSIter_ClassDescription, 'GetTitle' = OBMolAtomDFSIter_GetTitle, 'SetTitle' = OBMolAtomDFSIter_SetTitle, 'HasData' = OBMolAtomDFSIter_HasData, 'DeleteData' = OBMolAtomDFSIter_DeleteData, 'CloneData' = OBMolAtomDFSIter_CloneData, 'DataSize' = OBMolAtomDFSIter_DataSize, 'GetData' = OBMolAtomDFSIter_GetData, 'GetAllData' = OBMolAtomDFSIter_GetAllData, 'BeginData' = OBMolAtomDFSIter_BeginData, 'EndData' = OBMolAtomDFSIter_EndData);
   vaccessors = c('Visit'); ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name));
   f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}  else f(x); }
 );
@@ -20628,20 +19794,11 @@ attr(`OBMolAtomBFSIter_GetDistance__SWIG_1`, 'returnType') = 'numeric'
 attr(`OBMolAtomBFSIter_GetDistance__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMolAtomBFSIter', '_p_OpenBabel__OBAtom')
 class(`OBMolAtomBFSIter_GetDistance__SWIG_1`) = c("SWIGFunction", class('OBMolAtomBFSIter_GetDistance__SWIG_1'))
 
-# Start of OBMolAtomBFSIter_GetDistance
-`OBMolAtomBFSIter_GetDistance__SWIG_2` = function(self, v, .copy = FALSE) {
-  ;.Call('R_swig_OBMolAtomBFSIter_GetDistance__SWIG_2', self, v, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolAtomBFSIter_GetDistance__SWIG_2`, 'returnType') = 'numeric'
-attr(`OBMolAtomBFSIter_GetDistance__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBMolAtomBFSIter', '_p_OpenBabel__vector3')
-class(`OBMolAtomBFSIter_GetDistance__SWIG_2`) = c("SWIGFunction", class('OBMolAtomBFSIter_GetDistance__SWIG_2'))
-
 `OBMolAtomBFSIter_GetDistance` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 3
+# dispatch functions 2
    if (argc == 2) {
     if (extends(argtypes[1], '_p_OpenBabel__OBMolAtomBFSIter') && extends(argtypes[2], '_p_OpenBabel__OBAtom')) {
       f <- OBMolAtomBFSIter_GetDistance__SWIG_1; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBMolAtomBFSIter') && extends(argtypes[2], '_p_OpenBabel__vector3')) {
-      f <- OBMolAtomBFSIter_GetDistance__SWIG_2; } 
     else if (extends(argtypes[1], '_p_OpenBabel__OBMolAtomBFSIter') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
       f <- OBMolAtomBFSIter_GetDistance__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBMolAtomBFSIter_GetDistance with argtypes (",toString(argtypes),")"); } ;
@@ -20767,13 +19924,6 @@ attr(`OBMolAtomBFSIter_CountFreeOxygens`, 'returnType') = 'integer'
 attr(`OBMolAtomBFSIter_CountFreeOxygens`, "inputTypes") = c('_p_OpenBabel__OBMolAtomBFSIter')
 class(`OBMolAtomBFSIter_CountFreeOxygens`) = c("SWIGFunction", class('OBMolAtomBFSIter_CountFreeOxygens'))
 
-# Start of OBMolAtomBFSIter_CountFreeSulfurs
-`OBMolAtomBFSIter_CountFreeSulfurs` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMolAtomBFSIter_CountFreeSulfurs', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolAtomBFSIter_CountFreeSulfurs`, 'returnType') = 'integer'
-attr(`OBMolAtomBFSIter_CountFreeSulfurs`, "inputTypes") = c('_p_OpenBabel__OBMolAtomBFSIter')
-class(`OBMolAtomBFSIter_CountFreeSulfurs`) = c("SWIGFunction", class('OBMolAtomBFSIter_CountFreeSulfurs'))
-
 # Start of OBMolAtomBFSIter_ImplicitHydrogenCount
 `OBMolAtomBFSIter_ImplicitHydrogenCount` = function(self, .copy = FALSE) {
   ;.Call('R_swig_OBMolAtomBFSIter_ImplicitHydrogenCount', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -20853,14 +20003,6 @@ class(`OBMolAtomBFSIter_BOSum`) = c("SWIGFunction", class('OBMolAtomBFSIter_BOSu
 attr(`OBMolAtomBFSIter_KBOSum`, 'returnType') = 'integer'
 attr(`OBMolAtomBFSIter_KBOSum`, "inputTypes") = c('_p_OpenBabel__OBMolAtomBFSIter')
 class(`OBMolAtomBFSIter_KBOSum`) = c("SWIGFunction", class('OBMolAtomBFSIter_KBOSum'))
-
-# Start of OBMolAtomBFSIter_LewisAcidBaseCounts
-`OBMolAtomBFSIter_LewisAcidBaseCounts` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBMolAtomBFSIter_LewisAcidBaseCounts', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_std__pairT_int_int_t"; ans }
-attr(`OBMolAtomBFSIter_LewisAcidBaseCounts`, 'returnType') = '_p_std__pairT_int_int_t'
-attr(`OBMolAtomBFSIter_LewisAcidBaseCounts`, "inputTypes") = c('_p_OpenBabel__OBMolAtomBFSIter')
-class(`OBMolAtomBFSIter_LewisAcidBaseCounts`) = c("SWIGFunction", class('OBMolAtomBFSIter_LewisAcidBaseCounts'))
 
 # Start of OBMolAtomBFSIter_HasResidue
 `OBMolAtomBFSIter_HasResidue` = function(self, .copy = FALSE) {
@@ -20967,13 +20109,6 @@ class(`OBMolAtomBFSIter_IsOneFour`) = c("SWIGFunction", class('OBMolAtomBFSIter_
 attr(`OBMolAtomBFSIter_IsCarboxylOxygen`, 'returnType') = 'logical'
 attr(`OBMolAtomBFSIter_IsCarboxylOxygen`, "inputTypes") = c('_p_OpenBabel__OBMolAtomBFSIter')
 class(`OBMolAtomBFSIter_IsCarboxylOxygen`) = c("SWIGFunction", class('OBMolAtomBFSIter_IsCarboxylOxygen'))
-
-# Start of OBMolAtomBFSIter_IsThiocarboxylSulfur
-`OBMolAtomBFSIter_IsThiocarboxylSulfur` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMolAtomBFSIter_IsThiocarboxylSulfur', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolAtomBFSIter_IsThiocarboxylSulfur`, 'returnType') = 'logical'
-attr(`OBMolAtomBFSIter_IsThiocarboxylSulfur`, "inputTypes") = c('_p_OpenBabel__OBMolAtomBFSIter')
-class(`OBMolAtomBFSIter_IsThiocarboxylSulfur`) = c("SWIGFunction", class('OBMolAtomBFSIter_IsThiocarboxylSulfur'))
 
 # Start of OBMolAtomBFSIter_IsPhosphateOxygen
 `OBMolAtomBFSIter_IsPhosphateOxygen` = function(self, .copy = FALSE) {
@@ -21100,13 +20235,6 @@ class(`OBMolAtomBFSIter_IsHbondDonor`) = c("SWIGFunction", class('OBMolAtomBFSIt
 attr(`OBMolAtomBFSIter_IsHbondDonorH`, 'returnType') = 'logical'
 attr(`OBMolAtomBFSIter_IsHbondDonorH`, "inputTypes") = c('_p_OpenBabel__OBMolAtomBFSIter')
 class(`OBMolAtomBFSIter_IsHbondDonorH`) = c("SWIGFunction", class('OBMolAtomBFSIter_IsHbondDonorH'))
-
-# Start of OBMolAtomBFSIter_IsMetal
-`OBMolAtomBFSIter_IsMetal` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMolAtomBFSIter_IsMetal', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolAtomBFSIter_IsMetal`, 'returnType') = 'logical'
-attr(`OBMolAtomBFSIter_IsMetal`, "inputTypes") = c('_p_OpenBabel__OBMolAtomBFSIter')
-class(`OBMolAtomBFSIter_IsMetal`) = c("SWIGFunction", class('OBMolAtomBFSIter_IsMetal'))
 
 # Start of OBMolAtomBFSIter_HasAlphaBetaUnsat
 `OBMolAtomBFSIter_HasAlphaBetaUnsat__SWIG_0` = function(self, includePandS, .copy = FALSE) {
@@ -21388,7 +20516,7 @@ class(`OBMolAtomBFSIter_EndData`) = c("SWIGFunction", class('OBMolAtomBFSIter_En
 
 # Start of accessor method for OpenBabel::OBMolAtomBFSIter
 setMethod('$', '_p_OpenBabel__OBMolAtomBFSIter', function(x, name) {
-  accessorFuns = list('HasMore' = OBMolAtomBFSIter_HasMore, 'inc' = OBMolAtomBFSIter_inc, '__deref__' = OBMolAtomBFSIter___deref__, '__ref__' = OBMolAtomBFSIter___ref__, 'CurrentDepth' = OBMolAtomBFSIter_CurrentDepth, 'Visit' = OBMolAtomBFSIter_Visit_get, 'Duplicate' = OBMolAtomBFSIter_Duplicate, 'SetIdx' = OBMolAtomBFSIter_SetIdx, 'SetId' = OBMolAtomBFSIter_SetId, 'SetHyb' = OBMolAtomBFSIter_SetHyb, 'SetAtomicNum' = OBMolAtomBFSIter_SetAtomicNum, 'SetIsotope' = OBMolAtomBFSIter_SetIsotope, 'SetImplicitValence' = OBMolAtomBFSIter_SetImplicitValence, 'IncrementImplicitValence' = OBMolAtomBFSIter_IncrementImplicitValence, 'DecrementImplicitValence' = OBMolAtomBFSIter_DecrementImplicitValence, 'SetFormalCharge' = OBMolAtomBFSIter_SetFormalCharge, 'SetSpinMultiplicity' = OBMolAtomBFSIter_SetSpinMultiplicity, 'SetType' = OBMolAtomBFSIter_SetType, 'SetPartialCharge' = OBMolAtomBFSIter_SetPartialCharge, 'SetVector' = OBMolAtomBFSIter_SetVector, 'SetCoordPtr' = OBMolAtomBFSIter_SetCoordPtr, 'SetResidue' = OBMolAtomBFSIter_SetResidue, 'SetParent' = OBMolAtomBFSIter_SetParent, 'SetAromatic' = OBMolAtomBFSIter_SetAromatic, 'UnsetAromatic' = OBMolAtomBFSIter_UnsetAromatic, 'SetClockwiseStereo' = OBMolAtomBFSIter_SetClockwiseStereo, 'SetAntiClockwiseStereo' = OBMolAtomBFSIter_SetAntiClockwiseStereo, 'SetPositiveStereo' = OBMolAtomBFSIter_SetPositiveStereo, 'SetNegativeStereo' = OBMolAtomBFSIter_SetNegativeStereo, 'UnsetStereo' = OBMolAtomBFSIter_UnsetStereo, 'SetInRing' = OBMolAtomBFSIter_SetInRing, 'SetChiral' = OBMolAtomBFSIter_SetChiral, 'ClearCoordPtr' = OBMolAtomBFSIter_ClearCoordPtr, 'GetFormalCharge' = OBMolAtomBFSIter_GetFormalCharge, 'GetAtomicNum' = OBMolAtomBFSIter_GetAtomicNum, 'GetIsotope' = OBMolAtomBFSIter_GetIsotope, 'GetSpinMultiplicity' = OBMolAtomBFSIter_GetSpinMultiplicity, 'GetAtomicMass' = OBMolAtomBFSIter_GetAtomicMass, 'GetExactMass' = OBMolAtomBFSIter_GetExactMass, 'GetIdx' = OBMolAtomBFSIter_GetIdx, 'GetIndex' = OBMolAtomBFSIter_GetIndex, 'GetId' = OBMolAtomBFSIter_GetId, 'GetCoordinateIdx' = OBMolAtomBFSIter_GetCoordinateIdx, 'GetCIdx' = OBMolAtomBFSIter_GetCIdx, 'GetValence' = OBMolAtomBFSIter_GetValence, 'GetHyb' = OBMolAtomBFSIter_GetHyb, 'GetImplicitValence' = OBMolAtomBFSIter_GetImplicitValence, 'GetHvyValence' = OBMolAtomBFSIter_GetHvyValence, 'GetHeteroValence' = OBMolAtomBFSIter_GetHeteroValence, 'GetType' = OBMolAtomBFSIter_GetType, 'GetX' = OBMolAtomBFSIter_GetX, 'GetY' = OBMolAtomBFSIter_GetY, 'GetZ' = OBMolAtomBFSIter_GetZ, 'x' = OBMolAtomBFSIter_x, 'y' = OBMolAtomBFSIter_y, 'z' = OBMolAtomBFSIter_z, 'GetCoordinate' = OBMolAtomBFSIter_GetCoordinate, 'GetVector' = OBMolAtomBFSIter_GetVector, 'GetPartialCharge' = OBMolAtomBFSIter_GetPartialCharge, 'GetResidue' = OBMolAtomBFSIter_GetResidue, 'GetParent' = OBMolAtomBFSIter_GetParent, 'GetNewBondVector' = OBMolAtomBFSIter_GetNewBondVector, 'GetBond' = OBMolAtomBFSIter_GetBond, 'GetNextAtom' = OBMolAtomBFSIter_GetNextAtom, 'BeginBonds' = OBMolAtomBFSIter_BeginBonds, 'EndBonds' = OBMolAtomBFSIter_EndBonds, 'BeginBond' = OBMolAtomBFSIter_BeginBond, 'NextBond' = OBMolAtomBFSIter_NextBond, 'BeginNbrAtom' = OBMolAtomBFSIter_BeginNbrAtom, 'NextNbrAtom' = OBMolAtomBFSIter_NextNbrAtom, 'GetDistance' = OBMolAtomBFSIter_GetDistance, 'GetAngle' = OBMolAtomBFSIter_GetAngle, 'NewResidue' = OBMolAtomBFSIter_NewResidue, 'AddResidue' = OBMolAtomBFSIter_AddResidue, 'DeleteResidue' = OBMolAtomBFSIter_DeleteResidue, 'AddBond' = OBMolAtomBFSIter_AddBond, 'InsertBond' = OBMolAtomBFSIter_InsertBond, 'DeleteBond' = OBMolAtomBFSIter_DeleteBond, 'ClearBond' = OBMolAtomBFSIter_ClearBond, 'HtoMethyl' = OBMolAtomBFSIter_HtoMethyl, 'SetHybAndGeom' = OBMolAtomBFSIter_SetHybAndGeom, 'ForceNoH' = OBMolAtomBFSIter_ForceNoH, 'HasNoHForced' = OBMolAtomBFSIter_HasNoHForced, 'ForceImplH' = OBMolAtomBFSIter_ForceImplH, 'HasImplHForced' = OBMolAtomBFSIter_HasImplHForced, 'CountFreeOxygens' = OBMolAtomBFSIter_CountFreeOxygens, 'CountFreeSulfurs' = OBMolAtomBFSIter_CountFreeSulfurs, 'ImplicitHydrogenCount' = OBMolAtomBFSIter_ImplicitHydrogenCount, 'ExplicitHydrogenCount' = OBMolAtomBFSIter_ExplicitHydrogenCount, 'MemberOfRingCount' = OBMolAtomBFSIter_MemberOfRingCount, 'MemberOfRingSize' = OBMolAtomBFSIter_MemberOfRingSize, 'CountRingBonds' = OBMolAtomBFSIter_CountRingBonds, 'SmallestBondAngle' = OBMolAtomBFSIter_SmallestBondAngle, 'AverageBondAngle' = OBMolAtomBFSIter_AverageBondAngle, 'BOSum' = OBMolAtomBFSIter_BOSum, 'KBOSum' = OBMolAtomBFSIter_KBOSum, 'LewisAcidBaseCounts' = OBMolAtomBFSIter_LewisAcidBaseCounts, 'HasResidue' = OBMolAtomBFSIter_HasResidue, 'IsCarbon' = OBMolAtomBFSIter_IsCarbon, 'IsNitrogen' = OBMolAtomBFSIter_IsNitrogen, 'IsOxygen' = OBMolAtomBFSIter_IsOxygen, 'IsSulfur' = OBMolAtomBFSIter_IsSulfur, 'IsPhosphorus' = OBMolAtomBFSIter_IsPhosphorus, 'IsAromatic' = OBMolAtomBFSIter_IsAromatic, 'IsInRing' = OBMolAtomBFSIter_IsInRing, 'IsInRingSize' = OBMolAtomBFSIter_IsInRingSize, 'IsHeteroatom' = OBMolAtomBFSIter_IsHeteroatom, 'IsNotCorH' = OBMolAtomBFSIter_IsNotCorH, 'IsConnected' = OBMolAtomBFSIter_IsConnected, 'IsOneThree' = OBMolAtomBFSIter_IsOneThree, 'IsOneFour' = OBMolAtomBFSIter_IsOneFour, 'IsCarboxylOxygen' = OBMolAtomBFSIter_IsCarboxylOxygen, 'IsThiocarboxylSulfur' = OBMolAtomBFSIter_IsThiocarboxylSulfur, 'IsPhosphateOxygen' = OBMolAtomBFSIter_IsPhosphateOxygen, 'IsSulfateOxygen' = OBMolAtomBFSIter_IsSulfateOxygen, 'IsNitroOxygen' = OBMolAtomBFSIter_IsNitroOxygen, 'IsAmideNitrogen' = OBMolAtomBFSIter_IsAmideNitrogen, 'IsPolarHydrogen' = OBMolAtomBFSIter_IsPolarHydrogen, 'IsNonPolarHydrogen' = OBMolAtomBFSIter_IsNonPolarHydrogen, 'IsAromaticNOxide' = OBMolAtomBFSIter_IsAromaticNOxide, 'IsChiral' = OBMolAtomBFSIter_IsChiral, 'IsAxial' = OBMolAtomBFSIter_IsAxial, 'IsClockwise' = OBMolAtomBFSIter_IsClockwise, 'IsAntiClockwise' = OBMolAtomBFSIter_IsAntiClockwise, 'IsPositiveStereo' = OBMolAtomBFSIter_IsPositiveStereo, 'IsNegativeStereo' = OBMolAtomBFSIter_IsNegativeStereo, 'HasChiralitySpecified' = OBMolAtomBFSIter_HasChiralitySpecified, 'HasChiralVolume' = OBMolAtomBFSIter_HasChiralVolume, 'IsHbondAcceptor' = OBMolAtomBFSIter_IsHbondAcceptor, 'IsHbondDonor' = OBMolAtomBFSIter_IsHbondDonor, 'IsHbondDonorH' = OBMolAtomBFSIter_IsHbondDonorH, 'IsMetal' = OBMolAtomBFSIter_IsMetal, 'HasAlphaBetaUnsat' = OBMolAtomBFSIter_HasAlphaBetaUnsat, 'HasBondOfOrder' = OBMolAtomBFSIter_HasBondOfOrder, 'CountBondsOfOrder' = OBMolAtomBFSIter_CountBondsOfOrder, 'HasNonSingleBond' = OBMolAtomBFSIter_HasNonSingleBond, 'HasSingleBond' = OBMolAtomBFSIter_HasSingleBond, 'HasDoubleBond' = OBMolAtomBFSIter_HasDoubleBond, 'HasAromaticBond' = OBMolAtomBFSIter_HasAromaticBond, 'MatchesSMARTS' = OBMolAtomBFSIter_MatchesSMARTS, 'Clear' = OBMolAtomBFSIter_Clear, 'DoTransformations' = OBMolAtomBFSIter_DoTransformations, 'ClassDescription' = OBMolAtomBFSIter_ClassDescription, 'GetTitle' = OBMolAtomBFSIter_GetTitle, 'SetTitle' = OBMolAtomBFSIter_SetTitle, 'HasData' = OBMolAtomBFSIter_HasData, 'DeleteData' = OBMolAtomBFSIter_DeleteData, 'CloneData' = OBMolAtomBFSIter_CloneData, 'DataSize' = OBMolAtomBFSIter_DataSize, 'GetData' = OBMolAtomBFSIter_GetData, 'GetAllData' = OBMolAtomBFSIter_GetAllData, 'BeginData' = OBMolAtomBFSIter_BeginData, 'EndData' = OBMolAtomBFSIter_EndData);
+  accessorFuns = list('HasMore' = OBMolAtomBFSIter_HasMore, 'inc' = OBMolAtomBFSIter_inc, '__deref__' = OBMolAtomBFSIter___deref__, '__ref__' = OBMolAtomBFSIter___ref__, 'CurrentDepth' = OBMolAtomBFSIter_CurrentDepth, 'Visit' = OBMolAtomBFSIter_Visit_get, 'Duplicate' = OBMolAtomBFSIter_Duplicate, 'SetIdx' = OBMolAtomBFSIter_SetIdx, 'SetId' = OBMolAtomBFSIter_SetId, 'SetHyb' = OBMolAtomBFSIter_SetHyb, 'SetAtomicNum' = OBMolAtomBFSIter_SetAtomicNum, 'SetIsotope' = OBMolAtomBFSIter_SetIsotope, 'SetImplicitValence' = OBMolAtomBFSIter_SetImplicitValence, 'IncrementImplicitValence' = OBMolAtomBFSIter_IncrementImplicitValence, 'DecrementImplicitValence' = OBMolAtomBFSIter_DecrementImplicitValence, 'SetFormalCharge' = OBMolAtomBFSIter_SetFormalCharge, 'SetSpinMultiplicity' = OBMolAtomBFSIter_SetSpinMultiplicity, 'SetType' = OBMolAtomBFSIter_SetType, 'SetPartialCharge' = OBMolAtomBFSIter_SetPartialCharge, 'SetVector' = OBMolAtomBFSIter_SetVector, 'SetCoordPtr' = OBMolAtomBFSIter_SetCoordPtr, 'SetResidue' = OBMolAtomBFSIter_SetResidue, 'SetParent' = OBMolAtomBFSIter_SetParent, 'SetAromatic' = OBMolAtomBFSIter_SetAromatic, 'UnsetAromatic' = OBMolAtomBFSIter_UnsetAromatic, 'SetClockwiseStereo' = OBMolAtomBFSIter_SetClockwiseStereo, 'SetAntiClockwiseStereo' = OBMolAtomBFSIter_SetAntiClockwiseStereo, 'SetPositiveStereo' = OBMolAtomBFSIter_SetPositiveStereo, 'SetNegativeStereo' = OBMolAtomBFSIter_SetNegativeStereo, 'UnsetStereo' = OBMolAtomBFSIter_UnsetStereo, 'SetInRing' = OBMolAtomBFSIter_SetInRing, 'SetChiral' = OBMolAtomBFSIter_SetChiral, 'ClearCoordPtr' = OBMolAtomBFSIter_ClearCoordPtr, 'GetFormalCharge' = OBMolAtomBFSIter_GetFormalCharge, 'GetAtomicNum' = OBMolAtomBFSIter_GetAtomicNum, 'GetIsotope' = OBMolAtomBFSIter_GetIsotope, 'GetSpinMultiplicity' = OBMolAtomBFSIter_GetSpinMultiplicity, 'GetAtomicMass' = OBMolAtomBFSIter_GetAtomicMass, 'GetExactMass' = OBMolAtomBFSIter_GetExactMass, 'GetIdx' = OBMolAtomBFSIter_GetIdx, 'GetIndex' = OBMolAtomBFSIter_GetIndex, 'GetId' = OBMolAtomBFSIter_GetId, 'GetCoordinateIdx' = OBMolAtomBFSIter_GetCoordinateIdx, 'GetCIdx' = OBMolAtomBFSIter_GetCIdx, 'GetValence' = OBMolAtomBFSIter_GetValence, 'GetHyb' = OBMolAtomBFSIter_GetHyb, 'GetImplicitValence' = OBMolAtomBFSIter_GetImplicitValence, 'GetHvyValence' = OBMolAtomBFSIter_GetHvyValence, 'GetHeteroValence' = OBMolAtomBFSIter_GetHeteroValence, 'GetType' = OBMolAtomBFSIter_GetType, 'GetX' = OBMolAtomBFSIter_GetX, 'GetY' = OBMolAtomBFSIter_GetY, 'GetZ' = OBMolAtomBFSIter_GetZ, 'x' = OBMolAtomBFSIter_x, 'y' = OBMolAtomBFSIter_y, 'z' = OBMolAtomBFSIter_z, 'GetCoordinate' = OBMolAtomBFSIter_GetCoordinate, 'GetVector' = OBMolAtomBFSIter_GetVector, 'GetPartialCharge' = OBMolAtomBFSIter_GetPartialCharge, 'GetResidue' = OBMolAtomBFSIter_GetResidue, 'GetParent' = OBMolAtomBFSIter_GetParent, 'GetNewBondVector' = OBMolAtomBFSIter_GetNewBondVector, 'GetBond' = OBMolAtomBFSIter_GetBond, 'GetNextAtom' = OBMolAtomBFSIter_GetNextAtom, 'BeginBonds' = OBMolAtomBFSIter_BeginBonds, 'EndBonds' = OBMolAtomBFSIter_EndBonds, 'BeginBond' = OBMolAtomBFSIter_BeginBond, 'NextBond' = OBMolAtomBFSIter_NextBond, 'BeginNbrAtom' = OBMolAtomBFSIter_BeginNbrAtom, 'NextNbrAtom' = OBMolAtomBFSIter_NextNbrAtom, 'GetDistance' = OBMolAtomBFSIter_GetDistance, 'GetAngle' = OBMolAtomBFSIter_GetAngle, 'NewResidue' = OBMolAtomBFSIter_NewResidue, 'AddResidue' = OBMolAtomBFSIter_AddResidue, 'DeleteResidue' = OBMolAtomBFSIter_DeleteResidue, 'AddBond' = OBMolAtomBFSIter_AddBond, 'InsertBond' = OBMolAtomBFSIter_InsertBond, 'DeleteBond' = OBMolAtomBFSIter_DeleteBond, 'ClearBond' = OBMolAtomBFSIter_ClearBond, 'HtoMethyl' = OBMolAtomBFSIter_HtoMethyl, 'SetHybAndGeom' = OBMolAtomBFSIter_SetHybAndGeom, 'ForceNoH' = OBMolAtomBFSIter_ForceNoH, 'HasNoHForced' = OBMolAtomBFSIter_HasNoHForced, 'ForceImplH' = OBMolAtomBFSIter_ForceImplH, 'HasImplHForced' = OBMolAtomBFSIter_HasImplHForced, 'CountFreeOxygens' = OBMolAtomBFSIter_CountFreeOxygens, 'ImplicitHydrogenCount' = OBMolAtomBFSIter_ImplicitHydrogenCount, 'ExplicitHydrogenCount' = OBMolAtomBFSIter_ExplicitHydrogenCount, 'MemberOfRingCount' = OBMolAtomBFSIter_MemberOfRingCount, 'MemberOfRingSize' = OBMolAtomBFSIter_MemberOfRingSize, 'CountRingBonds' = OBMolAtomBFSIter_CountRingBonds, 'SmallestBondAngle' = OBMolAtomBFSIter_SmallestBondAngle, 'AverageBondAngle' = OBMolAtomBFSIter_AverageBondAngle, 'BOSum' = OBMolAtomBFSIter_BOSum, 'KBOSum' = OBMolAtomBFSIter_KBOSum, 'HasResidue' = OBMolAtomBFSIter_HasResidue, 'IsCarbon' = OBMolAtomBFSIter_IsCarbon, 'IsNitrogen' = OBMolAtomBFSIter_IsNitrogen, 'IsOxygen' = OBMolAtomBFSIter_IsOxygen, 'IsSulfur' = OBMolAtomBFSIter_IsSulfur, 'IsPhosphorus' = OBMolAtomBFSIter_IsPhosphorus, 'IsAromatic' = OBMolAtomBFSIter_IsAromatic, 'IsInRing' = OBMolAtomBFSIter_IsInRing, 'IsInRingSize' = OBMolAtomBFSIter_IsInRingSize, 'IsHeteroatom' = OBMolAtomBFSIter_IsHeteroatom, 'IsNotCorH' = OBMolAtomBFSIter_IsNotCorH, 'IsConnected' = OBMolAtomBFSIter_IsConnected, 'IsOneThree' = OBMolAtomBFSIter_IsOneThree, 'IsOneFour' = OBMolAtomBFSIter_IsOneFour, 'IsCarboxylOxygen' = OBMolAtomBFSIter_IsCarboxylOxygen, 'IsPhosphateOxygen' = OBMolAtomBFSIter_IsPhosphateOxygen, 'IsSulfateOxygen' = OBMolAtomBFSIter_IsSulfateOxygen, 'IsNitroOxygen' = OBMolAtomBFSIter_IsNitroOxygen, 'IsAmideNitrogen' = OBMolAtomBFSIter_IsAmideNitrogen, 'IsPolarHydrogen' = OBMolAtomBFSIter_IsPolarHydrogen, 'IsNonPolarHydrogen' = OBMolAtomBFSIter_IsNonPolarHydrogen, 'IsAromaticNOxide' = OBMolAtomBFSIter_IsAromaticNOxide, 'IsChiral' = OBMolAtomBFSIter_IsChiral, 'IsAxial' = OBMolAtomBFSIter_IsAxial, 'IsClockwise' = OBMolAtomBFSIter_IsClockwise, 'IsAntiClockwise' = OBMolAtomBFSIter_IsAntiClockwise, 'IsPositiveStereo' = OBMolAtomBFSIter_IsPositiveStereo, 'IsNegativeStereo' = OBMolAtomBFSIter_IsNegativeStereo, 'HasChiralitySpecified' = OBMolAtomBFSIter_HasChiralitySpecified, 'HasChiralVolume' = OBMolAtomBFSIter_HasChiralVolume, 'IsHbondAcceptor' = OBMolAtomBFSIter_IsHbondAcceptor, 'IsHbondDonor' = OBMolAtomBFSIter_IsHbondDonor, 'IsHbondDonorH' = OBMolAtomBFSIter_IsHbondDonorH, 'HasAlphaBetaUnsat' = OBMolAtomBFSIter_HasAlphaBetaUnsat, 'HasBondOfOrder' = OBMolAtomBFSIter_HasBondOfOrder, 'CountBondsOfOrder' = OBMolAtomBFSIter_CountBondsOfOrder, 'HasNonSingleBond' = OBMolAtomBFSIter_HasNonSingleBond, 'HasSingleBond' = OBMolAtomBFSIter_HasSingleBond, 'HasDoubleBond' = OBMolAtomBFSIter_HasDoubleBond, 'HasAromaticBond' = OBMolAtomBFSIter_HasAromaticBond, 'MatchesSMARTS' = OBMolAtomBFSIter_MatchesSMARTS, 'Clear' = OBMolAtomBFSIter_Clear, 'DoTransformations' = OBMolAtomBFSIter_DoTransformations, 'ClassDescription' = OBMolAtomBFSIter_ClassDescription, 'GetTitle' = OBMolAtomBFSIter_GetTitle, 'SetTitle' = OBMolAtomBFSIter_SetTitle, 'HasData' = OBMolAtomBFSIter_HasData, 'DeleteData' = OBMolAtomBFSIter_DeleteData, 'CloneData' = OBMolAtomBFSIter_CloneData, 'DataSize' = OBMolAtomBFSIter_DataSize, 'GetData' = OBMolAtomBFSIter_GetData, 'GetAllData' = OBMolAtomBFSIter_GetAllData, 'BeginData' = OBMolAtomBFSIter_BeginData, 'EndData' = OBMolAtomBFSIter_EndData);
   vaccessors = c('Visit'); ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name));
   f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}  else f(x); }
 );
@@ -21845,13 +20973,6 @@ attr(`OBMolBondBFSIter_IsTertiaryAmide`, 'returnType') = 'logical'
 attr(`OBMolBondBFSIter_IsTertiaryAmide`, "inputTypes") = c('_p_OpenBabel__OBMolBondBFSIter')
 class(`OBMolBondBFSIter_IsTertiaryAmide`) = c("SWIGFunction", class('OBMolBondBFSIter_IsTertiaryAmide'))
 
-# Start of OBMolBondBFSIter_IsAmidine
-`OBMolBondBFSIter_IsAmidine` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMolBondBFSIter_IsAmidine', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolBondBFSIter_IsAmidine`, 'returnType') = 'logical'
-attr(`OBMolBondBFSIter_IsAmidine`, "inputTypes") = c('_p_OpenBabel__OBMolBondBFSIter')
-class(`OBMolBondBFSIter_IsAmidine`) = c("SWIGFunction", class('OBMolBondBFSIter_IsAmidine'))
-
 # Start of OBMolBondBFSIter_IsEster
 `OBMolBondBFSIter_IsEster` = function(self, .copy = FALSE) {
   ;.Call('R_swig_OBMolBondBFSIter_IsEster', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -21865,13 +20986,6 @@ class(`OBMolBondBFSIter_IsEster`) = c("SWIGFunction", class('OBMolBondBFSIter_Is
 attr(`OBMolBondBFSIter_IsCarbonyl`, 'returnType') = 'logical'
 attr(`OBMolBondBFSIter_IsCarbonyl`, "inputTypes") = c('_p_OpenBabel__OBMolBondBFSIter')
 class(`OBMolBondBFSIter_IsCarbonyl`) = c("SWIGFunction", class('OBMolBondBFSIter_IsCarbonyl'))
-
-# Start of OBMolBondBFSIter_IsImide
-`OBMolBondBFSIter_IsImide` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMolBondBFSIter_IsImide', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolBondBFSIter_IsImide`, 'returnType') = 'logical'
-attr(`OBMolBondBFSIter_IsImide`, "inputTypes") = c('_p_OpenBabel__OBMolBondBFSIter')
-class(`OBMolBondBFSIter_IsImide`) = c("SWIGFunction", class('OBMolBondBFSIter_IsImide'))
 
 # Start of OBMolBondBFSIter_IsSingle
 `OBMolBondBFSIter_IsSingle` = function(self, .copy = FALSE) {
@@ -22176,7 +21290,7 @@ class(`OBMolBondBFSIter_EndData`) = c("SWIGFunction", class('OBMolBondBFSIter_En
 
 # Start of accessor method for OpenBabel::OBMolBondBFSIter
 setMethod('$', '_p_OpenBabel__OBMolBondBFSIter', function(x, name) {
-  accessorFuns = list('__deref__' = OBMolBondBFSIter___deref__, '__ref__' = OBMolBondBFSIter___ref__, 'CurrentDepth' = OBMolBondBFSIter_CurrentDepth, 'Visit' = OBMolBondBFSIter_Visit_get, 'SetIdx' = OBMolBondBFSIter_SetIdx, 'SetId' = OBMolBondBFSIter_SetId, 'SetBO' = OBMolBondBFSIter_SetBO, 'SetBondOrder' = OBMolBondBFSIter_SetBondOrder, 'SetBegin' = OBMolBondBFSIter_SetBegin, 'SetEnd' = OBMolBondBFSIter_SetEnd, 'SetParent' = OBMolBondBFSIter_SetParent, 'SetLength' = OBMolBondBFSIter_SetLength, 'Set' = OBMolBondBFSIter_Set, 'SetKSingle' = OBMolBondBFSIter_SetKSingle, 'SetKDouble' = OBMolBondBFSIter_SetKDouble, 'SetKTriple' = OBMolBondBFSIter_SetKTriple, 'SetAromatic' = OBMolBondBFSIter_SetAromatic, 'SetWedge' = OBMolBondBFSIter_SetWedge, 'SetHash' = OBMolBondBFSIter_SetHash, 'SetWedgeOrHash' = OBMolBondBFSIter_SetWedgeOrHash, 'SetUp' = OBMolBondBFSIter_SetUp, 'SetDown' = OBMolBondBFSIter_SetDown, 'SetInRing' = OBMolBondBFSIter_SetInRing, 'SetClosure' = OBMolBondBFSIter_SetClosure, 'UnsetHash' = OBMolBondBFSIter_UnsetHash, 'UnsetWedge' = OBMolBondBFSIter_UnsetWedge, 'UnsetUp' = OBMolBondBFSIter_UnsetUp, 'UnsetDown' = OBMolBondBFSIter_UnsetDown, 'UnsetAromatic' = OBMolBondBFSIter_UnsetAromatic, 'UnsetKekule' = OBMolBondBFSIter_UnsetKekule, 'GetIdx' = OBMolBondBFSIter_GetIdx, 'GetId' = OBMolBondBFSIter_GetId, 'GetBO' = OBMolBondBFSIter_GetBO, 'GetBondOrder' = OBMolBondBFSIter_GetBondOrder, 'GetFlags' = OBMolBondBFSIter_GetFlags, 'GetBeginAtomIdx' = OBMolBondBFSIter_GetBeginAtomIdx, 'GetEndAtomIdx' = OBMolBondBFSIter_GetEndAtomIdx, 'GetBeginAtom' = OBMolBondBFSIter_GetBeginAtom, 'GetEndAtom' = OBMolBondBFSIter_GetEndAtom, 'GetNbrAtom' = OBMolBondBFSIter_GetNbrAtom, 'GetParent' = OBMolBondBFSIter_GetParent, 'GetEquibLength' = OBMolBondBFSIter_GetEquibLength, 'GetLength' = OBMolBondBFSIter_GetLength, 'GetNbrAtomIdx' = OBMolBondBFSIter_GetNbrAtomIdx, 'FindSmallestRing' = OBMolBondBFSIter_FindSmallestRing, 'IsAromatic' = OBMolBondBFSIter_IsAromatic, 'IsInRing' = OBMolBondBFSIter_IsInRing, 'IsRotor' = OBMolBondBFSIter_IsRotor, 'IsAmide' = OBMolBondBFSIter_IsAmide, 'IsPrimaryAmide' = OBMolBondBFSIter_IsPrimaryAmide, 'IsSecondaryAmide' = OBMolBondBFSIter_IsSecondaryAmide, 'IsTertiaryAmide' = OBMolBondBFSIter_IsTertiaryAmide, 'IsAmidine' = OBMolBondBFSIter_IsAmidine, 'IsEster' = OBMolBondBFSIter_IsEster, 'IsCarbonyl' = OBMolBondBFSIter_IsCarbonyl, 'IsImide' = OBMolBondBFSIter_IsImide, 'IsSingle' = OBMolBondBFSIter_IsSingle, 'IsDouble' = OBMolBondBFSIter_IsDouble, 'IsTriple' = OBMolBondBFSIter_IsTriple, 'IsKSingle' = OBMolBondBFSIter_IsKSingle, 'IsKDouble' = OBMolBondBFSIter_IsKDouble, 'IsKTriple' = OBMolBondBFSIter_IsKTriple, 'IsClosure' = OBMolBondBFSIter_IsClosure, 'IsUp' = OBMolBondBFSIter_IsUp, 'IsDown' = OBMolBondBFSIter_IsDown, 'IsWedge' = OBMolBondBFSIter_IsWedge, 'IsHash' = OBMolBondBFSIter_IsHash, 'IsWedgeOrHash' = OBMolBondBFSIter_IsWedgeOrHash, 'IsCisOrTrans' = OBMolBondBFSIter_IsCisOrTrans, 'IsDoubleBondGeometry' = OBMolBondBFSIter_IsDoubleBondGeometry, 'Clear' = OBMolBondBFSIter_Clear, 'DoTransformations' = OBMolBondBFSIter_DoTransformations, 'ClassDescription' = OBMolBondBFSIter_ClassDescription, 'GetTitle' = OBMolBondBFSIter_GetTitle, 'SetTitle' = OBMolBondBFSIter_SetTitle, 'HasData' = OBMolBondBFSIter_HasData, 'DeleteData' = OBMolBondBFSIter_DeleteData, 'CloneData' = OBMolBondBFSIter_CloneData, 'DataSize' = OBMolBondBFSIter_DataSize, 'GetData' = OBMolBondBFSIter_GetData, 'GetAllData' = OBMolBondBFSIter_GetAllData, 'BeginData' = OBMolBondBFSIter_BeginData, 'EndData' = OBMolBondBFSIter_EndData);
+  accessorFuns = list('__deref__' = OBMolBondBFSIter___deref__, '__ref__' = OBMolBondBFSIter___ref__, 'CurrentDepth' = OBMolBondBFSIter_CurrentDepth, 'Visit' = OBMolBondBFSIter_Visit_get, 'SetIdx' = OBMolBondBFSIter_SetIdx, 'SetId' = OBMolBondBFSIter_SetId, 'SetBO' = OBMolBondBFSIter_SetBO, 'SetBondOrder' = OBMolBondBFSIter_SetBondOrder, 'SetBegin' = OBMolBondBFSIter_SetBegin, 'SetEnd' = OBMolBondBFSIter_SetEnd, 'SetParent' = OBMolBondBFSIter_SetParent, 'SetLength' = OBMolBondBFSIter_SetLength, 'Set' = OBMolBondBFSIter_Set, 'SetKSingle' = OBMolBondBFSIter_SetKSingle, 'SetKDouble' = OBMolBondBFSIter_SetKDouble, 'SetKTriple' = OBMolBondBFSIter_SetKTriple, 'SetAromatic' = OBMolBondBFSIter_SetAromatic, 'SetWedge' = OBMolBondBFSIter_SetWedge, 'SetHash' = OBMolBondBFSIter_SetHash, 'SetWedgeOrHash' = OBMolBondBFSIter_SetWedgeOrHash, 'SetUp' = OBMolBondBFSIter_SetUp, 'SetDown' = OBMolBondBFSIter_SetDown, 'SetInRing' = OBMolBondBFSIter_SetInRing, 'SetClosure' = OBMolBondBFSIter_SetClosure, 'UnsetHash' = OBMolBondBFSIter_UnsetHash, 'UnsetWedge' = OBMolBondBFSIter_UnsetWedge, 'UnsetUp' = OBMolBondBFSIter_UnsetUp, 'UnsetDown' = OBMolBondBFSIter_UnsetDown, 'UnsetAromatic' = OBMolBondBFSIter_UnsetAromatic, 'UnsetKekule' = OBMolBondBFSIter_UnsetKekule, 'GetIdx' = OBMolBondBFSIter_GetIdx, 'GetId' = OBMolBondBFSIter_GetId, 'GetBO' = OBMolBondBFSIter_GetBO, 'GetBondOrder' = OBMolBondBFSIter_GetBondOrder, 'GetFlags' = OBMolBondBFSIter_GetFlags, 'GetBeginAtomIdx' = OBMolBondBFSIter_GetBeginAtomIdx, 'GetEndAtomIdx' = OBMolBondBFSIter_GetEndAtomIdx, 'GetBeginAtom' = OBMolBondBFSIter_GetBeginAtom, 'GetEndAtom' = OBMolBondBFSIter_GetEndAtom, 'GetNbrAtom' = OBMolBondBFSIter_GetNbrAtom, 'GetParent' = OBMolBondBFSIter_GetParent, 'GetEquibLength' = OBMolBondBFSIter_GetEquibLength, 'GetLength' = OBMolBondBFSIter_GetLength, 'GetNbrAtomIdx' = OBMolBondBFSIter_GetNbrAtomIdx, 'FindSmallestRing' = OBMolBondBFSIter_FindSmallestRing, 'IsAromatic' = OBMolBondBFSIter_IsAromatic, 'IsInRing' = OBMolBondBFSIter_IsInRing, 'IsRotor' = OBMolBondBFSIter_IsRotor, 'IsAmide' = OBMolBondBFSIter_IsAmide, 'IsPrimaryAmide' = OBMolBondBFSIter_IsPrimaryAmide, 'IsSecondaryAmide' = OBMolBondBFSIter_IsSecondaryAmide, 'IsTertiaryAmide' = OBMolBondBFSIter_IsTertiaryAmide, 'IsEster' = OBMolBondBFSIter_IsEster, 'IsCarbonyl' = OBMolBondBFSIter_IsCarbonyl, 'IsSingle' = OBMolBondBFSIter_IsSingle, 'IsDouble' = OBMolBondBFSIter_IsDouble, 'IsTriple' = OBMolBondBFSIter_IsTriple, 'IsKSingle' = OBMolBondBFSIter_IsKSingle, 'IsKDouble' = OBMolBondBFSIter_IsKDouble, 'IsKTriple' = OBMolBondBFSIter_IsKTriple, 'IsClosure' = OBMolBondBFSIter_IsClosure, 'IsUp' = OBMolBondBFSIter_IsUp, 'IsDown' = OBMolBondBFSIter_IsDown, 'IsWedge' = OBMolBondBFSIter_IsWedge, 'IsHash' = OBMolBondBFSIter_IsHash, 'IsWedgeOrHash' = OBMolBondBFSIter_IsWedgeOrHash, 'IsCisOrTrans' = OBMolBondBFSIter_IsCisOrTrans, 'IsDoubleBondGeometry' = OBMolBondBFSIter_IsDoubleBondGeometry, 'Clear' = OBMolBondBFSIter_Clear, 'DoTransformations' = OBMolBondBFSIter_DoTransformations, 'ClassDescription' = OBMolBondBFSIter_ClassDescription, 'GetTitle' = OBMolBondBFSIter_GetTitle, 'SetTitle' = OBMolBondBFSIter_SetTitle, 'HasData' = OBMolBondBFSIter_HasData, 'DeleteData' = OBMolBondBFSIter_DeleteData, 'CloneData' = OBMolBondBFSIter_CloneData, 'DataSize' = OBMolBondBFSIter_DataSize, 'GetData' = OBMolBondBFSIter_GetData, 'GetAllData' = OBMolBondBFSIter_GetAllData, 'BeginData' = OBMolBondBFSIter_BeginData, 'EndData' = OBMolBondBFSIter_EndData);
   vaccessors = c('Visit'); ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name));
   f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}  else f(x); }
 );
@@ -22639,13 +21753,6 @@ attr(`OBMolBondIter_IsTertiaryAmide`, 'returnType') = 'logical'
 attr(`OBMolBondIter_IsTertiaryAmide`, "inputTypes") = c('_p_OpenBabel__OBMolBondIter')
 class(`OBMolBondIter_IsTertiaryAmide`) = c("SWIGFunction", class('OBMolBondIter_IsTertiaryAmide'))
 
-# Start of OBMolBondIter_IsAmidine
-`OBMolBondIter_IsAmidine` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMolBondIter_IsAmidine', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolBondIter_IsAmidine`, 'returnType') = 'logical'
-attr(`OBMolBondIter_IsAmidine`, "inputTypes") = c('_p_OpenBabel__OBMolBondIter')
-class(`OBMolBondIter_IsAmidine`) = c("SWIGFunction", class('OBMolBondIter_IsAmidine'))
-
 # Start of OBMolBondIter_IsEster
 `OBMolBondIter_IsEster` = function(self, .copy = FALSE) {
   ;.Call('R_swig_OBMolBondIter_IsEster', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -22659,13 +21766,6 @@ class(`OBMolBondIter_IsEster`) = c("SWIGFunction", class('OBMolBondIter_IsEster'
 attr(`OBMolBondIter_IsCarbonyl`, 'returnType') = 'logical'
 attr(`OBMolBondIter_IsCarbonyl`, "inputTypes") = c('_p_OpenBabel__OBMolBondIter')
 class(`OBMolBondIter_IsCarbonyl`) = c("SWIGFunction", class('OBMolBondIter_IsCarbonyl'))
-
-# Start of OBMolBondIter_IsImide
-`OBMolBondIter_IsImide` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBMolBondIter_IsImide', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBMolBondIter_IsImide`, 'returnType') = 'logical'
-attr(`OBMolBondIter_IsImide`, "inputTypes") = c('_p_OpenBabel__OBMolBondIter')
-class(`OBMolBondIter_IsImide`) = c("SWIGFunction", class('OBMolBondIter_IsImide'))
 
 # Start of OBMolBondIter_IsSingle
 `OBMolBondIter_IsSingle` = function(self, .copy = FALSE) {
@@ -22969,7 +22069,7 @@ class(`OBMolBondIter_EndData`) = c("SWIGFunction", class('OBMolBondIter_EndData'
 
 # Start of accessor method for OpenBabel::OBMolBondIter
 setMethod('$', '_p_OpenBabel__OBMolBondIter', function(x, name) {
-  accessorFuns = list('HasMore' = OBMolBondIter_HasMore, 'inc' = OBMolBondIter_inc, '__deref__' = OBMolBondIter___deref__, '__ref__' = OBMolBondIter___ref__, 'Visit' = OBMolBondIter_Visit_get, 'SetIdx' = OBMolBondIter_SetIdx, 'SetId' = OBMolBondIter_SetId, 'SetBO' = OBMolBondIter_SetBO, 'SetBondOrder' = OBMolBondIter_SetBondOrder, 'SetBegin' = OBMolBondIter_SetBegin, 'SetEnd' = OBMolBondIter_SetEnd, 'SetParent' = OBMolBondIter_SetParent, 'SetLength' = OBMolBondIter_SetLength, 'Set' = OBMolBondIter_Set, 'SetKSingle' = OBMolBondIter_SetKSingle, 'SetKDouble' = OBMolBondIter_SetKDouble, 'SetKTriple' = OBMolBondIter_SetKTriple, 'SetAromatic' = OBMolBondIter_SetAromatic, 'SetWedge' = OBMolBondIter_SetWedge, 'SetHash' = OBMolBondIter_SetHash, 'SetWedgeOrHash' = OBMolBondIter_SetWedgeOrHash, 'SetUp' = OBMolBondIter_SetUp, 'SetDown' = OBMolBondIter_SetDown, 'SetInRing' = OBMolBondIter_SetInRing, 'SetClosure' = OBMolBondIter_SetClosure, 'UnsetHash' = OBMolBondIter_UnsetHash, 'UnsetWedge' = OBMolBondIter_UnsetWedge, 'UnsetUp' = OBMolBondIter_UnsetUp, 'UnsetDown' = OBMolBondIter_UnsetDown, 'UnsetAromatic' = OBMolBondIter_UnsetAromatic, 'UnsetKekule' = OBMolBondIter_UnsetKekule, 'GetIdx' = OBMolBondIter_GetIdx, 'GetId' = OBMolBondIter_GetId, 'GetBO' = OBMolBondIter_GetBO, 'GetBondOrder' = OBMolBondIter_GetBondOrder, 'GetFlags' = OBMolBondIter_GetFlags, 'GetBeginAtomIdx' = OBMolBondIter_GetBeginAtomIdx, 'GetEndAtomIdx' = OBMolBondIter_GetEndAtomIdx, 'GetBeginAtom' = OBMolBondIter_GetBeginAtom, 'GetEndAtom' = OBMolBondIter_GetEndAtom, 'GetNbrAtom' = OBMolBondIter_GetNbrAtom, 'GetParent' = OBMolBondIter_GetParent, 'GetEquibLength' = OBMolBondIter_GetEquibLength, 'GetLength' = OBMolBondIter_GetLength, 'GetNbrAtomIdx' = OBMolBondIter_GetNbrAtomIdx, 'FindSmallestRing' = OBMolBondIter_FindSmallestRing, 'IsAromatic' = OBMolBondIter_IsAromatic, 'IsInRing' = OBMolBondIter_IsInRing, 'IsRotor' = OBMolBondIter_IsRotor, 'IsAmide' = OBMolBondIter_IsAmide, 'IsPrimaryAmide' = OBMolBondIter_IsPrimaryAmide, 'IsSecondaryAmide' = OBMolBondIter_IsSecondaryAmide, 'IsTertiaryAmide' = OBMolBondIter_IsTertiaryAmide, 'IsAmidine' = OBMolBondIter_IsAmidine, 'IsEster' = OBMolBondIter_IsEster, 'IsCarbonyl' = OBMolBondIter_IsCarbonyl, 'IsImide' = OBMolBondIter_IsImide, 'IsSingle' = OBMolBondIter_IsSingle, 'IsDouble' = OBMolBondIter_IsDouble, 'IsTriple' = OBMolBondIter_IsTriple, 'IsKSingle' = OBMolBondIter_IsKSingle, 'IsKDouble' = OBMolBondIter_IsKDouble, 'IsKTriple' = OBMolBondIter_IsKTriple, 'IsClosure' = OBMolBondIter_IsClosure, 'IsUp' = OBMolBondIter_IsUp, 'IsDown' = OBMolBondIter_IsDown, 'IsWedge' = OBMolBondIter_IsWedge, 'IsHash' = OBMolBondIter_IsHash, 'IsWedgeOrHash' = OBMolBondIter_IsWedgeOrHash, 'IsCisOrTrans' = OBMolBondIter_IsCisOrTrans, 'IsDoubleBondGeometry' = OBMolBondIter_IsDoubleBondGeometry, 'Clear' = OBMolBondIter_Clear, 'DoTransformations' = OBMolBondIter_DoTransformations, 'ClassDescription' = OBMolBondIter_ClassDescription, 'GetTitle' = OBMolBondIter_GetTitle, 'SetTitle' = OBMolBondIter_SetTitle, 'HasData' = OBMolBondIter_HasData, 'DeleteData' = OBMolBondIter_DeleteData, 'CloneData' = OBMolBondIter_CloneData, 'DataSize' = OBMolBondIter_DataSize, 'GetData' = OBMolBondIter_GetData, 'GetAllData' = OBMolBondIter_GetAllData, 'BeginData' = OBMolBondIter_BeginData, 'EndData' = OBMolBondIter_EndData);
+  accessorFuns = list('HasMore' = OBMolBondIter_HasMore, 'inc' = OBMolBondIter_inc, '__deref__' = OBMolBondIter___deref__, '__ref__' = OBMolBondIter___ref__, 'Visit' = OBMolBondIter_Visit_get, 'SetIdx' = OBMolBondIter_SetIdx, 'SetId' = OBMolBondIter_SetId, 'SetBO' = OBMolBondIter_SetBO, 'SetBondOrder' = OBMolBondIter_SetBondOrder, 'SetBegin' = OBMolBondIter_SetBegin, 'SetEnd' = OBMolBondIter_SetEnd, 'SetParent' = OBMolBondIter_SetParent, 'SetLength' = OBMolBondIter_SetLength, 'Set' = OBMolBondIter_Set, 'SetKSingle' = OBMolBondIter_SetKSingle, 'SetKDouble' = OBMolBondIter_SetKDouble, 'SetKTriple' = OBMolBondIter_SetKTriple, 'SetAromatic' = OBMolBondIter_SetAromatic, 'SetWedge' = OBMolBondIter_SetWedge, 'SetHash' = OBMolBondIter_SetHash, 'SetWedgeOrHash' = OBMolBondIter_SetWedgeOrHash, 'SetUp' = OBMolBondIter_SetUp, 'SetDown' = OBMolBondIter_SetDown, 'SetInRing' = OBMolBondIter_SetInRing, 'SetClosure' = OBMolBondIter_SetClosure, 'UnsetHash' = OBMolBondIter_UnsetHash, 'UnsetWedge' = OBMolBondIter_UnsetWedge, 'UnsetUp' = OBMolBondIter_UnsetUp, 'UnsetDown' = OBMolBondIter_UnsetDown, 'UnsetAromatic' = OBMolBondIter_UnsetAromatic, 'UnsetKekule' = OBMolBondIter_UnsetKekule, 'GetIdx' = OBMolBondIter_GetIdx, 'GetId' = OBMolBondIter_GetId, 'GetBO' = OBMolBondIter_GetBO, 'GetBondOrder' = OBMolBondIter_GetBondOrder, 'GetFlags' = OBMolBondIter_GetFlags, 'GetBeginAtomIdx' = OBMolBondIter_GetBeginAtomIdx, 'GetEndAtomIdx' = OBMolBondIter_GetEndAtomIdx, 'GetBeginAtom' = OBMolBondIter_GetBeginAtom, 'GetEndAtom' = OBMolBondIter_GetEndAtom, 'GetNbrAtom' = OBMolBondIter_GetNbrAtom, 'GetParent' = OBMolBondIter_GetParent, 'GetEquibLength' = OBMolBondIter_GetEquibLength, 'GetLength' = OBMolBondIter_GetLength, 'GetNbrAtomIdx' = OBMolBondIter_GetNbrAtomIdx, 'FindSmallestRing' = OBMolBondIter_FindSmallestRing, 'IsAromatic' = OBMolBondIter_IsAromatic, 'IsInRing' = OBMolBondIter_IsInRing, 'IsRotor' = OBMolBondIter_IsRotor, 'IsAmide' = OBMolBondIter_IsAmide, 'IsPrimaryAmide' = OBMolBondIter_IsPrimaryAmide, 'IsSecondaryAmide' = OBMolBondIter_IsSecondaryAmide, 'IsTertiaryAmide' = OBMolBondIter_IsTertiaryAmide, 'IsEster' = OBMolBondIter_IsEster, 'IsCarbonyl' = OBMolBondIter_IsCarbonyl, 'IsSingle' = OBMolBondIter_IsSingle, 'IsDouble' = OBMolBondIter_IsDouble, 'IsTriple' = OBMolBondIter_IsTriple, 'IsKSingle' = OBMolBondIter_IsKSingle, 'IsKDouble' = OBMolBondIter_IsKDouble, 'IsKTriple' = OBMolBondIter_IsKTriple, 'IsClosure' = OBMolBondIter_IsClosure, 'IsUp' = OBMolBondIter_IsUp, 'IsDown' = OBMolBondIter_IsDown, 'IsWedge' = OBMolBondIter_IsWedge, 'IsHash' = OBMolBondIter_IsHash, 'IsWedgeOrHash' = OBMolBondIter_IsWedgeOrHash, 'IsCisOrTrans' = OBMolBondIter_IsCisOrTrans, 'IsDoubleBondGeometry' = OBMolBondIter_IsDoubleBondGeometry, 'Clear' = OBMolBondIter_Clear, 'DoTransformations' = OBMolBondIter_DoTransformations, 'ClassDescription' = OBMolBondIter_ClassDescription, 'GetTitle' = OBMolBondIter_GetTitle, 'SetTitle' = OBMolBondIter_SetTitle, 'HasData' = OBMolBondIter_HasData, 'DeleteData' = OBMolBondIter_DeleteData, 'CloneData' = OBMolBondIter_CloneData, 'DataSize' = OBMolBondIter_DataSize, 'GetData' = OBMolBondIter_GetData, 'GetAllData' = OBMolBondIter_GetAllData, 'BeginData' = OBMolBondIter_BeginData, 'EndData' = OBMolBondIter_EndData);
   vaccessors = c('Visit'); ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name));
   f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}  else f(x); }
 );
@@ -23583,19 +22683,10 @@ attr(`OBAtomAtomIter_GetDistance__SWIG_1`, 'returnType') = 'numeric'
 attr(`OBAtomAtomIter_GetDistance__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBAtomAtomIter', '_p_OpenBabel__OBAtom')
 class(`OBAtomAtomIter_GetDistance__SWIG_1`) = c("SWIGFunction", class('OBAtomAtomIter_GetDistance__SWIG_1'))
 
-# Start of OBAtomAtomIter_GetDistance
-`OBAtomAtomIter_GetDistance__SWIG_2` = function(self, v, .copy = FALSE) {
-  ;.Call('R_swig_OBAtomAtomIter_GetDistance__SWIG_2', self, v, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtomAtomIter_GetDistance__SWIG_2`, 'returnType') = 'numeric'
-attr(`OBAtomAtomIter_GetDistance__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBAtomAtomIter', '_p_OpenBabel__vector3')
-class(`OBAtomAtomIter_GetDistance__SWIG_2`) = c("SWIGFunction", class('OBAtomAtomIter_GetDistance__SWIG_2'))
-
 `OBAtomAtomIter_GetDistance` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 3
+# dispatch functions 2
    if (argc == 2) { if (extends(argtypes[1], '_p_OpenBabel__OBAtomAtomIter') && extends(argtypes[2], '_p_OpenBabel__OBAtom')) {
       f <- OBAtomAtomIter_GetDistance__SWIG_1; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBAtomAtomIter') && extends(argtypes[2], '_p_OpenBabel__vector3')) {
-      f <- OBAtomAtomIter_GetDistance__SWIG_2; } 
     else if (extends(argtypes[1], '_p_OpenBabel__OBAtomAtomIter') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
       f <- OBAtomAtomIter_GetDistance__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBAtomAtomIter_GetDistance with argtypes (",toString(argtypes),")"); } ; f(...); }
@@ -23718,13 +22809,6 @@ attr(`OBAtomAtomIter_CountFreeOxygens`, 'returnType') = 'integer'
 attr(`OBAtomAtomIter_CountFreeOxygens`, "inputTypes") = c('_p_OpenBabel__OBAtomAtomIter')
 class(`OBAtomAtomIter_CountFreeOxygens`) = c("SWIGFunction", class('OBAtomAtomIter_CountFreeOxygens'))
 
-# Start of OBAtomAtomIter_CountFreeSulfurs
-`OBAtomAtomIter_CountFreeSulfurs` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBAtomAtomIter_CountFreeSulfurs', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtomAtomIter_CountFreeSulfurs`, 'returnType') = 'integer'
-attr(`OBAtomAtomIter_CountFreeSulfurs`, "inputTypes") = c('_p_OpenBabel__OBAtomAtomIter')
-class(`OBAtomAtomIter_CountFreeSulfurs`) = c("SWIGFunction", class('OBAtomAtomIter_CountFreeSulfurs'))
-
 # Start of OBAtomAtomIter_ImplicitHydrogenCount
 `OBAtomAtomIter_ImplicitHydrogenCount` = function(self, .copy = FALSE) {
   ;.Call('R_swig_OBAtomAtomIter_ImplicitHydrogenCount', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -23804,14 +22888,6 @@ class(`OBAtomAtomIter_BOSum`) = c("SWIGFunction", class('OBAtomAtomIter_BOSum'))
 attr(`OBAtomAtomIter_KBOSum`, 'returnType') = 'integer'
 attr(`OBAtomAtomIter_KBOSum`, "inputTypes") = c('_p_OpenBabel__OBAtomAtomIter')
 class(`OBAtomAtomIter_KBOSum`) = c("SWIGFunction", class('OBAtomAtomIter_KBOSum'))
-
-# Start of OBAtomAtomIter_LewisAcidBaseCounts
-`OBAtomAtomIter_LewisAcidBaseCounts` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBAtomAtomIter_LewisAcidBaseCounts', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_std__pairT_int_int_t"; ans }
-attr(`OBAtomAtomIter_LewisAcidBaseCounts`, 'returnType') = '_p_std__pairT_int_int_t'
-attr(`OBAtomAtomIter_LewisAcidBaseCounts`, "inputTypes") = c('_p_OpenBabel__OBAtomAtomIter')
-class(`OBAtomAtomIter_LewisAcidBaseCounts`) = c("SWIGFunction", class('OBAtomAtomIter_LewisAcidBaseCounts'))
 
 # Start of OBAtomAtomIter_HasResidue
 `OBAtomAtomIter_HasResidue` = function(self, .copy = FALSE) {
@@ -23918,13 +22994,6 @@ class(`OBAtomAtomIter_IsOneFour`) = c("SWIGFunction", class('OBAtomAtomIter_IsOn
 attr(`OBAtomAtomIter_IsCarboxylOxygen`, 'returnType') = 'logical'
 attr(`OBAtomAtomIter_IsCarboxylOxygen`, "inputTypes") = c('_p_OpenBabel__OBAtomAtomIter')
 class(`OBAtomAtomIter_IsCarboxylOxygen`) = c("SWIGFunction", class('OBAtomAtomIter_IsCarboxylOxygen'))
-
-# Start of OBAtomAtomIter_IsThiocarboxylSulfur
-`OBAtomAtomIter_IsThiocarboxylSulfur` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBAtomAtomIter_IsThiocarboxylSulfur', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtomAtomIter_IsThiocarboxylSulfur`, 'returnType') = 'logical'
-attr(`OBAtomAtomIter_IsThiocarboxylSulfur`, "inputTypes") = c('_p_OpenBabel__OBAtomAtomIter')
-class(`OBAtomAtomIter_IsThiocarboxylSulfur`) = c("SWIGFunction", class('OBAtomAtomIter_IsThiocarboxylSulfur'))
 
 # Start of OBAtomAtomIter_IsPhosphateOxygen
 `OBAtomAtomIter_IsPhosphateOxygen` = function(self, .copy = FALSE) {
@@ -24051,13 +23120,6 @@ class(`OBAtomAtomIter_IsHbondDonor`) = c("SWIGFunction", class('OBAtomAtomIter_I
 attr(`OBAtomAtomIter_IsHbondDonorH`, 'returnType') = 'logical'
 attr(`OBAtomAtomIter_IsHbondDonorH`, "inputTypes") = c('_p_OpenBabel__OBAtomAtomIter')
 class(`OBAtomAtomIter_IsHbondDonorH`) = c("SWIGFunction", class('OBAtomAtomIter_IsHbondDonorH'))
-
-# Start of OBAtomAtomIter_IsMetal
-`OBAtomAtomIter_IsMetal` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBAtomAtomIter_IsMetal', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtomAtomIter_IsMetal`, 'returnType') = 'logical'
-attr(`OBAtomAtomIter_IsMetal`, "inputTypes") = c('_p_OpenBabel__OBAtomAtomIter')
-class(`OBAtomAtomIter_IsMetal`) = c("SWIGFunction", class('OBAtomAtomIter_IsMetal'))
 
 # Start of OBAtomAtomIter_HasAlphaBetaUnsat
 `OBAtomAtomIter_HasAlphaBetaUnsat__SWIG_0` = function(self, includePandS, .copy = FALSE) {
@@ -24338,7 +23400,7 @@ class(`OBAtomAtomIter_EndData`) = c("SWIGFunction", class('OBAtomAtomIter_EndDat
 
 # Start of accessor method for OpenBabel::OBAtomAtomIter
 setMethod('$', '_p_OpenBabel__OBAtomAtomIter', function(x, name) {
-  accessorFuns = list('HasMore' = OBAtomAtomIter_HasMore, 'inc' = OBAtomAtomIter_inc, '__deref__' = OBAtomAtomIter___deref__, '__ref__' = OBAtomAtomIter___ref__, 'Visit' = OBAtomAtomIter_Visit_get, 'Duplicate' = OBAtomAtomIter_Duplicate, 'SetIdx' = OBAtomAtomIter_SetIdx, 'SetId' = OBAtomAtomIter_SetId, 'SetHyb' = OBAtomAtomIter_SetHyb, 'SetAtomicNum' = OBAtomAtomIter_SetAtomicNum, 'SetIsotope' = OBAtomAtomIter_SetIsotope, 'SetImplicitValence' = OBAtomAtomIter_SetImplicitValence, 'IncrementImplicitValence' = OBAtomAtomIter_IncrementImplicitValence, 'DecrementImplicitValence' = OBAtomAtomIter_DecrementImplicitValence, 'SetFormalCharge' = OBAtomAtomIter_SetFormalCharge, 'SetSpinMultiplicity' = OBAtomAtomIter_SetSpinMultiplicity, 'SetType' = OBAtomAtomIter_SetType, 'SetPartialCharge' = OBAtomAtomIter_SetPartialCharge, 'SetVector' = OBAtomAtomIter_SetVector, 'SetCoordPtr' = OBAtomAtomIter_SetCoordPtr, 'SetResidue' = OBAtomAtomIter_SetResidue, 'SetParent' = OBAtomAtomIter_SetParent, 'SetAromatic' = OBAtomAtomIter_SetAromatic, 'UnsetAromatic' = OBAtomAtomIter_UnsetAromatic, 'SetClockwiseStereo' = OBAtomAtomIter_SetClockwiseStereo, 'SetAntiClockwiseStereo' = OBAtomAtomIter_SetAntiClockwiseStereo, 'SetPositiveStereo' = OBAtomAtomIter_SetPositiveStereo, 'SetNegativeStereo' = OBAtomAtomIter_SetNegativeStereo, 'UnsetStereo' = OBAtomAtomIter_UnsetStereo, 'SetInRing' = OBAtomAtomIter_SetInRing, 'SetChiral' = OBAtomAtomIter_SetChiral, 'ClearCoordPtr' = OBAtomAtomIter_ClearCoordPtr, 'GetFormalCharge' = OBAtomAtomIter_GetFormalCharge, 'GetAtomicNum' = OBAtomAtomIter_GetAtomicNum, 'GetIsotope' = OBAtomAtomIter_GetIsotope, 'GetSpinMultiplicity' = OBAtomAtomIter_GetSpinMultiplicity, 'GetAtomicMass' = OBAtomAtomIter_GetAtomicMass, 'GetExactMass' = OBAtomAtomIter_GetExactMass, 'GetIdx' = OBAtomAtomIter_GetIdx, 'GetIndex' = OBAtomAtomIter_GetIndex, 'GetId' = OBAtomAtomIter_GetId, 'GetCoordinateIdx' = OBAtomAtomIter_GetCoordinateIdx, 'GetCIdx' = OBAtomAtomIter_GetCIdx, 'GetValence' = OBAtomAtomIter_GetValence, 'GetHyb' = OBAtomAtomIter_GetHyb, 'GetImplicitValence' = OBAtomAtomIter_GetImplicitValence, 'GetHvyValence' = OBAtomAtomIter_GetHvyValence, 'GetHeteroValence' = OBAtomAtomIter_GetHeteroValence, 'GetType' = OBAtomAtomIter_GetType, 'GetX' = OBAtomAtomIter_GetX, 'GetY' = OBAtomAtomIter_GetY, 'GetZ' = OBAtomAtomIter_GetZ, 'x' = OBAtomAtomIter_x, 'y' = OBAtomAtomIter_y, 'z' = OBAtomAtomIter_z, 'GetCoordinate' = OBAtomAtomIter_GetCoordinate, 'GetVector' = OBAtomAtomIter_GetVector, 'GetPartialCharge' = OBAtomAtomIter_GetPartialCharge, 'GetResidue' = OBAtomAtomIter_GetResidue, 'GetParent' = OBAtomAtomIter_GetParent, 'GetNewBondVector' = OBAtomAtomIter_GetNewBondVector, 'GetBond' = OBAtomAtomIter_GetBond, 'GetNextAtom' = OBAtomAtomIter_GetNextAtom, 'BeginBonds' = OBAtomAtomIter_BeginBonds, 'EndBonds' = OBAtomAtomIter_EndBonds, 'BeginBond' = OBAtomAtomIter_BeginBond, 'NextBond' = OBAtomAtomIter_NextBond, 'BeginNbrAtom' = OBAtomAtomIter_BeginNbrAtom, 'NextNbrAtom' = OBAtomAtomIter_NextNbrAtom, 'GetDistance' = OBAtomAtomIter_GetDistance, 'GetAngle' = OBAtomAtomIter_GetAngle, 'NewResidue' = OBAtomAtomIter_NewResidue, 'AddResidue' = OBAtomAtomIter_AddResidue, 'DeleteResidue' = OBAtomAtomIter_DeleteResidue, 'AddBond' = OBAtomAtomIter_AddBond, 'InsertBond' = OBAtomAtomIter_InsertBond, 'DeleteBond' = OBAtomAtomIter_DeleteBond, 'ClearBond' = OBAtomAtomIter_ClearBond, 'HtoMethyl' = OBAtomAtomIter_HtoMethyl, 'SetHybAndGeom' = OBAtomAtomIter_SetHybAndGeom, 'ForceNoH' = OBAtomAtomIter_ForceNoH, 'HasNoHForced' = OBAtomAtomIter_HasNoHForced, 'ForceImplH' = OBAtomAtomIter_ForceImplH, 'HasImplHForced' = OBAtomAtomIter_HasImplHForced, 'CountFreeOxygens' = OBAtomAtomIter_CountFreeOxygens, 'CountFreeSulfurs' = OBAtomAtomIter_CountFreeSulfurs, 'ImplicitHydrogenCount' = OBAtomAtomIter_ImplicitHydrogenCount, 'ExplicitHydrogenCount' = OBAtomAtomIter_ExplicitHydrogenCount, 'MemberOfRingCount' = OBAtomAtomIter_MemberOfRingCount, 'MemberOfRingSize' = OBAtomAtomIter_MemberOfRingSize, 'CountRingBonds' = OBAtomAtomIter_CountRingBonds, 'SmallestBondAngle' = OBAtomAtomIter_SmallestBondAngle, 'AverageBondAngle' = OBAtomAtomIter_AverageBondAngle, 'BOSum' = OBAtomAtomIter_BOSum, 'KBOSum' = OBAtomAtomIter_KBOSum, 'LewisAcidBaseCounts' = OBAtomAtomIter_LewisAcidBaseCounts, 'HasResidue' = OBAtomAtomIter_HasResidue, 'IsCarbon' = OBAtomAtomIter_IsCarbon, 'IsNitrogen' = OBAtomAtomIter_IsNitrogen, 'IsOxygen' = OBAtomAtomIter_IsOxygen, 'IsSulfur' = OBAtomAtomIter_IsSulfur, 'IsPhosphorus' = OBAtomAtomIter_IsPhosphorus, 'IsAromatic' = OBAtomAtomIter_IsAromatic, 'IsInRing' = OBAtomAtomIter_IsInRing, 'IsInRingSize' = OBAtomAtomIter_IsInRingSize, 'IsHeteroatom' = OBAtomAtomIter_IsHeteroatom, 'IsNotCorH' = OBAtomAtomIter_IsNotCorH, 'IsConnected' = OBAtomAtomIter_IsConnected, 'IsOneThree' = OBAtomAtomIter_IsOneThree, 'IsOneFour' = OBAtomAtomIter_IsOneFour, 'IsCarboxylOxygen' = OBAtomAtomIter_IsCarboxylOxygen, 'IsThiocarboxylSulfur' = OBAtomAtomIter_IsThiocarboxylSulfur, 'IsPhosphateOxygen' = OBAtomAtomIter_IsPhosphateOxygen, 'IsSulfateOxygen' = OBAtomAtomIter_IsSulfateOxygen, 'IsNitroOxygen' = OBAtomAtomIter_IsNitroOxygen, 'IsAmideNitrogen' = OBAtomAtomIter_IsAmideNitrogen, 'IsPolarHydrogen' = OBAtomAtomIter_IsPolarHydrogen, 'IsNonPolarHydrogen' = OBAtomAtomIter_IsNonPolarHydrogen, 'IsAromaticNOxide' = OBAtomAtomIter_IsAromaticNOxide, 'IsChiral' = OBAtomAtomIter_IsChiral, 'IsAxial' = OBAtomAtomIter_IsAxial, 'IsClockwise' = OBAtomAtomIter_IsClockwise, 'IsAntiClockwise' = OBAtomAtomIter_IsAntiClockwise, 'IsPositiveStereo' = OBAtomAtomIter_IsPositiveStereo, 'IsNegativeStereo' = OBAtomAtomIter_IsNegativeStereo, 'HasChiralitySpecified' = OBAtomAtomIter_HasChiralitySpecified, 'HasChiralVolume' = OBAtomAtomIter_HasChiralVolume, 'IsHbondAcceptor' = OBAtomAtomIter_IsHbondAcceptor, 'IsHbondDonor' = OBAtomAtomIter_IsHbondDonor, 'IsHbondDonorH' = OBAtomAtomIter_IsHbondDonorH, 'IsMetal' = OBAtomAtomIter_IsMetal, 'HasAlphaBetaUnsat' = OBAtomAtomIter_HasAlphaBetaUnsat, 'HasBondOfOrder' = OBAtomAtomIter_HasBondOfOrder, 'CountBondsOfOrder' = OBAtomAtomIter_CountBondsOfOrder, 'HasNonSingleBond' = OBAtomAtomIter_HasNonSingleBond, 'HasSingleBond' = OBAtomAtomIter_HasSingleBond, 'HasDoubleBond' = OBAtomAtomIter_HasDoubleBond, 'HasAromaticBond' = OBAtomAtomIter_HasAromaticBond, 'MatchesSMARTS' = OBAtomAtomIter_MatchesSMARTS, 'Clear' = OBAtomAtomIter_Clear, 'DoTransformations' = OBAtomAtomIter_DoTransformations, 'ClassDescription' = OBAtomAtomIter_ClassDescription, 'GetTitle' = OBAtomAtomIter_GetTitle, 'SetTitle' = OBAtomAtomIter_SetTitle, 'HasData' = OBAtomAtomIter_HasData, 'DeleteData' = OBAtomAtomIter_DeleteData, 'CloneData' = OBAtomAtomIter_CloneData, 'DataSize' = OBAtomAtomIter_DataSize, 'GetData' = OBAtomAtomIter_GetData, 'GetAllData' = OBAtomAtomIter_GetAllData, 'BeginData' = OBAtomAtomIter_BeginData, 'EndData' = OBAtomAtomIter_EndData);
+  accessorFuns = list('HasMore' = OBAtomAtomIter_HasMore, 'inc' = OBAtomAtomIter_inc, '__deref__' = OBAtomAtomIter___deref__, '__ref__' = OBAtomAtomIter___ref__, 'Visit' = OBAtomAtomIter_Visit_get, 'Duplicate' = OBAtomAtomIter_Duplicate, 'SetIdx' = OBAtomAtomIter_SetIdx, 'SetId' = OBAtomAtomIter_SetId, 'SetHyb' = OBAtomAtomIter_SetHyb, 'SetAtomicNum' = OBAtomAtomIter_SetAtomicNum, 'SetIsotope' = OBAtomAtomIter_SetIsotope, 'SetImplicitValence' = OBAtomAtomIter_SetImplicitValence, 'IncrementImplicitValence' = OBAtomAtomIter_IncrementImplicitValence, 'DecrementImplicitValence' = OBAtomAtomIter_DecrementImplicitValence, 'SetFormalCharge' = OBAtomAtomIter_SetFormalCharge, 'SetSpinMultiplicity' = OBAtomAtomIter_SetSpinMultiplicity, 'SetType' = OBAtomAtomIter_SetType, 'SetPartialCharge' = OBAtomAtomIter_SetPartialCharge, 'SetVector' = OBAtomAtomIter_SetVector, 'SetCoordPtr' = OBAtomAtomIter_SetCoordPtr, 'SetResidue' = OBAtomAtomIter_SetResidue, 'SetParent' = OBAtomAtomIter_SetParent, 'SetAromatic' = OBAtomAtomIter_SetAromatic, 'UnsetAromatic' = OBAtomAtomIter_UnsetAromatic, 'SetClockwiseStereo' = OBAtomAtomIter_SetClockwiseStereo, 'SetAntiClockwiseStereo' = OBAtomAtomIter_SetAntiClockwiseStereo, 'SetPositiveStereo' = OBAtomAtomIter_SetPositiveStereo, 'SetNegativeStereo' = OBAtomAtomIter_SetNegativeStereo, 'UnsetStereo' = OBAtomAtomIter_UnsetStereo, 'SetInRing' = OBAtomAtomIter_SetInRing, 'SetChiral' = OBAtomAtomIter_SetChiral, 'ClearCoordPtr' = OBAtomAtomIter_ClearCoordPtr, 'GetFormalCharge' = OBAtomAtomIter_GetFormalCharge, 'GetAtomicNum' = OBAtomAtomIter_GetAtomicNum, 'GetIsotope' = OBAtomAtomIter_GetIsotope, 'GetSpinMultiplicity' = OBAtomAtomIter_GetSpinMultiplicity, 'GetAtomicMass' = OBAtomAtomIter_GetAtomicMass, 'GetExactMass' = OBAtomAtomIter_GetExactMass, 'GetIdx' = OBAtomAtomIter_GetIdx, 'GetIndex' = OBAtomAtomIter_GetIndex, 'GetId' = OBAtomAtomIter_GetId, 'GetCoordinateIdx' = OBAtomAtomIter_GetCoordinateIdx, 'GetCIdx' = OBAtomAtomIter_GetCIdx, 'GetValence' = OBAtomAtomIter_GetValence, 'GetHyb' = OBAtomAtomIter_GetHyb, 'GetImplicitValence' = OBAtomAtomIter_GetImplicitValence, 'GetHvyValence' = OBAtomAtomIter_GetHvyValence, 'GetHeteroValence' = OBAtomAtomIter_GetHeteroValence, 'GetType' = OBAtomAtomIter_GetType, 'GetX' = OBAtomAtomIter_GetX, 'GetY' = OBAtomAtomIter_GetY, 'GetZ' = OBAtomAtomIter_GetZ, 'x' = OBAtomAtomIter_x, 'y' = OBAtomAtomIter_y, 'z' = OBAtomAtomIter_z, 'GetCoordinate' = OBAtomAtomIter_GetCoordinate, 'GetVector' = OBAtomAtomIter_GetVector, 'GetPartialCharge' = OBAtomAtomIter_GetPartialCharge, 'GetResidue' = OBAtomAtomIter_GetResidue, 'GetParent' = OBAtomAtomIter_GetParent, 'GetNewBondVector' = OBAtomAtomIter_GetNewBondVector, 'GetBond' = OBAtomAtomIter_GetBond, 'GetNextAtom' = OBAtomAtomIter_GetNextAtom, 'BeginBonds' = OBAtomAtomIter_BeginBonds, 'EndBonds' = OBAtomAtomIter_EndBonds, 'BeginBond' = OBAtomAtomIter_BeginBond, 'NextBond' = OBAtomAtomIter_NextBond, 'BeginNbrAtom' = OBAtomAtomIter_BeginNbrAtom, 'NextNbrAtom' = OBAtomAtomIter_NextNbrAtom, 'GetDistance' = OBAtomAtomIter_GetDistance, 'GetAngle' = OBAtomAtomIter_GetAngle, 'NewResidue' = OBAtomAtomIter_NewResidue, 'AddResidue' = OBAtomAtomIter_AddResidue, 'DeleteResidue' = OBAtomAtomIter_DeleteResidue, 'AddBond' = OBAtomAtomIter_AddBond, 'InsertBond' = OBAtomAtomIter_InsertBond, 'DeleteBond' = OBAtomAtomIter_DeleteBond, 'ClearBond' = OBAtomAtomIter_ClearBond, 'HtoMethyl' = OBAtomAtomIter_HtoMethyl, 'SetHybAndGeom' = OBAtomAtomIter_SetHybAndGeom, 'ForceNoH' = OBAtomAtomIter_ForceNoH, 'HasNoHForced' = OBAtomAtomIter_HasNoHForced, 'ForceImplH' = OBAtomAtomIter_ForceImplH, 'HasImplHForced' = OBAtomAtomIter_HasImplHForced, 'CountFreeOxygens' = OBAtomAtomIter_CountFreeOxygens, 'ImplicitHydrogenCount' = OBAtomAtomIter_ImplicitHydrogenCount, 'ExplicitHydrogenCount' = OBAtomAtomIter_ExplicitHydrogenCount, 'MemberOfRingCount' = OBAtomAtomIter_MemberOfRingCount, 'MemberOfRingSize' = OBAtomAtomIter_MemberOfRingSize, 'CountRingBonds' = OBAtomAtomIter_CountRingBonds, 'SmallestBondAngle' = OBAtomAtomIter_SmallestBondAngle, 'AverageBondAngle' = OBAtomAtomIter_AverageBondAngle, 'BOSum' = OBAtomAtomIter_BOSum, 'KBOSum' = OBAtomAtomIter_KBOSum, 'HasResidue' = OBAtomAtomIter_HasResidue, 'IsCarbon' = OBAtomAtomIter_IsCarbon, 'IsNitrogen' = OBAtomAtomIter_IsNitrogen, 'IsOxygen' = OBAtomAtomIter_IsOxygen, 'IsSulfur' = OBAtomAtomIter_IsSulfur, 'IsPhosphorus' = OBAtomAtomIter_IsPhosphorus, 'IsAromatic' = OBAtomAtomIter_IsAromatic, 'IsInRing' = OBAtomAtomIter_IsInRing, 'IsInRingSize' = OBAtomAtomIter_IsInRingSize, 'IsHeteroatom' = OBAtomAtomIter_IsHeteroatom, 'IsNotCorH' = OBAtomAtomIter_IsNotCorH, 'IsConnected' = OBAtomAtomIter_IsConnected, 'IsOneThree' = OBAtomAtomIter_IsOneThree, 'IsOneFour' = OBAtomAtomIter_IsOneFour, 'IsCarboxylOxygen' = OBAtomAtomIter_IsCarboxylOxygen, 'IsPhosphateOxygen' = OBAtomAtomIter_IsPhosphateOxygen, 'IsSulfateOxygen' = OBAtomAtomIter_IsSulfateOxygen, 'IsNitroOxygen' = OBAtomAtomIter_IsNitroOxygen, 'IsAmideNitrogen' = OBAtomAtomIter_IsAmideNitrogen, 'IsPolarHydrogen' = OBAtomAtomIter_IsPolarHydrogen, 'IsNonPolarHydrogen' = OBAtomAtomIter_IsNonPolarHydrogen, 'IsAromaticNOxide' = OBAtomAtomIter_IsAromaticNOxide, 'IsChiral' = OBAtomAtomIter_IsChiral, 'IsAxial' = OBAtomAtomIter_IsAxial, 'IsClockwise' = OBAtomAtomIter_IsClockwise, 'IsAntiClockwise' = OBAtomAtomIter_IsAntiClockwise, 'IsPositiveStereo' = OBAtomAtomIter_IsPositiveStereo, 'IsNegativeStereo' = OBAtomAtomIter_IsNegativeStereo, 'HasChiralitySpecified' = OBAtomAtomIter_HasChiralitySpecified, 'HasChiralVolume' = OBAtomAtomIter_HasChiralVolume, 'IsHbondAcceptor' = OBAtomAtomIter_IsHbondAcceptor, 'IsHbondDonor' = OBAtomAtomIter_IsHbondDonor, 'IsHbondDonorH' = OBAtomAtomIter_IsHbondDonorH, 'HasAlphaBetaUnsat' = OBAtomAtomIter_HasAlphaBetaUnsat, 'HasBondOfOrder' = OBAtomAtomIter_HasBondOfOrder, 'CountBondsOfOrder' = OBAtomAtomIter_CountBondsOfOrder, 'HasNonSingleBond' = OBAtomAtomIter_HasNonSingleBond, 'HasSingleBond' = OBAtomAtomIter_HasSingleBond, 'HasDoubleBond' = OBAtomAtomIter_HasDoubleBond, 'HasAromaticBond' = OBAtomAtomIter_HasAromaticBond, 'MatchesSMARTS' = OBAtomAtomIter_MatchesSMARTS, 'Clear' = OBAtomAtomIter_Clear, 'DoTransformations' = OBAtomAtomIter_DoTransformations, 'ClassDescription' = OBAtomAtomIter_ClassDescription, 'GetTitle' = OBAtomAtomIter_GetTitle, 'SetTitle' = OBAtomAtomIter_SetTitle, 'HasData' = OBAtomAtomIter_HasData, 'DeleteData' = OBAtomAtomIter_DeleteData, 'CloneData' = OBAtomAtomIter_CloneData, 'DataSize' = OBAtomAtomIter_DataSize, 'GetData' = OBAtomAtomIter_GetData, 'GetAllData' = OBAtomAtomIter_GetAllData, 'BeginData' = OBAtomAtomIter_BeginData, 'EndData' = OBAtomAtomIter_EndData);
   vaccessors = c('Visit'); ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name));
   f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}  else f(x); }
 );
@@ -24803,13 +23865,6 @@ attr(`OBAtomBondIter_IsTertiaryAmide`, 'returnType') = 'logical'
 attr(`OBAtomBondIter_IsTertiaryAmide`, "inputTypes") = c('_p_OpenBabel__OBAtomBondIter')
 class(`OBAtomBondIter_IsTertiaryAmide`) = c("SWIGFunction", class('OBAtomBondIter_IsTertiaryAmide'))
 
-# Start of OBAtomBondIter_IsAmidine
-`OBAtomBondIter_IsAmidine` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBAtomBondIter_IsAmidine', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtomBondIter_IsAmidine`, 'returnType') = 'logical'
-attr(`OBAtomBondIter_IsAmidine`, "inputTypes") = c('_p_OpenBabel__OBAtomBondIter')
-class(`OBAtomBondIter_IsAmidine`) = c("SWIGFunction", class('OBAtomBondIter_IsAmidine'))
-
 # Start of OBAtomBondIter_IsEster
 `OBAtomBondIter_IsEster` = function(self, .copy = FALSE) {
   ;.Call('R_swig_OBAtomBondIter_IsEster', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -24823,13 +23878,6 @@ class(`OBAtomBondIter_IsEster`) = c("SWIGFunction", class('OBAtomBondIter_IsEste
 attr(`OBAtomBondIter_IsCarbonyl`, 'returnType') = 'logical'
 attr(`OBAtomBondIter_IsCarbonyl`, "inputTypes") = c('_p_OpenBabel__OBAtomBondIter')
 class(`OBAtomBondIter_IsCarbonyl`) = c("SWIGFunction", class('OBAtomBondIter_IsCarbonyl'))
-
-# Start of OBAtomBondIter_IsImide
-`OBAtomBondIter_IsImide` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBAtomBondIter_IsImide', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBAtomBondIter_IsImide`, 'returnType') = 'logical'
-attr(`OBAtomBondIter_IsImide`, "inputTypes") = c('_p_OpenBabel__OBAtomBondIter')
-class(`OBAtomBondIter_IsImide`) = c("SWIGFunction", class('OBAtomBondIter_IsImide'))
 
 # Start of OBAtomBondIter_IsSingle
 `OBAtomBondIter_IsSingle` = function(self, .copy = FALSE) {
@@ -25133,7 +24181,7 @@ class(`OBAtomBondIter_EndData`) = c("SWIGFunction", class('OBAtomBondIter_EndDat
 
 # Start of accessor method for OpenBabel::OBAtomBondIter
 setMethod('$', '_p_OpenBabel__OBAtomBondIter', function(x, name) {
-  accessorFuns = list('HasMore' = OBAtomBondIter_HasMore, 'inc' = OBAtomBondIter_inc, '__deref__' = OBAtomBondIter___deref__, '__ref__' = OBAtomBondIter___ref__, 'Visit' = OBAtomBondIter_Visit_get, 'SetIdx' = OBAtomBondIter_SetIdx, 'SetId' = OBAtomBondIter_SetId, 'SetBO' = OBAtomBondIter_SetBO, 'SetBondOrder' = OBAtomBondIter_SetBondOrder, 'SetBegin' = OBAtomBondIter_SetBegin, 'SetEnd' = OBAtomBondIter_SetEnd, 'SetParent' = OBAtomBondIter_SetParent, 'SetLength' = OBAtomBondIter_SetLength, 'Set' = OBAtomBondIter_Set, 'SetKSingle' = OBAtomBondIter_SetKSingle, 'SetKDouble' = OBAtomBondIter_SetKDouble, 'SetKTriple' = OBAtomBondIter_SetKTriple, 'SetAromatic' = OBAtomBondIter_SetAromatic, 'SetWedge' = OBAtomBondIter_SetWedge, 'SetHash' = OBAtomBondIter_SetHash, 'SetWedgeOrHash' = OBAtomBondIter_SetWedgeOrHash, 'SetUp' = OBAtomBondIter_SetUp, 'SetDown' = OBAtomBondIter_SetDown, 'SetInRing' = OBAtomBondIter_SetInRing, 'SetClosure' = OBAtomBondIter_SetClosure, 'UnsetHash' = OBAtomBondIter_UnsetHash, 'UnsetWedge' = OBAtomBondIter_UnsetWedge, 'UnsetUp' = OBAtomBondIter_UnsetUp, 'UnsetDown' = OBAtomBondIter_UnsetDown, 'UnsetAromatic' = OBAtomBondIter_UnsetAromatic, 'UnsetKekule' = OBAtomBondIter_UnsetKekule, 'GetIdx' = OBAtomBondIter_GetIdx, 'GetId' = OBAtomBondIter_GetId, 'GetBO' = OBAtomBondIter_GetBO, 'GetBondOrder' = OBAtomBondIter_GetBondOrder, 'GetFlags' = OBAtomBondIter_GetFlags, 'GetBeginAtomIdx' = OBAtomBondIter_GetBeginAtomIdx, 'GetEndAtomIdx' = OBAtomBondIter_GetEndAtomIdx, 'GetBeginAtom' = OBAtomBondIter_GetBeginAtom, 'GetEndAtom' = OBAtomBondIter_GetEndAtom, 'GetNbrAtom' = OBAtomBondIter_GetNbrAtom, 'GetParent' = OBAtomBondIter_GetParent, 'GetEquibLength' = OBAtomBondIter_GetEquibLength, 'GetLength' = OBAtomBondIter_GetLength, 'GetNbrAtomIdx' = OBAtomBondIter_GetNbrAtomIdx, 'FindSmallestRing' = OBAtomBondIter_FindSmallestRing, 'IsAromatic' = OBAtomBondIter_IsAromatic, 'IsInRing' = OBAtomBondIter_IsInRing, 'IsRotor' = OBAtomBondIter_IsRotor, 'IsAmide' = OBAtomBondIter_IsAmide, 'IsPrimaryAmide' = OBAtomBondIter_IsPrimaryAmide, 'IsSecondaryAmide' = OBAtomBondIter_IsSecondaryAmide, 'IsTertiaryAmide' = OBAtomBondIter_IsTertiaryAmide, 'IsAmidine' = OBAtomBondIter_IsAmidine, 'IsEster' = OBAtomBondIter_IsEster, 'IsCarbonyl' = OBAtomBondIter_IsCarbonyl, 'IsImide' = OBAtomBondIter_IsImide, 'IsSingle' = OBAtomBondIter_IsSingle, 'IsDouble' = OBAtomBondIter_IsDouble, 'IsTriple' = OBAtomBondIter_IsTriple, 'IsKSingle' = OBAtomBondIter_IsKSingle, 'IsKDouble' = OBAtomBondIter_IsKDouble, 'IsKTriple' = OBAtomBondIter_IsKTriple, 'IsClosure' = OBAtomBondIter_IsClosure, 'IsUp' = OBAtomBondIter_IsUp, 'IsDown' = OBAtomBondIter_IsDown, 'IsWedge' = OBAtomBondIter_IsWedge, 'IsHash' = OBAtomBondIter_IsHash, 'IsWedgeOrHash' = OBAtomBondIter_IsWedgeOrHash, 'IsCisOrTrans' = OBAtomBondIter_IsCisOrTrans, 'IsDoubleBondGeometry' = OBAtomBondIter_IsDoubleBondGeometry, 'Clear' = OBAtomBondIter_Clear, 'DoTransformations' = OBAtomBondIter_DoTransformations, 'ClassDescription' = OBAtomBondIter_ClassDescription, 'GetTitle' = OBAtomBondIter_GetTitle, 'SetTitle' = OBAtomBondIter_SetTitle, 'HasData' = OBAtomBondIter_HasData, 'DeleteData' = OBAtomBondIter_DeleteData, 'CloneData' = OBAtomBondIter_CloneData, 'DataSize' = OBAtomBondIter_DataSize, 'GetData' = OBAtomBondIter_GetData, 'GetAllData' = OBAtomBondIter_GetAllData, 'BeginData' = OBAtomBondIter_BeginData, 'EndData' = OBAtomBondIter_EndData);
+  accessorFuns = list('HasMore' = OBAtomBondIter_HasMore, 'inc' = OBAtomBondIter_inc, '__deref__' = OBAtomBondIter___deref__, '__ref__' = OBAtomBondIter___ref__, 'Visit' = OBAtomBondIter_Visit_get, 'SetIdx' = OBAtomBondIter_SetIdx, 'SetId' = OBAtomBondIter_SetId, 'SetBO' = OBAtomBondIter_SetBO, 'SetBondOrder' = OBAtomBondIter_SetBondOrder, 'SetBegin' = OBAtomBondIter_SetBegin, 'SetEnd' = OBAtomBondIter_SetEnd, 'SetParent' = OBAtomBondIter_SetParent, 'SetLength' = OBAtomBondIter_SetLength, 'Set' = OBAtomBondIter_Set, 'SetKSingle' = OBAtomBondIter_SetKSingle, 'SetKDouble' = OBAtomBondIter_SetKDouble, 'SetKTriple' = OBAtomBondIter_SetKTriple, 'SetAromatic' = OBAtomBondIter_SetAromatic, 'SetWedge' = OBAtomBondIter_SetWedge, 'SetHash' = OBAtomBondIter_SetHash, 'SetWedgeOrHash' = OBAtomBondIter_SetWedgeOrHash, 'SetUp' = OBAtomBondIter_SetUp, 'SetDown' = OBAtomBondIter_SetDown, 'SetInRing' = OBAtomBondIter_SetInRing, 'SetClosure' = OBAtomBondIter_SetClosure, 'UnsetHash' = OBAtomBondIter_UnsetHash, 'UnsetWedge' = OBAtomBondIter_UnsetWedge, 'UnsetUp' = OBAtomBondIter_UnsetUp, 'UnsetDown' = OBAtomBondIter_UnsetDown, 'UnsetAromatic' = OBAtomBondIter_UnsetAromatic, 'UnsetKekule' = OBAtomBondIter_UnsetKekule, 'GetIdx' = OBAtomBondIter_GetIdx, 'GetId' = OBAtomBondIter_GetId, 'GetBO' = OBAtomBondIter_GetBO, 'GetBondOrder' = OBAtomBondIter_GetBondOrder, 'GetFlags' = OBAtomBondIter_GetFlags, 'GetBeginAtomIdx' = OBAtomBondIter_GetBeginAtomIdx, 'GetEndAtomIdx' = OBAtomBondIter_GetEndAtomIdx, 'GetBeginAtom' = OBAtomBondIter_GetBeginAtom, 'GetEndAtom' = OBAtomBondIter_GetEndAtom, 'GetNbrAtom' = OBAtomBondIter_GetNbrAtom, 'GetParent' = OBAtomBondIter_GetParent, 'GetEquibLength' = OBAtomBondIter_GetEquibLength, 'GetLength' = OBAtomBondIter_GetLength, 'GetNbrAtomIdx' = OBAtomBondIter_GetNbrAtomIdx, 'FindSmallestRing' = OBAtomBondIter_FindSmallestRing, 'IsAromatic' = OBAtomBondIter_IsAromatic, 'IsInRing' = OBAtomBondIter_IsInRing, 'IsRotor' = OBAtomBondIter_IsRotor, 'IsAmide' = OBAtomBondIter_IsAmide, 'IsPrimaryAmide' = OBAtomBondIter_IsPrimaryAmide, 'IsSecondaryAmide' = OBAtomBondIter_IsSecondaryAmide, 'IsTertiaryAmide' = OBAtomBondIter_IsTertiaryAmide, 'IsEster' = OBAtomBondIter_IsEster, 'IsCarbonyl' = OBAtomBondIter_IsCarbonyl, 'IsSingle' = OBAtomBondIter_IsSingle, 'IsDouble' = OBAtomBondIter_IsDouble, 'IsTriple' = OBAtomBondIter_IsTriple, 'IsKSingle' = OBAtomBondIter_IsKSingle, 'IsKDouble' = OBAtomBondIter_IsKDouble, 'IsKTriple' = OBAtomBondIter_IsKTriple, 'IsClosure' = OBAtomBondIter_IsClosure, 'IsUp' = OBAtomBondIter_IsUp, 'IsDown' = OBAtomBondIter_IsDown, 'IsWedge' = OBAtomBondIter_IsWedge, 'IsHash' = OBAtomBondIter_IsHash, 'IsWedgeOrHash' = OBAtomBondIter_IsWedgeOrHash, 'IsCisOrTrans' = OBAtomBondIter_IsCisOrTrans, 'IsDoubleBondGeometry' = OBAtomBondIter_IsDoubleBondGeometry, 'Clear' = OBAtomBondIter_Clear, 'DoTransformations' = OBAtomBondIter_DoTransformations, 'ClassDescription' = OBAtomBondIter_ClassDescription, 'GetTitle' = OBAtomBondIter_GetTitle, 'SetTitle' = OBAtomBondIter_SetTitle, 'HasData' = OBAtomBondIter_HasData, 'DeleteData' = OBAtomBondIter_DeleteData, 'CloneData' = OBAtomBondIter_CloneData, 'DataSize' = OBAtomBondIter_DataSize, 'GetData' = OBAtomBondIter_GetData, 'GetAllData' = OBAtomBondIter_GetAllData, 'BeginData' = OBAtomBondIter_BeginData, 'EndData' = OBAtomBondIter_EndData);
   vaccessors = c('Visit'); ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name));
   f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}  else f(x); }
 );
@@ -26312,20 +25360,11 @@ attr(`OBResidueAtomIter_GetDistance__SWIG_1`, 'returnType') = 'numeric'
 attr(`OBResidueAtomIter_GetDistance__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBResidueAtomIter', '_p_OpenBabel__OBAtom')
 class(`OBResidueAtomIter_GetDistance__SWIG_1`) = c("SWIGFunction", class('OBResidueAtomIter_GetDistance__SWIG_1'))
 
-# Start of OBResidueAtomIter_GetDistance
-`OBResidueAtomIter_GetDistance__SWIG_2` = function(self, v, .copy = FALSE) {
-  ;.Call('R_swig_OBResidueAtomIter_GetDistance__SWIG_2', self, v, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBResidueAtomIter_GetDistance__SWIG_2`, 'returnType') = 'numeric'
-attr(`OBResidueAtomIter_GetDistance__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBResidueAtomIter', '_p_OpenBabel__vector3')
-class(`OBResidueAtomIter_GetDistance__SWIG_2`) = c("SWIGFunction", class('OBResidueAtomIter_GetDistance__SWIG_2'))
-
 `OBResidueAtomIter_GetDistance` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 3
+# dispatch functions 2
    if (argc == 2) {
     if (extends(argtypes[1], '_p_OpenBabel__OBResidueAtomIter') && extends(argtypes[2], '_p_OpenBabel__OBAtom')) {
       f <- OBResidueAtomIter_GetDistance__SWIG_1; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBResidueAtomIter') && extends(argtypes[2], '_p_OpenBabel__vector3')) {
-      f <- OBResidueAtomIter_GetDistance__SWIG_2; } 
     else if (extends(argtypes[1], '_p_OpenBabel__OBResidueAtomIter') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
       f <- OBResidueAtomIter_GetDistance__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBResidueAtomIter_GetDistance with argtypes (",toString(argtypes),")"); } ;
@@ -26451,13 +25490,6 @@ attr(`OBResidueAtomIter_CountFreeOxygens`, 'returnType') = 'integer'
 attr(`OBResidueAtomIter_CountFreeOxygens`, "inputTypes") = c('_p_OpenBabel__OBResidueAtomIter')
 class(`OBResidueAtomIter_CountFreeOxygens`) = c("SWIGFunction", class('OBResidueAtomIter_CountFreeOxygens'))
 
-# Start of OBResidueAtomIter_CountFreeSulfurs
-`OBResidueAtomIter_CountFreeSulfurs` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBResidueAtomIter_CountFreeSulfurs', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBResidueAtomIter_CountFreeSulfurs`, 'returnType') = 'integer'
-attr(`OBResidueAtomIter_CountFreeSulfurs`, "inputTypes") = c('_p_OpenBabel__OBResidueAtomIter')
-class(`OBResidueAtomIter_CountFreeSulfurs`) = c("SWIGFunction", class('OBResidueAtomIter_CountFreeSulfurs'))
-
 # Start of OBResidueAtomIter_ImplicitHydrogenCount
 `OBResidueAtomIter_ImplicitHydrogenCount` = function(self, .copy = FALSE) {
   ;.Call('R_swig_OBResidueAtomIter_ImplicitHydrogenCount', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -26537,14 +25569,6 @@ class(`OBResidueAtomIter_BOSum`) = c("SWIGFunction", class('OBResidueAtomIter_BO
 attr(`OBResidueAtomIter_KBOSum`, 'returnType') = 'integer'
 attr(`OBResidueAtomIter_KBOSum`, "inputTypes") = c('_p_OpenBabel__OBResidueAtomIter')
 class(`OBResidueAtomIter_KBOSum`) = c("SWIGFunction", class('OBResidueAtomIter_KBOSum'))
-
-# Start of OBResidueAtomIter_LewisAcidBaseCounts
-`OBResidueAtomIter_LewisAcidBaseCounts` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBResidueAtomIter_LewisAcidBaseCounts', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_std__pairT_int_int_t"; ans }
-attr(`OBResidueAtomIter_LewisAcidBaseCounts`, 'returnType') = '_p_std__pairT_int_int_t'
-attr(`OBResidueAtomIter_LewisAcidBaseCounts`, "inputTypes") = c('_p_OpenBabel__OBResidueAtomIter')
-class(`OBResidueAtomIter_LewisAcidBaseCounts`) = c("SWIGFunction", class('OBResidueAtomIter_LewisAcidBaseCounts'))
 
 # Start of OBResidueAtomIter_HasResidue
 `OBResidueAtomIter_HasResidue` = function(self, .copy = FALSE) {
@@ -26651,13 +25675,6 @@ class(`OBResidueAtomIter_IsOneFour`) = c("SWIGFunction", class('OBResidueAtomIte
 attr(`OBResidueAtomIter_IsCarboxylOxygen`, 'returnType') = 'logical'
 attr(`OBResidueAtomIter_IsCarboxylOxygen`, "inputTypes") = c('_p_OpenBabel__OBResidueAtomIter')
 class(`OBResidueAtomIter_IsCarboxylOxygen`) = c("SWIGFunction", class('OBResidueAtomIter_IsCarboxylOxygen'))
-
-# Start of OBResidueAtomIter_IsThiocarboxylSulfur
-`OBResidueAtomIter_IsThiocarboxylSulfur` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBResidueAtomIter_IsThiocarboxylSulfur', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBResidueAtomIter_IsThiocarboxylSulfur`, 'returnType') = 'logical'
-attr(`OBResidueAtomIter_IsThiocarboxylSulfur`, "inputTypes") = c('_p_OpenBabel__OBResidueAtomIter')
-class(`OBResidueAtomIter_IsThiocarboxylSulfur`) = c("SWIGFunction", class('OBResidueAtomIter_IsThiocarboxylSulfur'))
 
 # Start of OBResidueAtomIter_IsPhosphateOxygen
 `OBResidueAtomIter_IsPhosphateOxygen` = function(self, .copy = FALSE) {
@@ -26784,13 +25801,6 @@ class(`OBResidueAtomIter_IsHbondDonor`) = c("SWIGFunction", class('OBResidueAtom
 attr(`OBResidueAtomIter_IsHbondDonorH`, 'returnType') = 'logical'
 attr(`OBResidueAtomIter_IsHbondDonorH`, "inputTypes") = c('_p_OpenBabel__OBResidueAtomIter')
 class(`OBResidueAtomIter_IsHbondDonorH`) = c("SWIGFunction", class('OBResidueAtomIter_IsHbondDonorH'))
-
-# Start of OBResidueAtomIter_IsMetal
-`OBResidueAtomIter_IsMetal` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBResidueAtomIter_IsMetal', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBResidueAtomIter_IsMetal`, 'returnType') = 'logical'
-attr(`OBResidueAtomIter_IsMetal`, "inputTypes") = c('_p_OpenBabel__OBResidueAtomIter')
-class(`OBResidueAtomIter_IsMetal`) = c("SWIGFunction", class('OBResidueAtomIter_IsMetal'))
 
 # Start of OBResidueAtomIter_HasAlphaBetaUnsat
 `OBResidueAtomIter_HasAlphaBetaUnsat__SWIG_0` = function(self, includePandS, .copy = FALSE) {
@@ -27074,7 +26084,7 @@ class(`OBResidueAtomIter_EndData`) = c("SWIGFunction", class('OBResidueAtomIter_
 
 # Start of accessor method for OpenBabel::OBResidueAtomIter
 setMethod('$', '_p_OpenBabel__OBResidueAtomIter', function(x, name) {
-  accessorFuns = list('HasMore' = OBResidueAtomIter_HasMore, 'inc' = OBResidueAtomIter_inc, '__deref__' = OBResidueAtomIter___deref__, '__ref__' = OBResidueAtomIter___ref__, 'Visit' = OBResidueAtomIter_Visit_get, 'Duplicate' = OBResidueAtomIter_Duplicate, 'SetIdx' = OBResidueAtomIter_SetIdx, 'SetId' = OBResidueAtomIter_SetId, 'SetHyb' = OBResidueAtomIter_SetHyb, 'SetAtomicNum' = OBResidueAtomIter_SetAtomicNum, 'SetIsotope' = OBResidueAtomIter_SetIsotope, 'SetImplicitValence' = OBResidueAtomIter_SetImplicitValence, 'IncrementImplicitValence' = OBResidueAtomIter_IncrementImplicitValence, 'DecrementImplicitValence' = OBResidueAtomIter_DecrementImplicitValence, 'SetFormalCharge' = OBResidueAtomIter_SetFormalCharge, 'SetSpinMultiplicity' = OBResidueAtomIter_SetSpinMultiplicity, 'SetType' = OBResidueAtomIter_SetType, 'SetPartialCharge' = OBResidueAtomIter_SetPartialCharge, 'SetVector' = OBResidueAtomIter_SetVector, 'SetCoordPtr' = OBResidueAtomIter_SetCoordPtr, 'SetResidue' = OBResidueAtomIter_SetResidue, 'SetParent' = OBResidueAtomIter_SetParent, 'SetAromatic' = OBResidueAtomIter_SetAromatic, 'UnsetAromatic' = OBResidueAtomIter_UnsetAromatic, 'SetClockwiseStereo' = OBResidueAtomIter_SetClockwiseStereo, 'SetAntiClockwiseStereo' = OBResidueAtomIter_SetAntiClockwiseStereo, 'SetPositiveStereo' = OBResidueAtomIter_SetPositiveStereo, 'SetNegativeStereo' = OBResidueAtomIter_SetNegativeStereo, 'UnsetStereo' = OBResidueAtomIter_UnsetStereo, 'SetInRing' = OBResidueAtomIter_SetInRing, 'SetChiral' = OBResidueAtomIter_SetChiral, 'ClearCoordPtr' = OBResidueAtomIter_ClearCoordPtr, 'GetFormalCharge' = OBResidueAtomIter_GetFormalCharge, 'GetAtomicNum' = OBResidueAtomIter_GetAtomicNum, 'GetIsotope' = OBResidueAtomIter_GetIsotope, 'GetSpinMultiplicity' = OBResidueAtomIter_GetSpinMultiplicity, 'GetAtomicMass' = OBResidueAtomIter_GetAtomicMass, 'GetExactMass' = OBResidueAtomIter_GetExactMass, 'GetIdx' = OBResidueAtomIter_GetIdx, 'GetIndex' = OBResidueAtomIter_GetIndex, 'GetId' = OBResidueAtomIter_GetId, 'GetCoordinateIdx' = OBResidueAtomIter_GetCoordinateIdx, 'GetCIdx' = OBResidueAtomIter_GetCIdx, 'GetValence' = OBResidueAtomIter_GetValence, 'GetHyb' = OBResidueAtomIter_GetHyb, 'GetImplicitValence' = OBResidueAtomIter_GetImplicitValence, 'GetHvyValence' = OBResidueAtomIter_GetHvyValence, 'GetHeteroValence' = OBResidueAtomIter_GetHeteroValence, 'GetType' = OBResidueAtomIter_GetType, 'GetX' = OBResidueAtomIter_GetX, 'GetY' = OBResidueAtomIter_GetY, 'GetZ' = OBResidueAtomIter_GetZ, 'x' = OBResidueAtomIter_x, 'y' = OBResidueAtomIter_y, 'z' = OBResidueAtomIter_z, 'GetCoordinate' = OBResidueAtomIter_GetCoordinate, 'GetVector' = OBResidueAtomIter_GetVector, 'GetPartialCharge' = OBResidueAtomIter_GetPartialCharge, 'GetResidue' = OBResidueAtomIter_GetResidue, 'GetParent' = OBResidueAtomIter_GetParent, 'GetNewBondVector' = OBResidueAtomIter_GetNewBondVector, 'GetBond' = OBResidueAtomIter_GetBond, 'GetNextAtom' = OBResidueAtomIter_GetNextAtom, 'BeginBonds' = OBResidueAtomIter_BeginBonds, 'EndBonds' = OBResidueAtomIter_EndBonds, 'BeginBond' = OBResidueAtomIter_BeginBond, 'NextBond' = OBResidueAtomIter_NextBond, 'BeginNbrAtom' = OBResidueAtomIter_BeginNbrAtom, 'NextNbrAtom' = OBResidueAtomIter_NextNbrAtom, 'GetDistance' = OBResidueAtomIter_GetDistance, 'GetAngle' = OBResidueAtomIter_GetAngle, 'NewResidue' = OBResidueAtomIter_NewResidue, 'AddResidue' = OBResidueAtomIter_AddResidue, 'DeleteResidue' = OBResidueAtomIter_DeleteResidue, 'AddBond' = OBResidueAtomIter_AddBond, 'InsertBond' = OBResidueAtomIter_InsertBond, 'DeleteBond' = OBResidueAtomIter_DeleteBond, 'ClearBond' = OBResidueAtomIter_ClearBond, 'HtoMethyl' = OBResidueAtomIter_HtoMethyl, 'SetHybAndGeom' = OBResidueAtomIter_SetHybAndGeom, 'ForceNoH' = OBResidueAtomIter_ForceNoH, 'HasNoHForced' = OBResidueAtomIter_HasNoHForced, 'ForceImplH' = OBResidueAtomIter_ForceImplH, 'HasImplHForced' = OBResidueAtomIter_HasImplHForced, 'CountFreeOxygens' = OBResidueAtomIter_CountFreeOxygens, 'CountFreeSulfurs' = OBResidueAtomIter_CountFreeSulfurs, 'ImplicitHydrogenCount' = OBResidueAtomIter_ImplicitHydrogenCount, 'ExplicitHydrogenCount' = OBResidueAtomIter_ExplicitHydrogenCount, 'MemberOfRingCount' = OBResidueAtomIter_MemberOfRingCount, 'MemberOfRingSize' = OBResidueAtomIter_MemberOfRingSize, 'CountRingBonds' = OBResidueAtomIter_CountRingBonds, 'SmallestBondAngle' = OBResidueAtomIter_SmallestBondAngle, 'AverageBondAngle' = OBResidueAtomIter_AverageBondAngle, 'BOSum' = OBResidueAtomIter_BOSum, 'KBOSum' = OBResidueAtomIter_KBOSum, 'LewisAcidBaseCounts' = OBResidueAtomIter_LewisAcidBaseCounts, 'HasResidue' = OBResidueAtomIter_HasResidue, 'IsCarbon' = OBResidueAtomIter_IsCarbon, 'IsNitrogen' = OBResidueAtomIter_IsNitrogen, 'IsOxygen' = OBResidueAtomIter_IsOxygen, 'IsSulfur' = OBResidueAtomIter_IsSulfur, 'IsPhosphorus' = OBResidueAtomIter_IsPhosphorus, 'IsAromatic' = OBResidueAtomIter_IsAromatic, 'IsInRing' = OBResidueAtomIter_IsInRing, 'IsInRingSize' = OBResidueAtomIter_IsInRingSize, 'IsHeteroatom' = OBResidueAtomIter_IsHeteroatom, 'IsNotCorH' = OBResidueAtomIter_IsNotCorH, 'IsConnected' = OBResidueAtomIter_IsConnected, 'IsOneThree' = OBResidueAtomIter_IsOneThree, 'IsOneFour' = OBResidueAtomIter_IsOneFour, 'IsCarboxylOxygen' = OBResidueAtomIter_IsCarboxylOxygen, 'IsThiocarboxylSulfur' = OBResidueAtomIter_IsThiocarboxylSulfur, 'IsPhosphateOxygen' = OBResidueAtomIter_IsPhosphateOxygen, 'IsSulfateOxygen' = OBResidueAtomIter_IsSulfateOxygen, 'IsNitroOxygen' = OBResidueAtomIter_IsNitroOxygen, 'IsAmideNitrogen' = OBResidueAtomIter_IsAmideNitrogen, 'IsPolarHydrogen' = OBResidueAtomIter_IsPolarHydrogen, 'IsNonPolarHydrogen' = OBResidueAtomIter_IsNonPolarHydrogen, 'IsAromaticNOxide' = OBResidueAtomIter_IsAromaticNOxide, 'IsChiral' = OBResidueAtomIter_IsChiral, 'IsAxial' = OBResidueAtomIter_IsAxial, 'IsClockwise' = OBResidueAtomIter_IsClockwise, 'IsAntiClockwise' = OBResidueAtomIter_IsAntiClockwise, 'IsPositiveStereo' = OBResidueAtomIter_IsPositiveStereo, 'IsNegativeStereo' = OBResidueAtomIter_IsNegativeStereo, 'HasChiralitySpecified' = OBResidueAtomIter_HasChiralitySpecified, 'HasChiralVolume' = OBResidueAtomIter_HasChiralVolume, 'IsHbondAcceptor' = OBResidueAtomIter_IsHbondAcceptor, 'IsHbondDonor' = OBResidueAtomIter_IsHbondDonor, 'IsHbondDonorH' = OBResidueAtomIter_IsHbondDonorH, 'IsMetal' = OBResidueAtomIter_IsMetal, 'HasAlphaBetaUnsat' = OBResidueAtomIter_HasAlphaBetaUnsat, 'HasBondOfOrder' = OBResidueAtomIter_HasBondOfOrder, 'CountBondsOfOrder' = OBResidueAtomIter_CountBondsOfOrder, 'HasNonSingleBond' = OBResidueAtomIter_HasNonSingleBond, 'HasSingleBond' = OBResidueAtomIter_HasSingleBond, 'HasDoubleBond' = OBResidueAtomIter_HasDoubleBond, 'HasAromaticBond' = OBResidueAtomIter_HasAromaticBond, 'MatchesSMARTS' = OBResidueAtomIter_MatchesSMARTS, 'Clear' = OBResidueAtomIter_Clear, 'DoTransformations' = OBResidueAtomIter_DoTransformations, 'ClassDescription' = OBResidueAtomIter_ClassDescription, 'GetTitle' = OBResidueAtomIter_GetTitle, 'SetTitle' = OBResidueAtomIter_SetTitle, 'HasData' = OBResidueAtomIter_HasData, 'DeleteData' = OBResidueAtomIter_DeleteData, 'CloneData' = OBResidueAtomIter_CloneData, 'DataSize' = OBResidueAtomIter_DataSize, 'GetData' = OBResidueAtomIter_GetData, 'GetAllData' = OBResidueAtomIter_GetAllData, 'BeginData' = OBResidueAtomIter_BeginData, 'EndData' = OBResidueAtomIter_EndData);
+  accessorFuns = list('HasMore' = OBResidueAtomIter_HasMore, 'inc' = OBResidueAtomIter_inc, '__deref__' = OBResidueAtomIter___deref__, '__ref__' = OBResidueAtomIter___ref__, 'Visit' = OBResidueAtomIter_Visit_get, 'Duplicate' = OBResidueAtomIter_Duplicate, 'SetIdx' = OBResidueAtomIter_SetIdx, 'SetId' = OBResidueAtomIter_SetId, 'SetHyb' = OBResidueAtomIter_SetHyb, 'SetAtomicNum' = OBResidueAtomIter_SetAtomicNum, 'SetIsotope' = OBResidueAtomIter_SetIsotope, 'SetImplicitValence' = OBResidueAtomIter_SetImplicitValence, 'IncrementImplicitValence' = OBResidueAtomIter_IncrementImplicitValence, 'DecrementImplicitValence' = OBResidueAtomIter_DecrementImplicitValence, 'SetFormalCharge' = OBResidueAtomIter_SetFormalCharge, 'SetSpinMultiplicity' = OBResidueAtomIter_SetSpinMultiplicity, 'SetType' = OBResidueAtomIter_SetType, 'SetPartialCharge' = OBResidueAtomIter_SetPartialCharge, 'SetVector' = OBResidueAtomIter_SetVector, 'SetCoordPtr' = OBResidueAtomIter_SetCoordPtr, 'SetResidue' = OBResidueAtomIter_SetResidue, 'SetParent' = OBResidueAtomIter_SetParent, 'SetAromatic' = OBResidueAtomIter_SetAromatic, 'UnsetAromatic' = OBResidueAtomIter_UnsetAromatic, 'SetClockwiseStereo' = OBResidueAtomIter_SetClockwiseStereo, 'SetAntiClockwiseStereo' = OBResidueAtomIter_SetAntiClockwiseStereo, 'SetPositiveStereo' = OBResidueAtomIter_SetPositiveStereo, 'SetNegativeStereo' = OBResidueAtomIter_SetNegativeStereo, 'UnsetStereo' = OBResidueAtomIter_UnsetStereo, 'SetInRing' = OBResidueAtomIter_SetInRing, 'SetChiral' = OBResidueAtomIter_SetChiral, 'ClearCoordPtr' = OBResidueAtomIter_ClearCoordPtr, 'GetFormalCharge' = OBResidueAtomIter_GetFormalCharge, 'GetAtomicNum' = OBResidueAtomIter_GetAtomicNum, 'GetIsotope' = OBResidueAtomIter_GetIsotope, 'GetSpinMultiplicity' = OBResidueAtomIter_GetSpinMultiplicity, 'GetAtomicMass' = OBResidueAtomIter_GetAtomicMass, 'GetExactMass' = OBResidueAtomIter_GetExactMass, 'GetIdx' = OBResidueAtomIter_GetIdx, 'GetIndex' = OBResidueAtomIter_GetIndex, 'GetId' = OBResidueAtomIter_GetId, 'GetCoordinateIdx' = OBResidueAtomIter_GetCoordinateIdx, 'GetCIdx' = OBResidueAtomIter_GetCIdx, 'GetValence' = OBResidueAtomIter_GetValence, 'GetHyb' = OBResidueAtomIter_GetHyb, 'GetImplicitValence' = OBResidueAtomIter_GetImplicitValence, 'GetHvyValence' = OBResidueAtomIter_GetHvyValence, 'GetHeteroValence' = OBResidueAtomIter_GetHeteroValence, 'GetType' = OBResidueAtomIter_GetType, 'GetX' = OBResidueAtomIter_GetX, 'GetY' = OBResidueAtomIter_GetY, 'GetZ' = OBResidueAtomIter_GetZ, 'x' = OBResidueAtomIter_x, 'y' = OBResidueAtomIter_y, 'z' = OBResidueAtomIter_z, 'GetCoordinate' = OBResidueAtomIter_GetCoordinate, 'GetVector' = OBResidueAtomIter_GetVector, 'GetPartialCharge' = OBResidueAtomIter_GetPartialCharge, 'GetResidue' = OBResidueAtomIter_GetResidue, 'GetParent' = OBResidueAtomIter_GetParent, 'GetNewBondVector' = OBResidueAtomIter_GetNewBondVector, 'GetBond' = OBResidueAtomIter_GetBond, 'GetNextAtom' = OBResidueAtomIter_GetNextAtom, 'BeginBonds' = OBResidueAtomIter_BeginBonds, 'EndBonds' = OBResidueAtomIter_EndBonds, 'BeginBond' = OBResidueAtomIter_BeginBond, 'NextBond' = OBResidueAtomIter_NextBond, 'BeginNbrAtom' = OBResidueAtomIter_BeginNbrAtom, 'NextNbrAtom' = OBResidueAtomIter_NextNbrAtom, 'GetDistance' = OBResidueAtomIter_GetDistance, 'GetAngle' = OBResidueAtomIter_GetAngle, 'NewResidue' = OBResidueAtomIter_NewResidue, 'AddResidue' = OBResidueAtomIter_AddResidue, 'DeleteResidue' = OBResidueAtomIter_DeleteResidue, 'AddBond' = OBResidueAtomIter_AddBond, 'InsertBond' = OBResidueAtomIter_InsertBond, 'DeleteBond' = OBResidueAtomIter_DeleteBond, 'ClearBond' = OBResidueAtomIter_ClearBond, 'HtoMethyl' = OBResidueAtomIter_HtoMethyl, 'SetHybAndGeom' = OBResidueAtomIter_SetHybAndGeom, 'ForceNoH' = OBResidueAtomIter_ForceNoH, 'HasNoHForced' = OBResidueAtomIter_HasNoHForced, 'ForceImplH' = OBResidueAtomIter_ForceImplH, 'HasImplHForced' = OBResidueAtomIter_HasImplHForced, 'CountFreeOxygens' = OBResidueAtomIter_CountFreeOxygens, 'ImplicitHydrogenCount' = OBResidueAtomIter_ImplicitHydrogenCount, 'ExplicitHydrogenCount' = OBResidueAtomIter_ExplicitHydrogenCount, 'MemberOfRingCount' = OBResidueAtomIter_MemberOfRingCount, 'MemberOfRingSize' = OBResidueAtomIter_MemberOfRingSize, 'CountRingBonds' = OBResidueAtomIter_CountRingBonds, 'SmallestBondAngle' = OBResidueAtomIter_SmallestBondAngle, 'AverageBondAngle' = OBResidueAtomIter_AverageBondAngle, 'BOSum' = OBResidueAtomIter_BOSum, 'KBOSum' = OBResidueAtomIter_KBOSum, 'HasResidue' = OBResidueAtomIter_HasResidue, 'IsCarbon' = OBResidueAtomIter_IsCarbon, 'IsNitrogen' = OBResidueAtomIter_IsNitrogen, 'IsOxygen' = OBResidueAtomIter_IsOxygen, 'IsSulfur' = OBResidueAtomIter_IsSulfur, 'IsPhosphorus' = OBResidueAtomIter_IsPhosphorus, 'IsAromatic' = OBResidueAtomIter_IsAromatic, 'IsInRing' = OBResidueAtomIter_IsInRing, 'IsInRingSize' = OBResidueAtomIter_IsInRingSize, 'IsHeteroatom' = OBResidueAtomIter_IsHeteroatom, 'IsNotCorH' = OBResidueAtomIter_IsNotCorH, 'IsConnected' = OBResidueAtomIter_IsConnected, 'IsOneThree' = OBResidueAtomIter_IsOneThree, 'IsOneFour' = OBResidueAtomIter_IsOneFour, 'IsCarboxylOxygen' = OBResidueAtomIter_IsCarboxylOxygen, 'IsPhosphateOxygen' = OBResidueAtomIter_IsPhosphateOxygen, 'IsSulfateOxygen' = OBResidueAtomIter_IsSulfateOxygen, 'IsNitroOxygen' = OBResidueAtomIter_IsNitroOxygen, 'IsAmideNitrogen' = OBResidueAtomIter_IsAmideNitrogen, 'IsPolarHydrogen' = OBResidueAtomIter_IsPolarHydrogen, 'IsNonPolarHydrogen' = OBResidueAtomIter_IsNonPolarHydrogen, 'IsAromaticNOxide' = OBResidueAtomIter_IsAromaticNOxide, 'IsChiral' = OBResidueAtomIter_IsChiral, 'IsAxial' = OBResidueAtomIter_IsAxial, 'IsClockwise' = OBResidueAtomIter_IsClockwise, 'IsAntiClockwise' = OBResidueAtomIter_IsAntiClockwise, 'IsPositiveStereo' = OBResidueAtomIter_IsPositiveStereo, 'IsNegativeStereo' = OBResidueAtomIter_IsNegativeStereo, 'HasChiralitySpecified' = OBResidueAtomIter_HasChiralitySpecified, 'HasChiralVolume' = OBResidueAtomIter_HasChiralVolume, 'IsHbondAcceptor' = OBResidueAtomIter_IsHbondAcceptor, 'IsHbondDonor' = OBResidueAtomIter_IsHbondDonor, 'IsHbondDonorH' = OBResidueAtomIter_IsHbondDonorH, 'HasAlphaBetaUnsat' = OBResidueAtomIter_HasAlphaBetaUnsat, 'HasBondOfOrder' = OBResidueAtomIter_HasBondOfOrder, 'CountBondsOfOrder' = OBResidueAtomIter_CountBondsOfOrder, 'HasNonSingleBond' = OBResidueAtomIter_HasNonSingleBond, 'HasSingleBond' = OBResidueAtomIter_HasSingleBond, 'HasDoubleBond' = OBResidueAtomIter_HasDoubleBond, 'HasAromaticBond' = OBResidueAtomIter_HasAromaticBond, 'MatchesSMARTS' = OBResidueAtomIter_MatchesSMARTS, 'Clear' = OBResidueAtomIter_Clear, 'DoTransformations' = OBResidueAtomIter_DoTransformations, 'ClassDescription' = OBResidueAtomIter_ClassDescription, 'GetTitle' = OBResidueAtomIter_GetTitle, 'SetTitle' = OBResidueAtomIter_SetTitle, 'HasData' = OBResidueAtomIter_HasData, 'DeleteData' = OBResidueAtomIter_DeleteData, 'CloneData' = OBResidueAtomIter_CloneData, 'DataSize' = OBResidueAtomIter_DataSize, 'GetData' = OBResidueAtomIter_GetData, 'GetAllData' = OBResidueAtomIter_GetAllData, 'BeginData' = OBResidueAtomIter_BeginData, 'EndData' = OBResidueAtomIter_EndData);
   vaccessors = c('Visit'); ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name));
   f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}  else f(x); }
 );
