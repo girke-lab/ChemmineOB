@@ -100,9 +100,15 @@ prop_OB<- function(from,source) {
 fingerprint_OB <- function(format,source, fingerprintName){
 	#obCall("fingerprintOB",as.character(format),as.character(source),as.character(fingerprintName))
 
+	#inStr = istreamFromString("")
+	OBConversion()
+	#OBConversion_FindFormat("SDF")
 
 	numBits = -1;
 	fpHandle = OBFingerprint_FindFingerprint(fingerprintName)
+	if(isNullPtr(fpHandle))
+		stop("fingerprint ",fingerprintName," not found")
+
 	data = forEachMol(format,source,rbind,function(mol){
 		fp = vectorUnsignedInt(1)
 
@@ -116,7 +122,7 @@ fingerprint_OB <- function(format,source, fingerprintName){
 					 #message("i=",i)
 					 r=OBFingerprint_GetBit(fpHandle,fp,i-1)
 					 #message(class(r),": ",r)
-					 r
+					 if(r) 1 else 0
 				},seq(1,numBits,length.out=numBits)))
 		if(debug) print(row)
 
@@ -134,9 +140,9 @@ forEachMol <- function(inFormat,inString,reduce,f){
 	if(!OBConversion_SetInFormat(conv,inFormat))
 		stop("failed to set input format: ",inFormat)
 	
-	mol = OBMol()
 	numMols = OBConversion_NumInputObjects(conv)
 	Reduce(reduce,Map(function(i){
+		mol = OBMol()
 		if(!OBConversion_Read(conv,mol))
 			stop("failed to read ",numMols," from input")
 		f(mol)
