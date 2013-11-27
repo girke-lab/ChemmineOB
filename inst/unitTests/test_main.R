@@ -28,6 +28,7 @@ test.fingerprintOB <-function(){
 	print(dim(f1))
 	checkEquals(which(f1[1,]==1)-1,c(260,384,429,441,670,984))
 	
+	checkException(fingerprint_OB("SMI","C1CCCCC1\ncc1ccc1","badfingerprintname"))
 }
 
 
