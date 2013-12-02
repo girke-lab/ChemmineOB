@@ -3,7 +3,7 @@ debug =0
 test.propOB <-function(){
 	numDescs = 12 # this can change
 
-	molRefs = forEachMol("SMI","C1CCCCC1",c,identity)
+	molRefs = forEachMol("SMI","C1CCCCC1",identity)
 
 	p1 = prop_OB(molRefs)
 	if(debug) print(p1)
@@ -25,7 +25,7 @@ test.propOB <-function(){
 }
 test.fingerprintOB <-function(){
 
-	molRefs = forEachMol("SMI","C1CCCCC1\ncc1ccc1",c,identity)
+	molRefs = forEachMol("SMI","C1CCCCC1\ncc1ccc1",identity)
 	f1 = fingerprint_OB(molRefs,"FP2")
 	checkEquals(which(f1[1,]==1)-1,c(260,384,429,441,670,984))
 
