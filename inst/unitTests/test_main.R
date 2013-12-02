@@ -3,7 +3,9 @@ debug =0
 test.propOB <-function(){
 	numDescs = 12 # this can change
 
-	p1 = prop_OB("SMI","C1CCCCC1")
+	molRefs = forEachMol("SMI","C1CCCCC1",c,identity)
+
+	p1 = prop_OB(molRefs)
 	if(debug) print(p1)
 	checkEquals(nrow(p1),1)
 	checkEquals(ncol(p1),numDescs)
@@ -13,8 +15,7 @@ test.propOB <-function(){
 	require(ChemmineR)
 	data(sdfsample)
 	n=5
-	defs = Map(function(x) paste(x,collapse="\n"),as(as(sdfsample[1:n],"SDFstr"),"list"))
-	p2 = prop_OB("SDF",paste(defs,"\n",sep="",collapse=""))
+	p2 = prop_OB(obmol(sdfsample[1:n]))
 
 	if(debug) print(p2)
 	checkEquals(nrow(p2),n)
@@ -24,11 +25,11 @@ test.propOB <-function(){
 }
 test.fingerprintOB <-function(){
 
-	f1 = fingerprint_OB("SMI","C1CCCCC1\ncc1ccc1","FP2")
-	print(dim(f1))
+	molRefs = forEachMol("SMI","C1CCCCC1\ncc1ccc1",c,identity)
+	f1 = fingerprint_OB(molRefs,"FP2")
 	checkEquals(which(f1[1,]==1)-1,c(260,384,429,441,670,984))
-	
-	checkException(fingerprint_OB("SMI","C1CCCCC1\ncc1ccc1","badfingerprintname"))
+
+	checkException(fingerprint_OB(molRefs,"badfingerprintname"))
 }
 
 

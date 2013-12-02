@@ -3,5 +3,6 @@ import(zlibbioc)
 
 export(
 	"convertFormat","convertFormatFile",
-	"prop_OB","fingerprint_OB"
+	"prop_OB","fingerprint_OB",
+	"forEachMol"
 )

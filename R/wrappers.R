@@ -6,31 +6,15 @@ packageName = "ChemmineOB"
 	# the openbabel plugins to load properly. Further, when calling
 	# functions from this library, you must set PACKAGE=packageName in the .Call function
 	# or it will not find any of the symbols.
-#	message("pkgname: ",pkgname," libname: ",libname)
 
 	library.dynam(pkgname,package=pkgname,lib.loc=libname,local=FALSE)
 
-#	arch = R.version$arch
-#	libPrefix = file.path(libname,pkgname,"libs")
-#	sharedLibName = paste(pkgname,"so",sep=".")
-#
-#	candidates = c( file.path(libPrefix,sharedLibName),file.path(libPrefix,arch,sharedLibName))
-#
-#	lib = Find(file.exists,candidates)
-#	if(is.null(lib))
-#		stop("Could not find shared library, looked in these places: ",
-#			  paste(candidates,collapse=","))
-#
-#
-#	#dyn.load(file.path(libname,pkgname,"libs",paste(pkgname,"so",sep=".")),local=FALSE)
-#	dyn.load(lib,local=FALSE)
 	if(.Platform$OS == "windows")
 	 Sys.setenv(BABEL_DATADIR=system.file("openbabel_data",package=pkgname))
 
 }
 
 convertFormat <- function(from,to,source){
-	#.Call("ob_convert",as.character(from),as.character(to),as.character(source),PACKAGE=packageName)
 	
 	inStr = istreamFromString(source)
 	outStr = ostreamToString()
@@ -47,7 +31,6 @@ convertFormat <- function(from,to,source){
 }
 
 convertFormatFile <- function(from,to,fromFile,toFile){
-	#.Call("ob_convert_file",as.character(from),as.character(to),as.character(fromFile),as.character(toFile),PACKAGE=packageName)
 	is= istreamFromFile(fromFile)
 	os= ostreamToFile(toFile)
 
@@ -59,10 +42,12 @@ convertFormatFile <- function(from,to,fromFile,toFile){
 	OBConversion_Convert(conv)
 
 	stringFromOstream(outStr)
-
 }
 
-prop_OB<- function(from,source) {
+prop_OB<- function(obmolRefs) {
+	if(length(obmolRefs)==1)
+		obmolRefs=c(obmolRefs)
+
 	strDescrNames = c( "cansmi",
 							  "cansmiNS",
 							  "formula",
@@ -76,9 +61,8 @@ prop_OB<- function(from,source) {
 							  "MW",
 							  "nF",
 							  "TPSA")
-	#values = obCall("propOB",as.character(from),as.character(source),descriptorNames,strDescrNames)
 
-	forEachMol(from,source,rbind,function(mol){
+	Reduce(rbind,Map( function(mol){
 			row=list()
 			for(descName  in strDescrNames){
 				desc = OBDescriptor_FindType(descName)
@@ -92,48 +76,34 @@ prop_OB<- function(from,source) {
 			}
 			#if(debug) print(row)
 			as.data.frame(row)
-	  })
+	},obmolRefs))
 }
-#obCall <-function(...)
-	#.Call(...,PACKAGE=packageName)
 
-fingerprint_OB <- function(format,source, fingerprintName){
-	#obCall("fingerprintOB",as.character(format),as.character(source),as.character(fingerprintName))
+fingerprint_OB <- function(obmolRefs, fingerprintName){
 
-	#inStr = istreamFromString("")
 	OBConversion()
-	#OBConversion_FindFormat("SDF")
 
 	numBits = -1;
 	fpHandle = OBFingerprint_FindFingerprint(fingerprintName)
 	if(isNullPtr(fpHandle))
 		stop("fingerprint ",fingerprintName," not found")
 
-	data = forEachMol(format,source,rbind,function(mol){
+	Reduce(rbind,Map(function(mol){
 		fp = vectorUnsignedInt(1)
 
 		OBFingerprint_GetFingerprint(fpHandle,mol,fp)
 		if(numBits == -1)
 			numBits = vectorUnsignedInt_size(fp) * 4 * 8
 		row = unlist(Map(function(i){
-					 #message(class(fpHandle),", ",class(fp),", ",class(i))
-					 #r=OBFingerprint_GetBit(fpHandle,fp,i-1)
-					 #i=i-1
-					 #message("i=",i)
 					 r=OBFingerprint_GetBit(fpHandle,fp,i-1)
-					 #message(class(r),": ",r)
 					 if(r) 1 else 0
 				},seq(1,numBits,length.out=numBits)))
 		if(debug) print(row)
-
 		row
-	  })
-
-	#if(debug) print(data)
-
-	data
+	  },obmolRefs))
 }
 forEachMol <- function(inFormat,inString,reduce,f){
+
 	inStr = istreamFromString(inString)
 	conv = OBConversion(inStr)
 
@@ -148,3 +118,4 @@ forEachMol <- function(inFormat,inString,reduce,f){
 		f(mol)
 	},seq(1,numMols,length.out=numMols)))
 }
+
