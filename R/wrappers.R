@@ -102,7 +102,7 @@ fingerprint_OB <- function(obmolRefs, fingerprintName){
 		row
 	  },obmolRefs))
 }
-forEachMol <- function(inFormat,inString,reduce,f){
+forEachMol <- function(inFormat,inString,f,reduce=NULL){
 
 	inStr = istreamFromString(inString)
 	conv = OBConversion(inStr)
@@ -111,11 +111,16 @@ forEachMol <- function(inFormat,inString,reduce,f){
 		stop("failed to set input format: ",inFormat)
 	
 	numMols = OBConversion_NumInputObjects(conv)
-	Reduce(reduce,Map(function(i){
+	x=Map(function(i){
 		mol = OBMol()
 		if(!OBConversion_Read(conv,mol))
 			stop("failed to read ",numMols," from input")
 		f(mol)
-	},seq(1,numMols,length.out=numMols)))
+	},seq(1,numMols,length.out=numMols))
+
+	if(is.null(reduce))
+		x
+	else
+		Reduce(reduce,x)
 }
 

@@ -9,17 +9,15 @@
 	The fingerprint name can also be specified.
 }
 \usage{
-fingerprint_OB(format, source, fingerprintName)
+fingerprint_OB(obmolRefs, fingerprintName)
 }
 \arguments{
-  \item{format}{
-	  Format of string in \code{source}. This can be any OpenBabel format such as "SDF" or "SMILES".
-	  A full list can be found by executing "obabel -L formats".
+  \item{obmolRefs}{
+	  A list of OBMol references ( of class '_p_OpenBabel__OBMol') representing the molecules to
+	  compute properites for. If you have your molecules in string format, you can create a list
+	  of OBMol references using the \code{forEachMol} function, see the example.
 	}
-  \item{source}{
-	  The compounds to generate fingerprints for. The format should be exactly what would be in a file of 
-	  the same format. Newlines can be represented with "\\n".
-	}
+
   \item{fingerprintName}{
 	  The name of the fingerprint to generate. A list of available names can be found with 
 	  "obabel -L fingerprints". Currently that list is: "FP2", "FP3", "FP4", and "MACCS".
@@ -35,5 +33,6 @@ fingerprint_OB(format, source, fingerprintName)
 
 \examples{
 
-	fingerprint_OB("SMILES","C1CCCCC1\ttest-compound-name","FP3")
+	molRefs = forEachMol("SMILES","C1CCCCC1\ttest-compound-name",identity)
+	fingerprint_OB(molRefs,"FP3")
 }
