@@ -146,14 +146,14 @@ R_SWIG_getCallbackFunctionStack =
 function()
 {
     # No PACKAGE argument as we don't know what the DLL is.
-  .Call("R_SWIG_debug_getCallbackFunctionData")
+  .Call("R_SWIG_debug_getCallbackFunctionData",PACKAGE="ChemmineOB")
 }
 
 R_SWIG_addCallbackFunctionStack =
 function(fun, userData = NULL)
 {
     # No PACKAGE argument as we don't know what the DLL is.
-  .Call("R_SWIG_R_pushCallbackFunctionData", fun, userData)
+  .Call("R_SWIG_R_pushCallbackFunctionData", fun, userData,PACKAGE="ChemmineOB")
 }
 
 
