@@ -124,7 +124,7 @@ forEachMol <- function(inFormat,inString,f,reduce=NULL){
 		Reduce(reduce,x)
 }
 
-smartsNumMatches_OB<- function(obmolRefs,smartsPattern){
+smartsSearch_OB<- function(obmolRefs,smartsPattern,uniqueMatches=TRUE){
 
 	sp = OBSmartsPattern()
 	if(!OBSmartsPattern_Init(sp,smartsPattern))
@@ -132,9 +132,11 @@ smartsNumMatches_OB<- function(obmolRefs,smartsPattern){
 
 	unlist(Map(function(mol){
 		OBSmartsPattern_Match(sp,mol)
-		OBSmartsPattern_NumMatches(sp)
-	#	umap = OBSmartsPattern_GetUMapList(sp)
-	#	vectorvInt_size(umap)
+		if(uniqueMatches){
+			umap = OBSmartsPattern_GetUMapList(sp)
+			vectorvInt_size(umap)
+		}else
+			OBSmartsPattern_NumMatches(sp)
 
    },obmolRefs))
 }
