@@ -1138,173 +1138,180 @@ SWIG_R_ConvertPacked(SEXP obj, void *ptr, size_t sz, swig_type_info *ty) {
 #define SWIGTYPE_p_OpenBabel__OBBuilder swig_types[20]
 #define SWIGTYPE_p_OpenBabel__OBChainsParser swig_types[21]
 #define SWIGTYPE_p_OpenBabel__OBChiralData swig_types[22]
-#define SWIGTYPE_p_OpenBabel__OBCommentData swig_types[23]
-#define SWIGTYPE_p_OpenBabel__OBConformerData swig_types[24]
-#define SWIGTYPE_p_OpenBabel__OBConversion swig_types[25]
-#define SWIGTYPE_p_OpenBabel__OBDOSData swig_types[26]
-#define SWIGTYPE_p_OpenBabel__OBDescriptor swig_types[27]
-#define SWIGTYPE_p_OpenBabel__OBElectronicTransitionData swig_types[28]
-#define SWIGTYPE_p_OpenBabel__OBElement swig_types[29]
-#define SWIGTYPE_p_OpenBabel__OBElementTable swig_types[30]
-#define SWIGTYPE_p_OpenBabel__OBError swig_types[31]
-#define SWIGTYPE_p_OpenBabel__OBExternalBond swig_types[32]
-#define SWIGTYPE_p_OpenBabel__OBExternalBondData swig_types[33]
-#define SWIGTYPE_p_OpenBabel__OBFFCalculation2 swig_types[34]
-#define SWIGTYPE_p_OpenBabel__OBFFCalculation3 swig_types[35]
-#define SWIGTYPE_p_OpenBabel__OBFFCalculation4 swig_types[36]
-#define SWIGTYPE_p_OpenBabel__OBFFConstraint swig_types[37]
-#define SWIGTYPE_p_OpenBabel__OBFFConstraints swig_types[38]
-#define SWIGTYPE_p_OpenBabel__OBFFParameter swig_types[39]
-#define SWIGTYPE_p_OpenBabel__OBFingerprint swig_types[40]
-#define SWIGTYPE_p_OpenBabel__OBForceField swig_types[41]
-#define SWIGTYPE_p_OpenBabel__OBFormat swig_types[42]
-#define SWIGTYPE_p_OpenBabel__OBGenericData swig_types[43]
-#define SWIGTYPE_p_OpenBabel__OBGlobalDataBase swig_types[44]
-#define SWIGTYPE_p_OpenBabel__OBGridData swig_types[45]
-#define SWIGTYPE_p_OpenBabel__OBInternalCoord swig_types[46]
-#define SWIGTYPE_p_OpenBabel__OBIsotopeTable swig_types[47]
-#define SWIGTYPE_p_OpenBabel__OBMatrixData swig_types[48]
-#define SWIGTYPE_p_OpenBabel__OBMessageHandler swig_types[49]
-#define SWIGTYPE_p_OpenBabel__OBMol swig_types[50]
-#define SWIGTYPE_p_OpenBabel__OBMolAngleIter swig_types[51]
-#define SWIGTYPE_p_OpenBabel__OBMolAtomBFSIter swig_types[52]
-#define SWIGTYPE_p_OpenBabel__OBMolAtomDFSIter swig_types[53]
-#define SWIGTYPE_p_OpenBabel__OBMolAtomIter swig_types[54]
-#define SWIGTYPE_p_OpenBabel__OBMolBondBFSIter swig_types[55]
-#define SWIGTYPE_p_OpenBabel__OBMolBondIter swig_types[56]
-#define SWIGTYPE_p_OpenBabel__OBMolPairIter swig_types[57]
-#define SWIGTYPE_p_OpenBabel__OBMolRingIter swig_types[58]
-#define SWIGTYPE_p_OpenBabel__OBMolTorsionIter swig_types[59]
-#define SWIGTYPE_p_OpenBabel__OBNasaThermoData swig_types[60]
-#define SWIGTYPE_p_OpenBabel__OBOp swig_types[61]
-#define SWIGTYPE_p_OpenBabel__OBOrbital swig_types[62]
-#define SWIGTYPE_p_OpenBabel__OBOrbitalData swig_types[63]
-#define SWIGTYPE_p_OpenBabel__OBPairData swig_types[64]
-#define SWIGTYPE_p_OpenBabel__OBPairTemplateT_double_t swig_types[65]
-#define SWIGTYPE_p_OpenBabel__OBPairTemplateT_int_t swig_types[66]
-#define SWIGTYPE_p_OpenBabel__OBPlugin swig_types[67]
-#define SWIGTYPE_p_OpenBabel__OBPlugin__PluginMapType__const_iterator swig_types[68]
-#define SWIGTYPE_p_OpenBabel__OBRTree swig_types[69]
-#define SWIGTYPE_p_OpenBabel__OBRandom swig_types[70]
-#define SWIGTYPE_p_OpenBabel__OBRateData swig_types[71]
-#define SWIGTYPE_p_OpenBabel__OBResidue swig_types[72]
-#define SWIGTYPE_p_OpenBabel__OBResidueAtomIter swig_types[73]
-#define SWIGTYPE_p_OpenBabel__OBResidueData swig_types[74]
-#define SWIGTYPE_p_OpenBabel__OBResidueIter swig_types[75]
-#define SWIGTYPE_p_OpenBabel__OBRing swig_types[76]
-#define SWIGTYPE_p_OpenBabel__OBRingData swig_types[77]
-#define SWIGTYPE_p_OpenBabel__OBRingSearch swig_types[78]
-#define SWIGTYPE_p_OpenBabel__OBRingTyper swig_types[79]
-#define SWIGTYPE_p_OpenBabel__OBRotamerList swig_types[80]
-#define SWIGTYPE_p_OpenBabel__OBRotationData swig_types[81]
-#define SWIGTYPE_p_OpenBabel__OBSSMatch swig_types[82]
-#define SWIGTYPE_p_OpenBabel__OBSerialNums swig_types[83]
-#define SWIGTYPE_p_OpenBabel__OBSetData swig_types[84]
-#define SWIGTYPE_p_OpenBabel__OBSmartsMatcher swig_types[85]
-#define SWIGTYPE_p_OpenBabel__OBSmartsPattern swig_types[86]
-#define SWIGTYPE_p_OpenBabel__OBSqrtTbl swig_types[87]
-#define SWIGTYPE_p_OpenBabel__OBStopwatch swig_types[88]
-#define SWIGTYPE_p_OpenBabel__OBSymmetryData swig_types[89]
-#define SWIGTYPE_p_OpenBabel__OBTorsion swig_types[90]
-#define SWIGTYPE_p_OpenBabel__OBTorsionData swig_types[91]
-#define SWIGTYPE_p_OpenBabel__OBTypeTable swig_types[92]
-#define SWIGTYPE_p_OpenBabel__OBUnitCell swig_types[93]
-#define SWIGTYPE_p_OpenBabel__OBVectorData swig_types[94]
-#define SWIGTYPE_p_OpenBabel__OBVibrationData swig_types[95]
-#define SWIGTYPE_p_OpenBabel__OBVirtualBond swig_types[96]
-#define SWIGTYPE_p_OpenBabel__Pattern swig_types[97]
-#define SWIGTYPE_p_OpenBabel__SpaceGroup swig_types[98]
-#define SWIGTYPE_p_OpenBabel__Template swig_types[99]
-#define SWIGTYPE_p_OpenBabel__matrix3x3 swig_types[100]
-#define SWIGTYPE_p_OpenBabel__obLogBuf swig_types[101]
-#define SWIGTYPE_p_OpenBabel__quadT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_t swig_types[102]
-#define SWIGTYPE_p_OpenBabel__transform3d swig_types[103]
-#define SWIGTYPE_p_OpenBabel__tripleT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_t swig_types[104]
-#define SWIGTYPE_p_OpenBabel__vector3 swig_types[105]
-#define SWIGTYPE_p_PluginIterator swig_types[106]
-#define SWIGTYPE_p_PluginMapType swig_types[107]
-#define SWIGTYPE_p_Unit swig_types[108]
-#define SWIGTYPE_p_a_3__double swig_types[109]
-#define SWIGTYPE_p_a_4__char swig_types[110]
-#define SWIGTYPE_p_allocator_type swig_types[111]
-#define SWIGTYPE_p_char swig_types[112]
-#define SWIGTYPE_p_const_reference swig_types[113]
-#define SWIGTYPE_p_difference_type swig_types[114]
-#define SWIGTYPE_p_double swig_types[115]
-#define SWIGTYPE_p_first_type swig_types[116]
-#define SWIGTYPE_p_int swig_types[117]
-#define SWIGTYPE_p_p_OpenBabel__OBDescriptor swig_types[118]
-#define SWIGTYPE_p_p_OpenBabel__OBFingerprint swig_types[119]
-#define SWIGTYPE_p_p_OpenBabel__OBForceField swig_types[120]
-#define SWIGTYPE_p_p_OpenBabel__OBFormat swig_types[121]
-#define SWIGTYPE_p_p_OpenBabel__OBOp swig_types[122]
-#define SWIGTYPE_p_p_double swig_types[123]
-#define SWIGTYPE_p_p_int swig_types[124]
-#define SWIGTYPE_p_reference swig_types[125]
-#define SWIGTYPE_p_second_type swig_types[126]
-#define SWIGTYPE_p_size_type swig_types[127]
-#define SWIGTYPE_p_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t swig_types[128]
-#define SWIGTYPE_p_std__binary_functionT_char_const_p_char_const_p_bool_t swig_types[129]
-#define SWIGTYPE_p_std__dequeT_int_t swig_types[130]
-#define SWIGTYPE_p_std__istream swig_types[131]
-#define SWIGTYPE_p_std__listT_OpenBabel__transform3d_p_t__const_iterator swig_types[132]
-#define SWIGTYPE_p_std__listT_OpenBabel__vector3_t swig_types[133]
-#define SWIGTYPE_p_std__mapT_char_const_p_OpenBabel__OBPlugin_p_OpenBabel__CharPtrLess_std__allocatorT_std__pairT_char_const_pconst_OpenBabel__OBPlugin_p_t_t_t swig_types[134]
-#define SWIGTYPE_p_std__mapT_int_OpenBabel__OBAtom_p_std__lessT_int_t_std__allocatorT_std__pairT_int_const_OpenBabel__OBAtom_p_t_t_t swig_types[135]
-#define SWIGTYPE_p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t swig_types[136]
-#define SWIGTYPE_p_std__multimapT_double_unsigned_int_t swig_types[137]
-#define SWIGTYPE_p_std__ostream swig_types[138]
-#define SWIGTYPE_p_std__ostringstream swig_types[139]
-#define SWIGTYPE_p_std__pairT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_t swig_types[140]
-#define SWIGTYPE_p_std__pairT_int_int_t swig_types[141]
-#define SWIGTYPE_p_std__pairT_std__string_std__string_t swig_types[142]
-#define SWIGTYPE_p_std__pairT_unsigned_int_unsigned_int_t swig_types[143]
-#define SWIGTYPE_p_std__streampos swig_types[144]
-#define SWIGTYPE_p_std__string swig_types[145]
-#define SWIGTYPE_p_std__stringbuf swig_types[146]
-#define SWIGTYPE_p_std__type_info swig_types[147]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBAtom_p_std__allocatorT_OpenBabel__OBAtom_p_t_t swig_types[148]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBAtom_p_std__allocatorT_OpenBabel__OBAtom_p_t_t__iterator swig_types[149]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBBase_p_std__allocatorT_OpenBabel__OBBase_p_t_t swig_types[150]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBBond_p_std__allocatorT_OpenBabel__OBBond_p_t_t swig_types[151]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBBond_p_std__allocatorT_OpenBabel__OBBond_p_t_t__iterator swig_types[152]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBBond_std__allocatorT_OpenBabel__OBBond_t_t swig_types[153]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBExternalBond_std__allocatorT_OpenBabel__OBExternalBond_t_t swig_types[154]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBGenericData_p_std__allocatorT_OpenBabel__OBGenericData_p_t_t swig_types[155]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBGenericData_p_std__allocatorT_OpenBabel__OBGenericData_p_t_t__iterator swig_types[156]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBInternalCoord_p_std__allocatorT_OpenBabel__OBInternalCoord_p_t_t swig_types[157]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBInternalCoord_p_std__allocatorT_OpenBabel__OBInternalCoord_p_t_t__iterator swig_types[158]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBMol_std__allocatorT_OpenBabel__OBMol_t_t swig_types[159]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBOrbital_std__allocatorT_OpenBabel__OBOrbital_t_t swig_types[160]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBResidue_p_std__allocatorT_OpenBabel__OBResidue_p_t_t__iterator swig_types[161]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBResidue_std__allocatorT_OpenBabel__OBResidue_t_t swig_types[162]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBRing_p_std__allocatorT_OpenBabel__OBRing_p_t_t swig_types[163]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBRing_p_std__allocatorT_OpenBabel__OBRing_p_t_t__iterator swig_types[164]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBRing_std__allocatorT_OpenBabel__OBRing_t_t swig_types[165]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__OBTorsion_std__allocatorT_OpenBabel__OBTorsion_t_t swig_types[166]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__tripleT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_double_t_std__allocatorT_OpenBabel__tripleT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_double_t_t_t swig_types[167]
-#define SWIGTYPE_p_std__vectorT_OpenBabel__vector3_std__allocatorT_OpenBabel__vector3_t_t swig_types[168]
-#define SWIGTYPE_p_std__vectorT_double_p_std__allocatorT_double_p_t_t swig_types[169]
-#define SWIGTYPE_p_std__vectorT_double_p_std__allocatorT_double_p_t_t__iterator swig_types[170]
-#define SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t swig_types[171]
-#define SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t swig_types[172]
-#define SWIGTYPE_p_std__vectorT_std__pairT_int_int_t_std__allocatorT_std__pairT_int_int_t_t_t swig_types[173]
-#define SWIGTYPE_p_std__vectorT_std__pairT_std__string_std__string_t_std__allocatorT_std__pairT_std__string_std__string_t_t_t swig_types[174]
-#define SWIGTYPE_p_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t swig_types[175]
-#define SWIGTYPE_p_std__vectorT_std__string_std__allocatorT_std__string_t_t swig_types[176]
-#define SWIGTYPE_p_std__vectorT_std__vectorT_OpenBabel__vector3_std__allocatorT_OpenBabel__vector3_t_t_std__allocatorT_std__vectorT_OpenBabel__vector3_std__allocatorT_OpenBabel__vector3_t_t_t_t swig_types[177]
-#define SWIGTYPE_p_std__vectorT_std__vectorT_int_std__allocatorT_int_t_t_std__allocatorT_std__vectorT_int_std__allocatorT_int_t_t_t_t swig_types[178]
-#define SWIGTYPE_p_std__vectorT_std__vectorT_int_std__allocatorT_int_t_t_std__allocatorT_std__vectorT_int_std__allocatorT_int_t_t_t_t__iterator swig_types[179]
-#define SWIGTYPE_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t swig_types[180]
-#define SWIGTYPE_p_std__vectorT_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t_std__allocatorT_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t_t_t swig_types[181]
-#define SWIGTYPE_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t swig_types[182]
-#define SWIGTYPE_p_std__vectorT_unsigned_short_std__allocatorT_unsigned_short_t_t swig_types[183]
-#define SWIGTYPE_p_stringp swig_types[184]
-#define SWIGTYPE_p_unsigned_int swig_types[185]
-#define SWIGTYPE_p_value_type swig_types[186]
-#define SWIGTYPE_p_word_vector swig_types[187]
-static swig_type_info *swig_types[189];
-static swig_module_info swig_module = {swig_types, 188, 0, 0, 0, 0};
+#define SWIGTYPE_p_OpenBabel__OBColor swig_types[23]
+#define SWIGTYPE_p_OpenBabel__OBCommentData swig_types[24]
+#define SWIGTYPE_p_OpenBabel__OBConformerData swig_types[25]
+#define SWIGTYPE_p_OpenBabel__OBConversion swig_types[26]
+#define SWIGTYPE_p_OpenBabel__OBDOSData swig_types[27]
+#define SWIGTYPE_p_OpenBabel__OBDepict swig_types[28]
+#define SWIGTYPE_p_OpenBabel__OBDescriptor swig_types[29]
+#define SWIGTYPE_p_OpenBabel__OBElectronicTransitionData swig_types[30]
+#define SWIGTYPE_p_OpenBabel__OBElement swig_types[31]
+#define SWIGTYPE_p_OpenBabel__OBElementTable swig_types[32]
+#define SWIGTYPE_p_OpenBabel__OBError swig_types[33]
+#define SWIGTYPE_p_OpenBabel__OBExternalBond swig_types[34]
+#define SWIGTYPE_p_OpenBabel__OBExternalBondData swig_types[35]
+#define SWIGTYPE_p_OpenBabel__OBFFCalculation2 swig_types[36]
+#define SWIGTYPE_p_OpenBabel__OBFFCalculation3 swig_types[37]
+#define SWIGTYPE_p_OpenBabel__OBFFCalculation4 swig_types[38]
+#define SWIGTYPE_p_OpenBabel__OBFFConstraint swig_types[39]
+#define SWIGTYPE_p_OpenBabel__OBFFConstraints swig_types[40]
+#define SWIGTYPE_p_OpenBabel__OBFFParameter swig_types[41]
+#define SWIGTYPE_p_OpenBabel__OBFingerprint swig_types[42]
+#define SWIGTYPE_p_OpenBabel__OBFontMetrics swig_types[43]
+#define SWIGTYPE_p_OpenBabel__OBForceField swig_types[44]
+#define SWIGTYPE_p_OpenBabel__OBFormat swig_types[45]
+#define SWIGTYPE_p_OpenBabel__OBGenericData swig_types[46]
+#define SWIGTYPE_p_OpenBabel__OBGlobalDataBase swig_types[47]
+#define SWIGTYPE_p_OpenBabel__OBGridData swig_types[48]
+#define SWIGTYPE_p_OpenBabel__OBInternalCoord swig_types[49]
+#define SWIGTYPE_p_OpenBabel__OBIsotopeTable swig_types[50]
+#define SWIGTYPE_p_OpenBabel__OBMatrixData swig_types[51]
+#define SWIGTYPE_p_OpenBabel__OBMessageHandler swig_types[52]
+#define SWIGTYPE_p_OpenBabel__OBMol swig_types[53]
+#define SWIGTYPE_p_OpenBabel__OBMolAngleIter swig_types[54]
+#define SWIGTYPE_p_OpenBabel__OBMolAtomBFSIter swig_types[55]
+#define SWIGTYPE_p_OpenBabel__OBMolAtomDFSIter swig_types[56]
+#define SWIGTYPE_p_OpenBabel__OBMolAtomIter swig_types[57]
+#define SWIGTYPE_p_OpenBabel__OBMolBondBFSIter swig_types[58]
+#define SWIGTYPE_p_OpenBabel__OBMolBondIter swig_types[59]
+#define SWIGTYPE_p_OpenBabel__OBMolPairIter swig_types[60]
+#define SWIGTYPE_p_OpenBabel__OBMolRingIter swig_types[61]
+#define SWIGTYPE_p_OpenBabel__OBMolTorsionIter swig_types[62]
+#define SWIGTYPE_p_OpenBabel__OBNasaThermoData swig_types[63]
+#define SWIGTYPE_p_OpenBabel__OBOp swig_types[64]
+#define SWIGTYPE_p_OpenBabel__OBOrbital swig_types[65]
+#define SWIGTYPE_p_OpenBabel__OBOrbitalData swig_types[66]
+#define SWIGTYPE_p_OpenBabel__OBPainter swig_types[67]
+#define SWIGTYPE_p_OpenBabel__OBPairData swig_types[68]
+#define SWIGTYPE_p_OpenBabel__OBPairTemplateT_double_t swig_types[69]
+#define SWIGTYPE_p_OpenBabel__OBPairTemplateT_int_t swig_types[70]
+#define SWIGTYPE_p_OpenBabel__OBPlugin swig_types[71]
+#define SWIGTYPE_p_OpenBabel__OBPlugin__PluginMapType__const_iterator swig_types[72]
+#define SWIGTYPE_p_OpenBabel__OBRTree swig_types[73]
+#define SWIGTYPE_p_OpenBabel__OBRandom swig_types[74]
+#define SWIGTYPE_p_OpenBabel__OBRateData swig_types[75]
+#define SWIGTYPE_p_OpenBabel__OBResidue swig_types[76]
+#define SWIGTYPE_p_OpenBabel__OBResidueAtomIter swig_types[77]
+#define SWIGTYPE_p_OpenBabel__OBResidueData swig_types[78]
+#define SWIGTYPE_p_OpenBabel__OBResidueIter swig_types[79]
+#define SWIGTYPE_p_OpenBabel__OBRing swig_types[80]
+#define SWIGTYPE_p_OpenBabel__OBRingData swig_types[81]
+#define SWIGTYPE_p_OpenBabel__OBRingSearch swig_types[82]
+#define SWIGTYPE_p_OpenBabel__OBRingTyper swig_types[83]
+#define SWIGTYPE_p_OpenBabel__OBRotamerList swig_types[84]
+#define SWIGTYPE_p_OpenBabel__OBRotationData swig_types[85]
+#define SWIGTYPE_p_OpenBabel__OBSSMatch swig_types[86]
+#define SWIGTYPE_p_OpenBabel__OBSerialNums swig_types[87]
+#define SWIGTYPE_p_OpenBabel__OBSetData swig_types[88]
+#define SWIGTYPE_p_OpenBabel__OBSmartsMatcher swig_types[89]
+#define SWIGTYPE_p_OpenBabel__OBSmartsPattern swig_types[90]
+#define SWIGTYPE_p_OpenBabel__OBSqrtTbl swig_types[91]
+#define SWIGTYPE_p_OpenBabel__OBStopwatch swig_types[92]
+#define SWIGTYPE_p_OpenBabel__OBSymmetryData swig_types[93]
+#define SWIGTYPE_p_OpenBabel__OBTorsion swig_types[94]
+#define SWIGTYPE_p_OpenBabel__OBTorsionData swig_types[95]
+#define SWIGTYPE_p_OpenBabel__OBTypeTable swig_types[96]
+#define SWIGTYPE_p_OpenBabel__OBUnitCell swig_types[97]
+#define SWIGTYPE_p_OpenBabel__OBVectorData swig_types[98]
+#define SWIGTYPE_p_OpenBabel__OBVibrationData swig_types[99]
+#define SWIGTYPE_p_OpenBabel__OBVirtualBond swig_types[100]
+#define SWIGTYPE_p_OpenBabel__Pattern swig_types[101]
+#define SWIGTYPE_p_OpenBabel__SVGPainter swig_types[102]
+#define SWIGTYPE_p_OpenBabel__SpaceGroup swig_types[103]
+#define SWIGTYPE_p_OpenBabel__Template swig_types[104]
+#define SWIGTYPE_p_OpenBabel__matrix3x3 swig_types[105]
+#define SWIGTYPE_p_OpenBabel__obLogBuf swig_types[106]
+#define SWIGTYPE_p_OpenBabel__quadT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_t swig_types[107]
+#define SWIGTYPE_p_OpenBabel__transform3d swig_types[108]
+#define SWIGTYPE_p_OpenBabel__tripleT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_t swig_types[109]
+#define SWIGTYPE_p_OpenBabel__vector3 swig_types[110]
+#define SWIGTYPE_p_PluginIterator swig_types[111]
+#define SWIGTYPE_p_PluginMapType swig_types[112]
+#define SWIGTYPE_p_Unit swig_types[113]
+#define SWIGTYPE_p_a_3__double swig_types[114]
+#define SWIGTYPE_p_a_4__char swig_types[115]
+#define SWIGTYPE_p_allocator_type swig_types[116]
+#define SWIGTYPE_p_char swig_types[117]
+#define SWIGTYPE_p_const_reference swig_types[118]
+#define SWIGTYPE_p_difference_type swig_types[119]
+#define SWIGTYPE_p_double swig_types[120]
+#define SWIGTYPE_p_first_type swig_types[121]
+#define SWIGTYPE_p_int swig_types[122]
+#define SWIGTYPE_p_p_OpenBabel__OBDescriptor swig_types[123]
+#define SWIGTYPE_p_p_OpenBabel__OBFingerprint swig_types[124]
+#define SWIGTYPE_p_p_OpenBabel__OBForceField swig_types[125]
+#define SWIGTYPE_p_p_OpenBabel__OBFormat swig_types[126]
+#define SWIGTYPE_p_p_OpenBabel__OBOp swig_types[127]
+#define SWIGTYPE_p_p_double swig_types[128]
+#define SWIGTYPE_p_p_int swig_types[129]
+#define SWIGTYPE_p_reference swig_types[130]
+#define SWIGTYPE_p_second_type swig_types[131]
+#define SWIGTYPE_p_size_type swig_types[132]
+#define SWIGTYPE_p_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t swig_types[133]
+#define SWIGTYPE_p_std__binary_functionT_char_const_p_char_const_p_bool_t swig_types[134]
+#define SWIGTYPE_p_std__dequeT_int_t swig_types[135]
+#define SWIGTYPE_p_std__istream swig_types[136]
+#define SWIGTYPE_p_std__listT_OpenBabel__transform3d_p_t__const_iterator swig_types[137]
+#define SWIGTYPE_p_std__listT_OpenBabel__vector3_t swig_types[138]
+#define SWIGTYPE_p_std__mapT_char_const_p_OpenBabel__OBPlugin_p_OpenBabel__CharPtrLess_std__allocatorT_std__pairT_char_const_pconst_OpenBabel__OBPlugin_p_t_t_t swig_types[139]
+#define SWIGTYPE_p_std__mapT_int_OpenBabel__OBAtom_p_std__lessT_int_t_std__allocatorT_std__pairT_int_const_OpenBabel__OBAtom_p_t_t_t swig_types[140]
+#define SWIGTYPE_p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t swig_types[141]
+#define SWIGTYPE_p_std__multimapT_double_unsigned_int_t swig_types[142]
+#define SWIGTYPE_p_std__ofstream swig_types[143]
+#define SWIGTYPE_p_std__ostream swig_types[144]
+#define SWIGTYPE_p_std__ostringstream swig_types[145]
+#define SWIGTYPE_p_std__pairT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_t swig_types[146]
+#define SWIGTYPE_p_std__pairT_int_int_t swig_types[147]
+#define SWIGTYPE_p_std__pairT_std__string_std__string_t swig_types[148]
+#define SWIGTYPE_p_std__pairT_unsigned_int_unsigned_int_t swig_types[149]
+#define SWIGTYPE_p_std__streampos swig_types[150]
+#define SWIGTYPE_p_std__string swig_types[151]
+#define SWIGTYPE_p_std__stringbuf swig_types[152]
+#define SWIGTYPE_p_std__type_info swig_types[153]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBAtom_p_std__allocatorT_OpenBabel__OBAtom_p_t_t swig_types[154]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBAtom_p_std__allocatorT_OpenBabel__OBAtom_p_t_t__iterator swig_types[155]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBBase_p_std__allocatorT_OpenBabel__OBBase_p_t_t swig_types[156]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBBond_p_std__allocatorT_OpenBabel__OBBond_p_t_t swig_types[157]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBBond_p_std__allocatorT_OpenBabel__OBBond_p_t_t__iterator swig_types[158]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBBond_std__allocatorT_OpenBabel__OBBond_t_t swig_types[159]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBExternalBond_std__allocatorT_OpenBabel__OBExternalBond_t_t swig_types[160]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBGenericData_p_std__allocatorT_OpenBabel__OBGenericData_p_t_t swig_types[161]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBGenericData_p_std__allocatorT_OpenBabel__OBGenericData_p_t_t__iterator swig_types[162]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBInternalCoord_p_std__allocatorT_OpenBabel__OBInternalCoord_p_t_t swig_types[163]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBInternalCoord_p_std__allocatorT_OpenBabel__OBInternalCoord_p_t_t__iterator swig_types[164]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBMol_std__allocatorT_OpenBabel__OBMol_t_t swig_types[165]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBOrbital_std__allocatorT_OpenBabel__OBOrbital_t_t swig_types[166]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBResidue_p_std__allocatorT_OpenBabel__OBResidue_p_t_t__iterator swig_types[167]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBResidue_std__allocatorT_OpenBabel__OBResidue_t_t swig_types[168]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBRing_p_std__allocatorT_OpenBabel__OBRing_p_t_t swig_types[169]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBRing_p_std__allocatorT_OpenBabel__OBRing_p_t_t__iterator swig_types[170]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBRing_std__allocatorT_OpenBabel__OBRing_t_t swig_types[171]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__OBTorsion_std__allocatorT_OpenBabel__OBTorsion_t_t swig_types[172]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__tripleT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_double_t_std__allocatorT_OpenBabel__tripleT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_double_t_t_t swig_types[173]
+#define SWIGTYPE_p_std__vectorT_OpenBabel__vector3_std__allocatorT_OpenBabel__vector3_t_t swig_types[174]
+#define SWIGTYPE_p_std__vectorT_double_p_std__allocatorT_double_p_t_t swig_types[175]
+#define SWIGTYPE_p_std__vectorT_double_p_std__allocatorT_double_p_t_t__iterator swig_types[176]
+#define SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t swig_types[177]
+#define SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t swig_types[178]
+#define SWIGTYPE_p_std__vectorT_std__pairT_double_double_t_std__allocatorT_std__pairT_double_double_t_t_t swig_types[179]
+#define SWIGTYPE_p_std__vectorT_std__pairT_int_int_t_std__allocatorT_std__pairT_int_int_t_t_t swig_types[180]
+#define SWIGTYPE_p_std__vectorT_std__pairT_std__string_std__string_t_std__allocatorT_std__pairT_std__string_std__string_t_t_t swig_types[181]
+#define SWIGTYPE_p_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t swig_types[182]
+#define SWIGTYPE_p_std__vectorT_std__string_std__allocatorT_std__string_t_t swig_types[183]
+#define SWIGTYPE_p_std__vectorT_std__vectorT_OpenBabel__vector3_std__allocatorT_OpenBabel__vector3_t_t_std__allocatorT_std__vectorT_OpenBabel__vector3_std__allocatorT_OpenBabel__vector3_t_t_t_t swig_types[184]
+#define SWIGTYPE_p_std__vectorT_std__vectorT_int_std__allocatorT_int_t_t_std__allocatorT_std__vectorT_int_std__allocatorT_int_t_t_t_t swig_types[185]
+#define SWIGTYPE_p_std__vectorT_std__vectorT_int_std__allocatorT_int_t_t_std__allocatorT_std__vectorT_int_std__allocatorT_int_t_t_t_t__iterator swig_types[186]
+#define SWIGTYPE_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t swig_types[187]
+#define SWIGTYPE_p_std__vectorT_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t_std__allocatorT_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t_t_t swig_types[188]
+#define SWIGTYPE_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t swig_types[189]
+#define SWIGTYPE_p_std__vectorT_unsigned_short_std__allocatorT_unsigned_short_t_t swig_types[190]
+#define SWIGTYPE_p_stringp swig_types[191]
+#define SWIGTYPE_p_unsigned_int swig_types[192]
+#define SWIGTYPE_p_value_type swig_types[193]
+#define SWIGTYPE_p_word_vector swig_types[194]
+static swig_type_info *swig_types[196];
+static swig_module_info swig_module = {swig_types, 195, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -1495,6 +1502,9 @@ static swig_module_info swig_module = {swig_types, 188, 0, 0, 0, 0};
 #include <openbabel/rotor.h>
 #include <openbabel/rotamer.h>
 
+#include <openbabel/depict/depict.h>
+#include <openbabel/depict/painter.h>
+#include <openbabel/depict/svgpainter.h>
 
 
 #include <stdexcept>
@@ -1655,6 +1665,9 @@ SWIGINTERN stringp *stringp_frompointer(std::string *t){
     }
     std::ostream* ostreamToFile(const char *filename) {
        return new std::ofstream(filename);
+    }
+    void closeOfstream(std::ofstream* os){
+      os->close();
     }
     const std::string stringFromOstream(const std::ostringstream* os){
       return os->str();
@@ -2578,6 +2591,12 @@ SWIGEXPORT SEXP R_swig_ostreamToFile ( SEXP filename) { std::ostream *result = 0
   arg1 = reinterpret_cast< char * >(buf1); result = (std::ostream *)ostreamToFile((char const *)arg1);
   r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__ostream, R_SWIG_EXTERNAL |  0 );
   if (alloc1 == SWIG_NEWOBJ) delete[] buf1; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_closeOfstream ( SEXP os) { std::ofstream *arg1 = (std::ofstream *) 0 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(os, &argp1, SWIGTYPE_p_std__ofstream, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "closeOfstream" "', argument " "1"" of type '" "std::ofstream *""'");  }
+   arg1 = reinterpret_cast< std::ofstream * >(argp1); closeOfstream(arg1); r_ans = R_NilValue; vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
 SWIGEXPORT SEXP R_swig_stringFromOstream ( SEXP os, SEXP s_swig_copy) { std::string result;
   std::ostringstream *arg1 = (std::ostringstream *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
   SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
@@ -30483,6 +30502,607 @@ SWIGEXPORT SEXP R_swig_OBMolRingIter_findCenterAndNormal ( SEXP self, SEXP cente
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OBMolRingIter_findCenterAndNormal" "', argument " "4"" of type '" "OpenBabel::vector3 &""'"); }
    arg4 = reinterpret_cast< OpenBabel::vector3 * >(argp4); result = (bool)(*arg1)->findCenterAndNormal(*arg2,*arg3,*arg4);
   r_ans = Rf_ScalarLogical(result); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_new_OBDepict ( SEXP painter) { OpenBabel::OBDepict *result = 0 ;
+  OpenBabel::OBPainter *arg1 = (OpenBabel::OBPainter *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(painter, &argp1, SWIGTYPE_p_OpenBabel__OBPainter, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_OBDepict" "', argument " "1"" of type '" "OpenBabel::OBPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBPainter * >(argp1); result = (OpenBabel::OBDepict *)new OpenBabel::OBDepict(arg1);
+  r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenBabel__OBDepict, R_SWIG_OWNER |  0 ); vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_DrawMolecule ( SEXP self, SEXP mol, SEXP s_swig_copy) { bool result;
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; OpenBabel::OBMol *arg2 = (OpenBabel::OBMol *) 0 ; void *argp1 = 0 ;
+  int res1 = 0 ; void *argp2 = 0 ; int res2 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ;
+  VMAXTYPE r_vmax = vmaxget() ; res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_DrawMolecule" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1);
+  res2 = SWIG_R_ConvertPtr(mol, &argp2, SWIGTYPE_p_OpenBabel__OBMol, 0 |  0 ); if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OBDepict_DrawMolecule" "', argument " "2"" of type '" "OpenBabel::OBMol *""'");  }
+   arg2 = reinterpret_cast< OpenBabel::OBMol * >(argp2); result = (bool)(arg1)->DrawMolecule(arg2);
+  r_ans = Rf_ScalarLogical(result); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_AddAtomLabels ( SEXP self, SEXP type, SEXP s_swig_copy) { bool result;
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; OpenBabel::OBDepict::AtomLabelType arg2 ; void *argp1 = 0 ;
+  int res1 = 0 ; int val2 ; int ecode2 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ;
+  VMAXTYPE r_vmax = vmaxget() ; res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_AddAtomLabels" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); ecode2 = SWIG_AsVal_int(type, &val2); if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OBDepict_AddAtomLabels" "', argument " "2"" of type '" "OpenBabel::OBDepict::AtomLabelType""'"); }
+    arg2 = static_cast< OpenBabel::OBDepict::AtomLabelType >(val2); result = (bool)(arg1)->AddAtomLabels(arg2);
+  r_ans = Rf_ScalarLogical(result); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_SetBondLength ( SEXP self, SEXP length) {
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; double arg2 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_SetBondLength" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); arg2 = static_cast< double >(REAL(length)[0]);
+  (arg1)->SetBondLength(arg2); r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_GetBondLength ( SEXP self, SEXP s_swig_copy) { double result;
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_GetBondLength" "', argument " "1"" of type '" "OpenBabel::OBDepict const *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1);
+  result = (double)((OpenBabel::OBDepict const *)arg1)->GetBondLength();
+  r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
+  return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_SetPenWidth ( SEXP self, SEXP length) { OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ;
+  double arg2 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ;
+  VMAXTYPE r_vmax = vmaxget() ; res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_SetPenWidth" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); arg2 = static_cast< double >(REAL(length)[0]);
+  (arg1)->SetPenWidth(arg2); r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_GetPenWidth ( SEXP self, SEXP s_swig_copy) { double result;
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_GetPenWidth" "', argument " "1"" of type '" "OpenBabel::OBDepict const *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); result = (double)((OpenBabel::OBDepict const *)arg1)->GetPenWidth();
+  r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
+  return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_SetBondSpacing ( SEXP self, SEXP spacing) {
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; double arg2 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_SetBondSpacing" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); arg2 = static_cast< double >(REAL(spacing)[0]);
+  (arg1)->SetBondSpacing(arg2); r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_GetBondSpacing ( SEXP self, SEXP s_swig_copy) { double result;
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_GetBondSpacing" "', argument " "1"" of type '" "OpenBabel::OBDepict const *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1);
+  result = (double)((OpenBabel::OBDepict const *)arg1)->GetBondSpacing();
+  r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
+  return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_SetBondWidth ( SEXP self, SEXP width) { OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ;
+  double arg2 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ;
+  VMAXTYPE r_vmax = vmaxget() ; res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_SetBondWidth" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); arg2 = static_cast< double >(REAL(width)[0]);
+  (arg1)->SetBondWidth(arg2); r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_GetBondWidth ( SEXP self, SEXP s_swig_copy) { double result;
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_GetBondWidth" "', argument " "1"" of type '" "OpenBabel::OBDepict const *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1);
+  result = (double)((OpenBabel::OBDepict const *)arg1)->GetBondWidth(); r_ans = SWIG_From_double(static_cast< double >(result));
+  vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_SetOption ( SEXP self, SEXP opts) { OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ;
+  unsigned int arg2 ; void *argp1 = 0 ; int res1 = 0 ; int val2 ; int ecode2 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_SetOption" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); ecode2 = SWIG_AsVal_int(opts, &val2); if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OBDepict_SetOption" "', argument " "2"" of type '" "unsigned int""'"); }
+    arg2 = static_cast< unsigned int >(val2); (arg1)->SetOption(arg2); r_ans = R_NilValue; vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_GetOptions ( SEXP self, SEXP s_swig_copy) { unsigned int result;
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_GetOptions" "', argument " "1"" of type '" "OpenBabel::OBDepict const *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1);
+  result = (unsigned int)((OpenBabel::OBDepict const *)arg1)->GetOptions(); r_ans = SWIG_From_int(static_cast< int >(result));
+  vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_ClearOptions ( SEXP self) { OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ;
+  void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_ClearOptions" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); (arg1)->ClearOptions(); r_ans = R_NilValue; vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_SetFontFamily ( SEXP self, SEXP family) {
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; std::string *arg2 = 0 ; void *argp1 = 0 ; int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_SetFontFamily" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); { std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(family, &ptr); if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OBDepict_SetFontFamily" "', argument " "2"" of type '" "std::string const &""'"); }
+     if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OBDepict_SetFontFamily" "', argument " "2"" of type '" "std::string const &""'"); }
+     arg2 = ptr; }  (arg1)->SetFontFamily((std::string const &)*arg2); r_ans = R_NilValue; if (SWIG_IsNewObj(res2)) delete arg2;
+  vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_GetFontFamily ( SEXP self, SEXP s_swig_copy) { std::string *result = 0 ;
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_GetFontFamily" "', argument " "1"" of type '" "OpenBabel::OBDepict const *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1);
+  result = (std::string *) &((OpenBabel::OBDepict const *)arg1)->GetFontFamily();
+  r_ans = SWIG_From_std_string(static_cast< std::string >(*result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
+  return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_SetFontSize__SWIG_0 ( SEXP self, SEXP pointSize, SEXP subscript) {
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; int arg2 ; bool arg3 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_SetFontSize" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); arg2 = static_cast< int >(INTEGER(pointSize)[0]);
+  arg3 = LOGICAL(subscript)[0] ? true : false; (arg1)->SetFontSize(arg2,arg3); r_ans = R_NilValue; vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_SetFontSize__SWIG_1 ( SEXP self, SEXP pointSize) {
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; int arg2 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_SetFontSize" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); arg2 = static_cast< int >(INTEGER(pointSize)[0]);
+  (arg1)->SetFontSize(arg2); r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_GetFontSize__SWIG_0 ( SEXP self, SEXP subscript, SEXP s_swig_copy) { int result;
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; bool arg2 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_GetFontSize" "', argument " "1"" of type '" "OpenBabel::OBDepict const *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); arg2 = LOGICAL(subscript)[0] ? true : false;
+  result = (int)((OpenBabel::OBDepict const *)arg1)->GetFontSize(arg2); r_ans = Rf_ScalarInteger(result); vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_GetFontSize__SWIG_1 ( SEXP self, SEXP s_swig_copy) { int result;
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_GetFontSize" "', argument " "1"" of type '" "OpenBabel::OBDepict const *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); result = (int)((OpenBabel::OBDepict const *)arg1)->GetFontSize();
+  r_ans = Rf_ScalarInteger(result); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_SetAliasMode__SWIG_0 ( SEXP self, SEXP b) {
+  OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; bool arg2 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_SetAliasMode" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); arg2 = LOGICAL(b)[0] ? true : false; (arg1)->SetAliasMode(arg2);
+  r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_SetAliasMode__SWIG_1 ( SEXP self) { OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ;
+  void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_SetAliasMode" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); (arg1)->SetAliasMode(); r_ans = R_NilValue; vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBDepict_SetBondColor ( SEXP self, SEXP scolor) { OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ;
+  std::string *arg2 = 0 ; void *argp1 = 0 ; int res1 = 0 ; int res2 = SWIG_OLDOBJ ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDepict_SetBondColor" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); { std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(scolor, &ptr); if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OBDepict_SetBondColor" "', argument " "2"" of type '" "std::string const &""'"); }
+     if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OBDepict_SetBondColor" "', argument " "2"" of type '" "std::string const &""'"); }
+     arg2 = ptr; }  (arg1)->SetBondColor((std::string const &)*arg2); r_ans = R_NilValue; if (SWIG_IsNewObj(res2)) delete arg2;
+  vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_delete_OBDepict ( SEXP self) { OpenBabel::OBDepict *arg1 = (OpenBabel::OBDepict *) 0 ; void *argp1 = 0 ;
+  int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDepict, SWIG_POINTER_DISOWN |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_OBDepict" "', argument " "1"" of type '" "OpenBabel::OBDepict *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBDepict * >(argp1); delete arg1; r_ans = R_NilValue; vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); R_ClearExternalPtr(self); return r_ans; }
+SWIGEXPORT SEXP R_swig_new_OBColor__SWIG_0 ( ) { OpenBabel::OBColor *result = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ; result = (OpenBabel::OBColor *)new OpenBabel::OBColor();
+  r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenBabel__OBColor, R_SWIG_OWNER |  0 ); vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_new_OBColor__SWIG_1 ( SEXP s_red, SEXP s_green, SEXP s_blue, SEXP s_alpha) {
+  OpenBabel::OBColor *result = 0 ; double arg1 ; double arg2 ; double arg3 ; double arg4 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ; arg1 = static_cast< double >(REAL(s_red)[0]);
+  arg2 = static_cast< double >(REAL(s_green)[0]); arg3 = static_cast< double >(REAL(s_blue)[0]);
+  arg4 = static_cast< double >(REAL(s_alpha)[0]); result = (OpenBabel::OBColor *)new OpenBabel::OBColor(arg1,arg2,arg3,arg4);
+  r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenBabel__OBColor, R_SWIG_OWNER |  0 ); vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_new_OBColor__SWIG_2 ( SEXP s_red, SEXP s_green, SEXP s_blue) { OpenBabel::OBColor *result = 0 ;
+  double arg1 ; double arg2 ; double arg3 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  arg1 = static_cast< double >(REAL(s_red)[0]); arg2 = static_cast< double >(REAL(s_green)[0]);
+  arg3 = static_cast< double >(REAL(s_blue)[0]); result = (OpenBabel::OBColor *)new OpenBabel::OBColor(arg1,arg2,arg3);
+  r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenBabel__OBColor, R_SWIG_OWNER |  0 ); vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_new_OBColor__SWIG_3 ( SEXP color) { OpenBabel::OBColor *result = 0 ; std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ; {
+    std::string *ptr = (std::string *)0; res1 = SWIG_AsPtr_std_string(color, &ptr); if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_OBColor" "', argument " "1"" of type '" "std::string const &""'"); }
+     if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_OBColor" "', argument " "1"" of type '" "std::string const &""'"); }
+     arg1 = ptr; }  result = (OpenBabel::OBColor *)new OpenBabel::OBColor((std::string const &)*arg1);
+  r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenBabel__OBColor, R_SWIG_OWNER |  0 );
+  if (SWIG_IsNewObj(res1)) delete arg1; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_new_OBColor__SWIG_4 ( SEXP vec) { OpenBabel::OBColor *result = 0 ;
+  std::vector< double,std::allocator< double > > arg1 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ;
+  VMAXTYPE r_vmax = vmaxget() ; {
+    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
+    int res = swig::asptr(vec, &ptr); if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "new_OBColor" "', argument " "1"" of type '" "std::vector< double,std::allocator< double > >""'");  }
+     arg1 = *ptr; if (SWIG_IsNewObj(res)) delete ptr; }  result = (OpenBabel::OBColor *)new OpenBabel::OBColor(arg1);
+  r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenBabel__OBColor, R_SWIG_OWNER |  0 ); vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBColor_red_set ( SEXP self, SEXP s_red) { OpenBabel::OBColor *arg1 = (OpenBabel::OBColor *) 0 ;
+  double arg2 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ;
+  VMAXTYPE r_vmax = vmaxget() ; res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBColor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBColor_red_set" "', argument " "1"" of type '" "OpenBabel::OBColor *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBColor * >(argp1); arg2 = static_cast< double >(REAL(s_red)[0]);
+  if (arg1) (arg1)->red = arg2; r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBColor_red_get ( SEXP self, SEXP s_swig_copy) { double result;
+  OpenBabel::OBColor *arg1 = (OpenBabel::OBColor *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBColor, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBColor_red_get" "', argument " "1"" of type '" "OpenBabel::OBColor *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBColor * >(argp1); result = (double) ((arg1)->red);
+  r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
+  return r_ans; }
+SWIGEXPORT SEXP R_swig_OBColor_green_set ( SEXP self, SEXP s_green) { OpenBabel::OBColor *arg1 = (OpenBabel::OBColor *) 0 ;
+  double arg2 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ;
+  VMAXTYPE r_vmax = vmaxget() ; res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBColor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBColor_green_set" "', argument " "1"" of type '" "OpenBabel::OBColor *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBColor * >(argp1); arg2 = static_cast< double >(REAL(s_green)[0]);
+  if (arg1) (arg1)->green = arg2; r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBColor_green_get ( SEXP self, SEXP s_swig_copy) { double result;
+  OpenBabel::OBColor *arg1 = (OpenBabel::OBColor *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBColor, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBColor_green_get" "', argument " "1"" of type '" "OpenBabel::OBColor *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBColor * >(argp1); result = (double) ((arg1)->green);
+  r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
+  return r_ans; }
+SWIGEXPORT SEXP R_swig_OBColor_blue_set ( SEXP self, SEXP s_blue) { OpenBabel::OBColor *arg1 = (OpenBabel::OBColor *) 0 ;
+  double arg2 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ;
+  VMAXTYPE r_vmax = vmaxget() ; res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBColor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBColor_blue_set" "', argument " "1"" of type '" "OpenBabel::OBColor *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBColor * >(argp1); arg2 = static_cast< double >(REAL(s_blue)[0]);
+  if (arg1) (arg1)->blue = arg2; r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBColor_blue_get ( SEXP self, SEXP s_swig_copy) { double result;
+  OpenBabel::OBColor *arg1 = (OpenBabel::OBColor *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBColor, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBColor_blue_get" "', argument " "1"" of type '" "OpenBabel::OBColor *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBColor * >(argp1); result = (double) ((arg1)->blue);
+  r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
+  return r_ans; }
+SWIGEXPORT SEXP R_swig_OBColor_alpha_set ( SEXP self, SEXP s_alpha) { OpenBabel::OBColor *arg1 = (OpenBabel::OBColor *) 0 ;
+  double arg2 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ;
+  VMAXTYPE r_vmax = vmaxget() ; res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBColor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBColor_alpha_set" "', argument " "1"" of type '" "OpenBabel::OBColor *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBColor * >(argp1); arg2 = static_cast< double >(REAL(s_alpha)[0]);
+  if (arg1) (arg1)->alpha = arg2; r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBColor_alpha_get ( SEXP self, SEXP s_swig_copy) { double result;
+  OpenBabel::OBColor *arg1 = (OpenBabel::OBColor *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBColor, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBColor_alpha_get" "', argument " "1"" of type '" "OpenBabel::OBColor *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBColor * >(argp1); result = (double) ((arg1)->alpha);
+  r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
+  return r_ans; }
+SWIGEXPORT SEXP R_swig_delete_OBColor ( SEXP self) { OpenBabel::OBColor *arg1 = (OpenBabel::OBColor *) 0 ; void *argp1 = 0 ;
+  int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBColor, SWIG_POINTER_DISOWN |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_OBColor" "', argument " "1"" of type '" "OpenBabel::OBColor *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBColor * >(argp1); delete arg1; r_ans = R_NilValue; vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); R_ClearExternalPtr(self); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBFontMetrics_fontSize_set ( SEXP self, SEXP s_fontSize) {
+  OpenBabel::OBFontMetrics *arg1 = (OpenBabel::OBFontMetrics *) 0 ; int arg2 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBFontMetrics, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBFontMetrics_fontSize_set" "', argument " "1"" of type '" "OpenBabel::OBFontMetrics *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBFontMetrics * >(argp1); arg2 = static_cast< int >(INTEGER(s_fontSize)[0]);
+  if (arg1) (arg1)->fontSize = arg2; r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
+  return r_ans; }
+SWIGEXPORT SEXP R_swig_OBFontMetrics_fontSize_get ( SEXP self, SEXP s_swig_copy) { int result;
+  OpenBabel::OBFontMetrics *arg1 = (OpenBabel::OBFontMetrics *) 0 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBFontMetrics, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBFontMetrics_fontSize_get" "', argument " "1"" of type '" "OpenBabel::OBFontMetrics *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBFontMetrics * >(argp1); result = (int) ((arg1)->fontSize);
+  r_ans = Rf_ScalarInteger(result); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBFontMetrics_ascent_set ( SEXP self, SEXP s_ascent) {
+  OpenBabel::OBFontMetrics *arg1 = (OpenBabel::OBFontMetrics *) 0 ; double arg2 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBFontMetrics, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBFontMetrics_ascent_set" "', argument " "1"" of type '" "OpenBabel::OBFontMetrics *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBFontMetrics * >(argp1); arg2 = static_cast< double >(REAL(s_ascent)[0]);
+  if (arg1) (arg1)->ascent = arg2; r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBFontMetrics_ascent_get ( SEXP self, SEXP s_swig_copy) { double result;
+  OpenBabel::OBFontMetrics *arg1 = (OpenBabel::OBFontMetrics *) 0 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBFontMetrics, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBFontMetrics_ascent_get" "', argument " "1"" of type '" "OpenBabel::OBFontMetrics *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBFontMetrics * >(argp1); result = (double) ((arg1)->ascent);
+  r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
+  return r_ans; }
+SWIGEXPORT SEXP R_swig_OBFontMetrics_descent_set ( SEXP self, SEXP s_descent) {
+  OpenBabel::OBFontMetrics *arg1 = (OpenBabel::OBFontMetrics *) 0 ; double arg2 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBFontMetrics, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBFontMetrics_descent_set" "', argument " "1"" of type '" "OpenBabel::OBFontMetrics *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBFontMetrics * >(argp1); arg2 = static_cast< double >(REAL(s_descent)[0]);
+  if (arg1) (arg1)->descent = arg2; r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
+  return r_ans; }
+SWIGEXPORT SEXP R_swig_OBFontMetrics_descent_get ( SEXP self, SEXP s_swig_copy) { double result;
+  OpenBabel::OBFontMetrics *arg1 = (OpenBabel::OBFontMetrics *) 0 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBFontMetrics, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBFontMetrics_descent_get" "', argument " "1"" of type '" "OpenBabel::OBFontMetrics *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBFontMetrics * >(argp1); result = (double) ((arg1)->descent);
+  r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
+  return r_ans; }
+SWIGEXPORT SEXP R_swig_OBFontMetrics_width_set ( SEXP self, SEXP s_width) {
+  OpenBabel::OBFontMetrics *arg1 = (OpenBabel::OBFontMetrics *) 0 ; double arg2 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBFontMetrics, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBFontMetrics_width_set" "', argument " "1"" of type '" "OpenBabel::OBFontMetrics *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBFontMetrics * >(argp1); arg2 = static_cast< double >(REAL(s_width)[0]);
+  if (arg1) (arg1)->width = arg2; r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBFontMetrics_width_get ( SEXP self, SEXP s_swig_copy) { double result;
+  OpenBabel::OBFontMetrics *arg1 = (OpenBabel::OBFontMetrics *) 0 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBFontMetrics, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBFontMetrics_width_get" "', argument " "1"" of type '" "OpenBabel::OBFontMetrics *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBFontMetrics * >(argp1); result = (double) ((arg1)->width);
+  r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
+  return r_ans; }
+SWIGEXPORT SEXP R_swig_OBFontMetrics_height_set ( SEXP self, SEXP s_height) {
+  OpenBabel::OBFontMetrics *arg1 = (OpenBabel::OBFontMetrics *) 0 ; double arg2 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBFontMetrics, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBFontMetrics_height_set" "', argument " "1"" of type '" "OpenBabel::OBFontMetrics *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBFontMetrics * >(argp1); arg2 = static_cast< double >(REAL(s_height)[0]);
+  if (arg1) (arg1)->height = arg2; r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBFontMetrics_height_get ( SEXP self, SEXP s_swig_copy) { double result;
+  OpenBabel::OBFontMetrics *arg1 = (OpenBabel::OBFontMetrics *) 0 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBFontMetrics, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBFontMetrics_height_get" "', argument " "1"" of type '" "OpenBabel::OBFontMetrics *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBFontMetrics * >(argp1); result = (double) ((arg1)->height);
+  r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
+  return r_ans; }
+SWIGEXPORT SEXP R_swig_new_OBFontMetrics ( ) { OpenBabel::OBFontMetrics *result = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ; result = (OpenBabel::OBFontMetrics *)new OpenBabel::OBFontMetrics();
+  r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenBabel__OBFontMetrics, R_SWIG_OWNER |  0 );
+  vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_delete_OBFontMetrics ( SEXP self) { OpenBabel::OBFontMetrics *arg1 = (OpenBabel::OBFontMetrics *) 0 ;
+  void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBFontMetrics, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_OBFontMetrics" "', argument " "1"" of type '" "OpenBabel::OBFontMetrics *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBFontMetrics * >(argp1); delete arg1; r_ans = R_NilValue; vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); R_ClearExternalPtr(self); return r_ans; }
+SWIGEXPORT SEXP R_swig_delete_OBPainter ( SEXP self) { OpenBabel::OBPainter *arg1 = (OpenBabel::OBPainter *) 0 ;
+  void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBPainter, SWIG_POINTER_DISOWN |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_OBPainter" "', argument " "1"" of type '" "OpenBabel::OBPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBPainter * >(argp1); delete arg1; r_ans = R_NilValue; vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); R_ClearExternalPtr(self); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBPainter_NewCanvas ( SEXP self, SEXP width, SEXP height) {
+  OpenBabel::OBPainter *arg1 = (OpenBabel::OBPainter *) 0 ; double arg2 ; double arg3 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBPainter, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBPainter_NewCanvas" "', argument " "1"" of type '" "OpenBabel::OBPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBPainter * >(argp1); arg2 = static_cast< double >(REAL(width)[0]);
+  arg3 = static_cast< double >(REAL(height)[0]); (arg1)->NewCanvas(arg2,arg3); r_ans = R_NilValue; vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBPainter_IsGood ( SEXP self, SEXP s_swig_copy) { bool result;
+  OpenBabel::OBPainter *arg1 = (OpenBabel::OBPainter *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBPainter, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBPainter_IsGood" "', argument " "1"" of type '" "OpenBabel::OBPainter const *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBPainter * >(argp1); result = (bool)((OpenBabel::OBPainter const *)arg1)->IsGood();
+  r_ans = Rf_ScalarLogical(result); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBPainter_SetFontFamily ( SEXP self, SEXP fontFamily) {
+  OpenBabel::OBPainter *arg1 = (OpenBabel::OBPainter *) 0 ; std::string *arg2 = 0 ; void *argp1 = 0 ; int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBPainter, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBPainter_SetFontFamily" "', argument " "1"" of type '" "OpenBabel::OBPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBPainter * >(argp1); { std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(fontFamily, &ptr); if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OBPainter_SetFontFamily" "', argument " "2"" of type '" "std::string const &""'"); }
+     if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OBPainter_SetFontFamily" "', argument " "2"" of type '" "std::string const &""'"); }
+     arg2 = ptr; }  (arg1)->SetFontFamily((std::string const &)*arg2); r_ans = R_NilValue; if (SWIG_IsNewObj(res2)) delete arg2;
+  vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBPainter_SetFontSize ( SEXP self, SEXP pointSize) {
+  OpenBabel::OBPainter *arg1 = (OpenBabel::OBPainter *) 0 ; int arg2 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBPainter, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBPainter_SetFontSize" "', argument " "1"" of type '" "OpenBabel::OBPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBPainter * >(argp1); arg2 = static_cast< int >(INTEGER(pointSize)[0]);
+  (arg1)->SetFontSize(arg2); r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBPainter_SetFillColor ( SEXP self, SEXP color) {
+  OpenBabel::OBPainter *arg1 = (OpenBabel::OBPainter *) 0 ; OpenBabel::OBColor *arg2 = 0 ; void *argp1 = 0 ; int res1 = 0 ;
+  void *argp2 ; int res2 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBPainter, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBPainter_SetFillColor" "', argument " "1"" of type '" "OpenBabel::OBPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBPainter * >(argp1);
+  res2 = SWIG_R_ConvertPtr(color, &argp2, SWIGTYPE_p_OpenBabel__OBColor,  0 ); if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OBPainter_SetFillColor" "', argument " "2"" of type '" "OpenBabel::OBColor const &""'");  }
+   if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OBPainter_SetFillColor" "', argument " "2"" of type '" "OpenBabel::OBColor const &""'"); }
+   arg2 = reinterpret_cast< OpenBabel::OBColor * >(argp2); (arg1)->SetFillColor((OpenBabel::OBColor const &)*arg2);
+  r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBPainter_SetPenColor ( SEXP self, SEXP color) {
+  OpenBabel::OBPainter *arg1 = (OpenBabel::OBPainter *) 0 ; OpenBabel::OBColor *arg2 = 0 ; void *argp1 = 0 ; int res1 = 0 ;
+  void *argp2 ; int res2 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBPainter, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBPainter_SetPenColor" "', argument " "1"" of type '" "OpenBabel::OBPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBPainter * >(argp1);
+  res2 = SWIG_R_ConvertPtr(color, &argp2, SWIGTYPE_p_OpenBabel__OBColor,  0 ); if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OBPainter_SetPenColor" "', argument " "2"" of type '" "OpenBabel::OBColor const &""'");  }
+   if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OBPainter_SetPenColor" "', argument " "2"" of type '" "OpenBabel::OBColor const &""'"); }
+   arg2 = reinterpret_cast< OpenBabel::OBColor * >(argp2); (arg1)->SetPenColor((OpenBabel::OBColor const &)*arg2);
+  r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBPainter_SetPenWidth ( SEXP self, SEXP width) {
+  OpenBabel::OBPainter *arg1 = (OpenBabel::OBPainter *) 0 ; double arg2 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBPainter, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBPainter_SetPenWidth" "', argument " "1"" of type '" "OpenBabel::OBPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBPainter * >(argp1); arg2 = static_cast< double >(REAL(width)[0]);
+  (arg1)->SetPenWidth(arg2); r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBPainter_DrawLine ( SEXP self, SEXP x1, SEXP y1, SEXP x2, SEXP y2) {
+  OpenBabel::OBPainter *arg1 = (OpenBabel::OBPainter *) 0 ; double arg2 ; double arg3 ; double arg4 ; double arg5 ;
+  void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBPainter, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBPainter_DrawLine" "', argument " "1"" of type '" "OpenBabel::OBPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBPainter * >(argp1); arg2 = static_cast< double >(REAL(x1)[0]);
+  arg3 = static_cast< double >(REAL(y1)[0]); arg4 = static_cast< double >(REAL(x2)[0]);
+  arg5 = static_cast< double >(REAL(y2)[0]); (arg1)->DrawLine(arg2,arg3,arg4,arg5); r_ans = R_NilValue; vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBPainter_DrawCircle ( SEXP self, SEXP x, SEXP y, SEXP r) {
+  OpenBabel::OBPainter *arg1 = (OpenBabel::OBPainter *) 0 ; double arg2 ; double arg3 ; double arg4 ; void *argp1 = 0 ;
+  int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBPainter, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBPainter_DrawCircle" "', argument " "1"" of type '" "OpenBabel::OBPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBPainter * >(argp1); arg2 = static_cast< double >(REAL(x)[0]);
+  arg3 = static_cast< double >(REAL(y)[0]); arg4 = static_cast< double >(REAL(r)[0]); (arg1)->DrawCircle(arg2,arg3,arg4);
+  r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBPainter_DrawPolygon ( SEXP self, SEXP points) {
+  OpenBabel::OBPainter *arg1 = (OpenBabel::OBPainter *) 0 ;
+  std::vector< std::pair< double,double >,std::allocator< std::pair< double,double > > > *arg2 = 0 ; void *argp1 = 0 ;
+  int res1 = 0 ; void *argp2 ; int res2 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ;
+  VMAXTYPE r_vmax = vmaxget() ; res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBPainter, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBPainter_DrawPolygon" "', argument " "1"" of type '" "OpenBabel::OBPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBPainter * >(argp1);
+  res2 = SWIG_R_ConvertPtr(points, &argp2, SWIGTYPE_p_std__vectorT_std__pairT_double_double_t_std__allocatorT_std__pairT_double_double_t_t_t,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OBPainter_DrawPolygon" "', argument " "2"" of type '" "std::vector< std::pair< double,double >,std::allocator< std::pair< double,double > > > const &""'");  }
+   if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OBPainter_DrawPolygon" "', argument " "2"" of type '" "std::vector< std::pair< double,double >,std::allocator< std::pair< double,double > > > const &""'"); }
+   arg2 = reinterpret_cast< std::vector< std::pair< double,double >,std::allocator< std::pair< double,double > > > * >(argp2);
+  (arg1)->DrawPolygon((std::vector< std::pair< double,double >,std::allocator< std::pair< double,double > > > const &)*arg2);
+  r_ans = R_NilValue; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBPainter_DrawText ( SEXP self, SEXP x, SEXP y, SEXP text) {
+  OpenBabel::OBPainter *arg1 = (OpenBabel::OBPainter *) 0 ; double arg2 ; double arg3 ; std::string *arg4 = 0 ;
+  void *argp1 = 0 ; int res1 = 0 ; int res4 = SWIG_OLDOBJ ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ;
+  VMAXTYPE r_vmax = vmaxget() ; res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBPainter, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBPainter_DrawText" "', argument " "1"" of type '" "OpenBabel::OBPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBPainter * >(argp1); arg2 = static_cast< double >(REAL(x)[0]);
+  arg3 = static_cast< double >(REAL(y)[0]); { std::string *ptr = (std::string *)0; res4 = SWIG_AsPtr_std_string(text, &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "OBPainter_DrawText" "', argument " "4"" of type '" "std::string const &""'"); }
+     if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OBPainter_DrawText" "', argument " "4"" of type '" "std::string const &""'"); }
+     arg4 = ptr; }  (arg1)->DrawText(arg2,arg3,(std::string const &)*arg4); r_ans = R_NilValue;
+  if (SWIG_IsNewObj(res4)) delete arg4; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_OBPainter_GetFontMetrics ( SEXP self, SEXP text, SEXP s_swig_copy) { OpenBabel::OBFontMetrics result;
+  OpenBabel::OBPainter *arg1 = (OpenBabel::OBPainter *) 0 ; std::string *arg2 = 0 ; void *argp1 = 0 ; int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBPainter, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBPainter_GetFontMetrics" "', argument " "1"" of type '" "OpenBabel::OBPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::OBPainter * >(argp1); { std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(text, &ptr); if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OBPainter_GetFontMetrics" "', argument " "2"" of type '" "std::string const &""'"); }
+     if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OBPainter_GetFontMetrics" "', argument " "2"" of type '" "std::string const &""'"); }
+     arg2 = ptr; }  result = (arg1)->GetFontMetrics((std::string const &)*arg2);
+  r_ans = SWIG_R_NewPointerObj((new OpenBabel::OBFontMetrics(static_cast< const OpenBabel::OBFontMetrics& >(result))), SWIGTYPE_p_OpenBabel__OBFontMetrics, SWIG_POINTER_OWN |  0 );
+  if (SWIG_IsNewObj(res2)) delete arg2; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_new_SVGPainter__SWIG_0 ( SEXP ofs, SEXP withViewBox, SEXP width, SEXP height, SEXP x, SEXP y) {
+  OpenBabel::SVGPainter *result = 0 ; std::ostream *arg1 = 0 ; bool arg2 ; double arg3 ; double arg4 ; double arg5 ;
+  double arg6 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ;
+  VMAXTYPE r_vmax = vmaxget() ; res1 = SWIG_R_ConvertPtr(ofs, &argp1, SWIGTYPE_p_std__ostream,  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_SVGPainter" "', argument " "1"" of type '" "std::ostream &""'");  }
+   if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_SVGPainter" "', argument " "1"" of type '" "std::ostream &""'"); }
+   arg1 = reinterpret_cast< std::ostream * >(argp1); arg2 = LOGICAL(withViewBox)[0] ? true : false;
+  arg3 = static_cast< double >(REAL(width)[0]); arg4 = static_cast< double >(REAL(height)[0]);
+  arg5 = static_cast< double >(REAL(x)[0]); arg6 = static_cast< double >(REAL(y)[0]);
+  result = (OpenBabel::SVGPainter *)new OpenBabel::SVGPainter(*arg1,arg2,arg3,arg4,arg5,arg6);
+  r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenBabel__SVGPainter, R_SWIG_OWNER |  0 ); vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_new_SVGPainter__SWIG_1 ( SEXP ofs, SEXP withViewBox, SEXP width, SEXP height, SEXP x) {
+  OpenBabel::SVGPainter *result = 0 ; std::ostream *arg1 = 0 ; bool arg2 ; double arg3 ; double arg4 ; double arg5 ;
+  void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(ofs, &argp1, SWIGTYPE_p_std__ostream,  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_SVGPainter" "', argument " "1"" of type '" "std::ostream &""'");  }
+   if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_SVGPainter" "', argument " "1"" of type '" "std::ostream &""'"); }
+   arg1 = reinterpret_cast< std::ostream * >(argp1); arg2 = LOGICAL(withViewBox)[0] ? true : false;
+  arg3 = static_cast< double >(REAL(width)[0]); arg4 = static_cast< double >(REAL(height)[0]);
+  arg5 = static_cast< double >(REAL(x)[0]);
+  result = (OpenBabel::SVGPainter *)new OpenBabel::SVGPainter(*arg1,arg2,arg3,arg4,arg5);
+  r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenBabel__SVGPainter, R_SWIG_OWNER |  0 ); vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_new_SVGPainter__SWIG_2 ( SEXP ofs, SEXP withViewBox, SEXP width, SEXP height) {
+  OpenBabel::SVGPainter *result = 0 ; std::ostream *arg1 = 0 ; bool arg2 ; double arg3 ; double arg4 ; void *argp1 = 0 ;
+  int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(ofs, &argp1, SWIGTYPE_p_std__ostream,  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_SVGPainter" "', argument " "1"" of type '" "std::ostream &""'");  }
+   if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_SVGPainter" "', argument " "1"" of type '" "std::ostream &""'"); }
+   arg1 = reinterpret_cast< std::ostream * >(argp1); arg2 = LOGICAL(withViewBox)[0] ? true : false;
+  arg3 = static_cast< double >(REAL(width)[0]); arg4 = static_cast< double >(REAL(height)[0]);
+  result = (OpenBabel::SVGPainter *)new OpenBabel::SVGPainter(*arg1,arg2,arg3,arg4);
+  r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenBabel__SVGPainter, R_SWIG_OWNER |  0 ); vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_new_SVGPainter__SWIG_3 ( SEXP ofs, SEXP withViewBox, SEXP width) { OpenBabel::SVGPainter *result = 0 ;
+  std::ostream *arg1 = 0 ; bool arg2 ; double arg3 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
+  SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ; res1 = SWIG_R_ConvertPtr(ofs, &argp1, SWIGTYPE_p_std__ostream,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_SVGPainter" "', argument " "1"" of type '" "std::ostream &""'");  }
+   if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_SVGPainter" "', argument " "1"" of type '" "std::ostream &""'"); }
+   arg1 = reinterpret_cast< std::ostream * >(argp1); arg2 = LOGICAL(withViewBox)[0] ? true : false;
+  arg3 = static_cast< double >(REAL(width)[0]); result = (OpenBabel::SVGPainter *)new OpenBabel::SVGPainter(*arg1,arg2,arg3);
+  r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenBabel__SVGPainter, R_SWIG_OWNER |  0 ); vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_new_SVGPainter__SWIG_4 ( SEXP ofs, SEXP withViewBox) { OpenBabel::SVGPainter *result = 0 ;
+  std::ostream *arg1 = 0 ; bool arg2 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ;
+  VMAXTYPE r_vmax = vmaxget() ; res1 = SWIG_R_ConvertPtr(ofs, &argp1, SWIGTYPE_p_std__ostream,  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_SVGPainter" "', argument " "1"" of type '" "std::ostream &""'");  }
+   if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_SVGPainter" "', argument " "1"" of type '" "std::ostream &""'"); }
+   arg1 = reinterpret_cast< std::ostream * >(argp1); arg2 = LOGICAL(withViewBox)[0] ? true : false;
+  result = (OpenBabel::SVGPainter *)new OpenBabel::SVGPainter(*arg1,arg2);
+  r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenBabel__SVGPainter, R_SWIG_OWNER |  0 ); vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_new_SVGPainter__SWIG_5 ( SEXP ofs) { OpenBabel::SVGPainter *result = 0 ; std::ostream *arg1 = 0 ;
+  void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(ofs, &argp1, SWIGTYPE_p_std__ostream,  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_SVGPainter" "', argument " "1"" of type '" "std::ostream &""'");  }
+   if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_SVGPainter" "', argument " "1"" of type '" "std::ostream &""'"); }
+   arg1 = reinterpret_cast< std::ostream * >(argp1); result = (OpenBabel::SVGPainter *)new OpenBabel::SVGPainter(*arg1);
+  r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenBabel__SVGPainter, R_SWIG_OWNER |  0 ); vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_delete_SVGPainter ( SEXP self) { OpenBabel::SVGPainter *arg1 = (OpenBabel::SVGPainter *) 0 ;
+  void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__SVGPainter, SWIG_POINTER_DISOWN |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_SVGPainter" "', argument " "1"" of type '" "OpenBabel::SVGPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::SVGPainter * >(argp1); delete arg1; r_ans = R_NilValue; vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); R_ClearExternalPtr(self); return r_ans; }
+SWIGEXPORT SEXP R_swig_SVGPainter_WriteImage ( SEXP self, SEXP filename) {
+  OpenBabel::SVGPainter *arg1 = (OpenBabel::SVGPainter *) 0 ; std::string *arg2 = 0 ; void *argp1 = 0 ; int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__SVGPainter, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SVGPainter_WriteImage" "', argument " "1"" of type '" "OpenBabel::SVGPainter *""'");  }
+   arg1 = reinterpret_cast< OpenBabel::SVGPainter * >(argp1); { std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(filename, &ptr); if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SVGPainter_WriteImage" "', argument " "2"" of type '" "std::string const &""'"); }
+     if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SVGPainter_WriteImage" "', argument " "2"" of type '" "std::string const &""'"); }
+     arg2 = ptr; }  (arg1)->WriteImage((std::string const &)*arg2); r_ans = R_NilValue; if (SWIG_IsNewObj(res2)) delete arg2;
+  vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
 #ifdef __cplusplus
 }
 #endif
@@ -30518,6 +31138,9 @@ static void *_p_OpenBabel__CharPtrLessTo_p_std__binary_functionT_char_const_p_ch
 }
 static void *_p_OpenBabel__obLogBufTo_p_std__stringbuf(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((std::stringbuf *)  ((OpenBabel::obLogBuf *) x));
+}
+static void *_p_OpenBabel__SVGPainterTo_p_OpenBabel__OBPainter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((OpenBabel::OBPainter *)  ((OpenBabel::SVGPainter *) x));
 }
 static void *_p_OpenBabel__OBDescriptorTo_p_OpenBabel__OBPlugin(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((OpenBabel::OBPlugin *)  ((OpenBabel::OBDescriptor *) x));
@@ -30653,10 +31276,12 @@ static swig_type_info _swigt__p_OpenBabel__OBBond = {"_p_OpenBabel__OBBond", "st
 static swig_type_info _swigt__p_OpenBabel__OBBuilder = {"_p_OpenBabel__OBBuilder", "OpenBabel::OBBuilder *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBChainsParser = {"_p_OpenBabel__OBChainsParser", "OpenBabel::OBChainsParser *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBChiralData = {"_p_OpenBabel__OBChiralData", "OpenBabel::OBChiralData *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_OpenBabel__OBColor = {"_p_OpenBabel__OBColor", "OpenBabel::OBColor *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBCommentData = {"_p_OpenBabel__OBCommentData", "OpenBabel::OBCommentData *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBConformerData = {"_p_OpenBabel__OBConformerData", "OpenBabel::OBConformerData *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBConversion = {"_p_OpenBabel__OBConversion", "OpenBabel::OBConversion *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBDOSData = {"_p_OpenBabel__OBDOSData", "OpenBabel::OBDOSData *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_OpenBabel__OBDepict = {"_p_OpenBabel__OBDepict", "OpenBabel::OBDepict *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBDescriptor = {"_p_OpenBabel__OBDescriptor", "OpenBabel::OBDescriptor *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBElectronicTransitionData = {"_p_OpenBabel__OBElectronicTransitionData", "OpenBabel::OBElectronicTransitionData *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBElement = {"_p_OpenBabel__OBElement", "OpenBabel::OBElement *", 0, 0, (void*)0, 0};
@@ -30671,6 +31296,7 @@ static swig_type_info _swigt__p_OpenBabel__OBFFConstraint = {"_p_OpenBabel__OBFF
 static swig_type_info _swigt__p_OpenBabel__OBFFConstraints = {"_p_OpenBabel__OBFFConstraints", "OpenBabel::OBFFConstraints *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBFFParameter = {"_p_OpenBabel__OBFFParameter", "OpenBabel::OBFFParameter *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBFingerprint = {"_p_OpenBabel__OBFingerprint", "OpenBabel::OBFingerprint *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_OpenBabel__OBFontMetrics = {"_p_OpenBabel__OBFontMetrics", "OpenBabel::OBFontMetrics *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBForceField = {"_p_OpenBabel__OBForceField", "OpenBabel::OBForceField *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBFormat = {"_p_OpenBabel__OBFormat", "OpenBabel::OBFormat *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBGenericData = {"_p_OpenBabel__OBGenericData", "OpenBabel::OBGenericData *|std::vector< OpenBabel::OBGenericData * >::value_type", 0, 0, (void*)0, 0};
@@ -30694,6 +31320,7 @@ static swig_type_info _swigt__p_OpenBabel__OBNasaThermoData = {"_p_OpenBabel__OB
 static swig_type_info _swigt__p_OpenBabel__OBOp = {"_p_OpenBabel__OBOp", "OpenBabel::OBOp *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBOrbital = {"_p_OpenBabel__OBOrbital", "OpenBabel::OBOrbital *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBOrbitalData = {"_p_OpenBabel__OBOrbitalData", "OpenBabel::OBOrbitalData *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_OpenBabel__OBPainter = {"_p_OpenBabel__OBPainter", "OpenBabel::OBPainter *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBPairData = {"_p_OpenBabel__OBPairData", "OpenBabel::OBPairData *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBPairTemplateT_double_t = {"_p_OpenBabel__OBPairTemplateT_double_t", "OpenBabel::OBPairFloatingPoint *|OpenBabel::OBPairTemplate< double > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBPairTemplateT_int_t = {"_p_OpenBabel__OBPairTemplateT_int_t", "OpenBabel::OBPairInteger *|OpenBabel::OBPairTemplate< int > *", 0, 0, (void*)0, 0};
@@ -30728,6 +31355,7 @@ static swig_type_info _swigt__p_OpenBabel__OBVectorData = {"_p_OpenBabel__OBVect
 static swig_type_info _swigt__p_OpenBabel__OBVibrationData = {"_p_OpenBabel__OBVibrationData", "OpenBabel::OBVibrationData *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__OBVirtualBond = {"_p_OpenBabel__OBVirtualBond", "OpenBabel::OBVirtualBond *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__Pattern = {"_p_OpenBabel__Pattern", "OpenBabel::Pattern *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_OpenBabel__SVGPainter = {"_p_OpenBabel__SVGPainter", "OpenBabel::SVGPainter *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__SpaceGroup = {"_p_OpenBabel__SpaceGroup", "OpenBabel::SpaceGroup *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__Template = {"_p_OpenBabel__Template", "OpenBabel::Template *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OpenBabel__matrix3x3 = {"_p_OpenBabel__matrix3x3", "OpenBabel::matrix3x3 *", 0, 0, (void*)0, 0};
@@ -30768,6 +31396,7 @@ static swig_type_info _swigt__p_std__mapT_char_const_p_OpenBabel__OBPlugin_p_Ope
 static swig_type_info _swigt__p_std__mapT_int_OpenBabel__OBAtom_p_std__lessT_int_t_std__allocatorT_std__pairT_int_const_OpenBabel__OBAtom_p_t_t_t = {"_p_std__mapT_int_OpenBabel__OBAtom_p_std__lessT_int_t_std__allocatorT_std__pairT_int_const_OpenBabel__OBAtom_p_t_t_t", "std::map< int,OpenBabel::OBAtom *,std::less< int >,std::allocator< std::pair< int const,OpenBabel::OBAtom * > > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t = {"_p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t", "std::map< std::string,std::string,std::less< std::string >,std::allocator< std::pair< std::string const,std::string > > > *|OpenBabel::OBOp::OpMap *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__multimapT_double_unsigned_int_t = {"_p_std__multimapT_double_unsigned_int_t", "std::multimap< double,unsigned int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__ofstream = {"_p_std__ofstream", "std::ofstream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__ostream = {"_p_std__ostream", "std::ostream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__ostringstream = {"_p_std__ostringstream", "std::ostringstream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__pairT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_t = {"_p_std__pairT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_t", "std::pair< OpenBabel::OBAtom *,OpenBabel::OBAtom * > *", 0, 0, (void*)0, 0};
@@ -30803,6 +31432,7 @@ static swig_type_info _swigt__p_std__vectorT_double_p_std__allocatorT_double_p_t
 static swig_type_info _swigt__p_std__vectorT_double_p_std__allocatorT_double_p_t_t__iterator = {"_p_std__vectorT_double_p_std__allocatorT_double_p_t_t__iterator", "std::vector< double *,std::allocator< double * > >::iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_double_std__allocatorT_double_t_t = {"_p_std__vectorT_double_std__allocatorT_double_t_t", "std::vector< double,std::allocator< double > > *|std::vector< double > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_int_std__allocatorT_int_t_t = {"_p_std__vectorT_int_std__allocatorT_int_t_t", "std::vector< int,std::allocator< int > > *|std::vector< int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__vectorT_std__pairT_double_double_t_std__allocatorT_std__pairT_double_double_t_t_t = {"_p_std__vectorT_std__pairT_double_double_t_std__allocatorT_std__pairT_double_double_t_t_t", "std::vector< std::pair< double,double >,std::allocator< std::pair< double,double > > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_std__pairT_int_int_t_std__allocatorT_std__pairT_int_int_t_t_t = {"_p_std__vectorT_std__pairT_int_int_t_std__allocatorT_std__pairT_int_int_t_t_t", "std::vector< std::pair< int,int >,std::allocator< std::pair< int,int > > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_std__pairT_std__string_std__string_t_std__allocatorT_std__pairT_std__string_std__string_t_t_t = {"_p_std__vectorT_std__pairT_std__string_std__string_t_std__allocatorT_std__pairT_std__string_std__string_t_t_t", "std::vector< std::pair< std::string,std::string >,std::allocator< std::pair< std::string,std::string > > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t = {"_p_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t", "std::vector< std::pair< unsigned int,unsigned int > > *|std::vector< std::pair< unsigned int,unsigned int >,std::allocator< std::pair< unsigned int,unsigned int > > > *", 0, 0, (void*)0, 0};
@@ -30843,10 +31473,12 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_OpenBabel__OBBuilder,
   &_swigt__p_OpenBabel__OBChainsParser,
   &_swigt__p_OpenBabel__OBChiralData,
+  &_swigt__p_OpenBabel__OBColor,
   &_swigt__p_OpenBabel__OBCommentData,
   &_swigt__p_OpenBabel__OBConformerData,
   &_swigt__p_OpenBabel__OBConversion,
   &_swigt__p_OpenBabel__OBDOSData,
+  &_swigt__p_OpenBabel__OBDepict,
   &_swigt__p_OpenBabel__OBDescriptor,
   &_swigt__p_OpenBabel__OBElectronicTransitionData,
   &_swigt__p_OpenBabel__OBElement,
@@ -30861,6 +31493,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_OpenBabel__OBFFConstraints,
   &_swigt__p_OpenBabel__OBFFParameter,
   &_swigt__p_OpenBabel__OBFingerprint,
+  &_swigt__p_OpenBabel__OBFontMetrics,
   &_swigt__p_OpenBabel__OBForceField,
   &_swigt__p_OpenBabel__OBFormat,
   &_swigt__p_OpenBabel__OBGenericData,
@@ -30884,6 +31517,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_OpenBabel__OBOp,
   &_swigt__p_OpenBabel__OBOrbital,
   &_swigt__p_OpenBabel__OBOrbitalData,
+  &_swigt__p_OpenBabel__OBPainter,
   &_swigt__p_OpenBabel__OBPairData,
   &_swigt__p_OpenBabel__OBPairTemplateT_double_t,
   &_swigt__p_OpenBabel__OBPairTemplateT_int_t,
@@ -30918,6 +31552,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_OpenBabel__OBVibrationData,
   &_swigt__p_OpenBabel__OBVirtualBond,
   &_swigt__p_OpenBabel__Pattern,
+  &_swigt__p_OpenBabel__SVGPainter,
   &_swigt__p_OpenBabel__SpaceGroup,
   &_swigt__p_OpenBabel__Template,
   &_swigt__p_OpenBabel__matrix3x3,
@@ -30958,6 +31593,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__mapT_int_OpenBabel__OBAtom_p_std__lessT_int_t_std__allocatorT_std__pairT_int_const_OpenBabel__OBAtom_p_t_t_t,
   &_swigt__p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t,
   &_swigt__p_std__multimapT_double_unsigned_int_t,
+  &_swigt__p_std__ofstream,
   &_swigt__p_std__ostream,
   &_swigt__p_std__ostringstream,
   &_swigt__p_std__pairT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_t,
@@ -30993,6 +31629,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__vectorT_double_p_std__allocatorT_double_p_t_t__iterator,
   &_swigt__p_std__vectorT_double_std__allocatorT_double_t_t,
   &_swigt__p_std__vectorT_int_std__allocatorT_int_t_t,
+  &_swigt__p_std__vectorT_std__pairT_double_double_t_std__allocatorT_std__pairT_double_double_t_t_t,
   &_swigt__p_std__vectorT_std__pairT_int_int_t_std__allocatorT_std__pairT_int_int_t_t_t,
   &_swigt__p_std__vectorT_std__pairT_std__string_std__string_t_std__allocatorT_std__pairT_std__string_std__string_t_t_t,
   &_swigt__p_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t,
@@ -31033,10 +31670,12 @@ static swig_cast_info _swigc__p_OpenBabel__OBBond[] = {  {&_swigt__p_OpenBabel__
 static swig_cast_info _swigc__p_OpenBabel__OBBuilder[] = {  {&_swigt__p_OpenBabel__OBBuilder, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBChainsParser[] = {  {&_swigt__p_OpenBabel__OBChainsParser, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBChiralData[] = {  {&_swigt__p_OpenBabel__OBChiralData, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_OpenBabel__OBColor[] = {  {&_swigt__p_OpenBabel__OBColor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBCommentData[] = {  {&_swigt__p_OpenBabel__OBCommentData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBConformerData[] = {  {&_swigt__p_OpenBabel__OBConformerData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBConversion[] = {  {&_swigt__p_OpenBabel__OBConversion, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBDOSData[] = {  {&_swigt__p_OpenBabel__OBDOSData, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_OpenBabel__OBDepict[] = {  {&_swigt__p_OpenBabel__OBDepict, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBDescriptor[] = {  {&_swigt__p_OpenBabel__OBDescriptor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBElectronicTransitionData[] = {  {&_swigt__p_OpenBabel__OBElectronicTransitionData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBElement[] = {  {&_swigt__p_OpenBabel__OBElement, 0, 0, 0},{0, 0, 0, 0}};
@@ -31051,6 +31690,7 @@ static swig_cast_info _swigc__p_OpenBabel__OBFFConstraint[] = {  {&_swigt__p_Ope
 static swig_cast_info _swigc__p_OpenBabel__OBFFConstraints[] = {  {&_swigt__p_OpenBabel__OBFFConstraints, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBFFParameter[] = {  {&_swigt__p_OpenBabel__OBFFParameter, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBFingerprint[] = {  {&_swigt__p_OpenBabel__OBFingerprint, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_OpenBabel__OBFontMetrics[] = {  {&_swigt__p_OpenBabel__OBFontMetrics, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBForceField[] = {  {&_swigt__p_OpenBabel__OBForceField, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBFormat[] = {  {&_swigt__p_OpenBabel__OBFormat, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBGenericData[] = {  {&_swigt__p_OpenBabel__OBVibrationData, _p_OpenBabel__OBVibrationDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBTorsionData, _p_OpenBabel__OBTorsionDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBElectronicTransitionData, _p_OpenBabel__OBElectronicTransitionDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBRotationData, _p_OpenBabel__OBRotationDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__AliasData, _p_OpenBabel__AliasDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBPairData, _p_OpenBabel__OBPairDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBAngleData, _p_OpenBabel__OBAngleDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBAtomClassData, _p_OpenBabel__OBAtomClassDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBChiralData, _p_OpenBabel__OBChiralDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBOrbitalData, _p_OpenBabel__OBOrbitalDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBRingData, _p_OpenBabel__OBRingDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBSerialNums, _p_OpenBabel__OBSerialNumsTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBExternalBondData, _p_OpenBabel__OBExternalBondDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBSetData, _p_OpenBabel__OBSetDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBSymmetryData, _p_OpenBabel__OBSymmetryDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBMatrixData, _p_OpenBabel__OBMatrixDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBCommentData, _p_OpenBabel__OBCommentDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBVectorData, _p_OpenBabel__OBVectorDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBVirtualBond, _p_OpenBabel__OBVirtualBondTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBConformerData, _p_OpenBabel__OBConformerDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBDOSData, _p_OpenBabel__OBDOSDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBGridData, _p_OpenBabel__OBGridDataTo_p_OpenBabel__OBGenericData, 0, 0},  {&_swigt__p_OpenBabel__OBGenericData, 0, 0, 0},  {&_swigt__p_OpenBabel__OBUnitCell, _p_OpenBabel__OBUnitCellTo_p_OpenBabel__OBGenericData, 0, 0},{0, 0, 0, 0}};
@@ -31074,6 +31714,7 @@ static swig_cast_info _swigc__p_OpenBabel__OBNasaThermoData[] = {  {&_swigt__p_O
 static swig_cast_info _swigc__p_OpenBabel__OBOp[] = {  {&_swigt__p_OpenBabel__OBOp, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBOrbital[] = {  {&_swigt__p_OpenBabel__OBOrbital, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBOrbitalData[] = {  {&_swigt__p_OpenBabel__OBOrbitalData, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_OpenBabel__OBPainter[] = {  {&_swigt__p_OpenBabel__OBPainter, 0, 0, 0},  {&_swigt__p_OpenBabel__SVGPainter, _p_OpenBabel__SVGPainterTo_p_OpenBabel__OBPainter, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBPairData[] = {  {&_swigt__p_OpenBabel__OBPairData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBPairTemplateT_double_t[] = {  {&_swigt__p_OpenBabel__OBPairTemplateT_double_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBPairTemplateT_int_t[] = {  {&_swigt__p_OpenBabel__OBPairTemplateT_int_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -31108,6 +31749,7 @@ static swig_cast_info _swigc__p_OpenBabel__OBVectorData[] = {  {&_swigt__p_OpenB
 static swig_cast_info _swigc__p_OpenBabel__OBVibrationData[] = {  {&_swigt__p_OpenBabel__OBVibrationData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__OBVirtualBond[] = {  {&_swigt__p_OpenBabel__OBVirtualBond, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__Pattern[] = {  {&_swigt__p_OpenBabel__Pattern, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_OpenBabel__SVGPainter[] = {  {&_swigt__p_OpenBabel__SVGPainter, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__SpaceGroup[] = {  {&_swigt__p_OpenBabel__SpaceGroup, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__Template[] = {  {&_swigt__p_OpenBabel__Template, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OpenBabel__matrix3x3[] = {  {&_swigt__p_OpenBabel__transform3d, _p_OpenBabel__transform3dTo_p_OpenBabel__matrix3x3, 0, 0},  {&_swigt__p_OpenBabel__matrix3x3, 0, 0, 0},{0, 0, 0, 0}};
@@ -31148,6 +31790,7 @@ static swig_cast_info _swigc__p_std__mapT_char_const_p_OpenBabel__OBPlugin_p_Ope
 static swig_cast_info _swigc__p_std__mapT_int_OpenBabel__OBAtom_p_std__lessT_int_t_std__allocatorT_std__pairT_int_const_OpenBabel__OBAtom_p_t_t_t[] = {  {&_swigt__p_std__mapT_int_OpenBabel__OBAtom_p_std__lessT_int_t_std__allocatorT_std__pairT_int_const_OpenBabel__OBAtom_p_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t[] = {  {&_swigt__p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__multimapT_double_unsigned_int_t[] = {  {&_swigt__p_std__multimapT_double_unsigned_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__ofstream[] = {  {&_swigt__p_std__ofstream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__ostream[] = {  {&_swigt__p_std__ostream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__ostringstream[] = {  {&_swigt__p_std__ostringstream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__pairT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_t[] = {  {&_swigt__p_std__pairT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -31183,6 +31826,7 @@ static swig_cast_info _swigc__p_std__vectorT_double_p_std__allocatorT_double_p_t
 static swig_cast_info _swigc__p_std__vectorT_double_p_std__allocatorT_double_p_t_t__iterator[] = {  {&_swigt__p_std__vectorT_double_p_std__allocatorT_double_p_t_t__iterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_double_std__allocatorT_double_t_t[] = {  {&_swigt__p_std__vectorT_double_std__allocatorT_double_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_int_std__allocatorT_int_t_t[] = {  {&_swigt__p_std__vectorT_int_std__allocatorT_int_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__vectorT_std__pairT_double_double_t_std__allocatorT_std__pairT_double_double_t_t_t[] = {  {&_swigt__p_std__vectorT_std__pairT_double_double_t_std__allocatorT_std__pairT_double_double_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_std__pairT_int_int_t_std__allocatorT_std__pairT_int_int_t_t_t[] = {  {&_swigt__p_std__vectorT_std__pairT_int_int_t_std__allocatorT_std__pairT_int_int_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_std__pairT_std__string_std__string_t_std__allocatorT_std__pairT_std__string_std__string_t_t_t[] = {  {&_swigt__p_std__vectorT_std__pairT_std__string_std__string_t_std__allocatorT_std__pairT_std__string_std__string_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t[] = {  {&_swigt__p_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -31223,10 +31867,12 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_OpenBabel__OBBuilder,
   _swigc__p_OpenBabel__OBChainsParser,
   _swigc__p_OpenBabel__OBChiralData,
+  _swigc__p_OpenBabel__OBColor,
   _swigc__p_OpenBabel__OBCommentData,
   _swigc__p_OpenBabel__OBConformerData,
   _swigc__p_OpenBabel__OBConversion,
   _swigc__p_OpenBabel__OBDOSData,
+  _swigc__p_OpenBabel__OBDepict,
   _swigc__p_OpenBabel__OBDescriptor,
   _swigc__p_OpenBabel__OBElectronicTransitionData,
   _swigc__p_OpenBabel__OBElement,
@@ -31241,6 +31887,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_OpenBabel__OBFFConstraints,
   _swigc__p_OpenBabel__OBFFParameter,
   _swigc__p_OpenBabel__OBFingerprint,
+  _swigc__p_OpenBabel__OBFontMetrics,
   _swigc__p_OpenBabel__OBForceField,
   _swigc__p_OpenBabel__OBFormat,
   _swigc__p_OpenBabel__OBGenericData,
@@ -31264,6 +31911,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_OpenBabel__OBOp,
   _swigc__p_OpenBabel__OBOrbital,
   _swigc__p_OpenBabel__OBOrbitalData,
+  _swigc__p_OpenBabel__OBPainter,
   _swigc__p_OpenBabel__OBPairData,
   _swigc__p_OpenBabel__OBPairTemplateT_double_t,
   _swigc__p_OpenBabel__OBPairTemplateT_int_t,
@@ -31298,6 +31946,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_OpenBabel__OBVibrationData,
   _swigc__p_OpenBabel__OBVirtualBond,
   _swigc__p_OpenBabel__Pattern,
+  _swigc__p_OpenBabel__SVGPainter,
   _swigc__p_OpenBabel__SpaceGroup,
   _swigc__p_OpenBabel__Template,
   _swigc__p_OpenBabel__matrix3x3,
@@ -31338,6 +31987,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__mapT_int_OpenBabel__OBAtom_p_std__lessT_int_t_std__allocatorT_std__pairT_int_const_OpenBabel__OBAtom_p_t_t_t,
   _swigc__p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t,
   _swigc__p_std__multimapT_double_unsigned_int_t,
+  _swigc__p_std__ofstream,
   _swigc__p_std__ostream,
   _swigc__p_std__ostringstream,
   _swigc__p_std__pairT_OpenBabel__OBAtom_p_OpenBabel__OBAtom_p_t,
@@ -31373,6 +32023,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__vectorT_double_p_std__allocatorT_double_p_t_t__iterator,
   _swigc__p_std__vectorT_double_std__allocatorT_double_t_t,
   _swigc__p_std__vectorT_int_std__allocatorT_int_t_t,
+  _swigc__p_std__vectorT_std__pairT_double_double_t_std__allocatorT_std__pairT_double_double_t_t_t,
   _swigc__p_std__vectorT_std__pairT_int_int_t_std__allocatorT_std__pairT_int_int_t_t_t,
   _swigc__p_std__vectorT_std__pairT_std__string_std__string_t_std__allocatorT_std__pairT_std__string_std__string_t_t_t,
   _swigc__p_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t,
@@ -31648,6 +32299,7 @@ extern "C" {
 SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBFFConstraint_constraint_value_get", (DL_FUNC) &R_swig_OBFFConstraint_constraint_value_get, 2},
    {"R_swig_Residue_get", (DL_FUNC) &R_swig_Residue_get, 1},
+   {"R_swig_OBColor_blue_get", (DL_FUNC) &R_swig_OBColor_blue_get, 2},
    {"R_swig_OBRingSearch_RemoveRedundant", (DL_FUNC) &R_swig_OBRingSearch_RemoveRedundant, 2},
    {"R_swig_OBConversion_IsLast", (DL_FUNC) &R_swig_OBConversion_IsLast, 2},
    {"R_swig_OBMolBondIter_UnsetWedge", (DL_FUNC) &R_swig_OBMolBondIter_UnsetWedge, 1},
@@ -31658,6 +32310,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBBond_UnsetWedge", (DL_FUNC) &R_swig_OBBond_UnsetWedge, 1},
    {"R_swig_OBAtomBondIter_SetWedge", (DL_FUNC) &R_swig_OBAtomBondIter_SetWedge, 1},
    {"R_swig_OBAtomBondIter_UnsetWedge", (DL_FUNC) &R_swig_OBAtomBondIter_UnsetWedge, 1},
+   {"R_swig_OBColor_alpha_set", (DL_FUNC) &R_swig_OBColor_alpha_set, 2},
    {"R_swig_OBConversion_IsLastFile", (DL_FUNC) &R_swig_OBConversion_IsLastFile, 2},
    {"R_swig_OBRing_findCenterAndNormal", (DL_FUNC) &R_swig_OBRing_findCenterAndNormal, 5},
    {"R_swig_OBMolRingIter_findCenterAndNormal", (DL_FUNC) &R_swig_OBMolRingIter_findCenterAndNormal, 5},
@@ -31715,6 +32368,8 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBOp_OpOptions", (DL_FUNC) &R_swig_OBOp_OpOptions, 2},
    {"R_swig_OBConversion_GetOptions", (DL_FUNC) &R_swig_OBConversion_GetOptions, 2},
    {"R_swig_OBConversion_SetOptions", (DL_FUNC) &R_swig_OBConversion_SetOptions, 3},
+   {"R_swig_OBDepict_GetOptions", (DL_FUNC) &R_swig_OBDepict_GetOptions, 2},
+   {"R_swig_OBDepict_ClearOptions", (DL_FUNC) &R_swig_OBDepict_ClearOptions, 1},
    {"R_swig_delete_OBAngleData", (DL_FUNC) &R_swig_delete_OBAngleData, 1},
    {"R_swig_toAngleData", (DL_FUNC) &R_swig_toAngleData, 1},
    {"R_swig_OBOrbitalData_GetAlphaHOMO", (DL_FUNC) &R_swig_OBOrbitalData_GetAlphaHOMO, 2},
@@ -31910,6 +32565,8 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBPlugin_MakeInstance", (DL_FUNC) &R_swig_OBPlugin_MakeInstance, 2},
    {"R_swig_OBFormat_MakeNewInstance", (DL_FUNC) &R_swig_OBFormat_MakeNewInstance, 1},
    {"R_swig_OBMol_CreateAtom", (DL_FUNC) &R_swig_OBMol_CreateAtom, 1},
+   {"R_swig_new_OBDepict", (DL_FUNC) &R_swig_new_OBDepict, 1},
+   {"R_swig_delete_OBDepict", (DL_FUNC) &R_swig_delete_OBDepict, 1},
    {"R_swig_matrix3x3_GetArray", (DL_FUNC) &R_swig_matrix3x3_GetArray, 2},
    {"R_swig_OBAtomAtomIter_IsOneThree", (DL_FUNC) &R_swig_OBAtomAtomIter_IsOneThree, 3},
    {"R_swig_OBMolAtomBFSIter_IsOneThree", (DL_FUNC) &R_swig_OBMolAtomBFSIter_IsOneThree, 3},
@@ -31981,12 +32638,19 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBMessageHandler_GetOutputLevel", (DL_FUNC) &R_swig_OBMessageHandler_GetOutputLevel, 2},
    {"R_swig_OBResidueIter_GetAtoms", (DL_FUNC) &R_swig_OBResidueIter_GetAtoms, 2},
    {"R_swig_delete_OBAngle", (DL_FUNC) &R_swig_delete_OBAngle, 1},
+   {"R_swig_OBDepict_SetPenWidth", (DL_FUNC) &R_swig_OBDepict_SetPenWidth, 2},
+   {"R_swig_OBDepict_GetPenWidth", (DL_FUNC) &R_swig_OBDepict_GetPenWidth, 2},
+   {"R_swig_OBPainter_SetPenWidth", (DL_FUNC) &R_swig_OBPainter_SetPenWidth, 2},
    {"R_swig_OBFormat_SkipObjects", (DL_FUNC) &R_swig_OBFormat_SkipObjects, 4},
    {"R_swig_OBConversion_NumInputObjects", (DL_FUNC) &R_swig_OBConversion_NumInputObjects, 2},
    {"R_swig_DoubleType_lo_set", (DL_FUNC) &R_swig_DoubleType_lo_set, 2},
    {"R_swig_OBFormat_FormatFromMIME", (DL_FUNC) &R_swig_OBFormat_FormatFromMIME, 1},
    {"R_swig_OBConversion_FormatFromMIME", (DL_FUNC) &R_swig_OBConversion_FormatFromMIME, 1},
    {"R_swig_qtrfit", (DL_FUNC) &R_swig_qtrfit, 4},
+   {"R_swig_new_OBFontMetrics", (DL_FUNC) &R_swig_new_OBFontMetrics, 0},
+   {"R_swig_delete_OBFontMetrics", (DL_FUNC) &R_swig_delete_OBFontMetrics, 1},
+   {"R_swig_OBPainter_GetFontMetrics", (DL_FUNC) &R_swig_OBPainter_GetFontMetrics, 3},
+   {"R_swig_OBPainter_IsGood", (DL_FUNC) &R_swig_OBPainter_IsGood, 2},
    {"R_swig_OBAtomAtomIter_AverageBondAngle", (DL_FUNC) &R_swig_OBAtomAtomIter_AverageBondAngle, 2},
    {"R_swig_OBAtomAtomIter_SmallestBondAngle", (DL_FUNC) &R_swig_OBAtomAtomIter_SmallestBondAngle, 2},
    {"R_swig_OBMolAtomBFSIter_AverageBondAngle", (DL_FUNC) &R_swig_OBMolAtomBFSIter_AverageBondAngle, 2},
@@ -32100,12 +32764,14 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBBuilder_AddNbrs", (DL_FUNC) &R_swig_OBBuilder_AddNbrs, 2},
    {"R_swig_OBRingSearch_WriteRings", (DL_FUNC) &R_swig_OBRingSearch_WriteRings, 1},
    {"R_swig_OBFFConstraints_IsYFixed", (DL_FUNC) &R_swig_OBFFConstraints_IsYFixed, 3},
+   {"R_swig_OBColor_red_set", (DL_FUNC) &R_swig_OBColor_red_set, 2},
    {"R_swig_OBFFConstraint_b_get", (DL_FUNC) &R_swig_OBFFConstraint_b_get, 1},
    {"R_swig_OBFFCalculation2_idx_b_get", (DL_FUNC) &R_swig_OBFFCalculation2_idx_b_get, 2},
    {"R_swig_OBFFCalculation2_b_get", (DL_FUNC) &R_swig_OBFFCalculation2_b_get, 1},
    {"R_swig_OBFFParameter_b_get", (DL_FUNC) &R_swig_OBFFParameter_b_get, 2},
    {"R_swig_delete_OBGenericData", (DL_FUNC) &R_swig_delete_OBGenericData, 1},
    {"R_swig_delete_vectorpOBGenericData", (DL_FUNC) &R_swig_delete_vectorpOBGenericData, 1},
+   {"R_swig_OBFontMetrics_width_get", (DL_FUNC) &R_swig_OBFontMetrics_width_get, 2},
    {"R_swig_OBForceField_AddIntraGroup", (DL_FUNC) &R_swig_OBForceField_AddIntraGroup, 2},
    {"R_swig_OBVibrationData_GetRamanActivities", (DL_FUNC) &R_swig_OBVibrationData_GetRamanActivities, 2},
    {"R_swig_OBBitVec_GetSize", (DL_FUNC) &R_swig_OBBitVec_GetSize, 2},
@@ -32211,11 +32877,12 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBVirtualBond_GetBgn", (DL_FUNC) &R_swig_OBVirtualBond_GetBgn, 2},
    {"R_swig_OBResidue_EndAtoms", (DL_FUNC) &R_swig_OBResidue_EndAtoms, 2},
    {"R_swig_OBResidueIter_EndAtoms", (DL_FUNC) &R_swig_OBResidueIter_EndAtoms, 2},
-   {"R_swig_OBAtomBondIter_SetBegin", (DL_FUNC) &R_swig_OBAtomBondIter_SetBegin, 2},
    {"R_swig_OBMolBondIter_SetBegin", (DL_FUNC) &R_swig_OBMolBondIter_SetBegin, 2},
    {"R_swig_OBMolBondBFSIter_SetBegin", (DL_FUNC) &R_swig_OBMolBondBFSIter_SetBegin, 2},
    {"R_swig_OBSetData_GetBegin", (DL_FUNC) &R_swig_OBSetData_GetBegin, 2},
    {"R_swig_OBBond_SetBegin", (DL_FUNC) &R_swig_OBBond_SetBegin, 2},
+   {"R_swig_OBAtomBondIter_SetBegin", (DL_FUNC) &R_swig_OBAtomBondIter_SetBegin, 2},
+   {"R_swig_SVGPainter_WriteImage", (DL_FUNC) &R_swig_SVGPainter_WriteImage, 2},
    {"R_swig_OBResidueData_LookupType", (DL_FUNC) &R_swig_OBResidueData_LookupType, 5},
    {"R_swig_DoubleType_hi_get", (DL_FUNC) &R_swig_DoubleType_hi_get, 2},
    {"R_swig_OBForceField_IsSetupNeeded", (DL_FUNC) &R_swig_OBForceField_IsSetupNeeded, 3},
@@ -32274,6 +32941,8 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_new_DoubleType", (DL_FUNC) &R_swig_new_DoubleType, 0},
    {"R_swig_delete_DoubleType", (DL_FUNC) &R_swig_delete_DoubleType, 1},
    {"R_swig_OBFormat_GetMIMEType", (DL_FUNC) &R_swig_OBFormat_GetMIMEType, 1},
+   {"R_swig_OBDepict_SetBondWidth", (DL_FUNC) &R_swig_OBDepict_SetBondWidth, 2},
+   {"R_swig_OBDepict_GetBondWidth", (DL_FUNC) &R_swig_OBDepict_GetBondWidth, 2},
    {"R_swig_OBSmartsPattern_IsValid", (DL_FUNC) &R_swig_OBSmartsPattern_IsValid, 2},
    {"R_swig_SpaceGroup_IsValid", (DL_FUNC) &R_swig_SpaceGroup_IsValid, 2},
    {"R_swig_OBBitVec_Fold", (DL_FUNC) &R_swig_OBBitVec_Fold, 2},
@@ -32334,6 +33003,8 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_delete_OBChiralData", (DL_FUNC) &R_swig_delete_OBChiralData, 1},
    {"R_swig_toChiralData", (DL_FUNC) &R_swig_toChiralData, 1},
    {"R_swig_OBMol_FindSSSR", (DL_FUNC) &R_swig_OBMol_FindSSSR, 1},
+   {"R_swig_OBDepict_SetBondSpacing", (DL_FUNC) &R_swig_OBDepict_SetBondSpacing, 2},
+   {"R_swig_OBDepict_GetBondSpacing", (DL_FUNC) &R_swig_OBDepict_GetBondSpacing, 2},
    {"R_swig_OBAtomAtomIter_SetHybAndGeom", (DL_FUNC) &R_swig_OBAtomAtomIter_SetHybAndGeom, 3},
    {"R_swig_OBMolAtomBFSIter_SetHybAndGeom", (DL_FUNC) &R_swig_OBMolAtomBFSIter_SetHybAndGeom, 3},
    {"R_swig_OBMolAtomDFSIter_SetHybAndGeom", (DL_FUNC) &R_swig_OBMolAtomDFSIter_SetHybAndGeom, 3},
@@ -32368,6 +33039,9 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBFFCalculation3_c_get", (DL_FUNC) &R_swig_OBFFCalculation3_c_get, 1},
    {"R_swig_OBFFParameter__c_get", (DL_FUNC) &R_swig_OBFFParameter__c_get, 2},
    {"R_swig_OBInternalCoord__c_get", (DL_FUNC) &R_swig_OBInternalCoord__c_get, 1},
+   {"R_swig_OBDepict_SetFontFamily", (DL_FUNC) &R_swig_OBDepict_SetFontFamily, 2},
+   {"R_swig_OBDepict_GetFontFamily", (DL_FUNC) &R_swig_OBDepict_GetFontFamily, 2},
+   {"R_swig_OBPainter_SetFontFamily", (DL_FUNC) &R_swig_OBPainter_SetFontFamily, 2},
    {"R_swig_OBFFConstraints_GetConstraintAtomB", (DL_FUNC) &R_swig_OBFFConstraints_GetConstraintAtomB, 3},
    {"R_swig_OBFFConstraints_GetConstraintAtomC", (DL_FUNC) &R_swig_OBFFConstraints_GetConstraintAtomC, 3},
    {"R_swig_OBFFConstraints_GetConstraintAtomD", (DL_FUNC) &R_swig_OBFFConstraints_GetConstraintAtomD, 3},
@@ -32421,6 +33095,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBAtomBondIter_DataSize", (DL_FUNC) &R_swig_OBAtomBondIter_DataSize, 2},
    {"R_swig_OBResidueIter_DataSize", (DL_FUNC) &R_swig_OBResidueIter_DataSize, 2},
    {"R_swig_OBResidueAtomIter_DataSize", (DL_FUNC) &R_swig_OBResidueAtomIter_DataSize, 2},
+   {"R_swig_OBFontMetrics_height_set", (DL_FUNC) &R_swig_OBFontMetrics_height_set, 2},
    {"R_swig_ResNo_set", (DL_FUNC) &R_swig_ResNo_set, 1},
    {"R_swig_ElemNo_set", (DL_FUNC) &R_swig_ElemNo_set, 1},
    {"R_swig_OBAtomBondIter_Visit_get", (DL_FUNC) &R_swig_OBAtomBondIter_Visit_get, 2},
@@ -32511,6 +33186,8 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBResidueAtomIter_HasResidue", (DL_FUNC) &R_swig_OBResidueAtomIter_HasResidue, 2},
    {"R_swig_OBSmartsPattern_NumBonds", (DL_FUNC) &R_swig_OBSmartsPattern_NumBonds, 2},
    {"R_swig_OBMol_NumBonds", (DL_FUNC) &R_swig_OBMol_NumBonds, 2},
+   {"R_swig_OBFontMetrics_ascent_set", (DL_FUNC) &R_swig_OBFontMetrics_ascent_set, 2},
+   {"R_swig_OBFontMetrics_descent_set", (DL_FUNC) &R_swig_OBFontMetrics_descent_set, 2},
    {"R_swig_OBUnitCell_FractionalToCartesian", (DL_FUNC) &R_swig_OBUnitCell_FractionalToCartesian, 3},
    {"R_swig_InternalToCartesian", (DL_FUNC) &R_swig_InternalToCartesian, 2},
    {"R_swig_OBAtomAtomIter_Duplicate", (DL_FUNC) &R_swig_OBAtomAtomIter_Duplicate, 2},
@@ -32601,6 +33278,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_delete_vectorOBRing", (DL_FUNC) &R_swig_delete_vectorOBRing, 1},
    {"R_swig_OBForceField_ValidateGradientError", (DL_FUNC) &R_swig_OBForceField_ValidateGradientError, 4},
    {"R_swig_ElemDesc_get", (DL_FUNC) &R_swig_ElemDesc_get, 1},
+   {"R_swig_OBFontMetrics_fontSize_get", (DL_FUNC) &R_swig_OBFontMetrics_fontSize_get, 2},
    {"R_swig_SpaceGroup_GetHMName", (DL_FUNC) &R_swig_SpaceGroup_GetHMName, 2},
    {"R_swig_OBConversion_GetInPos", (DL_FUNC) &R_swig_OBConversion_GetInPos, 2},
    {"R_swig_OBError_GetPossibleCause", (DL_FUNC) &R_swig_OBError_GetPossibleCause, 2},
@@ -32660,6 +33338,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBMolTorsionIter___ref__", (DL_FUNC) &R_swig_OBMolTorsionIter___ref__, 2},
    {"R_swig_OBMolPairIter___ref__", (DL_FUNC) &R_swig_OBMolPairIter___ref__, 2},
    {"R_swig_OBMolRingIter___ref__", (DL_FUNC) &R_swig_OBMolRingIter___ref__, 2},
+   {"R_swig_OBColor_green_set", (DL_FUNC) &R_swig_OBColor_green_set, 2},
    {"R_swig_delete_OBDescriptor", (DL_FUNC) &R_swig_delete_OBDescriptor, 1},
    {"R_swig_delete_OBAtomTyper", (DL_FUNC) &R_swig_delete_OBAtomTyper, 1},
    {"R_swig_new_OBAtomTyper", (DL_FUNC) &R_swig_new_OBAtomTyper, 0},
@@ -32715,6 +33394,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_delete_OBFFConstraints", (DL_FUNC) &R_swig_delete_OBFFConstraints, 1},
    {"R_swig_new_OBFFConstraints", (DL_FUNC) &R_swig_new_OBFFConstraints, 0},
    {"R_swig_OBBitVec_BitIsSet", (DL_FUNC) &R_swig_OBBitVec_BitIsSet, 3},
+   {"R_swig_OBDepict_SetOption", (DL_FUNC) &R_swig_OBDepict_SetOption, 2},
    {"R_swig_resdat_get", (DL_FUNC) &R_swig_resdat_get, 1},
    {"R_swig_OBPlugin_Init", (DL_FUNC) &R_swig_OBPlugin_Init, 1},
    {"R_swig_delete_transform3d", (DL_FUNC) &R_swig_delete_transform3d, 1},
@@ -33039,6 +33719,11 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBMolRingIter_inc__SWIG_0", (DL_FUNC) &R_swig_OBMolRingIter_inc__SWIG_0, 2},
    {"R_swig_OBMolRingIter_SetType__SWIG_0", (DL_FUNC) &R_swig_OBMolRingIter_SetType__SWIG_0, 2},
    {"R_swig_OBMolRingIter_IsMember__SWIG_0", (DL_FUNC) &R_swig_OBMolRingIter_IsMember__SWIG_0, 3},
+   {"R_swig_OBDepict_SetFontSize__SWIG_0", (DL_FUNC) &R_swig_OBDepict_SetFontSize__SWIG_0, 3},
+   {"R_swig_OBDepict_GetFontSize__SWIG_0", (DL_FUNC) &R_swig_OBDepict_GetFontSize__SWIG_0, 3},
+   {"R_swig_OBDepict_SetAliasMode__SWIG_0", (DL_FUNC) &R_swig_OBDepict_SetAliasMode__SWIG_0, 2},
+   {"R_swig_new_OBColor__SWIG_0", (DL_FUNC) &R_swig_new_OBColor__SWIG_0, 0},
+   {"R_swig_new_SVGPainter__SWIG_0", (DL_FUNC) &R_swig_new_SVGPainter__SWIG_0, 6},
    {"R_swig_OBAtomBondIter_inc__SWIG_1", (DL_FUNC) &R_swig_OBAtomBondIter_inc__SWIG_1, 3},
    {"R_swig_new_OBAtomBondIter__SWIG_1", (DL_FUNC) &R_swig_new_OBAtomBondIter__SWIG_1, 1},
    {"R_swig_OBAtomAtomIter_GetData__SWIG_1", (DL_FUNC) &R_swig_OBAtomAtomIter_GetData__SWIG_1, 2},
@@ -33194,6 +33879,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_new_vectorpOBInternalCoord__SWIG_1", (DL_FUNC) &R_swig_new_vectorpOBInternalCoord__SWIG_1, 1},
    {"R_swig_new_vectorpOBGenericData__SWIG_1", (DL_FUNC) &R_swig_new_vectorpOBGenericData__SWIG_1, 1},
    {"R_swig_new_vectorpOBRing__SWIG_1", (DL_FUNC) &R_swig_new_vectorpOBRing__SWIG_1, 1},
+   {"R_swig_new_vectorOBRing__SWIG_1", (DL_FUNC) &R_swig_new_vectorOBRing__SWIG_1, 1},
    {"R_swig_new_vectorDouble__SWIG_1", (DL_FUNC) &R_swig_new_vectorDouble__SWIG_1, 1},
    {"R_swig_new_vectorvInt__SWIG_1", (DL_FUNC) &R_swig_new_vectorvInt__SWIG_1, 1},
    {"R_swig_new_vectorUnsignedInt__SWIG_1", (DL_FUNC) &R_swig_new_vectorUnsignedInt__SWIG_1, 1},
@@ -33204,7 +33890,6 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_new_vectorOBMol__SWIG_1", (DL_FUNC) &R_swig_new_vectorOBMol__SWIG_1, 1},
    {"R_swig_new_vectorOBBond__SWIG_1", (DL_FUNC) &R_swig_new_vectorOBBond__SWIG_1, 1},
    {"R_swig_new_vectorOBResidue__SWIG_1", (DL_FUNC) &R_swig_new_vectorOBResidue__SWIG_1, 1},
-   {"R_swig_new_vectorOBRing__SWIG_1", (DL_FUNC) &R_swig_new_vectorOBRing__SWIG_1, 1},
    {"R_swig_new_OBElement__SWIG_1", (DL_FUNC) &R_swig_new_OBElement__SWIG_1, 14},
    {"R_swig_OBElementTable_GetAtomicNum__SWIG_1", (DL_FUNC) &R_swig_OBElementTable_GetAtomicNum__SWIG_1, 4},
    {"R_swig_OBElementTable_CorrectedBondRad__SWIG_1", (DL_FUNC) &R_swig_OBElementTable_CorrectedBondRad__SWIG_1, 3},
@@ -33323,6 +34008,11 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBMolRingIter_inc__SWIG_1", (DL_FUNC) &R_swig_OBMolRingIter_inc__SWIG_1, 3},
    {"R_swig_OBMolRingIter_SetType__SWIG_1", (DL_FUNC) &R_swig_OBMolRingIter_SetType__SWIG_1, 2},
    {"R_swig_OBMolRingIter_IsMember__SWIG_1", (DL_FUNC) &R_swig_OBMolRingIter_IsMember__SWIG_1, 3},
+   {"R_swig_OBDepict_SetFontSize__SWIG_1", (DL_FUNC) &R_swig_OBDepict_SetFontSize__SWIG_1, 2},
+   {"R_swig_OBDepict_GetFontSize__SWIG_1", (DL_FUNC) &R_swig_OBDepict_GetFontSize__SWIG_1, 2},
+   {"R_swig_OBDepict_SetAliasMode__SWIG_1", (DL_FUNC) &R_swig_OBDepict_SetAliasMode__SWIG_1, 1},
+   {"R_swig_new_OBColor__SWIG_1", (DL_FUNC) &R_swig_new_OBColor__SWIG_1, 4},
+   {"R_swig_new_SVGPainter__SWIG_1", (DL_FUNC) &R_swig_new_SVGPainter__SWIG_1, 5},
    {"R_swig_new_OBAtomBondIter__SWIG_2", (DL_FUNC) &R_swig_new_OBAtomBondIter__SWIG_2, 1},
    {"R_swig_OBAtomAtomIter_GetData__SWIG_2", (DL_FUNC) &R_swig_OBAtomAtomIter_GetData__SWIG_2, 2},
    {"R_swig_OBAtomAtomIter_DeleteData__SWIG_2", (DL_FUNC) &R_swig_OBAtomAtomIter_DeleteData__SWIG_2, 2},
@@ -33375,10 +34065,10 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_new_vectorpOBGenericData__SWIG_2", (DL_FUNC) &R_swig_new_vectorpOBGenericData__SWIG_2, 1},
    {"R_swig_new_vectorpOBRing__SWIG_2", (DL_FUNC) &R_swig_new_vectorpOBRing__SWIG_2, 1},
    {"R_swig_new_vectorOBRing__SWIG_2", (DL_FUNC) &R_swig_new_vectorOBRing__SWIG_2, 1},
-   {"R_swig_new_vectorDouble__SWIG_2", (DL_FUNC) &R_swig_new_vectorDouble__SWIG_2, 1},
    {"R_swig_new_vectorvInt__SWIG_2", (DL_FUNC) &R_swig_new_vectorvInt__SWIG_2, 1},
    {"R_swig_new_vectorUnsignedInt__SWIG_2", (DL_FUNC) &R_swig_new_vectorUnsignedInt__SWIG_2, 1},
    {"R_swig_new_vectorInt__SWIG_2", (DL_FUNC) &R_swig_new_vectorInt__SWIG_2, 1},
+   {"R_swig_new_vectorDouble__SWIG_2", (DL_FUNC) &R_swig_new_vectorDouble__SWIG_2, 1},
    {"R_swig_new_vectorString__SWIG_2", (DL_FUNC) &R_swig_new_vectorString__SWIG_2, 1},
    {"R_swig_new_vectorVector3__SWIG_2", (DL_FUNC) &R_swig_new_vectorVector3__SWIG_2, 1},
    {"R_swig_new_vectorvVector3__SWIG_2", (DL_FUNC) &R_swig_new_vectorvVector3__SWIG_2, 1},
@@ -33417,6 +34107,8 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_new_OBMolTorsionIter__SWIG_2", (DL_FUNC) &R_swig_new_OBMolTorsionIter__SWIG_2, 1},
    {"R_swig_new_OBMolPairIter__SWIG_2", (DL_FUNC) &R_swig_new_OBMolPairIter__SWIG_2, 1},
    {"R_swig_new_OBMolRingIter__SWIG_2", (DL_FUNC) &R_swig_new_OBMolRingIter__SWIG_2, 1},
+   {"R_swig_new_OBColor__SWIG_2", (DL_FUNC) &R_swig_new_OBColor__SWIG_2, 3},
+   {"R_swig_new_SVGPainter__SWIG_2", (DL_FUNC) &R_swig_new_SVGPainter__SWIG_2, 4},
    {"R_swig_OBAtomAtomIter_GetData__SWIG_3", (DL_FUNC) &R_swig_OBAtomAtomIter_GetData__SWIG_3, 3},
    {"R_swig_OBAtomAtomIter_DeleteData__SWIG_3", (DL_FUNC) &R_swig_OBAtomAtomIter_DeleteData__SWIG_3, 3},
    {"R_swig_OBMolBondIter_GetData__SWIG_3", (DL_FUNC) &R_swig_OBMolBondIter_GetData__SWIG_3, 3},
@@ -33474,6 +34166,8 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBResidueIter_GetData__SWIG_3", (DL_FUNC) &R_swig_OBResidueIter_GetData__SWIG_3, 3},
    {"R_swig_OBResidueAtomIter_DeleteData__SWIG_3", (DL_FUNC) &R_swig_OBResidueAtomIter_DeleteData__SWIG_3, 3},
    {"R_swig_OBResidueAtomIter_GetData__SWIG_3", (DL_FUNC) &R_swig_OBResidueAtomIter_GetData__SWIG_3, 3},
+   {"R_swig_new_OBColor__SWIG_3", (DL_FUNC) &R_swig_new_OBColor__SWIG_3, 1},
+   {"R_swig_new_SVGPainter__SWIG_3", (DL_FUNC) &R_swig_new_SVGPainter__SWIG_3, 3},
    {"R_swig_new_FastSearchIndexer__SWIG_4", (DL_FUNC) &R_swig_new_FastSearchIndexer__SWIG_4, 2},
    {"R_swig_new_vector3__SWIG_4", (DL_FUNC) &R_swig_new_vector3__SWIG_4, 1},
    {"R_swig_new_transform3d__SWIG_4", (DL_FUNC) &R_swig_new_transform3d__SWIG_4, 2},
@@ -33482,10 +34176,13 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_new_OBInternalCoord__SWIG_4", (DL_FUNC) &R_swig_new_OBInternalCoord__SWIG_4, 2},
    {"R_swig_OBMol_AddHydrogens__SWIG_4", (DL_FUNC) &R_swig_OBMol_AddHydrogens__SWIG_4, 3},
    {"R_swig_OBMol_GetMod", (DL_FUNC) &R_swig_OBMol_GetMod, 2},
+   {"R_swig_new_OBColor__SWIG_4", (DL_FUNC) &R_swig_new_OBColor__SWIG_4, 1},
+   {"R_swig_new_SVGPainter__SWIG_4", (DL_FUNC) &R_swig_new_SVGPainter__SWIG_4, 2},
    {"R_swig_new_vector3__SWIG_5", (DL_FUNC) &R_swig_new_vector3__SWIG_5, 1},
    {"R_swig_new_OBError__SWIG_5", (DL_FUNC) &R_swig_new_OBError__SWIG_5, 1},
    {"R_swig_new_OBInternalCoord__SWIG_5", (DL_FUNC) &R_swig_new_OBInternalCoord__SWIG_5, 1},
    {"R_swig_OBBitVec_Negate", (DL_FUNC) &R_swig_OBBitVec_Negate, 1},
+   {"R_swig_new_SVGPainter__SWIG_5", (DL_FUNC) &R_swig_new_SVGPainter__SWIG_5, 1},
    {"R_swig_new_OBError__SWIG_6", (DL_FUNC) &R_swig_new_OBError__SWIG_6, 0},
    {"R_swig_new_OBInternalCoord__SWIG_6", (DL_FUNC) &R_swig_new_OBInternalCoord__SWIG_6, 0},
    {"R_swig_OBRotationData_GetSymmetryNumber", (DL_FUNC) &R_swig_OBRotationData_GetSymmetryNumber, 2},
@@ -33527,6 +34224,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBBuilder_IsSpiroAtom", (DL_FUNC) &R_swig_OBBuilder_IsSpiroAtom, 3},
    {"R_swig_OBElement_GetIonization", (DL_FUNC) &R_swig_OBElement_GetIonization, 2},
    {"R_swig_OBElementTable_GetIonization", (DL_FUNC) &R_swig_OBElementTable_GetIonization, 3},
+   {"R_swig_OBPainter_SetPenColor", (DL_FUNC) &R_swig_OBPainter_SetPenColor, 2},
    {"R_swig_new_OBBase", (DL_FUNC) &R_swig_new_OBBase, 0},
    {"R_swig_delete_OBBase", (DL_FUNC) &R_swig_delete_OBBase, 1},
    {"R_swig_OBAtomAtomIter_CountRingBonds", (DL_FUNC) &R_swig_OBAtomAtomIter_CountRingBonds, 2},
@@ -33638,8 +34336,10 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_delete_OBRandom", (DL_FUNC) &R_swig_delete_OBRandom, 1},
    {"R_swig_OBConformerData_GetDisplacements", (DL_FUNC) &R_swig_OBConformerData_GetDisplacements, 2},
    {"R_swig_OBConformerData_SetDisplacements", (DL_FUNC) &R_swig_OBConformerData_SetDisplacements, 2},
+   {"R_swig_OBColor_alpha_get", (DL_FUNC) &R_swig_OBColor_alpha_get, 2},
    {"R_swig_OBFFConstraint_constraint_value_set", (DL_FUNC) &R_swig_OBFFConstraint_constraint_value_set, 2},
    {"R_swig_Residue_set", (DL_FUNC) &R_swig_Residue_set, 1},
+   {"R_swig_OBColor_blue_set", (DL_FUNC) &R_swig_OBColor_blue_set, 2},
    {"R_swig_OBUnitCell_GetBeta", (DL_FUNC) &R_swig_OBUnitCell_GetBeta, 2},
    {"R_swig_OBAtomAtomIter_HasChiralitySpecified", (DL_FUNC) &R_swig_OBAtomAtomIter_HasChiralitySpecified, 2},
    {"R_swig_OBMolAtomBFSIter_HasChiralitySpecified", (DL_FUNC) &R_swig_OBMolAtomBFSIter_HasChiralitySpecified, 2},
@@ -33686,6 +34386,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBForceField_VectorDistanceDerivative", (DL_FUNC) &R_swig_OBForceField_VectorDistanceDerivative, 5},
    {"R_swig_OBForceField_VectorBondDerivative", (DL_FUNC) &R_swig_OBForceField_VectorBondDerivative, 5},
    {"R_swig_delete_OBRing", (DL_FUNC) &R_swig_delete_OBRing, 1},
+   {"R_swig_OBPainter_DrawText", (DL_FUNC) &R_swig_OBPainter_DrawText, 4},
    {"R_swig_OBFFConstraint_factor_set", (DL_FUNC) &R_swig_OBFFConstraint_factor_set, 2},
    {"R_swig_OBInternalCoord__tor_set", (DL_FUNC) &R_swig_OBInternalCoord__tor_set, 2},
    {"R_swig_OBForceField_SetConformers", (DL_FUNC) &R_swig_OBForceField_SetConformers, 3},
@@ -33737,8 +34438,8 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBMolAtomBFSIter_ClassDescription", (DL_FUNC) &R_swig_OBMolAtomBFSIter_ClassDescription, 1},
    {"R_swig_OBMolAtomDFSIter_ClassDescription", (DL_FUNC) &R_swig_OBMolAtomDFSIter_ClassDescription, 1},
    {"R_swig_OBMolAtomIter_ClassDescription", (DL_FUNC) &R_swig_OBMolAtomIter_ClassDescription, 1},
-   {"R_swig_OBPlugin_Description", (DL_FUNC) &R_swig_OBPlugin_Description, 1},
    {"R_swig_OBBase_ClassDescription", (DL_FUNC) &R_swig_OBBase_ClassDescription, 0},
+   {"R_swig_OBPlugin_Description", (DL_FUNC) &R_swig_OBPlugin_Description, 1},
    {"R_swig_OBFormat_TargetClassDescription", (DL_FUNC) &R_swig_OBFormat_TargetClassDescription, 1},
    {"R_swig_OBConversion_Description", (DL_FUNC) &R_swig_OBConversion_Description, 0},
    {"R_swig_OBMol_ClassDescription", (DL_FUNC) &R_swig_OBMol_ClassDescription, 0},
@@ -33747,6 +34448,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBResidueAtomIter_ClassDescription", (DL_FUNC) &R_swig_OBResidueAtomIter_ClassDescription, 1},
    {"R_swig_delete_OBConformerData", (DL_FUNC) &R_swig_delete_OBConformerData, 1},
    {"R_swig_toConformerData", (DL_FUNC) &R_swig_toConformerData, 1},
+   {"R_swig_delete_OBColor", (DL_FUNC) &R_swig_delete_OBColor, 1},
    {"R_swig_OBGridData_SetNumberOfPoints", (DL_FUNC) &R_swig_OBGridData_SetNumberOfPoints, 4},
    {"R_swig_OBMol_DestroyBond", (DL_FUNC) &R_swig_OBMol_DestroyBond, 2},
    {"R_swig_OBFFCalculation2_force_b_set", (DL_FUNC) &R_swig_OBFFCalculation2_force_b_set, 2},
@@ -33763,6 +34465,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBForceField_VectorOOP", (DL_FUNC) &R_swig_OBForceField_VectorOOP, 5},
    {"R_swig_vvpairUIntUInt_empty", (DL_FUNC) &R_swig_vvpairUIntUInt_empty, 2},
    {"R_swig_OBForceField_VectorAdd", (DL_FUNC) &R_swig_OBForceField_VectorAdd, 3},
+   {"R_swig_OBDepict_SetBondColor", (DL_FUNC) &R_swig_OBDepict_SetBondColor, 2},
    {"R_swig_delete_OBCommentData", (DL_FUNC) &R_swig_delete_OBCommentData, 1},
    {"R_swig_toCommentData", (DL_FUNC) &R_swig_toCommentData, 1},
    {"R_swig_OBElectronicTransitionData_GetEDipole", (DL_FUNC) &R_swig_OBElectronicTransitionData_GetEDipole, 2},
@@ -33810,6 +34513,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBForceField_MolecularDynamicsTakeNSteps__SWIG_1", (DL_FUNC) &R_swig_OBForceField_MolecularDynamicsTakeNSteps__SWIG_1, 4},
    {"R_swig_OBForceField_MolecularDynamicsTakeNSteps__SWIG_0", (DL_FUNC) &R_swig_OBForceField_MolecularDynamicsTakeNSteps__SWIG_0, 5},
    {"R_swig_OBSmartsPattern_EndMList", (DL_FUNC) &R_swig_OBSmartsPattern_EndMList, 2},
+   {"R_swig_OBPainter_DrawCircle", (DL_FUNC) &R_swig_OBPainter_DrawCircle, 4},
    {"R_swig_OBConversion_RemoveOption", (DL_FUNC) &R_swig_OBConversion_RemoveOption, 4},
    {"R_swig_OBFFConstraint_gradb_get", (DL_FUNC) &R_swig_OBFFConstraint_gradb_get, 2},
    {"R_swig_OBAromaticTyper_TraverseCycle", (DL_FUNC) &R_swig_OBAromaticTyper_TraverseCycle, 7},
@@ -33860,7 +34564,10 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBBond_GetLength", (DL_FUNC) &R_swig_OBBond_GetLength, 2},
    {"R_swig_OBAtomBondIter_GetEquibLength", (DL_FUNC) &R_swig_OBAtomBondIter_GetEquibLength, 2},
    {"R_swig_OBAtomBondIter_GetLength", (DL_FUNC) &R_swig_OBAtomBondIter_GetLength, 2},
+   {"R_swig_OBDepict_SetBondLength", (DL_FUNC) &R_swig_OBDepict_SetBondLength, 2},
+   {"R_swig_OBDepict_GetBondLength", (DL_FUNC) &R_swig_OBDepict_GetBondLength, 2},
    {"R_swig_OBForceField_ValidateSteepestDescent", (DL_FUNC) &R_swig_OBForceField_ValidateSteepestDescent, 2},
+   {"R_swig_OBPainter_SetFillColor", (DL_FUNC) &R_swig_OBPainter_SetFillColor, 2},
    {"R_swig_OBGridData_GetNumberOfSteps", (DL_FUNC) &R_swig_OBGridData_GetNumberOfSteps, 2},
    {"R_swig_OBForceField_GetLogLevel", (DL_FUNC) &R_swig_OBForceField_GetLogLevel, 2},
    {"R_swig_OBForceField_SetLogLevel", (DL_FUNC) &R_swig_OBForceField_SetLogLevel, 3},
@@ -34090,9 +34797,11 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBVibrationData_GetNumberOfFrequencies", (DL_FUNC) &R_swig_OBVibrationData_GetNumberOfFrequencies, 2},
    {"R_swig_OBVibrationData_GetFrequencies", (DL_FUNC) &R_swig_OBVibrationData_GetFrequencies, 2},
    {"R_swig_Point2PlaneAngle", (DL_FUNC) &R_swig_Point2PlaneAngle, 5},
+   {"R_swig_OBPainter_NewCanvas", (DL_FUNC) &R_swig_OBPainter_NewCanvas, 3},
    {"R_swig_OBForceField_VectorCross", (DL_FUNC) &R_swig_OBForceField_VectorCross, 3},
    {"R_swig_OBFormat_ReadMolecule", (DL_FUNC) &R_swig_OBFormat_ReadMolecule, 4},
    {"R_swig_OBFormat_WriteMolecule", (DL_FUNC) &R_swig_OBFormat_WriteMolecule, 4},
+   {"R_swig_OBDepict_DrawMolecule", (DL_FUNC) &R_swig_OBDepict_DrawMolecule, 3},
    {"R_swig_OBAtomAtomIter_GetAllData", (DL_FUNC) &R_swig_OBAtomAtomIter_GetAllData, 3},
    {"R_swig_OBMolBondIter_GetAllData", (DL_FUNC) &R_swig_OBMolBondIter_GetAllData, 3},
    {"R_swig_OBMolBondBFSIter_GetAllData", (DL_FUNC) &R_swig_OBMolBondBFSIter_GetAllData, 3},
@@ -34169,6 +34878,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBMolAtomIter_IsHeteroatom", (DL_FUNC) &R_swig_OBMolAtomIter_IsHeteroatom, 2},
    {"R_swig_OBAtom_IsHeteroatom", (DL_FUNC) &R_swig_OBAtom_IsHeteroatom, 2},
    {"R_swig_OBResidueAtomIter_IsHeteroatom", (DL_FUNC) &R_swig_OBResidueAtomIter_IsHeteroatom, 2},
+   {"R_swig_OBColor_red_get", (DL_FUNC) &R_swig_OBColor_red_get, 2},
    {"R_swig_OBAtomAtomIter_IsInRingSize", (DL_FUNC) &R_swig_OBAtomAtomIter_IsInRingSize, 3},
    {"R_swig_OBAtomAtomIter_MemberOfRingSize", (DL_FUNC) &R_swig_OBAtomAtomIter_MemberOfRingSize, 2},
    {"R_swig_OBMolAtomBFSIter_IsInRingSize", (DL_FUNC) &R_swig_OBMolAtomBFSIter_IsInRingSize, 3},
@@ -34177,9 +34887,9 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBMolAtomDFSIter_MemberOfRingSize", (DL_FUNC) &R_swig_OBMolAtomDFSIter_MemberOfRingSize, 2},
    {"R_swig_OBMolAtomIter_IsInRingSize", (DL_FUNC) &R_swig_OBMolAtomIter_IsInRingSize, 3},
    {"R_swig_OBMolAtomIter_MemberOfRingSize", (DL_FUNC) &R_swig_OBMolAtomIter_MemberOfRingSize, 2},
+   {"R_swig_CompareRingSize", (DL_FUNC) &R_swig_CompareRingSize, 3},
    {"R_swig_OBAtom_MemberOfRingSize", (DL_FUNC) &R_swig_OBAtom_MemberOfRingSize, 2},
    {"R_swig_OBAtom_IsInRingSize", (DL_FUNC) &R_swig_OBAtom_IsInRingSize, 3},
-   {"R_swig_CompareRingSize", (DL_FUNC) &R_swig_CompareRingSize, 3},
    {"R_swig_OBResidueAtomIter_MemberOfRingSize", (DL_FUNC) &R_swig_OBResidueAtomIter_MemberOfRingSize, 2},
    {"R_swig_OBResidueAtomIter_IsInRingSize", (DL_FUNC) &R_swig_OBResidueAtomIter_IsInRingSize, 3},
    {"R_swig_FastSearch_ReadIndex", (DL_FUNC) &R_swig_FastSearch_ReadIndex, 3},
@@ -34204,6 +34914,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBConversion_GetOutStream", (DL_FUNC) &R_swig_OBConversion_GetOutStream, 1},
    {"R_swig_OBConversion_SetInStream", (DL_FUNC) &R_swig_OBConversion_SetInStream, 2},
    {"R_swig_OBConversion_SetOutStream", (DL_FUNC) &R_swig_OBConversion_SetOutStream, 2},
+   {"R_swig_OBFontMetrics_width_set", (DL_FUNC) &R_swig_OBFontMetrics_width_set, 2},
    {"R_swig_OBGlobalDataBase_ParseLine", (DL_FUNC) &R_swig_OBGlobalDataBase_ParseLine, 2},
    {"R_swig_FptIndexHeader_words_get", (DL_FUNC) &R_swig_FptIndexHeader_words_get, 2},
    {"R_swig_delete_OBFFParameter", (DL_FUNC) &R_swig_delete_OBFFParameter, 1},
@@ -34253,6 +34964,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_delete_vectorVector3", (DL_FUNC) &R_swig_delete_vectorVector3, 1},
    {"R_swig_delete_vectorvVector3", (DL_FUNC) &R_swig_delete_vectorvVector3, 1},
    {"R_swig_delete_vector3", (DL_FUNC) &R_swig_delete_vector3, 1},
+   {"R_swig_OBPainter_SetFontSize", (DL_FUNC) &R_swig_OBPainter_SetFontSize, 2},
    {"R_swig_OBAtomAtomIter_InsertBond", (DL_FUNC) &R_swig_OBAtomAtomIter_InsertBond, 3},
    {"R_swig_OBMolAtomBFSIter_InsertBond", (DL_FUNC) &R_swig_OBMolAtomBFSIter_InsertBond, 3},
    {"R_swig_OBMolAtomDFSIter_InsertBond", (DL_FUNC) &R_swig_OBMolAtomDFSIter_InsertBond, 3},
@@ -34414,6 +35126,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBAtomBondIter_IsInRing", (DL_FUNC) &R_swig_OBAtomBondIter_IsInRing, 2},
    {"R_swig_OBResidueAtomIter_IsInRing", (DL_FUNC) &R_swig_OBResidueAtomIter_IsInRing, 2},
    {"R_swig_OBMolRingIter_IsInRing", (DL_FUNC) &R_swig_OBMolRingIter_IsInRing, 3},
+   {"R_swig_OBFontMetrics_height_get", (DL_FUNC) &R_swig_OBFontMetrics_height_get, 2},
    {"R_swig_ResNo_get", (DL_FUNC) &R_swig_ResNo_get, 1},
    {"R_swig_ElemNo_get", (DL_FUNC) &R_swig_ElemNo_get, 1},
    {"R_swig_OBResidue_AddAtom", (DL_FUNC) &R_swig_OBResidue_AddAtom, 2},
@@ -34487,6 +35200,8 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBDOSData_GetDensities", (DL_FUNC) &R_swig_OBDOSData_GetDensities, 2},
    {"R_swig_OBVibrationData_GetIntensities", (DL_FUNC) &R_swig_OBVibrationData_GetIntensities, 2},
    {"R_swig_OBFFConstraint_type_set", (DL_FUNC) &R_swig_OBFFConstraint_type_set, 2},
+   {"R_swig_delete_OBPainter", (DL_FUNC) &R_swig_delete_OBPainter, 1},
+   {"R_swig_delete_SVGPainter", (DL_FUNC) &R_swig_delete_SVGPainter, 1},
    {"R_swig_OBForceField_SteepestDescentInitialize__SWIG_3", (DL_FUNC) &R_swig_OBForceField_SteepestDescentInitialize__SWIG_3, 1},
    {"R_swig_OBForceField_SteepestDescentInitialize__SWIG_2", (DL_FUNC) &R_swig_OBForceField_SteepestDescentInitialize__SWIG_2, 2},
    {"R_swig_OBForceField_SteepestDescentInitialize__SWIG_1", (DL_FUNC) &R_swig_OBForceField_SteepestDescentInitialize__SWIG_1, 3},
@@ -34497,8 +35212,11 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBBitVec_SetRangeOff", (DL_FUNC) &R_swig_OBBitVec_SetRangeOff, 3},
    {"R_swig_OBMolRingIter_Size", (DL_FUNC) &R_swig_OBMolRingIter_Size, 2},
    {"R_swig_OBFFConstraint_rab0_get", (DL_FUNC) &R_swig_OBFFConstraint_rab0_get, 2},
+   {"R_swig_OBFontMetrics_ascent_get", (DL_FUNC) &R_swig_OBFontMetrics_ascent_get, 2},
+   {"R_swig_OBFontMetrics_descent_get", (DL_FUNC) &R_swig_OBFontMetrics_descent_get, 2},
    {"R_swig_OBElementTable_GetRGB", (DL_FUNC) &R_swig_OBElementTable_GetRGB, 3},
    {"R_swig_OBFFConstraint_grada_set", (DL_FUNC) &R_swig_OBFFConstraint_grada_set, 2},
+   {"R_swig_OBPainter_DrawLine", (DL_FUNC) &R_swig_OBPainter_DrawLine, 5},
    {"R_swig_OBAtomAtomIter_BeginBonds", (DL_FUNC) &R_swig_OBAtomAtomIter_BeginBonds, 2},
    {"R_swig_OBMolAtomBFSIter_BeginBonds", (DL_FUNC) &R_swig_OBMolAtomBFSIter_BeginBonds, 2},
    {"R_swig_OBMolAtomDFSIter_BeginBonds", (DL_FUNC) &R_swig_OBMolAtomDFSIter_BeginBonds, 2},
@@ -34509,6 +35227,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_delete_OBAtomClassData", (DL_FUNC) &R_swig_delete_OBAtomClassData, 1},
    {"R_swig_new_OBAtomClassData", (DL_FUNC) &R_swig_new_OBAtomClassData, 0},
    {"R_swig_toAtomClassData", (DL_FUNC) &R_swig_toAtomClassData, 1},
+   {"R_swig_closeOfstream", (DL_FUNC) &R_swig_closeOfstream, 1},
    {"R_swig_OBConversion_GetCount", (DL_FUNC) &R_swig_OBConversion_GetCount, 2},
    {"R_swig_OBTorsion_GetBondIdx", (DL_FUNC) &R_swig_OBTorsion_GetBondIdx, 2},
    {"R_swig_OBAtomAtomIter_ExplicitHydrogenCount__SWIG_1", (DL_FUNC) &R_swig_OBAtomAtomIter_ExplicitHydrogenCount__SWIG_1, 2},
@@ -34533,6 +35252,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBGenericData_GetAttribute", (DL_FUNC) &R_swig_OBGenericData_GetAttribute, 2},
    {"R_swig_OBGenericData_SetAttribute", (DL_FUNC) &R_swig_OBGenericData_SetAttribute, 2},
    {"R_swig_delete_OBSqrtTbl", (DL_FUNC) &R_swig_delete_OBSqrtTbl, 1},
+   {"R_swig_OBDepict_AddAtomLabels", (DL_FUNC) &R_swig_OBDepict_AddAtomLabels, 3},
    {"R_swig_OBOrbital_GetSymbol", (DL_FUNC) &R_swig_OBOrbital_GetSymbol, 2},
    {"R_swig_OBElement_GetSymbol", (DL_FUNC) &R_swig_OBElement_GetSymbol, 1},
    {"R_swig_OBElementTable_GetSymbol", (DL_FUNC) &R_swig_OBElementTable_GetSymbol, 2},
@@ -34553,6 +35273,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBResidueAtomIter_SetIdx", (DL_FUNC) &R_swig_OBResidueAtomIter_SetIdx, 2},
    {"R_swig_ElemDesc_set", (DL_FUNC) &R_swig_ElemDesc_set, 1},
    {"R_swig_OBAtomClassData_HasClass", (DL_FUNC) &R_swig_OBAtomClassData_HasClass, 3},
+   {"R_swig_OBFontMetrics_fontSize_set", (DL_FUNC) &R_swig_OBFontMetrics_fontSize_set, 2},
    {"R_swig_OBDescriptor_DeleteProperties", (DL_FUNC) &R_swig_OBDescriptor_DeleteProperties, 2},
    {"R_swig_OBDescriptor_AddProperties", (DL_FUNC) &R_swig_OBDescriptor_AddProperties, 2},
    {"R_swig_OBOp_FindType", (DL_FUNC) &R_swig_OBOp_FindType, 1},
@@ -34594,6 +35315,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBResidueAtomIter_IsHbondAcceptor", (DL_FUNC) &R_swig_OBResidueAtomIter_IsHbondAcceptor, 2},
    {"R_swig_OBElement_GetMaxBonds", (DL_FUNC) &R_swig_OBElement_GetMaxBonds, 2},
    {"R_swig_OBElementTable_GetMaxBonds", (DL_FUNC) &R_swig_OBElementTable_GetMaxBonds, 3},
+   {"R_swig_OBColor_green_get", (DL_FUNC) &R_swig_OBColor_green_get, 2},
    {"R_swig_OBResidue_GetNum", (DL_FUNC) &R_swig_OBResidue_GetNum, 2},
    {"R_swig_OBResidueIter_GetNum", (DL_FUNC) &R_swig_OBResidueIter_GetNum, 2},
    {"R_swig_delete_OBSymmetryData", (DL_FUNC) &R_swig_delete_OBSymmetryData, 1},
@@ -34634,6 +35356,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBFingerprint_FindFingerprint", (DL_FUNC) &R_swig_OBFingerprint_FindFingerprint, 1},
    {"R_swig_delete_OBFingerprint", (DL_FUNC) &R_swig_delete_OBFingerprint, 1},
    {"R_swig_transform3d_DescribeAsValues", (DL_FUNC) &R_swig_transform3d_DescribeAsValues, 2},
+   {"R_swig_OBPainter_DrawPolygon", (DL_FUNC) &R_swig_OBPainter_DrawPolygon, 2},
    {"R_swig_OBResidueData_SetResName", (DL_FUNC) &R_swig_OBResidueData_SetResName, 3},
    {"R_swig_OBGridData_GetMaxValue", (DL_FUNC) &R_swig_OBGridData_GetMaxValue, 2},
    {"R_swig_matrix3x3_isDiagonal", (DL_FUNC) &R_swig_matrix3x3_isDiagonal, 2},

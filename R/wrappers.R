@@ -41,7 +41,7 @@ convertFormatFile <- function(from,to,fromFile,toFile){
 	OBConversion_AddOption(conv,"gen2D","GENOPTIONS")
 	OBConversion_Convert(conv)
 
-	stringFromOstream(outStr)
+	closeOfstream(os)
 }
 
 prop_OB<- function(obmolRefs) {
