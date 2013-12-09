@@ -39,8 +39,9 @@ test.smartsOB <- function(){
 	library(ChemmineR)
 	data(sdfsample)
 	molRefs = obmol(sdfsample)
-	#x = smartsSearch_OB(molRefs,"[CH3X4]")
-	#print(x)
+	x = smartsSearch_OB(molRefs,"[CH3X4]")
+	checkEquals(length(x[x>0]),80)
+
 	rotableBonds = smartsSearch_OB(molRefs[1:5],"[!$(*#*)&!D1]-!@[!$(*#*)&!D1]",uniqueMatches=FALSE)
 	print(rotableBonds)
 	print(sdfid(sdfsample[1:5]))
