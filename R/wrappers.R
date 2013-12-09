@@ -114,7 +114,7 @@ forEachMol <- function(inFormat,inString,f,reduce=NULL){
 	x=Map(function(i){
 		mol = OBMol()
 		if(!OBConversion_Read(conv,mol))
-			stop("failed to read ",numMols," from input")
+			stop("failed to read ",numMols,"molecules from input")
 		f(mol)
 	},seq(1,numMols,length.out=numMols))
 
@@ -124,3 +124,17 @@ forEachMol <- function(inFormat,inString,f,reduce=NULL){
 		Reduce(reduce,x)
 }
 
+smartsNumMatches_OB<- function(obmolRefs,smartsPattern){
+
+	sp = OBSmartsPattern()
+	if(!OBSmartsPattern_Init(sp,smartsPattern))
+		stop("failed to parse smarts patter: ",smartsPattern)
+
+	unlist(Map(function(mol){
+		OBSmartsPattern_Match(sp,mol)
+		OBSmartsPattern_NumMatches(sp)
+	#	umap = OBSmartsPattern_GetUMapList(sp)
+	#	vectorvInt_size(umap)
+
+   },obmolRefs))
+}
