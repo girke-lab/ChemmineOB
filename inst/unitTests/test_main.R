@@ -33,3 +33,17 @@ test.fingerprintOB <-function(){
 }
 
 
+test.smartsOB <- function(){
+	
+	molRefs = forEachMol("SMI","C1CCCCC1\ncc1ccc1",identity)
+	library(ChemmineR)
+	data(sdfsample)
+	molRefs = obmol(sdfsample)
+	#x = smartsNumMatches_OB(molRefs,"[CH3X4]")
+	#print(x)
+	rotableBonds = smartsNumMatches_OB(molRefs[1:5],"[!$(*#*)&!D1]-!@[!$(*#*)&!D1]")
+	print(rotableBonds)
+	print(sdfid(sdfsample[1:5]))
+	checkEquals(as.vector(rotableBonds[1:5]),c(24,20,14,30,10))
+	#x = smartsNumMatches_OB(molRefs,"CC"  )
+}
