@@ -1,5 +1,5 @@
-import(zlibbioc)
-#exportPattern("^[^\\.]")
+import(zlibbioc,methods)
+
 
 export(
 	"convertFormat","convertFormatFile",
