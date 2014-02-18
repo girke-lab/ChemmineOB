@@ -55,6 +55,7 @@ $ R CMD INSTALL –configure-args=’–with-openbabel-include=...  –with-open
 
 where the ’…’ are replaced by the relevant paths. See the README file
 for more details.
+
 User Manual in ChemmineR Vignette
 -----------
 
@@ -73,6 +74,11 @@ vignette from R, one can use the following command.
 ```{r eval=FALSE, tidy=FALSE}
  vignette(“ChemmineR”) 
 ```
+SWIG Interface
+--------------
+*ChemmineOB* now includes wrapper functions for all of OpenBabel, as genereted by
+[SWIG](www.swig.org). We still maintain our set of functions to provide 
+better integration with R in general and *ChemmineR* specifically. 
 
 Version Information
 -----------
