@@ -55,7 +55,7 @@ $ R CMD INSTALL –configure-args=’–with-openbabel-include=...  –with-open
 
 where the ’…’ are replaced by the relevant paths. See the README file
 for more details.
-User Manual in *ChemmineR* Vignette
+User Manual in ChemmineR Vignette
 -----------
 
 Detailed instructions for using *ChemmineOB* are provided
