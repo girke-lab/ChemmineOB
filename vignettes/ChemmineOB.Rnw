@@ -4,7 +4,7 @@
 % echo 'Sweave("ChemmineOB.Rnw")' | R --slave; echo 'Stangle("ChemmineOB.Rnw")' | R --slave; pdflatex ChemmineOB.tex;  bibtex ChemmineOB; pdflatex ChemmineOB.tex
 \documentclass{article}
 
-<<style, echo=FALSE, results=tex>>=
+<<style, echo=FALSE, results='asis'>>=
 BiocStyle::latex(use.unsrturl=FALSE)
 @
 \usepackage{hyperref}
@@ -14,6 +14,14 @@ BiocStyle::latex(use.unsrturl=FALSE)
 \bibliographystyle{plainnat}
 \def\bibsection{\section{References}}
 
+\newcommand{\comment}[1]{}                                                                                                                                                                                                                │
+%\newcommand{\Rfunction}[1]{{\textit{#1}}}                                                                                                                                                                                                 │
+\newcommand{\Rfunction}[1]{{`#1`}}                                                                                                                                                                                                 │
+\newcommand{\Robject}[1]{{\texttt{#1}}}                                                                                                                                                                                                   │
+\newcommand{\Rpackage}[1]{{\textit{#1}}}                                                                                                                                                                                                  │
+\newcommand{\Rmethod}[1]{{`#1`}}                                                                                                                                                                                                   │
+\newcommand{\Rfunarg}[1]{{`#1`}}                                                                                                                                                                                                    │
+\newcommand{\Rclass}[1]{{`#1`}}     
 %\usepackage{a4wide}
 
 \title{ChemmineOB}
@@ -26,7 +34,7 @@ BiocStyle::latex(use.unsrturl=FALSE)
 \tableofcontents
 \clearpage
 
-<<echo=false>>=
+<<echo=FALSE>>=
 	library(ChemmineOB)
 @
 
@@ -59,7 +67,7 @@ example, at the command prompt do:
 \noindent
 where the '\ldots' are replaced by the relevant paths. See the README file for more details.
 
-<<eval=FALSE, keep.source=TRUE>>=
+<<eval=FALSE, tidy=FALSE>>=
 source("http://bioconductor.org/biocLite.R") 
 biocLite(c("ChemmineR", "ChemmineOB"))
 library("ChemmineR")
@@ -78,12 +86,12 @@ recommend consulting the \emph{OpenBabel Functions} section of the
 \Rpackage{ChemmineR} vignette. To open the \Rpackage{ChemmineR} vignette from
 R, one can use the following command.
 
-<<eval=FALSE, keep.source=TRUE>>=
+<<eval=FALSE, tidy=FALSE>>=
 vignette("ChemmineR") 
 @
 
 \section{Version Information}
-<<sessionInfo, results=tex, print=TRUE>>=
+<<sessionInfo, results='asis'>>=
 toLatex(sessionInfo())
 @
 
