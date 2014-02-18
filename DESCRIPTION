@@ -13,3 +13,4 @@ Depends: R (>= 2.15.1), methods
 System Requirements: OpenBabel (>= 2.3.1) with headers.  http://openbabel.org
 Enhances: ChemmineR (>= 2.13.0)
 URL: http://manuals.bioinformatics.ucr.edu/home/chemminer
+VignetteBuilder: knitr
