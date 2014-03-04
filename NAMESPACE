@@ -1,0 +1,8 @@
+import(zlibbioc,methods)
+
+
+export(
+	"convertFormat","convertFormatFile",
+	"prop_OB","fingerprint_OB","smartsSearch_OB",
+	"forEachMol"
+)
