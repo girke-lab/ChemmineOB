@@ -61,6 +61,7 @@ $ R CMD INSTALL –configure-args='–with-openbabel-include=...  –with-openba
 
 where the '…' are replaced by the relevant paths. See the README file
 for more details.
+
 User Manual in ChemmineR Vignette
 -----------
 
@@ -79,6 +80,54 @@ vignette from R, one can use the following command.
 ```{r eval=FALSE, tidy=FALSE}
  vignette("ChemmineR") 
 ```
+
+SWIG Interface (For R developers)
+--------------
+*ChemmineOB* now includes wrapper functions for all of OpenBabel, as genereted by
+[SWIG](http://www.swig.org). We still maintain our own set of functions to provide 
+better integration with R in general and *ChemmineR* specifically. 
+
+If you are familiar with the [Open Babel API](http://openbabel.org/api/2.3/), using the SWIG wrapper should be
+similar, once you know a few conventions used. You can look at the R code in this
+package to see examples of these.
+
+- New objects are created with a function with the same name as the object you
+  want to construct. So instead of 
+```C
+OBConversion *x = new OBConversion(...)
+```
+  in R you would have:
+```r
+x = OBConversion(...)
+```
+ 
+- Methods on objects are called through a function whose name is the name of the 
+  object type concatenated with the method name, separated by an underscore. Then the
+first argument of this method is the instance of the object. For example,
+ instead of:
+```C
+	x->AddOption(...)
+```
+we have:
+```r
+	OBConversion_AddOption(x,...)
+```
+
+- If you need a char* you can create one in R with the *stringp* function.
+  The char* pointer can be accessed with the *cast* slot. The value can
+  be retrieved from the *value* slot. For example:
+```r
+	result = stringp()
+   OBDescriptor_GetStringValue(... , result$cast())
+	stringValue = result$value()
+```
+
+- STL vectors of various types are available via functions named as "vector{TYPE NAME}". For example,
+  a vector of unsigned int is created wit the function "vectorUnsignedInt". You can get the size of 
+  this vector with "vectorUnsignedInt_size(vectorVariable)".
+
+There are still many special cases however. The [SWIG documentation](http://www.swig.org/Doc2.0/SWIGDocumentation.html)
+can help, as well as browsing the generated R code in R/ChemmineOB.R.
 
 Version Information
 -----------
