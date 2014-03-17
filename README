@@ -3,7 +3,7 @@ changelog
                 - vignette updates
 
 
-This package depends on Open Babel 2.3.1 or greater. On linux and mac it can be compiled 
+This package depends on Open Babel 2.3.0 or greater. On linux and mac it can be compiled 
 and run against the standard shared library version of Open Babel. On windows, the distributed
 binary has been compiled agains a static version of Open Babel 2.3.2. This was done because the 
 version downloadable from the Open Babel website was compiled with MSVC and is not 
@@ -23,7 +23,7 @@ OPEN_BABEL_LIBDIR = path to shared (.so) library file
 
 These values can also be set through command line switches to the configure scripts:
 
-R CMD INSTALL --configure-args='--with-openbabel-include=... --with-openbabel-lib=...' ChemmineOB
+R CMD INSTALL --configure-args='--with-openbabel-include=... --with-openbabel-lib=...' ChemmineOB.tgz
 
 where the '...' are replaced by the relevant paths.
 
