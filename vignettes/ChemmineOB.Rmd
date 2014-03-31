@@ -1,3 +1,6 @@
+% ChemmineOB
+% Kevin Horan & Thomas Girke 
+% `r format(Sys.time(),"%B %d, %Y")`
 <!--
 \usepackage[utf8]{inputenc}
 %\VignetteEngine{knitr::knitr}
@@ -8,13 +11,6 @@
  library(ChemmineOB) 
  library(knitcitations)
 ```
-
-ChemmineOB
-==========
-
-Kevin Horan & Thomas Girke
-
-`r format(Sys.time(),"%B %d, %Y")`
 
 Introduction
 -----------
@@ -93,11 +89,14 @@ package to see examples of these.
 
 - New objects are created with a function with the same name as the object you
   want to construct. So instead of 
-```C
+
+```
 OBConversion *x = new OBConversion(...)
 ```
+
   in R you would have:
-```r
+
+```
 x = OBConversion(...)
 ```
  
@@ -105,21 +104,25 @@ x = OBConversion(...)
   object type concatenated with the method name, separated by an underscore. Then the
 first argument of this method is the instance of the object. For example,
  instead of:
-```C
-	x->AddOption(...)
+
 ```
+x->AddOption(...)
+```
+
 we have:
-```r
-	OBConversion_AddOption(x,...)
+
+```
+OBConversion_AddOption(x,...)
 ```
 
 - If you need a char* you can create one in R with the *stringp* function.
   The char* pointer can be accessed with the *cast* slot. The value can
   be retrieved from the *value* slot. For example:
-```r
-	result = stringp()
-   OBDescriptor_GetStringValue(... , result$cast())
-	stringValue = result$value()
+
+```
+result = stringp()
+OBDescriptor_GetStringValue(... , result$cast())
+stringValue = result$value()
 ```
 
 - STL vectors of various types are available via functions named as "vector{TYPE NAME}". For example,
@@ -133,7 +136,7 @@ Version Information
 -----------
 
 ```{r sessionInfo, results='asis'}
- sessionInfo()
+sessionInfo()
 ```
 
 Funding
