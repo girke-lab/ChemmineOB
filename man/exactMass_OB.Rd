@@ -13,6 +13,7 @@ exactMass_OB(obmolRefs)
 \arguments{
   \item{obmolRefs}{
 	  A list of OBMol references ( of class '_p_OpenBabel__OBMol') representing the compounds.
+   }
 }
 \value{
    A vector of mass values.
