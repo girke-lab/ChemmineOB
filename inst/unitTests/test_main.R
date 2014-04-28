@@ -47,3 +47,17 @@ test.smartsOB <- function(){
 	print(sdfid(sdfsample[1:5]))
 	checkEquals(as.vector(rotableBonds[1:5]),c(24,20,14,30,10))
 }
+
+test.exactMassOB <- function(){
+	#molRefs = forEachMol("SMI","C1CCCCC1\ncc1ccc1",identity)
+	#masses = exactMass_OB(molRefs)
+	#print("masses:")
+	#print(masses)
+	library(ChemmineR)
+	data(sdfsample)
+	m = exactMass_OB(obmol(sdfsample[1]))
+	message("650001 mass: ",m)
+	checkEqualsNumeric(m,456.200885,tolerance=0.000001)
+
+
+}
