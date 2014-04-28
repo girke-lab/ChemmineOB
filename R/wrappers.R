@@ -102,6 +102,12 @@ fingerprint_OB <- function(obmolRefs, fingerprintName){
 		row
 	  },obmolRefs))
 }
+exactMass_OB <- function(obmolRefs){
+	unlist(Map(function(mol){
+		 OBMol_GetExactMass(mol)
+	},obmolRefs))
+
+}
 forEachMol <- function(inFormat,inString,f,reduce=NULL){
 
 	inStr = istreamFromString(inString)
