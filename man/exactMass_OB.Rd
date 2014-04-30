@@ -4,7 +4,7 @@
    Exact Mass (Monoisotopic Mass)
 }
 \description{
-   Compoutes the exact mass of each compound given.
+   Computes the exact mass of each compound given.
 }
 \usage{
 exactMass_OB(obmolRefs)
