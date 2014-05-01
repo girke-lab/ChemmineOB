@@ -1649,9 +1649,10 @@ SWIGINTERN stringp *stringp_frompointer(std::string *t){
   return (stringp *) t;
 }
 
-    #include <tr1/memory>
+    //#include <tr1/memory>
 
-    using std::tr1::shared_ptr;
+    //using std::tr1::shared_ptr;
+   #include <boost/shared_ptr.hpp>
 
 
     #include <iostream>
