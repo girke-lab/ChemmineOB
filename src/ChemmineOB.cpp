@@ -733,6 +733,15 @@ SWIG_UnpackDataName(const char *c, void *ptr, size_t sz, const char *name) {
 
 
 
+
+/* Remove global namespace pollution */
+#if !defined(SWIG_NO_R_NO_REMAP)
+# define R_NO_REMAP
+#endif
+#if !defined(SWIG_NO_STRICT_R_HEADERS)
+# define STRICT_R_HEADERS
+#endif
+
 #include <openbabel/generic.h>
 #include <Rdefines.h>
 #include <Rversion.h>
@@ -744,14 +753,6 @@ SWIG_UnpackDataName(const char *c, void *ptr, size_t sz, const char *name) {
 
 #ifdef __cplusplus
 extern "C" {
-#endif
-
-/* Remove global namespace pollution */
-#if !defined(SWIG_NO_R_NO_REMAP)
-# define R_NO_REMAP
-#endif
-#if !defined(SWIG_NO_STRICT_R_HEADERS)
-# define STRICT_R_HEADERS
 #endif
 
 #if R_VERSION >= R_Version(2,6,0)
@@ -4894,7 +4895,7 @@ SWIGEXPORT SEXP R_swig_vector3_length_2 ( SEXP self, SEXP s_swig_copy) { double 
    arg1 = reinterpret_cast< OpenBabel::vector3 * >(argp1); result = (double)((OpenBabel::vector3 const *)arg1)->length_2();
   r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
   return r_ans; }
-/*SWIGEXPORT SEXP R_swig_vector3_length ( SEXP self, SEXP s_swig_copy) { double result;
+SWIGEXPORT SEXP R_swig_vector3_length ( SEXP self, SEXP s_swig_copy) { double result;
   OpenBabel::vector3 *arg1 = (OpenBabel::vector3 *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
   SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
   res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__vector3, 0 |  0 ); if (!SWIG_IsOK(res1)) {
@@ -4902,7 +4903,7 @@ SWIGEXPORT SEXP R_swig_vector3_length_2 ( SEXP self, SEXP s_swig_copy) { double 
    arg1 = reinterpret_cast< OpenBabel::vector3 * >(argp1); result = (double)((OpenBabel::vector3 const *)arg1)->length();
   r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
   return r_ans; }
-*/
+
 SWIGEXPORT SEXP R_swig_vector3_x__SWIG_0 ( SEXP self, SEXP s_swig_copy) { double *result = 0 ;
   OpenBabel::vector3 *arg1 = (OpenBabel::vector3 *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
   SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
@@ -33881,7 +33882,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_OBMolBondBFSIter_GetLength", (DL_FUNC) &R_swig_OBMolBondBFSIter_GetLength, 2},
    {"R_swig_OBMolBondBFSIter_GetEquibLength", (DL_FUNC) &R_swig_OBMolBondBFSIter_GetEquibLength, 2},
    {"R_swig_OBForceField_VectorLength", (DL_FUNC) &R_swig_OBForceField_VectorLength, 2},
-   //{"R_swig_vector3_length", (DL_FUNC) &R_swig_vector3_length, 2},
+   {"R_swig_vector3_length", (DL_FUNC) &R_swig_vector3_length, 2},
    {"R_swig_OBBond_GetEquibLength", (DL_FUNC) &R_swig_OBBond_GetEquibLength, 2},
    {"R_swig_OBBond_GetLength", (DL_FUNC) &R_swig_OBBond_GetLength, 2},
    {"R_swig_OBAtomBondIter_GetEquibLength", (DL_FUNC) &R_swig_OBAtomBondIter_GetEquibLength, 2},
