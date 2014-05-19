@@ -22,9 +22,9 @@ AC_ARG_WITH([openbabel-lib],AS_HELP_STRING([--with-openbabel-lib],
 				[openbabel_lib_path=$withval])
 
 AS_IF([ test -n "$openbabel_lib_path" ],
-			[ OPENBABEL_LIBS="-I${openbabel_lib_path} -lopenbabel"],
+			[ OPENBABEL_LIBS="-L${openbabel_lib_path} -lopenbabel"],
 		[ test -n  "$OPEN_BABEL_LIBDIR" ],
-			[ OPENBABEL_LIBS="-I${OPEN_BABEL_LIBDIR} -lopenbabel"],
+			[ OPENBABEL_LIBS="-L${OPEN_BABEL_LIBDIR} -lopenbabel"],
 		[
 			AC_LANG_PUSH([C++])
 				 PKG_CHECK_MODULES([OPENBABEL],[openbabel-2.0],[],[OPENBABEL_LIBS="-lopenbabel"])

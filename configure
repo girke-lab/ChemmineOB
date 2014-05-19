@@ -2021,9 +2021,9 @@ fi
 
 
 if  test -n "$openbabel_lib_path" ; then :
-   OPENBABEL_LIBS="-I${openbabel_lib_path} -lopenbabel"
+   OPENBABEL_LIBS="-L${openbabel_lib_path} -lopenbabel"
 elif  test -n  "$OPEN_BABEL_LIBDIR" ; then :
-   OPENBABEL_LIBS="-I${OPEN_BABEL_LIBDIR} -lopenbabel"
+   OPENBABEL_LIBS="-L${OPEN_BABEL_LIBDIR} -lopenbabel"
 else
 
 			ac_ext=cpp
