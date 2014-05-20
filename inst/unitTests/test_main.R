@@ -1,7 +1,7 @@
-debug =0
+debug =1
 
 test.propOB <-function(){
-	numDescs = 12 # this can change
+	numDescs = 13 # this can change
 
 	molRefs = forEachMol("SMI","C1CCCCC1",identity)
 
@@ -17,7 +17,7 @@ test.propOB <-function(){
 	n=5
 	p2 = prop_OB(obmol(sdfsample[1:n]))
 
-	if(debug) print(p2)
+	if(debug){message("probOB: "); print(p2)}
 	checkEquals(nrow(p2),n)
 	checkEquals(ncol(p2),numDescs)
 	checkEquals(p2$MW[2],MW(sdfsample[2])[[1]])
