@@ -51,7 +51,8 @@ prop_OB<- function(obmolRefs) {
 	strDescrNames = c( "cansmi",
 							  "cansmiNS",
 							  "formula",
-							  "title")
+							  "title",
+							  "InChI")
 	descriptorNames = c(
 							  "HBA1",
 							  "HBA2",
