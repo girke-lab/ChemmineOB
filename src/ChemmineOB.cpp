@@ -727,10 +727,12 @@ SWIG_UnpackDataName(const char *c, void *ptr, size_t sz, const char *name) {
 }
 #endif
 
-
 #ifdef __cplusplus
-extern "C" {
+#include <exception>
 #endif
+
+
+
 
 /* Remove global namespace pollution */
 #if !defined(SWIG_NO_R_NO_REMAP)
@@ -740,10 +742,18 @@ extern "C" {
 # define STRICT_R_HEADERS
 #endif
 
+#include <openbabel/generic.h>
 #include <Rdefines.h>
 #include <Rversion.h>
+
 #include <stdlib.h>
 #include <assert.h>
+
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #if R_VERSION >= R_Version(2,6,0)
 #define VMAXTYPE void *
@@ -1091,7 +1101,6 @@ SWIG_R_ConvertPacked(SEXP obj, void *ptr, size_t sz, swig_type_info *ty) {
 }  
 
 #ifdef __cplusplus
-#include <exception>
 #define SWIG_exception_noreturn(code, msg) do { throw std::runtime_error(msg); } while(0)
 #else
 #define SWIG_exception_noreturn(code, msg) do { return result; } while(0)
@@ -1464,7 +1473,6 @@ static swig_module_info swig_module = {swig_types, 189, 0, 0, 0, 0};
 #include <openbabel/math/transform3d.h>
 #include <openbabel/math/spacegroup.h>
 
-#include <openbabel/generic.h>
 #include <openbabel/griddata.h>
 
 #include <openbabel/base.h>
@@ -1642,9 +1650,10 @@ SWIGINTERN stringp *stringp_frompointer(std::string *t){
   return (stringp *) t;
 }
 
-    #include <tr1/memory>
+    //#include <tr1/memory>
 
-    using std::tr1::shared_ptr;
+    //using std::tr1::shared_ptr;
+   #include <boost/shared_ptr.hpp>
 
 
     #include <iostream>
@@ -4894,6 +4903,7 @@ SWIGEXPORT SEXP R_swig_vector3_length ( SEXP self, SEXP s_swig_copy) { double re
    arg1 = reinterpret_cast< OpenBabel::vector3 * >(argp1); result = (double)((OpenBabel::vector3 const *)arg1)->length();
   r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
   return r_ans; }
+
 SWIGEXPORT SEXP R_swig_vector3_x__SWIG_0 ( SEXP self, SEXP s_swig_copy) { double *result = 0 ;
   OpenBabel::vector3 *arg1 = (OpenBabel::vector3 *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
   SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
