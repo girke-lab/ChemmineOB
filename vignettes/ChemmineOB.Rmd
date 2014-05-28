@@ -52,7 +52,7 @@ locations of the open babel libraries and header files. This is best
 done through configure flags. For example, at the command prompt do:
 
 ```Bash
-$ R CMD INSTALL --configure-args='--with-openbabel-include=...  -with-openbabel-lib=...' <ChemmineOB package file>
+$ R CMD INSTALL --configure-args='--with-openbabel-include=...  --with-openbabel-lib=...' <ChemmineOB package file>
 ```
 
 where the '...' are replaced by the relevant paths. See the README file
