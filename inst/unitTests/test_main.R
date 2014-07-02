@@ -61,3 +61,74 @@ test.exactMassOB <- function(){
 
 
 }
+test.canonicalNumbers <- function(){
+	library(ChemmineR)
+	data(sdfsample)
+
+	#print(bondblock(sdfsample[[1]]))
+	sdfstrList=as(as(sdfsample[1],"SDFstr"),"list")
+	sdfDef= paste(Map(function(x) paste(x,collapse="\n"),
+						  sdfstrList),collapse="\n" )
+
+	canSdfDef=convertFormat("SDF","SDF",sdfDef,options=data.frame(names=c("canonical","gen2d"),args=""))
+	canSdf = read.SDFset(unlist(strsplit(canSdfDef,"\n",fixed=TRUE)))
+	#print(bondblock(canSdf[[1]]))
+	#write.SDF(canSdf,file="sdf1-renumbered.sdf")
+	bb=bondblock(canSdf[[1]])
+	checkEqualsNumeric(bb[1,1:3],c(2,3,1))
+	checkEqualsNumeric(bb[2,1:3],c(2,4,1))
+
+
+#	ref= obmol(sdfsample[1])
+#	canonicalNumbering(ref)
+
+
+
+
+	#ChemmineOB:::writeMols(ref,file="sdf1-renumbered-noH.sdf","SDF")
+
+#
+#	dir = tempdir()
+#	f = file.path(dir,"sdfsample1.sdf")
+#	write.SDF(sdfsample[1],file=f)
+#
+##	sdf = read.SDFset(f)[[1]]
+##	ref= obmol(sdf)
+##	ChemmineOB:::writeMols(ref,file="sdf1-orig.sdf","SDF")
+##	ChemmineOB:::writeMols(ref,file="sdf1-orig.smi","SMI")
+#
+#	sdf = read.SDFset(f)[[1]]
+#	ref= obmol(sdf)
+#	canonicalNumbering(ref)
+#	ChemmineOB:::writeMols(ref,file="sdf1-renumbered.sdf","SDF")
+#	ChemmineOB:::writeMols(ref,file="sdf1-renumbered.smi","SMI")
+#
+#
+#	#sdf <- sdfsample[1]
+#	sdf = read.SDFset(f)[[1]]
+#	#ref= obmol(sdf)
+#
+#	#sdf[["bondblock"]] <- bondblock(sdf)[nrow(bondblock(sdf)):1,]
+#	#swap first two atoms
+#	tempAtom = atomblock(sdf)[1,]
+#	sdf[["atomblock"]][1,] = atomblock(sdf)[2,]
+#	sdf[["atomblock"]][2,] = tempAtom
+#
+#	#renumber bond block to account for differnt atom numbers
+#	sdf[["bondblock"]][ bondblock(sdf)[,1]==1,1] = 999
+#	sdf[["bondblock"]][ bondblock(sdf)[,1]==2,1] = 1
+#	sdf[["bondblock"]][ bondblock(sdf)[,1]==999,1] = 2
+#
+##	write.SDF(sdf,"sdf1-before.sdf")
+##	sdf = as(sdf[[1]],"SDFset")[[1]]
+#	#sdf = as(sdf,"SDFset")
+##	write.SDF(sdf,"sdf1-after.sdf")
+#
+#	revref= obmol(sdf)
+#	canonicalNumbering(revref)
+#	ChemmineOB:::writeMols(revref,file="sdf1-rev-renumbered.smi","SMI")
+#	ChemmineOB:::writeMols(revref,file="sdf1-rev-renumbered.sdf","SDF")
+#	ChemmineOB:::writeMols(revref,file="sdf1-rev-renumbered.can","CAN")
+##	print(atomblock(sdfsample[1]))
+	
+}
