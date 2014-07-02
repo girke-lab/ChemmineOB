@@ -61,3 +61,19 @@ test.exactMassOB <- function(){
 
 
 }
+test.canonicalNumbers <- function(){
+	library(ChemmineR)
+	data(sdfsample)
+
+	sdfstrList=as(as(sdfsample[1],"SDFstr"),"list")
+	sdfDef= paste(Map(function(x) paste(x,collapse="\n"),
+						  sdfstrList),collapse="\n" )
+
+	canSdfDef=convertFormat("SDF","SDF",sdfDef,options=data.frame(names=c("canonical","gen2d"),args=""))
+	canSdf = read.SDFset(unlist(strsplit(canSdfDef,"\n",fixed=TRUE)))
+
+	bb=bondblock(canSdf[[1]])
+
+	checkEqualsNumeric(bb[1,1:3],c(2,3,1))
+	checkEqualsNumeric(bb[2,1:3],c(2,4,1))
+}

@@ -14,7 +14,7 @@ packageName = "ChemmineOB"
 
 }
 
-convertFormat <- function(from,to,source){
+convertFormat <- function(from,to,source,options=data.frame(names="gen2D",args="")){
 	
 	inStr = istreamFromString(source)
 	outStr = ostreamToString()
@@ -24,13 +24,17 @@ convertFormat <- function(from,to,source){
 	if(!OBConversion_SetInAndOutFormats(conv,from,to))
 		stop("failed to set 'from' and
 			  'to' formats: ",from," ",to)
-	OBConversion_AddOption(conv,"gen2D","GENOPTIONS")
+
+	for(i in seq(to=nrow(options),length=nrow(options))){
+		OBConversion_AddOption(conv,as.character(options[i,1]),"GENOPTIONS",as.character(options[i,2]))
+	}
+	#OBConversion_AddOption(conv,"gen2D","GENOPTIONS")
 	OBConversion_Convert(conv)
 
 	stringFromOstream(outStr)
 }
 
-convertFormatFile <- function(from,to,fromFile,toFile){
+convertFormatFile <- function(from,to,fromFile,toFile, options=data.frame(names="gen2D",args="")){
 	is= istreamFromFile(fromFile)
 	os= ostreamToFile(toFile)
 
@@ -38,11 +42,34 @@ convertFormatFile <- function(from,to,fromFile,toFile){
 
 	if(!OBConversion_SetInAndOutFormats(conv,from,to))
 		stop("failed to set 'from' and 'to' formats: ",from," ",to)
-	OBConversion_AddOption(conv,"gen2D","GENOPTIONS")
+	for(i in seq(to=nrow(options),length=nrow(options))){
+		OBConversion_AddOption(conv,as.character(options[i,1]),"GENOPTIONS",as.character(options[i,2]))
+	}
+	#OBConversion_AddOption(conv,"gen2D","GENOPTIONS")
 	OBConversion_Convert(conv)
 
 	closeOfstream(os)
 }
+canonicalNumbering <- function(obmolRefs) {
+
+	if(length(obmolRefs)==1)
+		obmolRefs=c(obmolRefs)
+
+	canHandle = OBOp_FindType("canonical")
+	#canHandle = OBOp_FindType("gen2D")
+	#TODO check result here, but not like the following:
+	#if(!canHandle)
+		#error("could not find 'canonical' option in OpenBabel")
+
+
+	Map(function(mol){
+		if(!OBOp_Do(canHandle,mol))
+			error("could not find 'canonical' option in OpenBabel")
+	},obmolRefs)
+	
+
+}
+
 
 prop_OB<- function(obmolRefs) {
 	if(length(obmolRefs)==1)
@@ -130,7 +157,19 @@ forEachMol <- function(inFormat,inString,f,reduce=NULL){
 	else
 		Reduce(reduce,x)
 }
+writeMols <- function(obmolRefs,file,format) {
 
+	if(length(obmolRefs)==1)
+		obmolRefs=c(obmolRefs)
+	conv = OBConversion()
+	os= ostreamToFile(file)
+	if(!OBConversion_SetOutFormat(conv,format))
+		stop("failed to set output format to ",format)
+	for(mol in obmolRefs){
+		OBConversion_Write(conv,mol,os)
+	}
+	closeOfstream(os)
+}
 smartsSearch_OB<- function(obmolRefs,smartsPattern,uniqueMatches=TRUE){
 
 	sp = OBSmartsPattern()
