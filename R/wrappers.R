@@ -55,11 +55,10 @@ canonicalNumbering_OB <- function(obmolRefs) {
 	if(length(obmolRefs)==1)
 		obmolRefs=c(obmolRefs)
 
-	Reduce(rbind,Map(function(mol){
+	Map(function(mol){
 		.Call("canonicalReordering",mol,PACKAGE="ChemmineOB")
-	},obmolRefs))
+	},obmolRefs)
 	
-
 }
 
 
