@@ -73,7 +73,7 @@ test.canonicalize <- function(){
 }
 test.canonicalLabels <- function() {
 
-	labels=canonicalNumbering(obmol(sdfsample[[1]]))
+	labels=canonicalNumbering_OB(obmol(sdfsample[[1]]))
 	print("labels:")
 	print(labels)
 

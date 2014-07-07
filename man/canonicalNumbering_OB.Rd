@@ -1,7 +1,7 @@
-\name{canonicalNumbering}
-\alias{canonicalNumbering}
+\name{canonicalNumbering_OB}
+\alias{canonicalNumbering_OB}
 \title{
-   Canonical Numbering
+   Canonical Numbering OB
 }
 \description{
    Computes a re-arrangement required to transform the atom numbering
@@ -10,7 +10,7 @@
    Babel to compute the re-arrangement.
 }
 \usage{
-canonicalNumbering(obmolRefs)
+canonicalNumbering_OB(obmolRefs)
 }
 \arguments{
   \item{obmolRefs}{
@@ -43,7 +43,7 @@ canonicalNumbering(obmolRefs)
 \examples{
    library(ChemmineR)
    data(sdfsample)
-   labels = canonicalNumbering(obmol(sdfsample[[1]]))
+   labels = canonicalNumbering_OB(obmol(sdfsample[[1]]))
 
 }
 \keyword{canonical}
