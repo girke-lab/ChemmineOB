@@ -55,17 +55,18 @@ canonicalNumbering <- function(obmolRefs) {
 	if(length(obmolRefs)==1)
 		obmolRefs=c(obmolRefs)
 
-	canHandle = OBOp_FindType("canonical")
+#	canHandle = OBOp_FindType("canonical")
 	#canHandle = OBOp_FindType("gen2D")
 	#TODO check result here, but not like the following:
 	#if(!canHandle)
 		#error("could not find 'canonical' option in OpenBabel")
 
 
-	Map(function(mol){
-		if(!OBOp_Do(canHandle,mol))
-			error("could not find 'canonical' option in OpenBabel")
-	},obmolRefs)
+	Reduce(rbind,Map(function(mol){
+#		if(!OBOp_Do(canHandle,mol))
+#			error("could not find 'canonical' option in OpenBabel")
+		.Call("canonicalReordering",mol,PACKAGE="ChemmineOB")
+	},obmolRefs))
 	
 
 }

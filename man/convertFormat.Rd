@@ -66,5 +66,7 @@ OpenBabel  http://openbabel.org
 	\code{\link{convertFormatFile}}
 }
 \examples{
-	sdfStr = convertFormat("SMI","SDF","CC(=O)OC1=CC=CC=C1C(=O)O\ttest_name")
+   #create an SDF from a SMILES string and put the atoms in the canonical order
+	sdfStr = convertFormat("SMI","SDF","CC(=O)OC1=CC=CC=C1C(=O)O\ttest_name",
+                          options=data.frame(names="canonical",args=""))
 }
