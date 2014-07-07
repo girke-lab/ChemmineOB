@@ -1,4 +1,6 @@
 debug =1
+library(ChemmineR)
+data(sdfsample)
 
 test.propOB <-function(){
 	numDescs = 13 # this can change
@@ -12,8 +14,6 @@ test.propOB <-function(){
 	#checkEquals(p1$atoms,6)
 	checkEquals(p1$MW,84.15948)
 
-	require(ChemmineR)
-	data(sdfsample)
 	n=5
 	p2 = prop_OB(obmol(sdfsample[1:n]))
 
@@ -36,8 +36,6 @@ test.fingerprintOB <-function(){
 test.smartsOB <- function(){
 	
 	molRefs = forEachMol("SMI","C1CCCCC1\ncc1ccc1",identity)
-	library(ChemmineR)
-	data(sdfsample)
 	molRefs = obmol(sdfsample)
 	x = smartsSearch_OB(molRefs,"[CH3X4]")
 	checkEquals(length(x[x>0]),80)
@@ -53,17 +51,13 @@ test.exactMassOB <- function(){
 	#masses = exactMass_OB(molRefs)
 	#print("masses:")
 	#print(masses)
-	library(ChemmineR)
-	data(sdfsample)
 	m = exactMass_OB(obmol(sdfsample[1]))
 	message("650001 mass: ",m)
 	checkEqualsNumeric(m,456.200885,tolerance=0.000001)
 
 
 }
-test.canonicalNumbers <- function(){
-	library(ChemmineR)
-	data(sdfsample)
+test.canonicalize <- function(){
 
 	sdfstrList=as(as(sdfsample[1],"SDFstr"),"list")
 	sdfDef= paste(Map(function(x) paste(x,collapse="\n"),
@@ -76,4 +70,19 @@ test.canonicalNumbers <- function(){
 
 	checkEqualsNumeric(bb[1,1:3],c(2,3,1))
 	checkEqualsNumeric(bb[2,1:3],c(2,4,1))
+}
+test.canonicalLabels <- function() {
+
+	labels=canonicalNumbering(obmol(sdfsample[[1]]))
+	print("labels:")
+	print(labels)
+
+	# compare only the first 11 since there are two possible mappings
+	# given the symetry of this compound and we can't predict which one
+	# it will use.
+	checkEqualsNumeric(labels[1:11],c(25,47,48,16,6,55,24,15,2,7,30,34,33,40,37,19,17,
+										 18,12,9,23,22,29,5,46,27,49,50,3,4,8,57,58,32,38,
+										 39,36,35,43,44,41,42,31,20,21,13,14,28,26,10,11,
+										 45,51,52,53,54,1,56,59,60,61)[1:11])
+
 }
