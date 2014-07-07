@@ -80,7 +80,7 @@ test.canonicalLabels <- function() {
 	# compare only the first 11 since there are two possible mappings
 	# given the symetry of this compound and we can't predict which one
 	# it will use.
-	checkEqualsNumeric(labels[1:11],c(25,47,48,16,6,55,24,15,2,7,30,34,33,40,37,19,17,
+	checkEqualsNumeric(labels[[1]][1:11],c(25,47,48,16,6,55,24,15,2,7,30,34,33,40,37,19,17,
 										 18,12,9,23,22,29,5,46,27,49,50,3,4,8,57,58,32,38,
 										 39,36,35,43,44,41,42,31,20,21,13,14,28,26,10,11,
 										 45,51,52,53,54,1,56,59,60,61)[1:11])
