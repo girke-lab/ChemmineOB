@@ -10,6 +10,8 @@
 ```{r echo=FALSE, results='hide',message=FALSE,warning=FALSE,error=FALSE}
  library(ChemmineOB) 
  library(knitcitations)
+ RefManageR:::BibOptions(style="markdown")
+#`r citep(c("10.1186/1752-153X-2-5", "10.1186/1758-2946-3-33"))`. OpenBabel is an open source
 ```
 
 Introduction
@@ -17,7 +19,7 @@ Introduction
 
 *ChemmineOB* provides an R interface to a subset of
 cheminformatics functionalities implemented by the OpelBabel C++ project
-`r citep(c("10.1186/1752-153X-2-5", "10.1186/1758-2946-3-33"))`. OpenBabel is an open source
+`r citep(c("http://journal.chemistrycentral.com/content/2/1/5", "10.1186/1758-2946-3-33"))`. OpenBabel is an open source
 cheminformatics toolbox that includes utilities for structure format
 interconversions, descriptor calculations, compound similarity searching
 and more. *ChemineOB* aims to make a subset of these
