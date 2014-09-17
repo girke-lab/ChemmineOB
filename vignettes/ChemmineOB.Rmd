@@ -10,9 +10,16 @@
 ```{r echo=FALSE, results='hide',message=FALSE,warning=FALSE,error=FALSE}
  library(ChemmineOB) 
  library(knitcitations)
- RefManageR:::BibOptions(style="markdown")
+ RefManageR:::BibOptions(style="markdown",no.print.fields=c("doi"))
 #`r citep(c("10.1186/1752-153X-2-5", "10.1186/1758-2946-3-33"))`. OpenBabel is an open source
 ```
+
+ChemmineOB
+==========
+
+Kevin Horan & Thomas Girke 
+
+Last update: `r format(Sys.time(),"%B %d, %Y")`
 
 Introduction
 -----------
@@ -152,5 +159,18 @@ Foundation:
 References
 -----------
 ```{r biblio, echo=FALSE, results='asis'}
-   bibliography()
+     #hack to get rid of latex code returned by certain doi sites (e.g. crosscite.org)
+      fix = function(t)  gsub("(\\$\\\\(l|r)brace\\$|\\\\textquotesingle)", "", t)
+      suppressWarnings({
+         sink(tempfile())
+         b<<-bibliography()
+         sink(NULL)
+      })   
+   
+      for(i in 1:length(b)){
+         b[i]$title = fix(b[i]$title)
+         b[i]$author= fix(b[i]$author)
+      }
+      b
+
 ```
