@@ -1,0 +1,83 @@
+changelog
+        version 0.99.4
+                - vignette updates
+
+
+This package depends on Open Babel 2.3.0 or greater. On linux and mac it can be compiled 
+and run against the standard shared library version of Open Babel. On windows, the distributed
+binary has been compiled agains a static version of Open Babel 2.3.2. This was done because the 
+version downloadable from the Open Babel website was compiled with MSVC and is not 
+compatible with GNU based toolchain used by BioConductor. This means that on  windows
+there is no need to install Open Babel seperataly, but also that Open Babel cannot be 
+updated outside of the ChemmineOB package. If you need to compile ChemmineOB from source
+on windows you can follow the instructions below.
+
+Compling with OpenBabel in a non-standard location
+---------------------------------------------------
+If the OpenBabel include and/or library files are not in one of the default
+search paths (e.g., /usr/lib,/usr/include, /usr/local/lib,/usr/local/include), then you must set the
+following environment variables before installing the ChemmineOB package:
+
+OPEN_BABEL_INCDIR = path to header files
+OPEN_BABEL_LIBDIR = path to shared (.so) library file
+
+These values can also be set through command line switches to the configure scripts:
+
+R CMD INSTALL --configure-args='--with-openbabel-include=... --with-openbabel-lib=...' ChemmineOB.tgz
+
+where the '...' are replaced by the relevant paths.
+
+Compiling on Windows
+---------------------
+
+Set up directory structure like this:
+
+C:\openbabel_src
+    \i386
+     \x64
+
+c:\openbabel
+     \i386
+      \x64
+
+c:\openbabel_build
+     \i386
+     \x64
+
+Download the openbabel source and copy it into both c:\openbabel_src\i386 and c:\openbabel_src\x64.
+
+Set up the following global environment variables: in control panel/system:
+
+D:\sandbox\ChemmineOB\src>echo %OPEN_BABEL_SRC%
+c:/openbabel_src
+
+D:\sandbox\ChemmineOB\src>echo %OPEN_BABEL_BIN%
+c:/openbabel
+
+Install the zlibbioc package. In R, do this:
+source("http://bioconductor.org/biocLite.R")
+biocLite("zlibbioc")
+
+Get the location of the zlib includes as follows (in R):
+> library(zlibbioc)
+> pkgconfig("PKG_CFLAGS")
+That will print out something like:
+-I"D:/biocbld/bbs-2.13-bioc/R/library/zlibbioc/include"
+Get rid of the -I and the quotes and there is your ZLIB_INCLUDE_DIR
+
+Then get the location of the zlib library as follows:
+> pkgconfig("PKG_LIBS_shared")
+That will print out something like:
+-L"D:/biocbld/bbs-2.13-bioc/R/library/zlibbioc/libs/i386" -lzlib1bioc>
+Get rid of the -L, the quotes, and the -lzlibbioc> and append /zlib1bioc.dll
+and now you have ZLIB_LIBRARY
+
+
+Then compile with cmake:
+
+cmake -G "Unix Makefiles" -DBUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=c:/openbabel/i386 -DZLIB_INCLUDE_DIR=D:/biocbld/bbs-2.13-bioc/R/library/zlibbioc/include -DZLIB_LIBRARY=D:/biocbld/bbs-2.13-bioc/R/library/zlibbioc/libs/i386/zlib1bioc.dll c:/openbabel_src/i386
+
+You can run this from c:/openbabel_build/i386
+Then:
+make
+make install
