@@ -496,6 +496,12 @@ attr(`ostreamToFile`, 'returnType') = '_p_std__ostream'
 attr(`ostreamToFile`, "inputTypes") = c('character')
 class(`ostreamToFile`) = c("SWIGFunction", class('ostreamToFile'))
 
+# Start of closeOfstream
+`closeOfstream` = function(os) { ;.Call('R_swig_closeOfstream', os, PACKAGE='ChemmineOB'); }
+attr(`closeOfstream`, 'returnType') = 'void'
+attr(`closeOfstream`, "inputTypes") = c('_p_std__ofstream')
+class(`closeOfstream`) = c("SWIGFunction", class('closeOfstream'))
+
 # Start of stringFromOstream
 `stringFromOstream` = function(os, .copy = FALSE) {
   ;.Call('R_swig_stringFromOstream', os, as.logical(.copy), PACKAGE='ChemmineOB'); }
