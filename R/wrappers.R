@@ -56,6 +56,7 @@ canonicalNumbering_OB <- function(obmolRefs) {
 		obmolRefs=c(obmolRefs)
 
 	Map(function(mol){
+		message("calling canonicalReordering")
 		.Call("canonicalReordering",mol,PACKAGE="ChemmineOB")
 	},obmolRefs)
 	

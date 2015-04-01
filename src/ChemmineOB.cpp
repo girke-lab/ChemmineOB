@@ -1263,6 +1263,7 @@ SWIG_R_ConvertPacked(SEXP obj, void *ptr, size_t sz, swig_type_info *ty) {
 #define SWIGTYPE_p_allocator_type swig_types[136]
 #define SWIGTYPE_p_char swig_types[137]
 #define SWIGTYPE_p_const_reference swig_types[138]
+#define SWIGTYPE_p_std__ofstream swig_types[138]
 #define SWIGTYPE_p_difference_type swig_types[139]
 #define SWIGTYPE_p_double swig_types[140]
 #define SWIGTYPE_p_first_type swig_types[141]
@@ -2723,6 +2724,12 @@ SWIGEXPORT SEXP R_swig_ostreamToFile ( SEXP filename) { std::ostream *result = 0
   arg1 = reinterpret_cast< char * >(buf1); result = (std::ostream *)ostreamToFile((char const *)arg1);
   r_ans = SWIG_R_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__ostream, R_SWIG_EXTERNAL |  0 );
   if (alloc1 == SWIG_NEWOBJ) delete[] buf1; vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
+SWIGEXPORT SEXP R_swig_closeOfstream ( SEXP os) { std::ofstream *arg1 = (std::ofstream *) 0 ; void *argp1 = 0 ; int res1 = 0 ;
+  unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
+  res1 = SWIG_R_ConvertPtr(os, &argp1, SWIGTYPE_p_std__ofstream, 0 |  0 ); if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "closeOfstream" "', argument " "1"" of type '" "std::ofstream *""'");  }
+   arg1 = reinterpret_cast< std::ofstream * >(argp1); closeOfstream(arg1); r_ans = R_NilValue; vmaxset(r_vmax);
+  if(r_nprotect)  Rf_unprotect(r_nprotect); return r_ans; }
 SWIGEXPORT SEXP R_swig_stringFromOstream ( SEXP os, SEXP s_swig_copy) { std::string result;
   std::ostringstream *arg1 = (std::ostringstream *) 0 ; void *argp1 = 0 ; int res1 = 0 ; unsigned int r_nprotect = 0;
   SEXP r_ans = R_NilValue ; VMAXTYPE r_vmax = vmaxget() ;
@@ -36188,6 +36195,7 @@ SWIGINTERN R_CallMethodDef CallEntries[] = {
    {"R_swig_delete_OBAtomClassData", (DL_FUNC) &R_swig_delete_OBAtomClassData, 1},
    {"R_swig_new_OBAtomClassData", (DL_FUNC) &R_swig_new_OBAtomClassData, 0},
    {"R_swig_toAtomClassData", (DL_FUNC) &R_swig_toAtomClassData, 1},
+   {"R_swig_closeOfstream", (DL_FUNC) &R_swig_closeOfstream, 1},
    {"R_swig_GetUnspecifiedCisTrans", (DL_FUNC) &R_swig_GetUnspecifiedCisTrans, 2},
    {"R_swig_OBCisTransStereo_IsTrans", (DL_FUNC) &R_swig_OBCisTransStereo_IsTrans, 4},
    {"R_swig_OBSquarePlanarStereo_IsTrans", (DL_FUNC) &R_swig_OBSquarePlanarStereo_IsTrans, 4},
