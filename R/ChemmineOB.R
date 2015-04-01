@@ -5,7 +5,7 @@
 # the SWIG interface file instead.
 
 ##   Generated via the command line invocation:
-##	 /usr/bin/swig2.0 -r -package ChemmineOB -c++ -small -O -templatereduce -naturalvar -I/home/khoran/raw_src/openbabel-2.3.0/include -I/home/khoran/raw_src/openbabel-2.3.0/build/include -o /home/khoran/raw_src/openbabel-2.3.0/scripts/R/ChemmineOB.cpp -outdir /home/khoran/raw_src/openbabel-2.3.0/build/scripts/R /home/khoran/raw_src/openbabel-2.3.0/scripts/openbabel-R.i
+##	 /usr/bin/swig2.0 -r -package ChemmineOB -c++ -small -O -templatereduce -naturalvar -I/home/khoran/raw_src/openbabel-2.3.2/include -I/home/khoran/raw_src/openbabel-2.3.2/build/include -o /home/khoran/raw_src/openbabel-2.3.2/scripts/R/ChemmineOB.cpp -outdir /home/khoran/raw_src/openbabel-2.3.2/build/scripts/R /home/khoran/raw_src/openbabel-2.3.2/scripts/openbabel-R.i
 
 
 #                         srun.swg                            #
@@ -271,6 +271,7 @@ setClass('_p_OpenBabel__OBResidue', contains = c('_p_OpenBabel__OBBase'))
 setClass('_p_OpenBabel__OBInternalCoord', contains = 'C++Reference')
 setClass('_p_OpenBabel__OBAtom', contains = c('_p_OpenBabel__OBBase'))
 setClass('_p_OpenBabel__OBBond', contains = c('_p_OpenBabel__OBBase'))
+setClass('_p_OpenBabel__OBReaction', contains = c('_p_OpenBabel__OBBase'))
 setClass('_p_OpenBabel__OBMol', contains = c('_p_OpenBabel__OBBase'))
 setClass('_p_OpenBabel__OBRing', contains = 'C++Reference')
 setClass('_p_OpenBabel__OBRingSearch', contains = 'C++Reference')
@@ -297,25 +298,45 @@ setClass("OpenBabel::FptIndexHeader",
 setClass('_p_OpenBabel__FastSearch', contains = 'C++Reference')
 setClass('_p_OpenBabel__FastSearchIndexer', contains = 'C++Reference')
 setClass('_p_OpenBabel__OBDescriptor', contains = c('_p_OpenBabel__OBPlugin'))
-setClass('_p_OpenBabel__LineSearchType', contains = 'ExternalReference')
-setClass("OpenBabel::LineSearchType",
+setClass('_p_OpenBabel__OBBuilder', contains = 'C++Reference')
+setClass('_p_OpenBabel__OBOp', contains = c('_p_OpenBabel__OBPlugin'))
+setClass('_p_OpenBabel__OBChargeModel', contains = c('_p_OpenBabel__OBPlugin'))
+setClass('_p_OpenBabel__OBGraphSym', contains = 'C++Reference')
+setClass('_p_OpenBabel__OBIsomorphismMapper', contains = 'C++Reference')
+setClass('_p_OpenBabel__OBQueryAtom', contains = 'C++Reference')
+setClass('_p_OpenBabel__OBQueryBond', contains = 'C++Reference')
+setClass('_p_OpenBabel__OBQuery', contains = 'C++Reference')
+setClass('_p_OpenBabel__OBStereo', contains = 'ExternalReference')
+setClass("OpenBabel::OBStereo",
     representation(
 ),
         contains = "RSWIGStruct")
 
 
-# End class OpenBabel::LineSearchType
+# End class OpenBabel::OBStereo
 
-setClass('_p_OpenBabel__OBFFParameter', contains = 'C++Reference')
-setClass('_p_OpenBabel__OBFFCalculation2', contains = 'C++Reference')
-setClass('_p_OpenBabel__OBFFCalculation3', contains = c('_p_OpenBabel__OBFFCalculation2'))
-setClass('_p_OpenBabel__OBFFCalculation4', contains = c('_p_OpenBabel__OBFFCalculation3'))
-setClass('_p_OpenBabel__OBFFConstraint', contains = 'C++Reference')
-setClass('_p_OpenBabel__OBFFConstraints', contains = 'C++Reference')
-setClass('_p_OpenBabel__OBForceField', contains = c('_p_OpenBabel__OBPlugin'))
-setClass('_p_OpenBabel__OBBuilder', contains = 'C++Reference')
-setClass('_p_OpenBabel__OBOp', contains = c('_p_OpenBabel__OBPlugin'))
+setClass('_p_OpenBabel__OBStereoUnit', contains = 'ExternalReference')
+setClass("OpenBabel::OBStereoUnit",
+    representation(
+        type = "character",
+        id = "integer",
+        para = "logical"),
+        contains = "RSWIGStruct")
+
+
+# End class OpenBabel::OBStereoUnit
+
+setClass('_p_OpenBabel__OBStereoBase', contains = c('_p_OpenBabel__OBGenericData'))
+setClass('_p_OpenBabel__OBStereoFacade', contains = 'C++Reference')
 setClass('_p_OpenBabel__OBBitVec', contains = 'C++Reference')
+setClass('_p_OpenBabel__OBRotorRule', contains = 'C++Reference')
+setClass('_p_OpenBabel__OBRotorRules', contains = c('_p_OpenBabel__OBGlobalDataBase'))
+setClass('_p_OpenBabel__OBRotor', contains = 'C++Reference')
+setClass('_p_OpenBabel__OBRotorList', contains = 'C++Reference')
+setClass('_p_OpenBabel__rotor_digit', contains = 'C++Reference')
+setClass('_p_OpenBabel__OBRotorKeys', contains = 'C++Reference')
+setClass('_p_OpenBabel__OBRotamerList', contains = c('_p_OpenBabel__OBGenericData'))
+setClass('_p_OpenBabel__OBSpectrophore', contains = 'C++Reference')
 setClass('_p_OpenBabel__OBMolAtomIter', contains = 'C++Reference')
 setClass('_p_OpenBabel__OBMolAtomDFSIter', contains = 'C++Reference')
 setClass('_p_OpenBabel__OBMolAtomBFSIter', contains = 'C++Reference')
@@ -329,6 +350,47 @@ setClass('_p_OpenBabel__OBMolAngleIter', contains = 'C++Reference')
 setClass('_p_OpenBabel__OBMolTorsionIter', contains = 'C++Reference')
 setClass('_p_OpenBabel__OBMolPairIter', contains = 'C++Reference')
 setClass('_p_OpenBabel__OBMolRingIter', contains = 'C++Reference')
+setClass('_p_OpenBabel__OBTetraNonPlanarStereo', contains = c('_p_OpenBabel__OBStereoBase'))
+setClass('_p_OpenBabel__OBTetraPlanarStereo', contains = c('_p_OpenBabel__OBStereoBase'))
+setClass('_p_OpenBabel__OBTetrahedralStereo', contains = c('_p_OpenBabel__OBTetraNonPlanarStereo'))
+setClass('_p_OpenBabel__OBCisTransStereo', contains = c('_p_OpenBabel__OBTetraPlanarStereo'))
+setClass('_p_OpenBabel__OBSquarePlanarStereo', contains = c('_p_OpenBabel__OBTetraPlanarStereo'))
+setClass('_p_OpenBabel__OBTetrahedralConfig', contains = 'ExternalReference')
+setClass("OpenBabel::OBTetrahedralConfig",
+    representation(
+        center = "integer",
+        from_or_towards = "integer",
+        winding = "character",
+        view = "character",
+        specified = "logical"),
+        contains = "RSWIGStruct")
+
+
+# End class OpenBabel::OBTetrahedralConfig
+
+setClass('_p_OpenBabel__OBCisTransConfig', contains = 'ExternalReference')
+setClass("OpenBabel::OBCisTransConfig",
+    representation(
+        begin = "integer",
+        end = "integer",
+        shape = "character",
+        specified = "logical"),
+        contains = "RSWIGStruct")
+
+
+# End class OpenBabel::OBCisTransConfig
+
+setClass('_p_OpenBabel__OBSquarePlanarConfig', contains = 'ExternalReference')
+setClass("OpenBabel::OBSquarePlanarConfig",
+    representation(
+        center = "integer",
+        shape = "character",
+        specified = "logical"),
+        contains = "RSWIGStruct")
+
+
+# End class OpenBabel::OBSquarePlanarConfig
+
 
 
 
@@ -433,12 +495,6 @@ class(`ostreamToString`) = c("SWIGFunction", class('ostreamToString'))
 attr(`ostreamToFile`, 'returnType') = '_p_std__ostream'
 attr(`ostreamToFile`, "inputTypes") = c('character')
 class(`ostreamToFile`) = c("SWIGFunction", class('ostreamToFile'))
-
-# Start of closeOfstream
-`closeOfstream` = function(os) { ;.Call('R_swig_closeOfstream', os, PACKAGE='ChemmineOB'); }
-attr(`closeOfstream`, 'returnType') = 'void'
-attr(`closeOfstream`, "inputTypes") = c('_p_std__ofstream')
-class(`closeOfstream`) = c("SWIGFunction", class('closeOfstream'))
 
 # Start of stringFromOstream
 `stringFromOstream` = function(os, .copy = FALSE) {
@@ -9917,6 +9973,159 @@ setMethod('[[<-', c('_p_OpenBabel__OBBond', 'character'),function(x, i, j, ..., 
 );
 # end of accessor method for OpenBabel::OBBond
 setMethod('delete', '_p_OpenBabel__OBBond', function(obj) {delete_OpenBabel__OBBond(obj)})
+# Start of new_OBReaction
+`OBReaction` = function() { ;ans = .Call('R_swig_new_OBReaction', PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBReaction"; reg.finalizer(ans, delete_OBReaction); ans }
+attr(`OBReaction`, 'returnType') = '_p_OpenBabel__OBReaction'
+class(`OBReaction`) = c("SWIGFunction", class('OBReaction'))
+
+# Start of OBReaction_NumReactants
+`OBReaction_NumReactants` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBReaction_NumReactants', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBReaction_NumReactants`, 'returnType') = 'integer'
+attr(`OBReaction_NumReactants`, "inputTypes") = c('_p_OpenBabel__OBReaction')
+class(`OBReaction_NumReactants`) = c("SWIGFunction", class('OBReaction_NumReactants'))
+
+# Start of OBReaction_NumProducts
+`OBReaction_NumProducts` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBReaction_NumProducts', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBReaction_NumProducts`, 'returnType') = 'integer'
+attr(`OBReaction_NumProducts`, "inputTypes") = c('_p_OpenBabel__OBReaction')
+class(`OBReaction_NumProducts`) = c("SWIGFunction", class('OBReaction_NumProducts'))
+
+# Start of OBReaction_AddReactant
+`OBReaction_AddReactant` = function(self, sp) { ;.Call('R_swig_OBReaction_AddReactant', self, sp, PACKAGE='ChemmineOB'); }
+attr(`OBReaction_AddReactant`, 'returnType') = 'void'
+attr(`OBReaction_AddReactant`, "inputTypes") = c('_p_OpenBabel__OBReaction', '_p_shared_ptrT_OpenBabel__OBMol_t')
+class(`OBReaction_AddReactant`) = c("SWIGFunction", class('OBReaction_AddReactant'))
+
+# Start of OBReaction_AddProduct
+`OBReaction_AddProduct` = function(self, sp) { ;.Call('R_swig_OBReaction_AddProduct', self, sp, PACKAGE='ChemmineOB'); }
+attr(`OBReaction_AddProduct`, 'returnType') = 'void'
+attr(`OBReaction_AddProduct`, "inputTypes") = c('_p_OpenBabel__OBReaction', '_p_shared_ptrT_OpenBabel__OBMol_t')
+class(`OBReaction_AddProduct`) = c("SWIGFunction", class('OBReaction_AddProduct'))
+
+# Start of OBReaction_SetTransitionState
+`OBReaction_SetTransitionState` = function(self, sp) {
+  ;.Call('R_swig_OBReaction_SetTransitionState', self, sp, PACKAGE='ChemmineOB'); }
+attr(`OBReaction_SetTransitionState`, 'returnType') = 'void'
+attr(`OBReaction_SetTransitionState`, "inputTypes") = c('_p_OpenBabel__OBReaction', '_p_shared_ptrT_OpenBabel__OBMol_t')
+class(`OBReaction_SetTransitionState`) = c("SWIGFunction", class('OBReaction_SetTransitionState'))
+
+# Start of OBReaction_AddAgent
+`OBReaction_AddAgent` = function(self, sp) { ;.Call('R_swig_OBReaction_AddAgent', self, sp, PACKAGE='ChemmineOB'); }
+attr(`OBReaction_AddAgent`, 'returnType') = 'void'
+attr(`OBReaction_AddAgent`, "inputTypes") = c('_p_OpenBabel__OBReaction', '_p_shared_ptrT_OpenBabel__OBMol_t')
+class(`OBReaction_AddAgent`) = c("SWIGFunction", class('OBReaction_AddAgent'))
+
+# Start of OBReaction_GetReactant
+`OBReaction_GetReactant` = function(self, i, .copy = FALSE) { if(length(i) > 1) { warning("using only the first element of i"); }
+  ; ;ans = .Call('R_swig_OBReaction_GetReactant', self, i, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_shared_ptrT_OpenBabel__OBMol_t"; ans }
+attr(`OBReaction_GetReactant`, 'returnType') = '_p_shared_ptrT_OpenBabel__OBMol_t'
+attr(`OBReaction_GetReactant`, "inputTypes") = c('_p_OpenBabel__OBReaction', 'integer')
+class(`OBReaction_GetReactant`) = c("SWIGFunction", class('OBReaction_GetReactant'))
+
+# Start of OBReaction_GetProduct
+`OBReaction_GetProduct` = function(self, i, .copy = FALSE) { if(length(i) > 1) { warning("using only the first element of i"); }
+  ; ;ans = .Call('R_swig_OBReaction_GetProduct', self, i, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_shared_ptrT_OpenBabel__OBMol_t"; ans }
+attr(`OBReaction_GetProduct`, 'returnType') = '_p_shared_ptrT_OpenBabel__OBMol_t'
+attr(`OBReaction_GetProduct`, "inputTypes") = c('_p_OpenBabel__OBReaction', 'integer')
+class(`OBReaction_GetProduct`) = c("SWIGFunction", class('OBReaction_GetProduct'))
+
+# Start of OBReaction_GetTransitionState
+`OBReaction_GetTransitionState` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBReaction_GetTransitionState', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_shared_ptrT_OpenBabel__OBMol_t"; ans }
+attr(`OBReaction_GetTransitionState`, 'returnType') = '_p_shared_ptrT_OpenBabel__OBMol_t'
+attr(`OBReaction_GetTransitionState`, "inputTypes") = c('_p_OpenBabel__OBReaction')
+class(`OBReaction_GetTransitionState`) = c("SWIGFunction", class('OBReaction_GetTransitionState'))
+
+# Start of OBReaction_GetAgent
+`OBReaction_GetAgent` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBReaction_GetAgent', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_shared_ptrT_OpenBabel__OBMol_t"; ans }
+attr(`OBReaction_GetAgent`, 'returnType') = '_p_shared_ptrT_OpenBabel__OBMol_t'
+attr(`OBReaction_GetAgent`, "inputTypes") = c('_p_OpenBabel__OBReaction')
+class(`OBReaction_GetAgent`) = c("SWIGFunction", class('OBReaction_GetAgent'))
+
+# Start of OBReaction_GetTitle
+`OBReaction_GetTitle` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBReaction_GetTitle', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBReaction_GetTitle`, 'returnType') = 'character'
+attr(`OBReaction_GetTitle`, "inputTypes") = c('_p_OpenBabel__OBReaction')
+class(`OBReaction_GetTitle`) = c("SWIGFunction", class('OBReaction_GetTitle'))
+
+# Start of OBReaction_GetComment
+`OBReaction_GetComment` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBReaction_GetComment', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBReaction_GetComment`, 'returnType') = 'character'
+attr(`OBReaction_GetComment`, "inputTypes") = c('_p_OpenBabel__OBReaction')
+class(`OBReaction_GetComment`) = c("SWIGFunction", class('OBReaction_GetComment'))
+
+# Start of OBReaction_SetTitle
+`OBReaction_SetTitle` = function(self, title) { title = as(title, "character");     
+  ;.Call('R_swig_OBReaction_SetTitle', self, title, PACKAGE='ChemmineOB'); }
+attr(`OBReaction_SetTitle`, 'returnType') = 'void'
+attr(`OBReaction_SetTitle`, "inputTypes") = c('_p_OpenBabel__OBReaction', 'character')
+class(`OBReaction_SetTitle`) = c("SWIGFunction", class('OBReaction_SetTitle'))
+
+# Start of OBReaction_SetComment
+`OBReaction_SetComment` = function(self, comment) { comment = as(comment, "character");     
+  ;.Call('R_swig_OBReaction_SetComment', self, comment, PACKAGE='ChemmineOB'); }
+attr(`OBReaction_SetComment`, 'returnType') = 'void'
+attr(`OBReaction_SetComment`, "inputTypes") = c('_p_OpenBabel__OBReaction', 'character')
+class(`OBReaction_SetComment`) = c("SWIGFunction", class('OBReaction_SetComment'))
+
+# Start of OBReaction_IsReversible
+`OBReaction_IsReversible` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBReaction_IsReversible', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBReaction_IsReversible`, 'returnType') = 'logical'
+attr(`OBReaction_IsReversible`, "inputTypes") = c('_p_OpenBabel__OBReaction')
+class(`OBReaction_IsReversible`) = c("SWIGFunction", class('OBReaction_IsReversible'))
+
+# Start of OBReaction_SetReversible
+`OBReaction_SetReversible__SWIG_0` = function(self, b) { b = as.logical(b);
+  ;.Call('R_swig_OBReaction_SetReversible__SWIG_0', self, b, PACKAGE='ChemmineOB'); }
+attr(`OBReaction_SetReversible__SWIG_0`, 'returnType') = 'void'
+attr(`OBReaction_SetReversible__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBReaction', 'logical')
+class(`OBReaction_SetReversible__SWIG_0`) = c("SWIGFunction", class('OBReaction_SetReversible__SWIG_0'))
+
+# Start of OBReaction_SetReversible
+`OBReaction_SetReversible__SWIG_1` = function(self) {
+  ;.Call('R_swig_OBReaction_SetReversible__SWIG_1', self, PACKAGE='ChemmineOB'); }
+attr(`OBReaction_SetReversible__SWIG_1`, 'returnType') = 'void'
+attr(`OBReaction_SetReversible__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBReaction')
+class(`OBReaction_SetReversible__SWIG_1`) = c("SWIGFunction", class('OBReaction_SetReversible__SWIG_1'))
+
+`OBReaction_SetReversible` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBReaction')) { f <- OBReaction_SetReversible__SWIG_1; }  }
+   else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBReaction') && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 )) {
+      f <- OBReaction_SetReversible__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBReaction_SetReversible with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of OBReaction_ClassDescription
+`OBReaction_ClassDescription` = function() { ;.Call('R_swig_OBReaction_ClassDescription', PACKAGE='ChemmineOB'); }
+attr(`OBReaction_ClassDescription`, 'returnType') = 'character'
+class(`OBReaction_ClassDescription`) = c("SWIGFunction", class('OBReaction_ClassDescription'))
+
+# Start of delete_OBReaction
+`delete_OBReaction` = function(self) { ;.Call('R_swig_delete_OBReaction', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBReaction`, 'returnType') = 'void'
+attr(`delete_OBReaction`, "inputTypes") = c('_p_OpenBabel__OBReaction')
+class(`delete_OBReaction`) = c("SWIGFunction", class('delete_OBReaction'))
+
+# Start of accessor method for OpenBabel::OBReaction
+setMethod('$', '_p_OpenBabel__OBReaction', function(x, name) {
+  accessorFuns = list('NumReactants' = OBReaction_NumReactants, 'NumProducts' = OBReaction_NumProducts, 'AddReactant' = OBReaction_AddReactant, 'AddProduct' = OBReaction_AddProduct, 'SetTransitionState' = OBReaction_SetTransitionState, 'AddAgent' = OBReaction_AddAgent, 'GetReactant' = OBReaction_GetReactant, 'GetProduct' = OBReaction_GetProduct, 'GetTransitionState' = OBReaction_GetTransitionState, 'GetAgent' = OBReaction_GetAgent, 'GetTitle' = OBReaction_GetTitle, 'GetComment' = OBReaction_GetComment, 'SetTitle' = OBReaction_SetTitle, 'SetComment' = OBReaction_SetComment, 'IsReversible' = OBReaction_IsReversible, 'SetReversible' = OBReaction_SetReversible);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBReaction
+setMethod('delete', '_p_OpenBabel__OBReaction', function(obj) {delete_OpenBabel__OBReaction(obj)})
 # Start of new_OBMol
 `OBMol__SWIG_0` = function() { ;ans = .Call('R_swig_new_OBMol__SWIG_0', PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__OBMol"; reg.finalizer(ans, delete_OBMol); ans }
@@ -12111,25 +12320,12 @@ class(`OBSmartsPattern_Init__SWIG_1`) = c("SWIGFunction", class('OBSmartsPattern
     stop("cannot find overloaded function for OBSmartsPattern_Init with argtypes (",toString(argtypes),")"); } ; f(...); }
 # Dispatch function
 # Start of OBSmartsPattern_GetSMARTS
-`OBSmartsPattern_GetSMARTS__SWIG_0` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBSmartsPattern_GetSMARTS__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBSmartsPattern_GetSMARTS__SWIG_0`, 'returnType') = 'character'
-attr(`OBSmartsPattern_GetSMARTS__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBSmartsPattern')
-class(`OBSmartsPattern_GetSMARTS__SWIG_0`) = c("SWIGFunction", class('OBSmartsPattern_GetSMARTS__SWIG_0'))
+`OBSmartsPattern_GetSMARTS` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBSmartsPattern_GetSMARTS', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBSmartsPattern_GetSMARTS`, 'returnType') = 'character'
+attr(`OBSmartsPattern_GetSMARTS`, "inputTypes") = c('_p_OpenBabel__OBSmartsPattern')
+class(`OBSmartsPattern_GetSMARTS`) = c("SWIGFunction", class('OBSmartsPattern_GetSMARTS'))
 
-# Start of OBSmartsPattern_GetSMARTS
-`OBSmartsPattern_GetSMARTS__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBSmartsPattern_GetSMARTS__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBSmartsPattern_GetSMARTS__SWIG_1`, 'returnType') = '_p_std__string'
-attr(`OBSmartsPattern_GetSMARTS__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBSmartsPattern')
-class(`OBSmartsPattern_GetSMARTS__SWIG_1`) = c("SWIGFunction", class('OBSmartsPattern_GetSMARTS__SWIG_1'))
-
-`OBSmartsPattern_GetSMARTS` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBSmartsPattern')) { f <- OBSmartsPattern_GetSMARTS__SWIG_1; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBSmartsPattern')) { f <- OBSmartsPattern_GetSMARTS__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBSmartsPattern_GetSMARTS with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
 # Start of OBSmartsPattern_Empty
 `OBSmartsPattern_Empty` = function(self, .copy = FALSE) {
   ;.Call('R_swig_OBSmartsPattern_Empty', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
@@ -13288,2460 +13484,6 @@ setMethod('$', '_p_OpenBabel__OBDescriptor', function(x, name) {
 );
 # end of accessor method for OpenBabel::OBDescriptor
 setMethod('delete', '_p_OpenBabel__OBDescriptor', function(obj) {delete_OpenBabel__OBDescriptor(obj)})
-# Start of new_LineSearchType
-`LineSearchType` = function() { ;ans = .Call('R_swig_new_LineSearchType', PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__LineSearchType"; reg.finalizer(ans, delete_LineSearchType); ans }
-attr(`LineSearchType`, 'returnType') = '_p_OpenBabel__LineSearchType'
-class(`LineSearchType`) = c("SWIGFunction", class('LineSearchType'))
-
-# Start of delete_LineSearchType
-`delete_LineSearchType` = function(self) { ;.Call('R_swig_delete_LineSearchType', self, PACKAGE='ChemmineOB'); }
-attr(`delete_LineSearchType`, 'returnType') = 'void'
-attr(`delete_LineSearchType`, "inputTypes") = c('_p_OpenBabel__LineSearchType')
-class(`delete_LineSearchType`) = c("SWIGFunction", class('delete_LineSearchType'))
-
-setMethod('delete', '_p_OpenBabel__LineSearchType', function(obj) {delete_OpenBabel__LineSearchType(obj)})
-# Start definition of copy functions & methods for OpenBabel::LineSearchType
-CopyToR_OpenBabel__LineSearchType = function(value, obj = new("OpenBabel::LineSearchType")) { obj; }
-CopyToC_OpenBabel__LineSearchType = function(value, obj) { obj }
-# Start definition of copy methods for OpenBabel::LineSearchType
-setMethod('copyToR', '_p_OpenBabel::LineSearchType', CopyToR_OpenBabel__LineSearchType);
-setMethod('copyToC', 'OpenBabel::LineSearchType', CopyToC_OpenBabel__LineSearchType);
-
-# End definition of copy methods for OpenBabel::LineSearchType
-# End definition of copy functions & methods for OpenBabel::LineSearchType
-# Start of OBFFParameter_a_set
-`OBFFParameter_a_set` = function(self, s_a) { s_a = as.integer(s_a);  if(length(s_a) > 1) {
-    warning("using only the first element of s_a"); } ; ;.Call('R_swig_OBFFParameter_a_set', self, s_a, PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter_a_set`, 'returnType') = 'void'
-attr(`OBFFParameter_a_set`, "inputTypes") = c('_p_OpenBabel__OBFFParameter', 'integer')
-class(`OBFFParameter_a_set`) = c("SWIGFunction", class('OBFFParameter_a_set'))
-
-# Start of OBFFParameter_a_get
-`OBFFParameter_a_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFParameter_a_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter_a_get`, 'returnType') = 'integer'
-attr(`OBFFParameter_a_get`, "inputTypes") = c('_p_OpenBabel__OBFFParameter')
-class(`OBFFParameter_a_get`) = c("SWIGFunction", class('OBFFParameter_a_get'))
-
-# Start of OBFFParameter_b_set
-`OBFFParameter_b_set` = function(self, s_b) { s_b = as.integer(s_b);  if(length(s_b) > 1) {
-    warning("using only the first element of s_b"); } ; ;.Call('R_swig_OBFFParameter_b_set', self, s_b, PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter_b_set`, 'returnType') = 'void'
-attr(`OBFFParameter_b_set`, "inputTypes") = c('_p_OpenBabel__OBFFParameter', 'integer')
-class(`OBFFParameter_b_set`) = c("SWIGFunction", class('OBFFParameter_b_set'))
-
-# Start of OBFFParameter_b_get
-`OBFFParameter_b_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFParameter_b_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter_b_get`, 'returnType') = 'integer'
-attr(`OBFFParameter_b_get`, "inputTypes") = c('_p_OpenBabel__OBFFParameter')
-class(`OBFFParameter_b_get`) = c("SWIGFunction", class('OBFFParameter_b_get'))
-
-# Start of OBFFParameter_c_set
-`OBFFParameter_c_set` = function(self, s_c) { s_c = as.integer(s_c);  if(length(s_c) > 1) {
-    warning("using only the first element of s_c"); } ; ;.Call('R_swig_OBFFParameter_c_set', self, s_c, PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter_c_set`, 'returnType') = 'void'
-attr(`OBFFParameter_c_set`, "inputTypes") = c('_p_OpenBabel__OBFFParameter', 'integer')
-class(`OBFFParameter_c_set`) = c("SWIGFunction", class('OBFFParameter_c_set'))
-
-# Start of OBFFParameter_c_get
-`OBFFParameter_c_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFParameter_c_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter_c_get`, 'returnType') = 'integer'
-attr(`OBFFParameter_c_get`, "inputTypes") = c('_p_OpenBabel__OBFFParameter')
-class(`OBFFParameter_c_get`) = c("SWIGFunction", class('OBFFParameter_c_get'))
-
-# Start of OBFFParameter_d_set
-`OBFFParameter_d_set` = function(self, s_d) { s_d = as.integer(s_d);  if(length(s_d) > 1) {
-    warning("using only the first element of s_d"); } ; ;.Call('R_swig_OBFFParameter_d_set', self, s_d, PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter_d_set`, 'returnType') = 'void'
-attr(`OBFFParameter_d_set`, "inputTypes") = c('_p_OpenBabel__OBFFParameter', 'integer')
-class(`OBFFParameter_d_set`) = c("SWIGFunction", class('OBFFParameter_d_set'))
-
-# Start of OBFFParameter_d_get
-`OBFFParameter_d_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFParameter_d_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter_d_get`, 'returnType') = 'integer'
-attr(`OBFFParameter_d_get`, "inputTypes") = c('_p_OpenBabel__OBFFParameter')
-class(`OBFFParameter_d_get`) = c("SWIGFunction", class('OBFFParameter_d_get'))
-
-# Start of OBFFParameter__a_set
-`OBFFParameter__a_set` = function(self, s_a) { s_a = as(s_a, "character");     
-  ;.Call('R_swig_OBFFParameter__a_set', self, s_a, PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter__a_set`, 'returnType') = 'void'
-attr(`OBFFParameter__a_set`, "inputTypes") = c('_p_OpenBabel__OBFFParameter', 'character')
-class(`OBFFParameter__a_set`) = c("SWIGFunction", class('OBFFParameter__a_set'))
-
-# Start of OBFFParameter__a_get
-`OBFFParameter__a_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFParameter__a_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter__a_get`, 'returnType') = 'character'
-attr(`OBFFParameter__a_get`, "inputTypes") = c('_p_OpenBabel__OBFFParameter')
-class(`OBFFParameter__a_get`) = c("SWIGFunction", class('OBFFParameter__a_get'))
-
-# Start of OBFFParameter__b_set
-`OBFFParameter__b_set` = function(self, s_b) { s_b = as(s_b, "character");     
-  ;.Call('R_swig_OBFFParameter__b_set', self, s_b, PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter__b_set`, 'returnType') = 'void'
-attr(`OBFFParameter__b_set`, "inputTypes") = c('_p_OpenBabel__OBFFParameter', 'character')
-class(`OBFFParameter__b_set`) = c("SWIGFunction", class('OBFFParameter__b_set'))
-
-# Start of OBFFParameter__b_get
-`OBFFParameter__b_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFParameter__b_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter__b_get`, 'returnType') = 'character'
-attr(`OBFFParameter__b_get`, "inputTypes") = c('_p_OpenBabel__OBFFParameter')
-class(`OBFFParameter__b_get`) = c("SWIGFunction", class('OBFFParameter__b_get'))
-
-# Start of OBFFParameter__c_set
-`OBFFParameter__c_set` = function(self, s_c) { s_c = as(s_c, "character");     
-  ;.Call('R_swig_OBFFParameter__c_set', self, s_c, PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter__c_set`, 'returnType') = 'void'
-attr(`OBFFParameter__c_set`, "inputTypes") = c('_p_OpenBabel__OBFFParameter', 'character')
-class(`OBFFParameter__c_set`) = c("SWIGFunction", class('OBFFParameter__c_set'))
-
-# Start of OBFFParameter__c_get
-`OBFFParameter__c_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFParameter__c_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter__c_get`, 'returnType') = 'character'
-attr(`OBFFParameter__c_get`, "inputTypes") = c('_p_OpenBabel__OBFFParameter')
-class(`OBFFParameter__c_get`) = c("SWIGFunction", class('OBFFParameter__c_get'))
-
-# Start of OBFFParameter__d_set
-`OBFFParameter__d_set` = function(self, s_d) { s_d = as(s_d, "character");     
-  ;.Call('R_swig_OBFFParameter__d_set', self, s_d, PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter__d_set`, 'returnType') = 'void'
-attr(`OBFFParameter__d_set`, "inputTypes") = c('_p_OpenBabel__OBFFParameter', 'character')
-class(`OBFFParameter__d_set`) = c("SWIGFunction", class('OBFFParameter__d_set'))
-
-# Start of OBFFParameter__d_get
-`OBFFParameter__d_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFParameter__d_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter__d_get`, 'returnType') = 'character'
-attr(`OBFFParameter__d_get`, "inputTypes") = c('_p_OpenBabel__OBFFParameter')
-class(`OBFFParameter__d_get`) = c("SWIGFunction", class('OBFFParameter__d_get'))
-
-# Start of OBFFParameter__ipar_set
-`OBFFParameter__ipar_set` = function(self, s_ipar) {
-  ;.Call('R_swig_OBFFParameter__ipar_set', self, s_ipar, PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter__ipar_set`, 'returnType') = 'void'
-attr(`OBFFParameter__ipar_set`, "inputTypes") = c('_p_OpenBabel__OBFFParameter', '_p_std__vectorT_int_std__allocatorT_int_t_t')
-class(`OBFFParameter__ipar_set`) = c("SWIGFunction", class('OBFFParameter__ipar_set'))
-
-# Start of OBFFParameter__ipar_get
-`OBFFParameter__ipar_get` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBFFParameter__ipar_get', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_std__vectorT_int_std__allocatorT_int_t_t"; ans }
-attr(`OBFFParameter__ipar_get`, 'returnType') = '_p_std__vectorT_int_std__allocatorT_int_t_t'
-attr(`OBFFParameter__ipar_get`, "inputTypes") = c('_p_OpenBabel__OBFFParameter')
-class(`OBFFParameter__ipar_get`) = c("SWIGFunction", class('OBFFParameter__ipar_get'))
-
-# Start of OBFFParameter__dpar_set
-`OBFFParameter__dpar_set` = function(self, s_dpar) {
-  ;.Call('R_swig_OBFFParameter__dpar_set', self, s_dpar, PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter__dpar_set`, 'returnType') = 'void'
-attr(`OBFFParameter__dpar_set`, "inputTypes") = c('_p_OpenBabel__OBFFParameter', '_p_std__vectorT_double_std__allocatorT_double_t_t')
-class(`OBFFParameter__dpar_set`) = c("SWIGFunction", class('OBFFParameter__dpar_set'))
-
-# Start of OBFFParameter__dpar_get
-`OBFFParameter__dpar_get` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBFFParameter__dpar_get', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_std__vectorT_double_std__allocatorT_double_t_t"; ans }
-attr(`OBFFParameter__dpar_get`, 'returnType') = '_p_std__vectorT_double_std__allocatorT_double_t_t'
-attr(`OBFFParameter__dpar_get`, "inputTypes") = c('_p_OpenBabel__OBFFParameter')
-class(`OBFFParameter__dpar_get`) = c("SWIGFunction", class('OBFFParameter__dpar_get'))
-
-# Start of OBFFParameter_clear
-`OBFFParameter_clear` = function(self) { ;.Call('R_swig_OBFFParameter_clear', self, PACKAGE='ChemmineOB'); }
-attr(`OBFFParameter_clear`, 'returnType') = 'void'
-attr(`OBFFParameter_clear`, "inputTypes") = c('_p_OpenBabel__OBFFParameter')
-class(`OBFFParameter_clear`) = c("SWIGFunction", class('OBFFParameter_clear'))
-
-# Start of new_OBFFParameter
-`OBFFParameter` = function() { ;ans = .Call('R_swig_new_OBFFParameter', PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBFFParameter"; reg.finalizer(ans, delete_OBFFParameter); ans }
-attr(`OBFFParameter`, 'returnType') = '_p_OpenBabel__OBFFParameter'
-class(`OBFFParameter`) = c("SWIGFunction", class('OBFFParameter'))
-
-# Start of delete_OBFFParameter
-`delete_OBFFParameter` = function(self) { ;.Call('R_swig_delete_OBFFParameter', self, PACKAGE='ChemmineOB'); }
-attr(`delete_OBFFParameter`, 'returnType') = 'void'
-attr(`delete_OBFFParameter`, "inputTypes") = c('_p_OpenBabel__OBFFParameter')
-class(`delete_OBFFParameter`) = c("SWIGFunction", class('delete_OBFFParameter'))
-
-# Start of accessor method for OpenBabel::OBFFParameter
-setMethod('$', '_p_OpenBabel__OBFFParameter', function(x, name) {
-  accessorFuns = list('a' = OBFFParameter_a_get, 'b' = OBFFParameter_b_get, 'c' = OBFFParameter_c_get, 'd' = OBFFParameter_d_get, '_a' = OBFFParameter__a_get, '_b' = OBFFParameter__b_get, '_c' = OBFFParameter__c_get, '_d' = OBFFParameter__d_get, '_ipar' = OBFFParameter__ipar_get, '_dpar' = OBFFParameter__dpar_get, 'clear' = OBFFParameter_clear);
-  vaccessors = c('a', 'b', 'c', 'd', '_a', '_b', '_c', '_d', '_ipar', '_dpar');
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
-  if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}  else f(x); }
-);
-# end of accessor method for OpenBabel::OBFFParameter
-# Start of accessor method for OpenBabel::OBFFParameter
-setMethod('$<-', '_p_OpenBabel__OBFFParameter', function(x, name, value) {
-  accessorFuns = list('a' = OBFFParameter_a_set, 'b' = OBFFParameter_b_set, 'c' = OBFFParameter_c_set, 'd' = OBFFParameter_d_set, '_a' = OBFFParameter__a_set, '_b' = OBFFParameter__b_set, '_c' = OBFFParameter__c_set, '_d' = OBFFParameter__d_set, '_ipar' = OBFFParameter__ipar_set, '_dpar' = OBFFParameter__dpar_set);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
-  f = accessorFuns[[idx]]; f(x, value); x; }
-);
-setMethod('[[<-', c('_p_OpenBabel__OBFFParameter', 'character'),function(x, i, j, ..., value) { name = i;
-  accessorFuns = list('a' = OBFFParameter_a_set, 'b' = OBFFParameter_b_set, 'c' = OBFFParameter_c_set, 'd' = OBFFParameter_d_set, '_a' = OBFFParameter__a_set, '_b' = OBFFParameter__b_set, '_c' = OBFFParameter__c_set, '_d' = OBFFParameter__d_set, '_ipar' = OBFFParameter__ipar_set, '_dpar' = OBFFParameter__dpar_set);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
-  f = accessorFuns[[idx]]; f(x, value); x; }
-);
-# end of accessor method for OpenBabel::OBFFParameter
-setMethod('delete', '_p_OpenBabel__OBFFParameter', function(obj) {delete_OpenBabel__OBFFParameter(obj)})
-# Start of OBFFCalculation2_energy_set
-`OBFFCalculation2_energy_set` = function(self, s_energy) {
-  ;.Call('R_swig_OBFFCalculation2_energy_set', self, s_energy, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation2_energy_set`, 'returnType') = 'void'
-attr(`OBFFCalculation2_energy_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2', 'numeric')
-class(`OBFFCalculation2_energy_set`) = c("SWIGFunction", class('OBFFCalculation2_energy_set'))
-
-# Start of OBFFCalculation2_energy_get
-`OBFFCalculation2_energy_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFCalculation2_energy_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation2_energy_get`, 'returnType') = 'numeric'
-attr(`OBFFCalculation2_energy_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2')
-class(`OBFFCalculation2_energy_get`) = c("SWIGFunction", class('OBFFCalculation2_energy_get'))
-
-# Start of OBFFCalculation2_a_set
-`OBFFCalculation2_a_set` = function(self, s_a) { ;.Call('R_swig_OBFFCalculation2_a_set', self, s_a, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation2_a_set`, 'returnType') = 'void'
-attr(`OBFFCalculation2_a_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2', '_p_OpenBabel__OBAtom')
-class(`OBFFCalculation2_a_set`) = c("SWIGFunction", class('OBFFCalculation2_a_set'))
-
-# Start of OBFFCalculation2_a_get
-`OBFFCalculation2_a_get` = function(self) { ;ans = .Call('R_swig_OBFFCalculation2_a_get', self, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBAtom"; ans }
-attr(`OBFFCalculation2_a_get`, 'returnType') = '_p_OpenBabel__OBAtom'
-attr(`OBFFCalculation2_a_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2')
-class(`OBFFCalculation2_a_get`) = c("SWIGFunction", class('OBFFCalculation2_a_get'))
-
-# Start of OBFFCalculation2_b_set
-`OBFFCalculation2_b_set` = function(self, s_b) { ;.Call('R_swig_OBFFCalculation2_b_set', self, s_b, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation2_b_set`, 'returnType') = 'void'
-attr(`OBFFCalculation2_b_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2', '_p_OpenBabel__OBAtom')
-class(`OBFFCalculation2_b_set`) = c("SWIGFunction", class('OBFFCalculation2_b_set'))
-
-# Start of OBFFCalculation2_b_get
-`OBFFCalculation2_b_get` = function(self) { ;ans = .Call('R_swig_OBFFCalculation2_b_get', self, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBAtom"; ans }
-attr(`OBFFCalculation2_b_get`, 'returnType') = '_p_OpenBabel__OBAtom'
-attr(`OBFFCalculation2_b_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2')
-class(`OBFFCalculation2_b_get`) = c("SWIGFunction", class('OBFFCalculation2_b_get'))
-
-# Start of OBFFCalculation2_idx_a_set
-`OBFFCalculation2_idx_a_set` = function(self, s_idx_a) { s_idx_a = as.integer(s_idx_a);  if(length(s_idx_a) > 1) {
-    warning("using only the first element of s_idx_a"); } ;
-  ;.Call('R_swig_OBFFCalculation2_idx_a_set', self, s_idx_a, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation2_idx_a_set`, 'returnType') = 'void'
-attr(`OBFFCalculation2_idx_a_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2', 'integer')
-class(`OBFFCalculation2_idx_a_set`) = c("SWIGFunction", class('OBFFCalculation2_idx_a_set'))
-
-# Start of OBFFCalculation2_idx_a_get
-`OBFFCalculation2_idx_a_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFCalculation2_idx_a_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation2_idx_a_get`, 'returnType') = 'integer'
-attr(`OBFFCalculation2_idx_a_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2')
-class(`OBFFCalculation2_idx_a_get`) = c("SWIGFunction", class('OBFFCalculation2_idx_a_get'))
-
-# Start of OBFFCalculation2_idx_b_set
-`OBFFCalculation2_idx_b_set` = function(self, s_idx_b) { s_idx_b = as.integer(s_idx_b);  if(length(s_idx_b) > 1) {
-    warning("using only the first element of s_idx_b"); } ;
-  ;.Call('R_swig_OBFFCalculation2_idx_b_set', self, s_idx_b, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation2_idx_b_set`, 'returnType') = 'void'
-attr(`OBFFCalculation2_idx_b_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2', 'integer')
-class(`OBFFCalculation2_idx_b_set`) = c("SWIGFunction", class('OBFFCalculation2_idx_b_set'))
-
-# Start of OBFFCalculation2_idx_b_get
-`OBFFCalculation2_idx_b_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFCalculation2_idx_b_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation2_idx_b_get`, 'returnType') = 'integer'
-attr(`OBFFCalculation2_idx_b_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2')
-class(`OBFFCalculation2_idx_b_get`) = c("SWIGFunction", class('OBFFCalculation2_idx_b_get'))
-
-# Start of OBFFCalculation2_pos_a_set
-`OBFFCalculation2_pos_a_set` = function(self, s_pos_a) {
-  ;.Call('R_swig_OBFFCalculation2_pos_a_set', self, s_pos_a, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation2_pos_a_set`, 'returnType') = 'void'
-attr(`OBFFCalculation2_pos_a_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2', 'numeric')
-class(`OBFFCalculation2_pos_a_set`) = c("SWIGFunction", class('OBFFCalculation2_pos_a_set'))
-
-# Start of OBFFCalculation2_pos_a_get
-`OBFFCalculation2_pos_a_get` = function(self) { ;ans = .Call('R_swig_OBFFCalculation2_pos_a_get', self, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_double"; ans }
-attr(`OBFFCalculation2_pos_a_get`, 'returnType') = 'numeric'
-attr(`OBFFCalculation2_pos_a_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2')
-class(`OBFFCalculation2_pos_a_get`) = c("SWIGFunction", class('OBFFCalculation2_pos_a_get'))
-
-# Start of OBFFCalculation2_pos_b_set
-`OBFFCalculation2_pos_b_set` = function(self, s_pos_b) {
-  ;.Call('R_swig_OBFFCalculation2_pos_b_set', self, s_pos_b, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation2_pos_b_set`, 'returnType') = 'void'
-attr(`OBFFCalculation2_pos_b_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2', 'numeric')
-class(`OBFFCalculation2_pos_b_set`) = c("SWIGFunction", class('OBFFCalculation2_pos_b_set'))
-
-# Start of OBFFCalculation2_pos_b_get
-`OBFFCalculation2_pos_b_get` = function(self) { ;ans = .Call('R_swig_OBFFCalculation2_pos_b_get', self, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_double"; ans }
-attr(`OBFFCalculation2_pos_b_get`, 'returnType') = 'numeric'
-attr(`OBFFCalculation2_pos_b_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2')
-class(`OBFFCalculation2_pos_b_get`) = c("SWIGFunction", class('OBFFCalculation2_pos_b_get'))
-
-# Start of OBFFCalculation2_force_a_set
-`OBFFCalculation2_force_a_set` = function(self, s_force_a) { if(is.list(s_force_a))assert(all(sapply(s_force_a, class) == "_p_double"));
-#  assert(length(s_force_a) >= 3)
-    ;.Call('R_swig_OBFFCalculation2_force_a_set', self, s_force_a, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation2_force_a_set`, 'returnType') = 'void'
-attr(`OBFFCalculation2_force_a_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2', '_p_double')
-class(`OBFFCalculation2_force_a_set`) = c("SWIGFunction", class('OBFFCalculation2_force_a_set'))
-
-# Start of OBFFCalculation2_force_a_get
-`OBFFCalculation2_force_a_get` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBFFCalculation2_force_a_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); class(ans) <- "_p_double";
-  ans }
-attr(`OBFFCalculation2_force_a_get`, 'returnType') = '_p_double'
-attr(`OBFFCalculation2_force_a_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2')
-class(`OBFFCalculation2_force_a_get`) = c("SWIGFunction", class('OBFFCalculation2_force_a_get'))
-
-# Start of OBFFCalculation2_force_b_set
-`OBFFCalculation2_force_b_set` = function(self, s_force_b) { if(is.list(s_force_b))assert(all(sapply(s_force_b, class) == "_p_double"));
-#  assert(length(s_force_b) >= 3)
-    ;.Call('R_swig_OBFFCalculation2_force_b_set', self, s_force_b, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation2_force_b_set`, 'returnType') = 'void'
-attr(`OBFFCalculation2_force_b_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2', '_p_double')
-class(`OBFFCalculation2_force_b_set`) = c("SWIGFunction", class('OBFFCalculation2_force_b_set'))
-
-# Start of OBFFCalculation2_force_b_get
-`OBFFCalculation2_force_b_get` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBFFCalculation2_force_b_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); class(ans) <- "_p_double";
-  ans }
-attr(`OBFFCalculation2_force_b_get`, 'returnType') = '_p_double'
-attr(`OBFFCalculation2_force_b_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2')
-class(`OBFFCalculation2_force_b_get`) = c("SWIGFunction", class('OBFFCalculation2_force_b_get'))
-
-# Start of delete_OBFFCalculation2
-`delete_OBFFCalculation2` = function(self) { ;.Call('R_swig_delete_OBFFCalculation2', self, PACKAGE='ChemmineOB'); }
-attr(`delete_OBFFCalculation2`, 'returnType') = 'void'
-attr(`delete_OBFFCalculation2`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2')
-class(`delete_OBFFCalculation2`) = c("SWIGFunction", class('delete_OBFFCalculation2'))
-
-# Start of OBFFCalculation2_SetupPointers
-`OBFFCalculation2_SetupPointers` = function(self) {
-  ;.Call('R_swig_OBFFCalculation2_SetupPointers', self, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation2_SetupPointers`, 'returnType') = 'void'
-attr(`OBFFCalculation2_SetupPointers`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation2')
-class(`OBFFCalculation2_SetupPointers`) = c("SWIGFunction", class('OBFFCalculation2_SetupPointers'))
-
-# Start of new_OBFFCalculation2
-`OBFFCalculation2` = function() { ;ans = .Call('R_swig_new_OBFFCalculation2', PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBFFCalculation2"; reg.finalizer(ans, delete_OBFFCalculation2); ans }
-attr(`OBFFCalculation2`, 'returnType') = '_p_OpenBabel__OBFFCalculation2'
-class(`OBFFCalculation2`) = c("SWIGFunction", class('OBFFCalculation2'))
-
-# Start of accessor method for OpenBabel::OBFFCalculation2
-setMethod('$', '_p_OpenBabel__OBFFCalculation2', function(x, name) {
-  accessorFuns = list('energy' = OBFFCalculation2_energy_get, 'a' = OBFFCalculation2_a_get, 'b' = OBFFCalculation2_b_get, 'idx_a' = OBFFCalculation2_idx_a_get, 'idx_b' = OBFFCalculation2_idx_b_get, 'pos_a' = OBFFCalculation2_pos_a_get, 'pos_b' = OBFFCalculation2_pos_b_get, 'force_a' = OBFFCalculation2_force_a_get, 'force_b' = OBFFCalculation2_force_b_get, 'SetupPointers' = OBFFCalculation2_SetupPointers);
-  vaccessors = c('energy', 'a', 'b', 'idx_a', 'idx_b', 'pos_a', 'pos_b', 'force_a', 'force_b');
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
-  if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}  else f(x); }
-);
-# end of accessor method for OpenBabel::OBFFCalculation2
-# Start of accessor method for OpenBabel::OBFFCalculation2
-setMethod('$<-', '_p_OpenBabel__OBFFCalculation2', function(x, name, value) {
-  accessorFuns = list('energy' = OBFFCalculation2_energy_set, 'a' = OBFFCalculation2_a_set, 'b' = OBFFCalculation2_b_set, 'idx_a' = OBFFCalculation2_idx_a_set, 'idx_b' = OBFFCalculation2_idx_b_set, 'pos_a' = OBFFCalculation2_pos_a_set, 'pos_b' = OBFFCalculation2_pos_b_set, 'force_a' = OBFFCalculation2_force_a_set, 'force_b' = OBFFCalculation2_force_b_set);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
-  f = accessorFuns[[idx]]; f(x, value); x; }
-);
-setMethod('[[<-', c('_p_OpenBabel__OBFFCalculation2', 'character'),function(x, i, j, ..., value) { name = i;
-  accessorFuns = list('energy' = OBFFCalculation2_energy_set, 'a' = OBFFCalculation2_a_set, 'b' = OBFFCalculation2_b_set, 'idx_a' = OBFFCalculation2_idx_a_set, 'idx_b' = OBFFCalculation2_idx_b_set, 'pos_a' = OBFFCalculation2_pos_a_set, 'pos_b' = OBFFCalculation2_pos_b_set, 'force_a' = OBFFCalculation2_force_a_set, 'force_b' = OBFFCalculation2_force_b_set);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
-  f = accessorFuns[[idx]]; f(x, value); x; }
-);
-# end of accessor method for OpenBabel::OBFFCalculation2
-setMethod('delete', '_p_OpenBabel__OBFFCalculation2', function(obj) {delete_OpenBabel__OBFFCalculation2(obj)})
-# Start of OBFFCalculation3_c_set
-`OBFFCalculation3_c_set` = function(self, s_c) { ;.Call('R_swig_OBFFCalculation3_c_set', self, s_c, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation3_c_set`, 'returnType') = 'void'
-attr(`OBFFCalculation3_c_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation3', '_p_OpenBabel__OBAtom')
-class(`OBFFCalculation3_c_set`) = c("SWIGFunction", class('OBFFCalculation3_c_set'))
-
-# Start of OBFFCalculation3_c_get
-`OBFFCalculation3_c_get` = function(self) { ;ans = .Call('R_swig_OBFFCalculation3_c_get', self, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBAtom"; ans }
-attr(`OBFFCalculation3_c_get`, 'returnType') = '_p_OpenBabel__OBAtom'
-attr(`OBFFCalculation3_c_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation3')
-class(`OBFFCalculation3_c_get`) = c("SWIGFunction", class('OBFFCalculation3_c_get'))
-
-# Start of OBFFCalculation3_idx_c_set
-`OBFFCalculation3_idx_c_set` = function(self, s_idx_c) { s_idx_c = as.integer(s_idx_c);  if(length(s_idx_c) > 1) {
-    warning("using only the first element of s_idx_c"); } ;
-  ;.Call('R_swig_OBFFCalculation3_idx_c_set', self, s_idx_c, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation3_idx_c_set`, 'returnType') = 'void'
-attr(`OBFFCalculation3_idx_c_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation3', 'integer')
-class(`OBFFCalculation3_idx_c_set`) = c("SWIGFunction", class('OBFFCalculation3_idx_c_set'))
-
-# Start of OBFFCalculation3_idx_c_get
-`OBFFCalculation3_idx_c_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFCalculation3_idx_c_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation3_idx_c_get`, 'returnType') = 'integer'
-attr(`OBFFCalculation3_idx_c_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation3')
-class(`OBFFCalculation3_idx_c_get`) = c("SWIGFunction", class('OBFFCalculation3_idx_c_get'))
-
-# Start of OBFFCalculation3_pos_c_set
-`OBFFCalculation3_pos_c_set` = function(self, s_pos_c) {
-  ;.Call('R_swig_OBFFCalculation3_pos_c_set', self, s_pos_c, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation3_pos_c_set`, 'returnType') = 'void'
-attr(`OBFFCalculation3_pos_c_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation3', 'numeric')
-class(`OBFFCalculation3_pos_c_set`) = c("SWIGFunction", class('OBFFCalculation3_pos_c_set'))
-
-# Start of OBFFCalculation3_pos_c_get
-`OBFFCalculation3_pos_c_get` = function(self) { ;ans = .Call('R_swig_OBFFCalculation3_pos_c_get', self, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_double"; ans }
-attr(`OBFFCalculation3_pos_c_get`, 'returnType') = 'numeric'
-attr(`OBFFCalculation3_pos_c_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation3')
-class(`OBFFCalculation3_pos_c_get`) = c("SWIGFunction", class('OBFFCalculation3_pos_c_get'))
-
-# Start of OBFFCalculation3_force_c_set
-`OBFFCalculation3_force_c_set` = function(self, s_force_c) { if(is.list(s_force_c))assert(all(sapply(s_force_c, class) == "_p_double"));
-#  assert(length(s_force_c) >= 3)
-    ;.Call('R_swig_OBFFCalculation3_force_c_set', self, s_force_c, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation3_force_c_set`, 'returnType') = 'void'
-attr(`OBFFCalculation3_force_c_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation3', '_p_double')
-class(`OBFFCalculation3_force_c_set`) = c("SWIGFunction", class('OBFFCalculation3_force_c_set'))
-
-# Start of OBFFCalculation3_force_c_get
-`OBFFCalculation3_force_c_get` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBFFCalculation3_force_c_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); class(ans) <- "_p_double";
-  ans }
-attr(`OBFFCalculation3_force_c_get`, 'returnType') = '_p_double'
-attr(`OBFFCalculation3_force_c_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation3')
-class(`OBFFCalculation3_force_c_get`) = c("SWIGFunction", class('OBFFCalculation3_force_c_get'))
-
-# Start of delete_OBFFCalculation3
-`delete_OBFFCalculation3` = function(self) { ;.Call('R_swig_delete_OBFFCalculation3', self, PACKAGE='ChemmineOB'); }
-attr(`delete_OBFFCalculation3`, 'returnType') = 'void'
-attr(`delete_OBFFCalculation3`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation3')
-class(`delete_OBFFCalculation3`) = c("SWIGFunction", class('delete_OBFFCalculation3'))
-
-# Start of new_OBFFCalculation3
-`OBFFCalculation3` = function() { ;ans = .Call('R_swig_new_OBFFCalculation3', PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBFFCalculation3"; reg.finalizer(ans, delete_OBFFCalculation3); ans }
-attr(`OBFFCalculation3`, 'returnType') = '_p_OpenBabel__OBFFCalculation3'
-class(`OBFFCalculation3`) = c("SWIGFunction", class('OBFFCalculation3'))
-
-# Start of accessor method for OpenBabel::OBFFCalculation3
-setMethod('$', '_p_OpenBabel__OBFFCalculation3', function(x, name) {
-  accessorFuns = list('c' = OBFFCalculation3_c_get, 'idx_c' = OBFFCalculation3_idx_c_get, 'pos_c' = OBFFCalculation3_pos_c_get, 'force_c' = OBFFCalculation3_force_c_get);
-  vaccessors = c('c', 'idx_c', 'pos_c', 'force_c'); ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx)) 
-  return(callNextMethod(x, name)); f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}
-   else f(x); }
-);
-# end of accessor method for OpenBabel::OBFFCalculation3
-# Start of accessor method for OpenBabel::OBFFCalculation3
-setMethod('$<-', '_p_OpenBabel__OBFFCalculation3', function(x, name, value) {
-  accessorFuns = list('c' = OBFFCalculation3_c_set, 'idx_c' = OBFFCalculation3_idx_c_set, 'pos_c' = OBFFCalculation3_pos_c_set, 'force_c' = OBFFCalculation3_force_c_set);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
-  f = accessorFuns[[idx]]; f(x, value); x; }
-);
-setMethod('[[<-', c('_p_OpenBabel__OBFFCalculation3', 'character'),function(x, i, j, ..., value) { name = i;
-  accessorFuns = list('c' = OBFFCalculation3_c_set, 'idx_c' = OBFFCalculation3_idx_c_set, 'pos_c' = OBFFCalculation3_pos_c_set, 'force_c' = OBFFCalculation3_force_c_set);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
-  f = accessorFuns[[idx]]; f(x, value); x; }
-);
-# end of accessor method for OpenBabel::OBFFCalculation3
-setMethod('delete', '_p_OpenBabel__OBFFCalculation3', function(obj) {delete_OpenBabel__OBFFCalculation3(obj)})
-# Start of OBFFCalculation4_d_set
-`OBFFCalculation4_d_set` = function(self, s_d) { ;.Call('R_swig_OBFFCalculation4_d_set', self, s_d, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation4_d_set`, 'returnType') = 'void'
-attr(`OBFFCalculation4_d_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation4', '_p_OpenBabel__OBAtom')
-class(`OBFFCalculation4_d_set`) = c("SWIGFunction", class('OBFFCalculation4_d_set'))
-
-# Start of OBFFCalculation4_d_get
-`OBFFCalculation4_d_get` = function(self) { ;ans = .Call('R_swig_OBFFCalculation4_d_get', self, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBAtom"; ans }
-attr(`OBFFCalculation4_d_get`, 'returnType') = '_p_OpenBabel__OBAtom'
-attr(`OBFFCalculation4_d_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation4')
-class(`OBFFCalculation4_d_get`) = c("SWIGFunction", class('OBFFCalculation4_d_get'))
-
-# Start of OBFFCalculation4_idx_d_set
-`OBFFCalculation4_idx_d_set` = function(self, s_idx_d) { s_idx_d = as.integer(s_idx_d);  if(length(s_idx_d) > 1) {
-    warning("using only the first element of s_idx_d"); } ;
-  ;.Call('R_swig_OBFFCalculation4_idx_d_set', self, s_idx_d, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation4_idx_d_set`, 'returnType') = 'void'
-attr(`OBFFCalculation4_idx_d_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation4', 'integer')
-class(`OBFFCalculation4_idx_d_set`) = c("SWIGFunction", class('OBFFCalculation4_idx_d_set'))
-
-# Start of OBFFCalculation4_idx_d_get
-`OBFFCalculation4_idx_d_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFCalculation4_idx_d_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation4_idx_d_get`, 'returnType') = 'integer'
-attr(`OBFFCalculation4_idx_d_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation4')
-class(`OBFFCalculation4_idx_d_get`) = c("SWIGFunction", class('OBFFCalculation4_idx_d_get'))
-
-# Start of OBFFCalculation4_pos_d_set
-`OBFFCalculation4_pos_d_set` = function(self, s_pos_d) {
-  ;.Call('R_swig_OBFFCalculation4_pos_d_set', self, s_pos_d, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation4_pos_d_set`, 'returnType') = 'void'
-attr(`OBFFCalculation4_pos_d_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation4', 'numeric')
-class(`OBFFCalculation4_pos_d_set`) = c("SWIGFunction", class('OBFFCalculation4_pos_d_set'))
-
-# Start of OBFFCalculation4_pos_d_get
-`OBFFCalculation4_pos_d_get` = function(self) { ;ans = .Call('R_swig_OBFFCalculation4_pos_d_get', self, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_double"; ans }
-attr(`OBFFCalculation4_pos_d_get`, 'returnType') = 'numeric'
-attr(`OBFFCalculation4_pos_d_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation4')
-class(`OBFFCalculation4_pos_d_get`) = c("SWIGFunction", class('OBFFCalculation4_pos_d_get'))
-
-# Start of OBFFCalculation4_force_d_set
-`OBFFCalculation4_force_d_set` = function(self, s_force_d) { if(is.list(s_force_d))assert(all(sapply(s_force_d, class) == "_p_double"));
-#  assert(length(s_force_d) >= 3)
-    ;.Call('R_swig_OBFFCalculation4_force_d_set', self, s_force_d, PACKAGE='ChemmineOB'); }
-attr(`OBFFCalculation4_force_d_set`, 'returnType') = 'void'
-attr(`OBFFCalculation4_force_d_set`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation4', '_p_double')
-class(`OBFFCalculation4_force_d_set`) = c("SWIGFunction", class('OBFFCalculation4_force_d_set'))
-
-# Start of OBFFCalculation4_force_d_get
-`OBFFCalculation4_force_d_get` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBFFCalculation4_force_d_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); class(ans) <- "_p_double";
-  ans }
-attr(`OBFFCalculation4_force_d_get`, 'returnType') = '_p_double'
-attr(`OBFFCalculation4_force_d_get`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation4')
-class(`OBFFCalculation4_force_d_get`) = c("SWIGFunction", class('OBFFCalculation4_force_d_get'))
-
-# Start of delete_OBFFCalculation4
-`delete_OBFFCalculation4` = function(self) { ;.Call('R_swig_delete_OBFFCalculation4', self, PACKAGE='ChemmineOB'); }
-attr(`delete_OBFFCalculation4`, 'returnType') = 'void'
-attr(`delete_OBFFCalculation4`, "inputTypes") = c('_p_OpenBabel__OBFFCalculation4')
-class(`delete_OBFFCalculation4`) = c("SWIGFunction", class('delete_OBFFCalculation4'))
-
-# Start of new_OBFFCalculation4
-`OBFFCalculation4` = function() { ;ans = .Call('R_swig_new_OBFFCalculation4', PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBFFCalculation4"; reg.finalizer(ans, delete_OBFFCalculation4); ans }
-attr(`OBFFCalculation4`, 'returnType') = '_p_OpenBabel__OBFFCalculation4'
-class(`OBFFCalculation4`) = c("SWIGFunction", class('OBFFCalculation4'))
-
-# Start of accessor method for OpenBabel::OBFFCalculation4
-setMethod('$', '_p_OpenBabel__OBFFCalculation4', function(x, name) {
-  accessorFuns = list('d' = OBFFCalculation4_d_get, 'idx_d' = OBFFCalculation4_idx_d_get, 'pos_d' = OBFFCalculation4_pos_d_get, 'force_d' = OBFFCalculation4_force_d_get);
-  vaccessors = c('d', 'idx_d', 'pos_d', 'force_d'); ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx)) 
-  return(callNextMethod(x, name)); f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}
-   else f(x); }
-);
-# end of accessor method for OpenBabel::OBFFCalculation4
-# Start of accessor method for OpenBabel::OBFFCalculation4
-setMethod('$<-', '_p_OpenBabel__OBFFCalculation4', function(x, name, value) {
-  accessorFuns = list('d' = OBFFCalculation4_d_set, 'idx_d' = OBFFCalculation4_idx_d_set, 'pos_d' = OBFFCalculation4_pos_d_set, 'force_d' = OBFFCalculation4_force_d_set);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
-  f = accessorFuns[[idx]]; f(x, value); x; }
-);
-setMethod('[[<-', c('_p_OpenBabel__OBFFCalculation4', 'character'),function(x, i, j, ..., value) { name = i;
-  accessorFuns = list('d' = OBFFCalculation4_d_set, 'idx_d' = OBFFCalculation4_idx_d_set, 'pos_d' = OBFFCalculation4_pos_d_set, 'force_d' = OBFFCalculation4_force_d_set);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
-  f = accessorFuns[[idx]]; f(x, value); x; }
-);
-# end of accessor method for OpenBabel::OBFFCalculation4
-setMethod('delete', '_p_OpenBabel__OBFFCalculation4', function(obj) {delete_OpenBabel__OBFFCalculation4(obj)})
-# Start of OBFFConstraint_factor_set
-`OBFFConstraint_factor_set` = function(self, s_factor) {
-  ;.Call('R_swig_OBFFConstraint_factor_set', self, s_factor, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_factor_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_factor_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', 'numeric')
-class(`OBFFConstraint_factor_set`) = c("SWIGFunction", class('OBFFConstraint_factor_set'))
-
-# Start of OBFFConstraint_factor_get
-`OBFFConstraint_factor_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFConstraint_factor_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_factor_get`, 'returnType') = 'numeric'
-attr(`OBFFConstraint_factor_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_factor_get`) = c("SWIGFunction", class('OBFFConstraint_factor_get'))
-
-# Start of OBFFConstraint_constraint_value_set
-`OBFFConstraint_constraint_value_set` = function(self, s_constraint_value) {
-  ;.Call('R_swig_OBFFConstraint_constraint_value_set', self, s_constraint_value, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_constraint_value_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_constraint_value_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', 'numeric')
-class(`OBFFConstraint_constraint_value_set`) = c("SWIGFunction", class('OBFFConstraint_constraint_value_set'))
-
-# Start of OBFFConstraint_constraint_value_get
-`OBFFConstraint_constraint_value_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFConstraint_constraint_value_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_constraint_value_get`, 'returnType') = 'numeric'
-attr(`OBFFConstraint_constraint_value_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_constraint_value_get`) = c("SWIGFunction", class('OBFFConstraint_constraint_value_get'))
-
-# Start of OBFFConstraint_rab0_set
-`OBFFConstraint_rab0_set` = function(self, s_rab0) {
-  ;.Call('R_swig_OBFFConstraint_rab0_set', self, s_rab0, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_rab0_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_rab0_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', 'numeric')
-class(`OBFFConstraint_rab0_set`) = c("SWIGFunction", class('OBFFConstraint_rab0_set'))
-
-# Start of OBFFConstraint_rab0_get
-`OBFFConstraint_rab0_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFConstraint_rab0_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_rab0_get`, 'returnType') = 'numeric'
-attr(`OBFFConstraint_rab0_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_rab0_get`) = c("SWIGFunction", class('OBFFConstraint_rab0_get'))
-
-# Start of OBFFConstraint_rbc0_set
-`OBFFConstraint_rbc0_set` = function(self, s_rbc0) {
-  ;.Call('R_swig_OBFFConstraint_rbc0_set', self, s_rbc0, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_rbc0_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_rbc0_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', 'numeric')
-class(`OBFFConstraint_rbc0_set`) = c("SWIGFunction", class('OBFFConstraint_rbc0_set'))
-
-# Start of OBFFConstraint_rbc0_get
-`OBFFConstraint_rbc0_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFConstraint_rbc0_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_rbc0_get`, 'returnType') = 'numeric'
-attr(`OBFFConstraint_rbc0_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_rbc0_get`) = c("SWIGFunction", class('OBFFConstraint_rbc0_get'))
-
-# Start of OBFFConstraint_type_set
-`OBFFConstraint_type_set` = function(self, s_type) { s_type = as.integer(s_type);  if(length(s_type) > 1) {
-    warning("using only the first element of s_type"); } ;
-  ;.Call('R_swig_OBFFConstraint_type_set', self, s_type, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_type_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_type_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', 'integer')
-class(`OBFFConstraint_type_set`) = c("SWIGFunction", class('OBFFConstraint_type_set'))
-
-# Start of OBFFConstraint_type_get
-`OBFFConstraint_type_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFConstraint_type_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_type_get`, 'returnType') = 'integer'
-attr(`OBFFConstraint_type_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_type_get`) = c("SWIGFunction", class('OBFFConstraint_type_get'))
-
-# Start of OBFFConstraint_ia_set
-`OBFFConstraint_ia_set` = function(self, s_ia) { s_ia = as.integer(s_ia);  if(length(s_ia) > 1) {
-    warning("using only the first element of s_ia"); } ;
-  ;.Call('R_swig_OBFFConstraint_ia_set', self, s_ia, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_ia_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_ia_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', 'integer')
-class(`OBFFConstraint_ia_set`) = c("SWIGFunction", class('OBFFConstraint_ia_set'))
-
-# Start of OBFFConstraint_ia_get
-`OBFFConstraint_ia_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFConstraint_ia_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_ia_get`, 'returnType') = 'integer'
-attr(`OBFFConstraint_ia_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_ia_get`) = c("SWIGFunction", class('OBFFConstraint_ia_get'))
-
-# Start of OBFFConstraint_ib_set
-`OBFFConstraint_ib_set` = function(self, s_ib) { s_ib = as.integer(s_ib);  if(length(s_ib) > 1) {
-    warning("using only the first element of s_ib"); } ;
-  ;.Call('R_swig_OBFFConstraint_ib_set', self, s_ib, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_ib_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_ib_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', 'integer')
-class(`OBFFConstraint_ib_set`) = c("SWIGFunction", class('OBFFConstraint_ib_set'))
-
-# Start of OBFFConstraint_ib_get
-`OBFFConstraint_ib_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFConstraint_ib_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_ib_get`, 'returnType') = 'integer'
-attr(`OBFFConstraint_ib_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_ib_get`) = c("SWIGFunction", class('OBFFConstraint_ib_get'))
-
-# Start of OBFFConstraint_ic_set
-`OBFFConstraint_ic_set` = function(self, s_ic) { s_ic = as.integer(s_ic);  if(length(s_ic) > 1) {
-    warning("using only the first element of s_ic"); } ;
-  ;.Call('R_swig_OBFFConstraint_ic_set', self, s_ic, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_ic_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_ic_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', 'integer')
-class(`OBFFConstraint_ic_set`) = c("SWIGFunction", class('OBFFConstraint_ic_set'))
-
-# Start of OBFFConstraint_ic_get
-`OBFFConstraint_ic_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFConstraint_ic_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_ic_get`, 'returnType') = 'integer'
-attr(`OBFFConstraint_ic_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_ic_get`) = c("SWIGFunction", class('OBFFConstraint_ic_get'))
-
-# Start of OBFFConstraint_id_set
-`OBFFConstraint_id_set` = function(self, s_id) { s_id = as.integer(s_id);  if(length(s_id) > 1) {
-    warning("using only the first element of s_id"); } ;
-  ;.Call('R_swig_OBFFConstraint_id_set', self, s_id, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_id_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_id_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', 'integer')
-class(`OBFFConstraint_id_set`) = c("SWIGFunction", class('OBFFConstraint_id_set'))
-
-# Start of OBFFConstraint_id_get
-`OBFFConstraint_id_get` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFConstraint_id_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_id_get`, 'returnType') = 'integer'
-attr(`OBFFConstraint_id_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_id_get`) = c("SWIGFunction", class('OBFFConstraint_id_get'))
-
-# Start of OBFFConstraint_a_set
-`OBFFConstraint_a_set` = function(self, s_a) { ;.Call('R_swig_OBFFConstraint_a_set', self, s_a, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_a_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_a_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', '_p_OpenBabel__OBAtom')
-class(`OBFFConstraint_a_set`) = c("SWIGFunction", class('OBFFConstraint_a_set'))
-
-# Start of OBFFConstraint_a_get
-`OBFFConstraint_a_get` = function(self) { ;ans = .Call('R_swig_OBFFConstraint_a_get', self, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBAtom"; ans }
-attr(`OBFFConstraint_a_get`, 'returnType') = '_p_OpenBabel__OBAtom'
-attr(`OBFFConstraint_a_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_a_get`) = c("SWIGFunction", class('OBFFConstraint_a_get'))
-
-# Start of OBFFConstraint_b_set
-`OBFFConstraint_b_set` = function(self, s_b) { ;.Call('R_swig_OBFFConstraint_b_set', self, s_b, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_b_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_b_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', '_p_OpenBabel__OBAtom')
-class(`OBFFConstraint_b_set`) = c("SWIGFunction", class('OBFFConstraint_b_set'))
-
-# Start of OBFFConstraint_b_get
-`OBFFConstraint_b_get` = function(self) { ;ans = .Call('R_swig_OBFFConstraint_b_get', self, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBAtom"; ans }
-attr(`OBFFConstraint_b_get`, 'returnType') = '_p_OpenBabel__OBAtom'
-attr(`OBFFConstraint_b_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_b_get`) = c("SWIGFunction", class('OBFFConstraint_b_get'))
-
-# Start of OBFFConstraint_c_set
-`OBFFConstraint_c_set` = function(self, s_c) { ;.Call('R_swig_OBFFConstraint_c_set', self, s_c, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_c_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_c_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', '_p_OpenBabel__OBAtom')
-class(`OBFFConstraint_c_set`) = c("SWIGFunction", class('OBFFConstraint_c_set'))
-
-# Start of OBFFConstraint_c_get
-`OBFFConstraint_c_get` = function(self) { ;ans = .Call('R_swig_OBFFConstraint_c_get', self, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBAtom"; ans }
-attr(`OBFFConstraint_c_get`, 'returnType') = '_p_OpenBabel__OBAtom'
-attr(`OBFFConstraint_c_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_c_get`) = c("SWIGFunction", class('OBFFConstraint_c_get'))
-
-# Start of OBFFConstraint_d_set
-`OBFFConstraint_d_set` = function(self, s_d) { ;.Call('R_swig_OBFFConstraint_d_set', self, s_d, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_d_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_d_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', '_p_OpenBabel__OBAtom')
-class(`OBFFConstraint_d_set`) = c("SWIGFunction", class('OBFFConstraint_d_set'))
-
-# Start of OBFFConstraint_d_get
-`OBFFConstraint_d_get` = function(self) { ;ans = .Call('R_swig_OBFFConstraint_d_get', self, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBAtom"; ans }
-attr(`OBFFConstraint_d_get`, 'returnType') = '_p_OpenBabel__OBAtom'
-attr(`OBFFConstraint_d_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_d_get`) = c("SWIGFunction", class('OBFFConstraint_d_get'))
-
-# Start of OBFFConstraint_grada_set
-`OBFFConstraint_grada_set` = function(self, s_grada) {
-  ;.Call('R_swig_OBFFConstraint_grada_set', self, s_grada, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_grada_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_grada_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', '_p_OpenBabel__vector3')
-class(`OBFFConstraint_grada_set`) = c("SWIGFunction", class('OBFFConstraint_grada_set'))
-
-# Start of OBFFConstraint_grada_get
-`OBFFConstraint_grada_get` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBFFConstraint_grada_get', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBFFConstraint_grada_get`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBFFConstraint_grada_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_grada_get`) = c("SWIGFunction", class('OBFFConstraint_grada_get'))
-
-# Start of OBFFConstraint_gradb_set
-`OBFFConstraint_gradb_set` = function(self, s_gradb) {
-  ;.Call('R_swig_OBFFConstraint_gradb_set', self, s_gradb, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_gradb_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_gradb_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', '_p_OpenBabel__vector3')
-class(`OBFFConstraint_gradb_set`) = c("SWIGFunction", class('OBFFConstraint_gradb_set'))
-
-# Start of OBFFConstraint_gradb_get
-`OBFFConstraint_gradb_get` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBFFConstraint_gradb_get', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBFFConstraint_gradb_get`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBFFConstraint_gradb_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_gradb_get`) = c("SWIGFunction", class('OBFFConstraint_gradb_get'))
-
-# Start of OBFFConstraint_gradc_set
-`OBFFConstraint_gradc_set` = function(self, s_gradc) {
-  ;.Call('R_swig_OBFFConstraint_gradc_set', self, s_gradc, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_gradc_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_gradc_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', '_p_OpenBabel__vector3')
-class(`OBFFConstraint_gradc_set`) = c("SWIGFunction", class('OBFFConstraint_gradc_set'))
-
-# Start of OBFFConstraint_gradc_get
-`OBFFConstraint_gradc_get` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBFFConstraint_gradc_get', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBFFConstraint_gradc_get`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBFFConstraint_gradc_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_gradc_get`) = c("SWIGFunction", class('OBFFConstraint_gradc_get'))
-
-# Start of OBFFConstraint_gradd_set
-`OBFFConstraint_gradd_set` = function(self, s_gradd) {
-  ;.Call('R_swig_OBFFConstraint_gradd_set', self, s_gradd, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraint_gradd_set`, 'returnType') = 'void'
-attr(`OBFFConstraint_gradd_set`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', '_p_OpenBabel__vector3')
-class(`OBFFConstraint_gradd_set`) = c("SWIGFunction", class('OBFFConstraint_gradd_set'))
-
-# Start of OBFFConstraint_gradd_get
-`OBFFConstraint_gradd_get` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBFFConstraint_gradd_get', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBFFConstraint_gradd_get`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBFFConstraint_gradd_get`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`OBFFConstraint_gradd_get`) = c("SWIGFunction", class('OBFFConstraint_gradd_get'))
-
-# Start of new_OBFFConstraint
-`OBFFConstraint` = function() { ;ans = .Call('R_swig_new_OBFFConstraint', PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBFFConstraint"; reg.finalizer(ans, delete_OBFFConstraint); ans }
-attr(`OBFFConstraint`, 'returnType') = '_p_OpenBabel__OBFFConstraint'
-class(`OBFFConstraint`) = c("SWIGFunction", class('OBFFConstraint'))
-
-# Start of delete_OBFFConstraint
-`delete_OBFFConstraint` = function(self) { ;.Call('R_swig_delete_OBFFConstraint', self, PACKAGE='ChemmineOB'); }
-attr(`delete_OBFFConstraint`, 'returnType') = 'void'
-attr(`delete_OBFFConstraint`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint')
-class(`delete_OBFFConstraint`) = c("SWIGFunction", class('delete_OBFFConstraint'))
-
-# Start of OBFFConstraint_GetGradient
-`OBFFConstraint_GetGradient` = function(self, a, .copy = FALSE) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ;
-  ;ans = .Call('R_swig_OBFFConstraint_GetGradient', self, a, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBFFConstraint_GetGradient`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBFFConstraint_GetGradient`, "inputTypes") = c('_p_OpenBabel__OBFFConstraint', 'integer')
-class(`OBFFConstraint_GetGradient`) = c("SWIGFunction", class('OBFFConstraint_GetGradient'))
-
-# Start of accessor method for OpenBabel::OBFFConstraint
-setMethod('$', '_p_OpenBabel__OBFFConstraint', function(x, name) {
-  accessorFuns = list('factor' = OBFFConstraint_factor_get, 'constraint_value' = OBFFConstraint_constraint_value_get, 'rab0' = OBFFConstraint_rab0_get, 'rbc0' = OBFFConstraint_rbc0_get, 'type' = OBFFConstraint_type_get, 'ia' = OBFFConstraint_ia_get, 'ib' = OBFFConstraint_ib_get, 'ic' = OBFFConstraint_ic_get, 'id' = OBFFConstraint_id_get, 'a' = OBFFConstraint_a_get, 'b' = OBFFConstraint_b_get, 'c' = OBFFConstraint_c_get, 'd' = OBFFConstraint_d_get, 'grada' = OBFFConstraint_grada_get, 'gradb' = OBFFConstraint_gradb_get, 'gradc' = OBFFConstraint_gradc_get, 'gradd' = OBFFConstraint_gradd_get, 'GetGradient' = OBFFConstraint_GetGradient);
-  vaccessors = c('factor', 'constraint_value', 'rab0', 'rbc0', 'type', 'ia', 'ib', 'ic', 'id', 'a', 'b', 'c', 'd', 'grada', 'gradb', 'gradc', 'gradd');
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
-  if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}  else f(x); }
-);
-# end of accessor method for OpenBabel::OBFFConstraint
-# Start of accessor method for OpenBabel::OBFFConstraint
-setMethod('$<-', '_p_OpenBabel__OBFFConstraint', function(x, name, value) {
-  accessorFuns = list('factor' = OBFFConstraint_factor_set, 'constraint_value' = OBFFConstraint_constraint_value_set, 'rab0' = OBFFConstraint_rab0_set, 'rbc0' = OBFFConstraint_rbc0_set, 'type' = OBFFConstraint_type_set, 'ia' = OBFFConstraint_ia_set, 'ib' = OBFFConstraint_ib_set, 'ic' = OBFFConstraint_ic_set, 'id' = OBFFConstraint_id_set, 'a' = OBFFConstraint_a_set, 'b' = OBFFConstraint_b_set, 'c' = OBFFConstraint_c_set, 'd' = OBFFConstraint_d_set, 'grada' = OBFFConstraint_grada_set, 'gradb' = OBFFConstraint_gradb_set, 'gradc' = OBFFConstraint_gradc_set, 'gradd' = OBFFConstraint_gradd_set);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
-  f = accessorFuns[[idx]]; f(x, value); x; }
-);
-setMethod('[[<-', c('_p_OpenBabel__OBFFConstraint', 'character'),function(x, i, j, ..., value) { name = i;
-  accessorFuns = list('factor' = OBFFConstraint_factor_set, 'constraint_value' = OBFFConstraint_constraint_value_set, 'rab0' = OBFFConstraint_rab0_set, 'rbc0' = OBFFConstraint_rbc0_set, 'type' = OBFFConstraint_type_set, 'ia' = OBFFConstraint_ia_set, 'ib' = OBFFConstraint_ib_set, 'ic' = OBFFConstraint_ic_set, 'id' = OBFFConstraint_id_set, 'a' = OBFFConstraint_a_set, 'b' = OBFFConstraint_b_set, 'c' = OBFFConstraint_c_set, 'd' = OBFFConstraint_d_set, 'grada' = OBFFConstraint_grada_set, 'gradb' = OBFFConstraint_gradb_set, 'gradc' = OBFFConstraint_gradc_set, 'gradd' = OBFFConstraint_gradd_set);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
-  f = accessorFuns[[idx]]; f(x, value); x; }
-);
-# end of accessor method for OpenBabel::OBFFConstraint
-setMethod('delete', '_p_OpenBabel__OBFFConstraint', function(obj) {delete_OpenBabel__OBFFConstraint(obj)})
-# Start of new_OBFFConstraints
-`OBFFConstraints` = function() { ;ans = .Call('R_swig_new_OBFFConstraints', PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBFFConstraints"; reg.finalizer(ans, delete_OBFFConstraints); ans }
-attr(`OBFFConstraints`, 'returnType') = '_p_OpenBabel__OBFFConstraints'
-class(`OBFFConstraints`) = c("SWIGFunction", class('OBFFConstraints'))
-
-# Start of delete_OBFFConstraints
-`delete_OBFFConstraints` = function(self) { ;.Call('R_swig_delete_OBFFConstraints', self, PACKAGE='ChemmineOB'); }
-attr(`delete_OBFFConstraints`, 'returnType') = 'void'
-attr(`delete_OBFFConstraints`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints')
-class(`delete_OBFFConstraints`) = c("SWIGFunction", class('delete_OBFFConstraints'))
-
-# Start of OBFFConstraints_Clear
-`OBFFConstraints_Clear` = function(self) { ;.Call('R_swig_OBFFConstraints_Clear', self, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_Clear`, 'returnType') = 'void'
-attr(`OBFFConstraints_Clear`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints')
-class(`OBFFConstraints_Clear`) = c("SWIGFunction", class('OBFFConstraints_Clear'))
-
-# Start of OBFFConstraints_GetConstraintEnergy
-`OBFFConstraints_GetConstraintEnergy` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFConstraints_GetConstraintEnergy', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_GetConstraintEnergy`, 'returnType') = 'numeric'
-attr(`OBFFConstraints_GetConstraintEnergy`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints')
-class(`OBFFConstraints_GetConstraintEnergy`) = c("SWIGFunction", class('OBFFConstraints_GetConstraintEnergy'))
-
-# Start of OBFFConstraints_GetGradient
-`OBFFConstraints_GetGradient` = function(self, a, .copy = FALSE) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ;
-  ;ans = .Call('R_swig_OBFFConstraints_GetGradient', self, a, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBFFConstraints_GetGradient`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBFFConstraints_GetGradient`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_GetGradient`) = c("SWIGFunction", class('OBFFConstraints_GetGradient'))
-
-# Start of OBFFConstraints_Setup
-`OBFFConstraints_Setup` = function(self, mol) { ;.Call('R_swig_OBFFConstraints_Setup', self, mol, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_Setup`, 'returnType') = 'void'
-attr(`OBFFConstraints_Setup`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', '_p_OpenBabel__OBMol')
-class(`OBFFConstraints_Setup`) = c("SWIGFunction", class('OBFFConstraints_Setup'))
-
-# Start of OBFFConstraints_SetFactor
-`OBFFConstraints_SetFactor` = function(self, factor) {
-  ;.Call('R_swig_OBFFConstraints_SetFactor', self, factor, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_SetFactor`, 'returnType') = 'void'
-attr(`OBFFConstraints_SetFactor`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'numeric')
-class(`OBFFConstraints_SetFactor`) = c("SWIGFunction", class('OBFFConstraints_SetFactor'))
-
-# Start of OBFFConstraints_AddIgnore
-`OBFFConstraints_AddIgnore` = function(self, a) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ;
-  ;.Call('R_swig_OBFFConstraints_AddIgnore', self, a, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_AddIgnore`, 'returnType') = 'void'
-attr(`OBFFConstraints_AddIgnore`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_AddIgnore`) = c("SWIGFunction", class('OBFFConstraints_AddIgnore'))
-
-# Start of OBFFConstraints_AddAtomConstraint
-`OBFFConstraints_AddAtomConstraint` = function(self, a) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ;
-  ;.Call('R_swig_OBFFConstraints_AddAtomConstraint', self, a, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_AddAtomConstraint`, 'returnType') = 'void'
-attr(`OBFFConstraints_AddAtomConstraint`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_AddAtomConstraint`) = c("SWIGFunction", class('OBFFConstraints_AddAtomConstraint'))
-
-# Start of OBFFConstraints_AddAtomXConstraint
-`OBFFConstraints_AddAtomXConstraint` = function(self, a) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ;
-  ;.Call('R_swig_OBFFConstraints_AddAtomXConstraint', self, a, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_AddAtomXConstraint`, 'returnType') = 'void'
-attr(`OBFFConstraints_AddAtomXConstraint`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_AddAtomXConstraint`) = c("SWIGFunction", class('OBFFConstraints_AddAtomXConstraint'))
-
-# Start of OBFFConstraints_AddAtomYConstraint
-`OBFFConstraints_AddAtomYConstraint` = function(self, a) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ;
-  ;.Call('R_swig_OBFFConstraints_AddAtomYConstraint', self, a, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_AddAtomYConstraint`, 'returnType') = 'void'
-attr(`OBFFConstraints_AddAtomYConstraint`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_AddAtomYConstraint`) = c("SWIGFunction", class('OBFFConstraints_AddAtomYConstraint'))
-
-# Start of OBFFConstraints_AddAtomZConstraint
-`OBFFConstraints_AddAtomZConstraint` = function(self, a) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ;
-  ;.Call('R_swig_OBFFConstraints_AddAtomZConstraint', self, a, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_AddAtomZConstraint`, 'returnType') = 'void'
-attr(`OBFFConstraints_AddAtomZConstraint`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_AddAtomZConstraint`) = c("SWIGFunction", class('OBFFConstraints_AddAtomZConstraint'))
-
-# Start of OBFFConstraints_AddDistanceConstraint
-`OBFFConstraints_AddDistanceConstraint` = function(self, a, b, length) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ; b = as.integer(b);  if(length(b) > 1) {
-    warning("using only the first element of b"); } ;
-  ;.Call('R_swig_OBFFConstraints_AddDistanceConstraint', self, a, b, length, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_AddDistanceConstraint`, 'returnType') = 'void'
-attr(`OBFFConstraints_AddDistanceConstraint`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer', 'integer', 'numeric')
-class(`OBFFConstraints_AddDistanceConstraint`) = c("SWIGFunction", class('OBFFConstraints_AddDistanceConstraint'))
-
-# Start of OBFFConstraints_AddAngleConstraint
-`OBFFConstraints_AddAngleConstraint` = function(self, a, b, c, angle) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ; b = as.integer(b);  if(length(b) > 1) {
-    warning("using only the first element of b"); } ; c = as.integer(c);  if(length(c) > 1) {
-    warning("using only the first element of c"); } ;
-  ;.Call('R_swig_OBFFConstraints_AddAngleConstraint', self, a, b, c, angle, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_AddAngleConstraint`, 'returnType') = 'void'
-attr(`OBFFConstraints_AddAngleConstraint`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer', 'integer', 'integer', 'numeric')
-class(`OBFFConstraints_AddAngleConstraint`) = c("SWIGFunction", class('OBFFConstraints_AddAngleConstraint'))
-
-# Start of OBFFConstraints_AddTorsionConstraint
-`OBFFConstraints_AddTorsionConstraint` = function(self, a, b, c, d, torsion) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ; b = as.integer(b);  if(length(b) > 1) {
-    warning("using only the first element of b"); } ; c = as.integer(c);  if(length(c) > 1) {
-    warning("using only the first element of c"); } ; d = as.integer(d);  if(length(d) > 1) {
-    warning("using only the first element of d"); } ;
-  ;.Call('R_swig_OBFFConstraints_AddTorsionConstraint', self, a, b, c, d, torsion, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_AddTorsionConstraint`, 'returnType') = 'void'
-attr(`OBFFConstraints_AddTorsionConstraint`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer', 'integer', 'integer', 'integer', 'numeric')
-class(`OBFFConstraints_AddTorsionConstraint`) = c("SWIGFunction", class('OBFFConstraints_AddTorsionConstraint'))
-
-# Start of OBFFConstraints_DeleteConstraint
-`OBFFConstraints_DeleteConstraint` = function(self, index) { index = as.integer(index);  if(length(index) > 1) {
-    warning("using only the first element of index"); } ;
-  ;.Call('R_swig_OBFFConstraints_DeleteConstraint', self, index, PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_DeleteConstraint`, 'returnType') = 'void'
-attr(`OBFFConstraints_DeleteConstraint`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_DeleteConstraint`) = c("SWIGFunction", class('OBFFConstraints_DeleteConstraint'))
-
-# Start of OBFFConstraints_GetFactor
-`OBFFConstraints_GetFactor` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFConstraints_GetFactor', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_GetFactor`, 'returnType') = 'numeric'
-attr(`OBFFConstraints_GetFactor`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints')
-class(`OBFFConstraints_GetFactor`) = c("SWIGFunction", class('OBFFConstraints_GetFactor'))
-
-# Start of OBFFConstraints_Size
-`OBFFConstraints_Size` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBFFConstraints_Size', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_Size`, 'returnType') = 'integer'
-attr(`OBFFConstraints_Size`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints')
-class(`OBFFConstraints_Size`) = c("SWIGFunction", class('OBFFConstraints_Size'))
-
-# Start of OBFFConstraints_GetConstraintType
-`OBFFConstraints_GetConstraintType` = function(self, index, .copy = FALSE) { index = as.integer(index);  if(length(index) > 1) {
-    warning("using only the first element of index"); } ;
-  ;.Call('R_swig_OBFFConstraints_GetConstraintType', self, index, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_GetConstraintType`, 'returnType') = 'integer'
-attr(`OBFFConstraints_GetConstraintType`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_GetConstraintType`) = c("SWIGFunction", class('OBFFConstraints_GetConstraintType'))
-
-# Start of OBFFConstraints_GetConstraintValue
-`OBFFConstraints_GetConstraintValue` = function(self, index, .copy = FALSE) { index = as.integer(index); 
-  if(length(index) > 1) { warning("using only the first element of index"); } ;
-  ;.Call('R_swig_OBFFConstraints_GetConstraintValue', self, index, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_GetConstraintValue`, 'returnType') = 'numeric'
-attr(`OBFFConstraints_GetConstraintValue`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_GetConstraintValue`) = c("SWIGFunction", class('OBFFConstraints_GetConstraintValue'))
-
-# Start of OBFFConstraints_GetConstraintAtomA
-`OBFFConstraints_GetConstraintAtomA` = function(self, index, .copy = FALSE) { index = as.integer(index); 
-  if(length(index) > 1) { warning("using only the first element of index"); } ;
-  ;.Call('R_swig_OBFFConstraints_GetConstraintAtomA', self, index, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_GetConstraintAtomA`, 'returnType') = 'integer'
-attr(`OBFFConstraints_GetConstraintAtomA`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_GetConstraintAtomA`) = c("SWIGFunction", class('OBFFConstraints_GetConstraintAtomA'))
-
-# Start of OBFFConstraints_GetConstraintAtomB
-`OBFFConstraints_GetConstraintAtomB` = function(self, index, .copy = FALSE) { index = as.integer(index); 
-  if(length(index) > 1) { warning("using only the first element of index"); } ;
-  ;.Call('R_swig_OBFFConstraints_GetConstraintAtomB', self, index, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_GetConstraintAtomB`, 'returnType') = 'integer'
-attr(`OBFFConstraints_GetConstraintAtomB`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_GetConstraintAtomB`) = c("SWIGFunction", class('OBFFConstraints_GetConstraintAtomB'))
-
-# Start of OBFFConstraints_GetConstraintAtomC
-`OBFFConstraints_GetConstraintAtomC` = function(self, index, .copy = FALSE) { index = as.integer(index); 
-  if(length(index) > 1) { warning("using only the first element of index"); } ;
-  ;.Call('R_swig_OBFFConstraints_GetConstraintAtomC', self, index, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_GetConstraintAtomC`, 'returnType') = 'integer'
-attr(`OBFFConstraints_GetConstraintAtomC`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_GetConstraintAtomC`) = c("SWIGFunction", class('OBFFConstraints_GetConstraintAtomC'))
-
-# Start of OBFFConstraints_GetConstraintAtomD
-`OBFFConstraints_GetConstraintAtomD` = function(self, index, .copy = FALSE) { index = as.integer(index); 
-  if(length(index) > 1) { warning("using only the first element of index"); } ;
-  ;.Call('R_swig_OBFFConstraints_GetConstraintAtomD', self, index, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_GetConstraintAtomD`, 'returnType') = 'integer'
-attr(`OBFFConstraints_GetConstraintAtomD`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_GetConstraintAtomD`) = c("SWIGFunction", class('OBFFConstraints_GetConstraintAtomD'))
-
-# Start of OBFFConstraints_IsIgnored
-`OBFFConstraints_IsIgnored` = function(self, a, .copy = FALSE) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ;
-  ;.Call('R_swig_OBFFConstraints_IsIgnored', self, a, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_IsIgnored`, 'returnType') = 'logical'
-attr(`OBFFConstraints_IsIgnored`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_IsIgnored`) = c("SWIGFunction", class('OBFFConstraints_IsIgnored'))
-
-# Start of OBFFConstraints_IsFixed
-`OBFFConstraints_IsFixed` = function(self, a, .copy = FALSE) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ;
-  ;.Call('R_swig_OBFFConstraints_IsFixed', self, a, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_IsFixed`, 'returnType') = 'logical'
-attr(`OBFFConstraints_IsFixed`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_IsFixed`) = c("SWIGFunction", class('OBFFConstraints_IsFixed'))
-
-# Start of OBFFConstraints_IsXFixed
-`OBFFConstraints_IsXFixed` = function(self, a, .copy = FALSE) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ;
-  ;.Call('R_swig_OBFFConstraints_IsXFixed', self, a, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_IsXFixed`, 'returnType') = 'logical'
-attr(`OBFFConstraints_IsXFixed`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_IsXFixed`) = c("SWIGFunction", class('OBFFConstraints_IsXFixed'))
-
-# Start of OBFFConstraints_IsYFixed
-`OBFFConstraints_IsYFixed` = function(self, a, .copy = FALSE) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ;
-  ;.Call('R_swig_OBFFConstraints_IsYFixed', self, a, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_IsYFixed`, 'returnType') = 'logical'
-attr(`OBFFConstraints_IsYFixed`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_IsYFixed`) = c("SWIGFunction", class('OBFFConstraints_IsYFixed'))
-
-# Start of OBFFConstraints_IsZFixed
-`OBFFConstraints_IsZFixed` = function(self, a, .copy = FALSE) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ;
-  ;.Call('R_swig_OBFFConstraints_IsZFixed', self, a, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBFFConstraints_IsZFixed`, 'returnType') = 'logical'
-attr(`OBFFConstraints_IsZFixed`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints', 'integer')
-class(`OBFFConstraints_IsZFixed`) = c("SWIGFunction", class('OBFFConstraints_IsZFixed'))
-
-# Start of OBFFConstraints_GetIgnoredBitVec
-`OBFFConstraints_GetIgnoredBitVec` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBFFConstraints_GetIgnoredBitVec', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBBitVec"; ans }
-attr(`OBFFConstraints_GetIgnoredBitVec`, 'returnType') = '_p_OpenBabel__OBBitVec'
-attr(`OBFFConstraints_GetIgnoredBitVec`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints')
-class(`OBFFConstraints_GetIgnoredBitVec`) = c("SWIGFunction", class('OBFFConstraints_GetIgnoredBitVec'))
-
-# Start of OBFFConstraints_GetFixedBitVec
-`OBFFConstraints_GetFixedBitVec` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBFFConstraints_GetFixedBitVec', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBBitVec"; ans }
-attr(`OBFFConstraints_GetFixedBitVec`, 'returnType') = '_p_OpenBabel__OBBitVec'
-attr(`OBFFConstraints_GetFixedBitVec`, "inputTypes") = c('_p_OpenBabel__OBFFConstraints')
-class(`OBFFConstraints_GetFixedBitVec`) = c("SWIGFunction", class('OBFFConstraints_GetFixedBitVec'))
-
-# Start of accessor method for OpenBabel::OBFFConstraints
-setMethod('$', '_p_OpenBabel__OBFFConstraints', function(x, name) {
-  accessorFuns = list('Clear' = OBFFConstraints_Clear, 'GetConstraintEnergy' = OBFFConstraints_GetConstraintEnergy, 'GetGradient' = OBFFConstraints_GetGradient, 'Setup' = OBFFConstraints_Setup, 'SetFactor' = OBFFConstraints_SetFactor, 'AddIgnore' = OBFFConstraints_AddIgnore, 'AddAtomConstraint' = OBFFConstraints_AddAtomConstraint, 'AddAtomXConstraint' = OBFFConstraints_AddAtomXConstraint, 'AddAtomYConstraint' = OBFFConstraints_AddAtomYConstraint, 'AddAtomZConstraint' = OBFFConstraints_AddAtomZConstraint, 'AddDistanceConstraint' = OBFFConstraints_AddDistanceConstraint, 'AddAngleConstraint' = OBFFConstraints_AddAngleConstraint, 'AddTorsionConstraint' = OBFFConstraints_AddTorsionConstraint, 'DeleteConstraint' = OBFFConstraints_DeleteConstraint, 'GetFactor' = OBFFConstraints_GetFactor, 'Size' = OBFFConstraints_Size, 'GetConstraintType' = OBFFConstraints_GetConstraintType, 'GetConstraintValue' = OBFFConstraints_GetConstraintValue, 'GetConstraintAtomA' = OBFFConstraints_GetConstraintAtomA, 'GetConstraintAtomB' = OBFFConstraints_GetConstraintAtomB, 'GetConstraintAtomC' = OBFFConstraints_GetConstraintAtomC, 'GetConstraintAtomD' = OBFFConstraints_GetConstraintAtomD, 'IsIgnored' = OBFFConstraints_IsIgnored, 'IsFixed' = OBFFConstraints_IsFixed, 'IsXFixed' = OBFFConstraints_IsXFixed, 'IsYFixed' = OBFFConstraints_IsYFixed, 'IsZFixed' = OBFFConstraints_IsZFixed, 'GetIgnoredBitVec' = OBFFConstraints_GetIgnoredBitVec, 'GetFixedBitVec' = OBFFConstraints_GetFixedBitVec);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
-  function(...){ f(x, ...)} ; }
-);
-# end of accessor method for OpenBabel::OBFFConstraints
-setMethod('delete', '_p_OpenBabel__OBFFConstraints', function(obj) {delete_OpenBabel__OBFFConstraints(obj)})
-# Start of OBForceField_Default
-`OBForceField_Default` = function(.copy = FALSE) {
-  ;ans = .Call('R_swig_OBForceField_Default', as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_p_OpenBabel__OBForceField"; ans }
-attr(`OBForceField_Default`, 'returnType') = '_p_p_OpenBabel__OBForceField'
-class(`OBForceField_Default`) = c("SWIGFunction", class('OBForceField_Default'))
-
-# Start of OBForceField_FindType
-`OBForceField_FindType` = function(ID) { ID = as(ID, "character"); 
-  ;ans = .Call('R_swig_OBForceField_FindType', ID, PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__OBForceField"; ans }
-attr(`OBForceField_FindType`, 'returnType') = '_p_OpenBabel__OBForceField'
-attr(`OBForceField_FindType`, "inputTypes") = c('character')
-class(`OBForceField_FindType`) = c("SWIGFunction", class('OBForceField_FindType'))
-
-# Start of OBForceField_MakeNewInstance
-`OBForceField_MakeNewInstance` = function(self) {
-  ;ans = .Call('R_swig_OBForceField_MakeNewInstance', self, PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__OBForceField";
-  ans }
-attr(`OBForceField_MakeNewInstance`, 'returnType') = '_p_OpenBabel__OBForceField'
-attr(`OBForceField_MakeNewInstance`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_MakeNewInstance`) = c("SWIGFunction", class('OBForceField_MakeNewInstance'))
-
-# Start of delete_OBForceField
-`delete_OBForceField` = function(self) { ;.Call('R_swig_delete_OBForceField', self, PACKAGE='ChemmineOB'); }
-attr(`delete_OBForceField`, 'returnType') = 'void'
-attr(`delete_OBForceField`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`delete_OBForceField`) = c("SWIGFunction", class('delete_OBForceField'))
-
-# Start of OBForceField_FindForceField
-`OBForceField_FindForceField__SWIG_0` = function(ID) { ID = as(ID, "character");     
-  ;ans = .Call('R_swig_OBForceField_FindForceField__SWIG_0', ID, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBForceField"; ans }
-attr(`OBForceField_FindForceField__SWIG_0`, 'returnType') = '_p_OpenBabel__OBForceField'
-attr(`OBForceField_FindForceField__SWIG_0`, "inputTypes") = c('character')
-class(`OBForceField_FindForceField__SWIG_0`) = c("SWIGFunction", class('OBForceField_FindForceField__SWIG_0'))
-
-# Start of OBForceField_FindForceField
-`OBForceField_FindForceField__SWIG_1` = function(ID) { ID = as(ID, "character"); 
-  ;ans = .Call('R_swig_OBForceField_FindForceField__SWIG_1', ID, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBForceField"; ans }
-attr(`OBForceField_FindForceField__SWIG_1`, 'returnType') = '_p_OpenBabel__OBForceField'
-attr(`OBForceField_FindForceField__SWIG_1`, "inputTypes") = c('character')
-class(`OBForceField_FindForceField__SWIG_1`) = c("SWIGFunction", class('OBForceField_FindForceField__SWIG_1'))
-
-`OBForceField_FindForceField` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (is.character(argv[[1]]) && length(argv[[1]]) == 1) { f <- OBForceField_FindForceField__SWIG_0; } 
-    else if (is.character(argv[[1]])) { f <- OBForceField_FindForceField__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBForceField_FindForceField with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBForceField_SetParameterFile
-`OBForceField_SetParameterFile` = function(self, filename) { filename = as(filename, "character");     
-  ;.Call('R_swig_OBForceField_SetParameterFile', self, filename, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetParameterFile`, 'returnType') = 'void'
-attr(`OBForceField_SetParameterFile`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'character')
-class(`OBForceField_SetParameterFile`) = c("SWIGFunction", class('OBForceField_SetParameterFile'))
-
-# Start of OBForceField_GetUnit
-`OBForceField_GetUnit` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_GetUnit', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_GetUnit`, 'returnType') = 'character'
-attr(`OBForceField_GetUnit`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_GetUnit`) = c("SWIGFunction", class('OBForceField_GetUnit'))
-
-# Start of OBForceField_HasAnalyticalGradients
-`OBForceField_HasAnalyticalGradients` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_HasAnalyticalGradients', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_HasAnalyticalGradients`, 'returnType') = 'logical'
-attr(`OBForceField_HasAnalyticalGradients`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_HasAnalyticalGradients`) = c("SWIGFunction", class('OBForceField_HasAnalyticalGradients'))
-
-# Start of OBForceField_Setup
-`OBForceField_Setup__SWIG_0` = function(self, mol, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_Setup__SWIG_0', self, mol, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_Setup__SWIG_0`, 'returnType') = 'logical'
-attr(`OBForceField_Setup__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBMol')
-class(`OBForceField_Setup__SWIG_0`) = c("SWIGFunction", class('OBForceField_Setup__SWIG_0'))
-
-# Start of OBForceField_Setup
-`OBForceField_Setup__SWIG_1` = function(self, mol, constraints, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_Setup__SWIG_1', self, mol, constraints, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_Setup__SWIG_1`, 'returnType') = 'logical'
-attr(`OBForceField_Setup__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBMol', '_p_OpenBabel__OBFFConstraints')
-class(`OBForceField_Setup__SWIG_1`) = c("SWIGFunction", class('OBForceField_Setup__SWIG_1'))
-
-`OBForceField_Setup` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && extends(argtypes[2], '_p_OpenBabel__OBMol') && length(argv[[2]]) == 1) {
-      f <- OBForceField_Setup__SWIG_0; }  }  else if (argc == 3) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && extends(argtypes[2], '_p_OpenBabel__OBMol') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_OpenBabel__OBFFConstraints') && length(argv[[3]]) == 1) {
-      f <- OBForceField_Setup__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBForceField_Setup with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBForceField_ParseParamFile
-`OBForceField_ParseParamFile` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_ParseParamFile', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_ParseParamFile`, 'returnType') = 'logical'
-attr(`OBForceField_ParseParamFile`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_ParseParamFile`) = c("SWIGFunction", class('OBForceField_ParseParamFile'))
-
-# Start of OBForceField_SetTypes
-`OBForceField_SetTypes` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_SetTypes', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetTypes`, 'returnType') = 'logical'
-attr(`OBForceField_SetTypes`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_SetTypes`) = c("SWIGFunction", class('OBForceField_SetTypes'))
-
-# Start of OBForceField_SetFormalCharges
-`OBForceField_SetFormalCharges` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_SetFormalCharges', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetFormalCharges`, 'returnType') = 'logical'
-attr(`OBForceField_SetFormalCharges`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_SetFormalCharges`) = c("SWIGFunction", class('OBForceField_SetFormalCharges'))
-
-# Start of OBForceField_SetPartialCharges
-`OBForceField_SetPartialCharges` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_SetPartialCharges', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetPartialCharges`, 'returnType') = 'logical'
-attr(`OBForceField_SetPartialCharges`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_SetPartialCharges`) = c("SWIGFunction", class('OBForceField_SetPartialCharges'))
-
-# Start of OBForceField_SetupCalculations
-`OBForceField_SetupCalculations` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_SetupCalculations', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetupCalculations`, 'returnType') = 'logical'
-attr(`OBForceField_SetupCalculations`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_SetupCalculations`) = c("SWIGFunction", class('OBForceField_SetupCalculations'))
-
-# Start of OBForceField_SetupPointers
-`OBForceField_SetupPointers` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_SetupPointers', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetupPointers`, 'returnType') = 'logical'
-attr(`OBForceField_SetupPointers`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_SetupPointers`) = c("SWIGFunction", class('OBForceField_SetupPointers'))
-
-# Start of OBForceField_IsSetupNeeded
-`OBForceField_IsSetupNeeded` = function(self, mol, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_IsSetupNeeded', self, mol, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_IsSetupNeeded`, 'returnType') = 'logical'
-attr(`OBForceField_IsSetupNeeded`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBMol')
-class(`OBForceField_IsSetupNeeded`) = c("SWIGFunction", class('OBForceField_IsSetupNeeded'))
-
-# Start of OBForceField_GetAtomTypes
-`OBForceField_GetAtomTypes` = function(self, mol, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_GetAtomTypes', self, mol, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_GetAtomTypes`, 'returnType') = 'logical'
-attr(`OBForceField_GetAtomTypes`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBMol')
-class(`OBForceField_GetAtomTypes`) = c("SWIGFunction", class('OBForceField_GetAtomTypes'))
-
-# Start of OBForceField_GetPartialCharges
-`OBForceField_GetPartialCharges` = function(self, mol, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_GetPartialCharges', self, mol, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_GetPartialCharges`, 'returnType') = 'logical'
-attr(`OBForceField_GetPartialCharges`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBMol')
-class(`OBForceField_GetPartialCharges`) = c("SWIGFunction", class('OBForceField_GetPartialCharges'))
-
-# Start of OBForceField_GetCoordinates
-`OBForceField_GetCoordinates` = function(self, mol, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_GetCoordinates', self, mol, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_GetCoordinates`, 'returnType') = 'logical'
-attr(`OBForceField_GetCoordinates`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBMol')
-class(`OBForceField_GetCoordinates`) = c("SWIGFunction", class('OBForceField_GetCoordinates'))
-
-# Start of OBForceField_UpdateCoordinates
-`OBForceField_UpdateCoordinates` = function(self, mol, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_UpdateCoordinates', self, mol, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_UpdateCoordinates`, 'returnType') = 'logical'
-attr(`OBForceField_UpdateCoordinates`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBMol')
-class(`OBForceField_UpdateCoordinates`) = c("SWIGFunction", class('OBForceField_UpdateCoordinates'))
-
-# Start of OBForceField_GetConformers
-`OBForceField_GetConformers` = function(self, mol, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_GetConformers', self, mol, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_GetConformers`, 'returnType') = 'logical'
-attr(`OBForceField_GetConformers`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBMol')
-class(`OBForceField_GetConformers`) = c("SWIGFunction", class('OBForceField_GetConformers'))
-
-# Start of OBForceField_UpdateConformers
-`OBForceField_UpdateConformers` = function(self, mol, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_UpdateConformers', self, mol, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_UpdateConformers`, 'returnType') = 'logical'
-attr(`OBForceField_UpdateConformers`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBMol')
-class(`OBForceField_UpdateConformers`) = c("SWIGFunction", class('OBForceField_UpdateConformers'))
-
-# Start of OBForceField_SetCoordinates
-`OBForceField_SetCoordinates` = function(self, mol, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_SetCoordinates', self, mol, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetCoordinates`, 'returnType') = 'logical'
-attr(`OBForceField_SetCoordinates`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBMol')
-class(`OBForceField_SetCoordinates`) = c("SWIGFunction", class('OBForceField_SetCoordinates'))
-
-# Start of OBForceField_SetConformers
-`OBForceField_SetConformers` = function(self, mol, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_SetConformers', self, mol, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetConformers`, 'returnType') = 'logical'
-attr(`OBForceField_SetConformers`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBMol')
-class(`OBForceField_SetConformers`) = c("SWIGFunction", class('OBForceField_SetConformers'))
-
-# Start of OBForceField_GetGrid
-`OBForceField_GetGrid` = function(self, step, padding, type, pchg) { type = as(type, "character"); 
-  ;ans = .Call('R_swig_OBForceField_GetGrid', self, step, padding, type, pchg, PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBGridData"; ans }
-attr(`OBForceField_GetGrid`, 'returnType') = '_p_OpenBabel__OBGridData'
-attr(`OBForceField_GetGrid`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'numeric', 'numeric', 'character', 'numeric')
-class(`OBForceField_GetGrid`) = c("SWIGFunction", class('OBForceField_GetGrid'))
-
-# Start of OBForceField_AddIntraGroup
-`OBForceField_AddIntraGroup` = function(self, group) {
-  ;.Call('R_swig_OBForceField_AddIntraGroup', self, group, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_AddIntraGroup`, 'returnType') = 'void'
-attr(`OBForceField_AddIntraGroup`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBBitVec')
-class(`OBForceField_AddIntraGroup`) = c("SWIGFunction", class('OBForceField_AddIntraGroup'))
-
-# Start of OBForceField_AddInterGroup
-`OBForceField_AddInterGroup` = function(self, group) {
-  ;.Call('R_swig_OBForceField_AddInterGroup', self, group, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_AddInterGroup`, 'returnType') = 'void'
-attr(`OBForceField_AddInterGroup`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBBitVec')
-class(`OBForceField_AddInterGroup`) = c("SWIGFunction", class('OBForceField_AddInterGroup'))
-
-# Start of OBForceField_AddInterGroups
-`OBForceField_AddInterGroups` = function(self, group1, group2) {
-  ;.Call('R_swig_OBForceField_AddInterGroups', self, group1, group2, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_AddInterGroups`, 'returnType') = 'void'
-attr(`OBForceField_AddInterGroups`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBBitVec', '_p_OpenBabel__OBBitVec')
-class(`OBForceField_AddInterGroups`) = c("SWIGFunction", class('OBForceField_AddInterGroups'))
-
-# Start of OBForceField_ClearGroups
-`OBForceField_ClearGroups` = function(self) { ;.Call('R_swig_OBForceField_ClearGroups', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_ClearGroups`, 'returnType') = 'void'
-attr(`OBForceField_ClearGroups`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_ClearGroups`) = c("SWIGFunction", class('OBForceField_ClearGroups'))
-
-# Start of OBForceField_HasGroups
-`OBForceField_HasGroups` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_HasGroups', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_HasGroups`, 'returnType') = 'logical'
-attr(`OBForceField_HasGroups`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_HasGroups`) = c("SWIGFunction", class('OBForceField_HasGroups'))
-
-# Start of OBForceField_EnableCutOff
-`OBForceField_EnableCutOff` = function(self, enable) { enable = as.logical(enable);
-  ;.Call('R_swig_OBForceField_EnableCutOff', self, enable, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_EnableCutOff`, 'returnType') = 'void'
-attr(`OBForceField_EnableCutOff`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'logical')
-class(`OBForceField_EnableCutOff`) = c("SWIGFunction", class('OBForceField_EnableCutOff'))
-
-# Start of OBForceField_IsCutOffEnabled
-`OBForceField_IsCutOffEnabled` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_IsCutOffEnabled', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_IsCutOffEnabled`, 'returnType') = 'logical'
-attr(`OBForceField_IsCutOffEnabled`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_IsCutOffEnabled`) = c("SWIGFunction", class('OBForceField_IsCutOffEnabled'))
-
-# Start of OBForceField_SetVDWCutOff
-`OBForceField_SetVDWCutOff` = function(self, r) { ;.Call('R_swig_OBForceField_SetVDWCutOff', self, r, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetVDWCutOff`, 'returnType') = 'void'
-attr(`OBForceField_SetVDWCutOff`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'numeric')
-class(`OBForceField_SetVDWCutOff`) = c("SWIGFunction", class('OBForceField_SetVDWCutOff'))
-
-# Start of OBForceField_GetVDWCutOff
-`OBForceField_GetVDWCutOff` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_GetVDWCutOff', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_GetVDWCutOff`, 'returnType') = 'numeric'
-attr(`OBForceField_GetVDWCutOff`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_GetVDWCutOff`) = c("SWIGFunction", class('OBForceField_GetVDWCutOff'))
-
-# Start of OBForceField_SetElectrostaticCutOff
-`OBForceField_SetElectrostaticCutOff` = function(self, r) {
-  ;.Call('R_swig_OBForceField_SetElectrostaticCutOff', self, r, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetElectrostaticCutOff`, 'returnType') = 'void'
-attr(`OBForceField_SetElectrostaticCutOff`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'numeric')
-class(`OBForceField_SetElectrostaticCutOff`) = c("SWIGFunction", class('OBForceField_SetElectrostaticCutOff'))
-
-# Start of OBForceField_GetElectrostaticCutOff
-`OBForceField_GetElectrostaticCutOff` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_GetElectrostaticCutOff', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_GetElectrostaticCutOff`, 'returnType') = 'numeric'
-attr(`OBForceField_GetElectrostaticCutOff`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_GetElectrostaticCutOff`) = c("SWIGFunction", class('OBForceField_GetElectrostaticCutOff'))
-
-# Start of OBForceField_SetUpdateFrequency
-`OBForceField_SetUpdateFrequency` = function(self, f) { f = as.integer(f);  if(length(f) > 1) {
-    warning("using only the first element of f"); } ;
-  ;.Call('R_swig_OBForceField_SetUpdateFrequency', self, f, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetUpdateFrequency`, 'returnType') = 'void'
-attr(`OBForceField_SetUpdateFrequency`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_SetUpdateFrequency`) = c("SWIGFunction", class('OBForceField_SetUpdateFrequency'))
-
-# Start of OBForceField_GetUpdateFrequency
-`OBForceField_GetUpdateFrequency` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_GetUpdateFrequency', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_GetUpdateFrequency`, 'returnType') = 'integer'
-attr(`OBForceField_GetUpdateFrequency`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_GetUpdateFrequency`) = c("SWIGFunction", class('OBForceField_GetUpdateFrequency'))
-
-# Start of OBForceField_UpdatePairsSimple
-`OBForceField_UpdatePairsSimple` = function(self) {
-  ;.Call('R_swig_OBForceField_UpdatePairsSimple', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_UpdatePairsSimple`, 'returnType') = 'void'
-attr(`OBForceField_UpdatePairsSimple`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_UpdatePairsSimple`) = c("SWIGFunction", class('OBForceField_UpdatePairsSimple'))
-
-# Start of OBForceField_GetNumPairs
-`OBForceField_GetNumPairs` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_GetNumPairs', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_GetNumPairs`, 'returnType') = 'integer'
-attr(`OBForceField_GetNumPairs`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_GetNumPairs`) = c("SWIGFunction", class('OBForceField_GetNumPairs'))
-
-# Start of OBForceField_EnableAllPairs
-`OBForceField_EnableAllPairs` = function(self) { ;.Call('R_swig_OBForceField_EnableAllPairs', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_EnableAllPairs`, 'returnType') = 'void'
-attr(`OBForceField_EnableAllPairs`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_EnableAllPairs`) = c("SWIGFunction", class('OBForceField_EnableAllPairs'))
-
-# Start of OBForceField_Energy
-`OBForceField_Energy__SWIG_0` = function(self, gradients, .copy = FALSE) { gradients = as.logical(gradients);
-  ;.Call('R_swig_OBForceField_Energy__SWIG_0', self, gradients, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_Energy__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBForceField_Energy__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'logical')
-class(`OBForceField_Energy__SWIG_0`) = c("SWIGFunction", class('OBForceField_Energy__SWIG_0'))
-
-# Start of OBForceField_Energy
-`OBForceField_Energy__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_Energy__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_Energy__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBForceField_Energy__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_Energy__SWIG_1`) = c("SWIGFunction", class('OBForceField_Energy__SWIG_1'))
-
-`OBForceField_Energy` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBForceField')) { f <- OBForceField_Energy__SWIG_1; }  }
-   else if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 )) {
-      f <- OBForceField_Energy__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_Energy with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBForceField_E_Bond
-`OBForceField_E_Bond__SWIG_0` = function(self, gradients, .copy = FALSE) { gradients = as.logical(gradients);
-  ;.Call('R_swig_OBForceField_E_Bond__SWIG_0', self, gradients, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_E_Bond__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBForceField_E_Bond__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'logical')
-class(`OBForceField_E_Bond__SWIG_0`) = c("SWIGFunction", class('OBForceField_E_Bond__SWIG_0'))
-
-# Start of OBForceField_E_Bond
-`OBForceField_E_Bond__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_E_Bond__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_E_Bond__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBForceField_E_Bond__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_E_Bond__SWIG_1`) = c("SWIGFunction", class('OBForceField_E_Bond__SWIG_1'))
-
-`OBForceField_E_Bond` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBForceField')) { f <- OBForceField_E_Bond__SWIG_1; }  }
-   else if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 )) {
-      f <- OBForceField_E_Bond__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_E_Bond with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBForceField_E_Angle
-`OBForceField_E_Angle__SWIG_0` = function(self, gradients, .copy = FALSE) { gradients = as.logical(gradients);
-  ;.Call('R_swig_OBForceField_E_Angle__SWIG_0', self, gradients, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_E_Angle__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBForceField_E_Angle__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'logical')
-class(`OBForceField_E_Angle__SWIG_0`) = c("SWIGFunction", class('OBForceField_E_Angle__SWIG_0'))
-
-# Start of OBForceField_E_Angle
-`OBForceField_E_Angle__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_E_Angle__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_E_Angle__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBForceField_E_Angle__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_E_Angle__SWIG_1`) = c("SWIGFunction", class('OBForceField_E_Angle__SWIG_1'))
-
-`OBForceField_E_Angle` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBForceField')) { f <- OBForceField_E_Angle__SWIG_1; }  }
-   else if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 )) {
-      f <- OBForceField_E_Angle__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_E_Angle with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBForceField_E_StrBnd
-`OBForceField_E_StrBnd__SWIG_0` = function(self, gradients, .copy = FALSE) { gradients = as.logical(gradients);
-  ;.Call('R_swig_OBForceField_E_StrBnd__SWIG_0', self, gradients, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_E_StrBnd__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBForceField_E_StrBnd__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'logical')
-class(`OBForceField_E_StrBnd__SWIG_0`) = c("SWIGFunction", class('OBForceField_E_StrBnd__SWIG_0'))
-
-# Start of OBForceField_E_StrBnd
-`OBForceField_E_StrBnd__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_E_StrBnd__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_E_StrBnd__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBForceField_E_StrBnd__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_E_StrBnd__SWIG_1`) = c("SWIGFunction", class('OBForceField_E_StrBnd__SWIG_1'))
-
-`OBForceField_E_StrBnd` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBForceField')) { f <- OBForceField_E_StrBnd__SWIG_1; }  }
-   else if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 )) {
-      f <- OBForceField_E_StrBnd__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_E_StrBnd with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBForceField_E_Torsion
-`OBForceField_E_Torsion__SWIG_0` = function(self, gradients, .copy = FALSE) { gradients = as.logical(gradients);
-  ;.Call('R_swig_OBForceField_E_Torsion__SWIG_0', self, gradients, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_E_Torsion__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBForceField_E_Torsion__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'logical')
-class(`OBForceField_E_Torsion__SWIG_0`) = c("SWIGFunction", class('OBForceField_E_Torsion__SWIG_0'))
-
-# Start of OBForceField_E_Torsion
-`OBForceField_E_Torsion__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_E_Torsion__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_E_Torsion__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBForceField_E_Torsion__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_E_Torsion__SWIG_1`) = c("SWIGFunction", class('OBForceField_E_Torsion__SWIG_1'))
-
-`OBForceField_E_Torsion` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBForceField')) { f <- OBForceField_E_Torsion__SWIG_1; }  }
-   else if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 )) {
-      f <- OBForceField_E_Torsion__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_E_Torsion with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBForceField_E_OOP
-`OBForceField_E_OOP__SWIG_0` = function(self, gradients, .copy = FALSE) { gradients = as.logical(gradients);
-  ;.Call('R_swig_OBForceField_E_OOP__SWIG_0', self, gradients, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_E_OOP__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBForceField_E_OOP__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'logical')
-class(`OBForceField_E_OOP__SWIG_0`) = c("SWIGFunction", class('OBForceField_E_OOP__SWIG_0'))
-
-# Start of OBForceField_E_OOP
-`OBForceField_E_OOP__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_E_OOP__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_E_OOP__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBForceField_E_OOP__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_E_OOP__SWIG_1`) = c("SWIGFunction", class('OBForceField_E_OOP__SWIG_1'))
-
-`OBForceField_E_OOP` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBForceField')) { f <- OBForceField_E_OOP__SWIG_1; }  }
-   else if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 )) {
-      f <- OBForceField_E_OOP__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_E_OOP with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBForceField_E_VDW
-`OBForceField_E_VDW__SWIG_0` = function(self, gradients, .copy = FALSE) { gradients = as.logical(gradients);
-  ;.Call('R_swig_OBForceField_E_VDW__SWIG_0', self, gradients, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_E_VDW__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBForceField_E_VDW__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'logical')
-class(`OBForceField_E_VDW__SWIG_0`) = c("SWIGFunction", class('OBForceField_E_VDW__SWIG_0'))
-
-# Start of OBForceField_E_VDW
-`OBForceField_E_VDW__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_E_VDW__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_E_VDW__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBForceField_E_VDW__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_E_VDW__SWIG_1`) = c("SWIGFunction", class('OBForceField_E_VDW__SWIG_1'))
-
-`OBForceField_E_VDW` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBForceField')) { f <- OBForceField_E_VDW__SWIG_1; }  }
-   else if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 )) {
-      f <- OBForceField_E_VDW__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_E_VDW with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBForceField_E_Electrostatic
-`OBForceField_E_Electrostatic__SWIG_0` = function(self, gradients, .copy = FALSE) { gradients = as.logical(gradients);
-  ;.Call('R_swig_OBForceField_E_Electrostatic__SWIG_0', self, gradients, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_E_Electrostatic__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBForceField_E_Electrostatic__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'logical')
-class(`OBForceField_E_Electrostatic__SWIG_0`) = c("SWIGFunction", class('OBForceField_E_Electrostatic__SWIG_0'))
-
-# Start of OBForceField_E_Electrostatic
-`OBForceField_E_Electrostatic__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_E_Electrostatic__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_E_Electrostatic__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBForceField_E_Electrostatic__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_E_Electrostatic__SWIG_1`) = c("SWIGFunction", class('OBForceField_E_Electrostatic__SWIG_1'))
-
-`OBForceField_E_Electrostatic` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBForceField')) { f <- OBForceField_E_Electrostatic__SWIG_1; }  }
-   else if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 )) {
-      f <- OBForceField_E_Electrostatic__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_E_Electrostatic with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
-# Start of OBForceField_PrintTypes
-`OBForceField_PrintTypes` = function(self) { ;.Call('R_swig_OBForceField_PrintTypes', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_PrintTypes`, 'returnType') = 'void'
-attr(`OBForceField_PrintTypes`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_PrintTypes`) = c("SWIGFunction", class('OBForceField_PrintTypes'))
-
-# Start of OBForceField_PrintFormalCharges
-`OBForceField_PrintFormalCharges` = function(self) {
-  ;.Call('R_swig_OBForceField_PrintFormalCharges', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_PrintFormalCharges`, 'returnType') = 'void'
-attr(`OBForceField_PrintFormalCharges`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_PrintFormalCharges`) = c("SWIGFunction", class('OBForceField_PrintFormalCharges'))
-
-# Start of OBForceField_PrintPartialCharges
-`OBForceField_PrintPartialCharges` = function(self) {
-  ;.Call('R_swig_OBForceField_PrintPartialCharges', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_PrintPartialCharges`, 'returnType') = 'void'
-attr(`OBForceField_PrintPartialCharges`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_PrintPartialCharges`) = c("SWIGFunction", class('OBForceField_PrintPartialCharges'))
-
-# Start of OBForceField_PrintVelocities
-`OBForceField_PrintVelocities` = function(self) { ;.Call('R_swig_OBForceField_PrintVelocities', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_PrintVelocities`, 'returnType') = 'void'
-attr(`OBForceField_PrintVelocities`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_PrintVelocities`) = c("SWIGFunction", class('OBForceField_PrintVelocities'))
-
-# Start of OBForceField_SetLogFile
-`OBForceField_SetLogFile` = function(self, pos, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_SetLogFile', self, pos, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetLogFile`, 'returnType') = 'logical'
-attr(`OBForceField_SetLogFile`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_std__ostream')
-class(`OBForceField_SetLogFile`) = c("SWIGFunction", class('OBForceField_SetLogFile'))
-
-# Start of OBForceField_SetLogLevel
-`OBForceField_SetLogLevel` = function(self, level, .copy = FALSE) { level = as.integer(level);  if(length(level) > 1) {
-    warning("using only the first element of level"); } ;
-  ;.Call('R_swig_OBForceField_SetLogLevel', self, level, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetLogLevel`, 'returnType') = 'logical'
-attr(`OBForceField_SetLogLevel`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_SetLogLevel`) = c("SWIGFunction", class('OBForceField_SetLogLevel'))
-
-# Start of OBForceField_GetLogLevel
-`OBForceField_GetLogLevel` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_GetLogLevel', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_GetLogLevel`, 'returnType') = 'integer'
-attr(`OBForceField_GetLogLevel`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_GetLogLevel`) = c("SWIGFunction", class('OBForceField_GetLogLevel'))
-
-# Start of OBForceField_OBFFLog
-`OBForceField_OBFFLog__SWIG_0` = function(self, msg) { msg = as(msg, "character"); 
-  ;.Call('R_swig_OBForceField_OBFFLog__SWIG_0', self, msg, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_OBFFLog__SWIG_0`, 'returnType') = 'void'
-attr(`OBForceField_OBFFLog__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'character')
-class(`OBForceField_OBFFLog__SWIG_0`) = c("SWIGFunction", class('OBForceField_OBFFLog__SWIG_0'))
-
-# Start of OBForceField_OBFFLog
-`OBForceField_OBFFLog__SWIG_1` = function(self, msg) { msg = as(msg, "character"); 
-  ;.Call('R_swig_OBForceField_OBFFLog__SWIG_1', self, msg, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_OBFFLog__SWIG_1`, 'returnType') = 'void'
-attr(`OBForceField_OBFFLog__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'character')
-class(`OBForceField_OBFFLog__SWIG_1`) = c("SWIGFunction", class('OBForceField_OBFFLog__SWIG_1'))
-
-`OBForceField_OBFFLog` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && is.character(argv[[2]]) && length(argv[[2]]) == 1) {
-      f <- OBForceField_OBFFLog__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && is.character(argv[[2]])) {
-      f <- OBForceField_OBFFLog__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBForceField_OBFFLog with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBForceField_DistanceGeometry
-`OBForceField_DistanceGeometry` = function(self) { ;.Call('R_swig_OBForceField_DistanceGeometry', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_DistanceGeometry`, 'returnType') = 'void'
-attr(`OBForceField_DistanceGeometry`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_DistanceGeometry`) = c("SWIGFunction", class('OBForceField_DistanceGeometry'))
-
-# Start of OBForceField_SystematicRotorSearch
-`OBForceField_SystematicRotorSearch__SWIG_0` = function(self, geomSteps) { if(length(geomSteps) > 1) {
-    warning("using only the first element of geomSteps"); } ;
-  ;.Call('R_swig_OBForceField_SystematicRotorSearch__SWIG_0', self, geomSteps, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SystematicRotorSearch__SWIG_0`, 'returnType') = 'void'
-attr(`OBForceField_SystematicRotorSearch__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_SystematicRotorSearch__SWIG_0`) = c("SWIGFunction", class('OBForceField_SystematicRotorSearch__SWIG_0'))
-
-# Start of OBForceField_SystematicRotorSearch
-`OBForceField_SystematicRotorSearch__SWIG_1` = function(self) {
-  ;.Call('R_swig_OBForceField_SystematicRotorSearch__SWIG_1', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SystematicRotorSearch__SWIG_1`, 'returnType') = 'void'
-attr(`OBForceField_SystematicRotorSearch__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_SystematicRotorSearch__SWIG_1`) = c("SWIGFunction", class('OBForceField_SystematicRotorSearch__SWIG_1'))
-
-`OBForceField_SystematicRotorSearch` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBForceField')) { f <- OBForceField_SystematicRotorSearch__SWIG_1; }
-     }  else if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1) {
-      f <- OBForceField_SystematicRotorSearch__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_SystematicRotorSearch with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
-# Start of OBForceField_SystematicRotorSearchInitialize
-`OBForceField_SystematicRotorSearchInitialize__SWIG_0` = function(self, geomSteps, .copy = FALSE) { if(length(geomSteps) > 1) {
-    warning("using only the first element of geomSteps"); } ;
-  ;.Call('R_swig_OBForceField_SystematicRotorSearchInitialize__SWIG_0', self, geomSteps, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SystematicRotorSearchInitialize__SWIG_0`, 'returnType') = 'integer'
-attr(`OBForceField_SystematicRotorSearchInitialize__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_SystematicRotorSearchInitialize__SWIG_0`) = c("SWIGFunction", class('OBForceField_SystematicRotorSearchInitialize__SWIG_0'))
-
-# Start of OBForceField_SystematicRotorSearchInitialize
-`OBForceField_SystematicRotorSearchInitialize__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_SystematicRotorSearchInitialize__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SystematicRotorSearchInitialize__SWIG_1`, 'returnType') = 'integer'
-attr(`OBForceField_SystematicRotorSearchInitialize__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_SystematicRotorSearchInitialize__SWIG_1`) = c("SWIGFunction", class('OBForceField_SystematicRotorSearchInitialize__SWIG_1'))
-
-`OBForceField_SystematicRotorSearchInitialize` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBForceField')) {
-      f <- OBForceField_SystematicRotorSearchInitialize__SWIG_1; }  }  else if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1) {
-      f <- OBForceField_SystematicRotorSearchInitialize__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_SystematicRotorSearchInitialize with argtypes (",toString(argtypes),")"); }
-  ; f(...); }
-# Dispatch function
-# Start of OBForceField_SystematicRotorSearchNextConformer
-`OBForceField_SystematicRotorSearchNextConformer__SWIG_0` = function(self, geomSteps, .copy = FALSE) {
-  if(length(geomSteps) > 1) { warning("using only the first element of geomSteps"); } ;
-  ;.Call('R_swig_OBForceField_SystematicRotorSearchNextConformer__SWIG_0', self, geomSteps, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SystematicRotorSearchNextConformer__SWIG_0`, 'returnType') = 'logical'
-attr(`OBForceField_SystematicRotorSearchNextConformer__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_SystematicRotorSearchNextConformer__SWIG_0`) = c("SWIGFunction", class('OBForceField_SystematicRotorSearchNextConformer__SWIG_0'))
-
-# Start of OBForceField_SystematicRotorSearchNextConformer
-`OBForceField_SystematicRotorSearchNextConformer__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_SystematicRotorSearchNextConformer__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SystematicRotorSearchNextConformer__SWIG_1`, 'returnType') = 'logical'
-attr(`OBForceField_SystematicRotorSearchNextConformer__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_SystematicRotorSearchNextConformer__SWIG_1`) = c("SWIGFunction", class('OBForceField_SystematicRotorSearchNextConformer__SWIG_1'))
-
-`OBForceField_SystematicRotorSearchNextConformer` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBForceField')) {
-      f <- OBForceField_SystematicRotorSearchNextConformer__SWIG_1; }  }  else if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1) {
-      f <- OBForceField_SystematicRotorSearchNextConformer__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_SystematicRotorSearchNextConformer with argtypes (",toString(argtypes),")"); }
-  ; f(...); }
-# Dispatch function
-# Start of OBForceField_RandomRotorSearch
-`OBForceField_RandomRotorSearch__SWIG_0` = function(self, conformers, geomSteps) { if(length(conformers) > 1) {
-    warning("using only the first element of conformers"); } ; if(length(geomSteps) > 1) {
-    warning("using only the first element of geomSteps"); } ;
-  ;.Call('R_swig_OBForceField_RandomRotorSearch__SWIG_0', self, conformers, geomSteps, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_RandomRotorSearch__SWIG_0`, 'returnType') = 'void'
-attr(`OBForceField_RandomRotorSearch__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer', 'integer')
-class(`OBForceField_RandomRotorSearch__SWIG_0`) = c("SWIGFunction", class('OBForceField_RandomRotorSearch__SWIG_0'))
-
-# Start of OBForceField_RandomRotorSearch
-`OBForceField_RandomRotorSearch__SWIG_1` = function(self, conformers) { if(length(conformers) > 1) {
-    warning("using only the first element of conformers"); } ;
-  ;.Call('R_swig_OBForceField_RandomRotorSearch__SWIG_1', self, conformers, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_RandomRotorSearch__SWIG_1`, 'returnType') = 'void'
-attr(`OBForceField_RandomRotorSearch__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_RandomRotorSearch__SWIG_1`) = c("SWIGFunction", class('OBForceField_RandomRotorSearch__SWIG_1'))
-
-`OBForceField_RandomRotorSearch` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1) {
-      f <- OBForceField_RandomRotorSearch__SWIG_1; }  }  else if (argc == 3) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 && (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1) {
-      f <- OBForceField_RandomRotorSearch__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_RandomRotorSearch with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
-# Start of OBForceField_RandomRotorSearchInitialize
-`OBForceField_RandomRotorSearchInitialize__SWIG_0` = function(self, conformers, geomSteps) { if(length(conformers) > 1) {
-    warning("using only the first element of conformers"); } ; if(length(geomSteps) > 1) {
-    warning("using only the first element of geomSteps"); } ;
-  ;.Call('R_swig_OBForceField_RandomRotorSearchInitialize__SWIG_0', self, conformers, geomSteps, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_RandomRotorSearchInitialize__SWIG_0`, 'returnType') = 'void'
-attr(`OBForceField_RandomRotorSearchInitialize__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer', 'integer')
-class(`OBForceField_RandomRotorSearchInitialize__SWIG_0`) = c("SWIGFunction", class('OBForceField_RandomRotorSearchInitialize__SWIG_0'))
-
-# Start of OBForceField_RandomRotorSearchInitialize
-`OBForceField_RandomRotorSearchInitialize__SWIG_1` = function(self, conformers) { if(length(conformers) > 1) {
-    warning("using only the first element of conformers"); } ;
-  ;.Call('R_swig_OBForceField_RandomRotorSearchInitialize__SWIG_1', self, conformers, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_RandomRotorSearchInitialize__SWIG_1`, 'returnType') = 'void'
-attr(`OBForceField_RandomRotorSearchInitialize__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_RandomRotorSearchInitialize__SWIG_1`) = c("SWIGFunction", class('OBForceField_RandomRotorSearchInitialize__SWIG_1'))
-
-`OBForceField_RandomRotorSearchInitialize` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1) {
-      f <- OBForceField_RandomRotorSearchInitialize__SWIG_1; }  }  else if (argc == 3) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 && (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1) {
-      f <- OBForceField_RandomRotorSearchInitialize__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_RandomRotorSearchInitialize with argtypes (",toString(argtypes),")"); }
-  ; f(...); }
-# Dispatch function
-# Start of OBForceField_RandomRotorSearchNextConformer
-`OBForceField_RandomRotorSearchNextConformer__SWIG_0` = function(self, geomSteps, .copy = FALSE) { if(length(geomSteps) > 1) {
-    warning("using only the first element of geomSteps"); } ;
-  ;.Call('R_swig_OBForceField_RandomRotorSearchNextConformer__SWIG_0', self, geomSteps, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_RandomRotorSearchNextConformer__SWIG_0`, 'returnType') = 'logical'
-attr(`OBForceField_RandomRotorSearchNextConformer__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_RandomRotorSearchNextConformer__SWIG_0`) = c("SWIGFunction", class('OBForceField_RandomRotorSearchNextConformer__SWIG_0'))
-
-# Start of OBForceField_RandomRotorSearchNextConformer
-`OBForceField_RandomRotorSearchNextConformer__SWIG_1` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_RandomRotorSearchNextConformer__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_RandomRotorSearchNextConformer__SWIG_1`, 'returnType') = 'logical'
-attr(`OBForceField_RandomRotorSearchNextConformer__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_RandomRotorSearchNextConformer__SWIG_1`) = c("SWIGFunction", class('OBForceField_RandomRotorSearchNextConformer__SWIG_1'))
-
-`OBForceField_RandomRotorSearchNextConformer` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBForceField')) {
-      f <- OBForceField_RandomRotorSearchNextConformer__SWIG_1; }  }  else if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1) {
-      f <- OBForceField_RandomRotorSearchNextConformer__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_RandomRotorSearchNextConformer with argtypes (",toString(argtypes),")"); }
-  ; f(...); }
-# Dispatch function
-# Start of OBForceField_WeightedRotorSearch
-`OBForceField_WeightedRotorSearch` = function(self, conformers, geomSteps) { if(length(conformers) > 1) {
-    warning("using only the first element of conformers"); } ; if(length(geomSteps) > 1) {
-    warning("using only the first element of geomSteps"); } ;
-  ;.Call('R_swig_OBForceField_WeightedRotorSearch', self, conformers, geomSteps, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_WeightedRotorSearch`, 'returnType') = 'void'
-attr(`OBForceField_WeightedRotorSearch`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer', 'integer')
-class(`OBForceField_WeightedRotorSearch`) = c("SWIGFunction", class('OBForceField_WeightedRotorSearch'))
-
-# Start of OBForceField_SetLineSearchType
-`OBForceField_SetLineSearchType` = function(self, type) { type = as.integer(type);  if(length(type) > 1) {
-    warning("using only the first element of type"); } ;
-  ;.Call('R_swig_OBForceField_SetLineSearchType', self, type, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetLineSearchType`, 'returnType') = 'void'
-attr(`OBForceField_SetLineSearchType`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_SetLineSearchType`) = c("SWIGFunction", class('OBForceField_SetLineSearchType'))
-
-# Start of OBForceField_GetLineSearchType
-`OBForceField_GetLineSearchType` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_GetLineSearchType', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_GetLineSearchType`, 'returnType') = 'integer'
-attr(`OBForceField_GetLineSearchType`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_GetLineSearchType`) = c("SWIGFunction", class('OBForceField_GetLineSearchType'))
-
-# Start of OBForceField_LineSearch
-`OBForceField_LineSearch__SWIG_0` = function(self, atom, direction, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBForceField_LineSearch__SWIG_0', self, atom, direction, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBForceField_LineSearch__SWIG_0`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBForceField_LineSearch__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBAtom', '_p_OpenBabel__vector3')
-class(`OBForceField_LineSearch__SWIG_0`) = c("SWIGFunction", class('OBForceField_LineSearch__SWIG_0'))
-
-# Start of OBForceField_LineSearch
-`OBForceField_LineSearch__SWIG_1` = function(self, currentCoords, direction, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_LineSearch__SWIG_1', self, currentCoords, direction, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_LineSearch__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBForceField_LineSearch__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'numeric', 'numeric')
-class(`OBForceField_LineSearch__SWIG_1`) = c("SWIGFunction", class('OBForceField_LineSearch__SWIG_1'))
-
-`OBForceField_LineSearch` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 3) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && extends(argtypes[2], '_p_OpenBabel__OBAtom') && extends(argtypes[3], '_p_OpenBabel__vector3') && length(argv[[3]]) == 1) {
-      f <- OBForceField_LineSearch__SWIG_0; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( is.numeric(argv[[2]]) ) && ( is.numeric(argv[[3]]) )) {
-      f <- OBForceField_LineSearch__SWIG_1; }  }  else {
-    stop("cannot find overloaded function for OBForceField_LineSearch with argtypes (",toString(argtypes),")"); } ; f(...); }
-# Dispatch function
-# Start of OBForceField_Newton2NumLineSearch
-`OBForceField_Newton2NumLineSearch` = function(self, direction, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_Newton2NumLineSearch', self, direction, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_Newton2NumLineSearch`, 'returnType') = 'numeric'
-attr(`OBForceField_Newton2NumLineSearch`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'numeric')
-class(`OBForceField_Newton2NumLineSearch`) = c("SWIGFunction", class('OBForceField_Newton2NumLineSearch'))
-
-# Start of OBForceField_LineSearchTakeStep
-`OBForceField_LineSearchTakeStep` = function(self, origCoords, direction, step) {
-  ;.Call('R_swig_OBForceField_LineSearchTakeStep', self, origCoords, direction, step, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_LineSearchTakeStep`, 'returnType') = 'void'
-attr(`OBForceField_LineSearchTakeStep`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'numeric', 'numeric', 'numeric')
-class(`OBForceField_LineSearchTakeStep`) = c("SWIGFunction", class('OBForceField_LineSearchTakeStep'))
-
-# Start of OBForceField_SteepestDescent
-`OBForceField_SteepestDescent__SWIG_0` = function(self, steps, econv, method) { steps = as.integer(steps); 
-  if(length(steps) > 1) { warning("using only the first element of steps"); } ; method = as.integer(method); 
-  if(length(method) > 1) { warning("using only the first element of method"); } ;
-  ;.Call('R_swig_OBForceField_SteepestDescent__SWIG_0', self, steps, econv, method, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SteepestDescent__SWIG_0`, 'returnType') = 'void'
-attr(`OBForceField_SteepestDescent__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer', 'numeric', 'integer')
-class(`OBForceField_SteepestDescent__SWIG_0`) = c("SWIGFunction", class('OBForceField_SteepestDescent__SWIG_0'))
-
-# Start of OBForceField_SteepestDescent
-`OBForceField_SteepestDescent__SWIG_1` = function(self, steps, econv) { steps = as.integer(steps);  if(length(steps) > 1) {
-    warning("using only the first element of steps"); } ;
-  ;.Call('R_swig_OBForceField_SteepestDescent__SWIG_1', self, steps, econv, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SteepestDescent__SWIG_1`, 'returnType') = 'void'
-attr(`OBForceField_SteepestDescent__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer', 'numeric')
-class(`OBForceField_SteepestDescent__SWIG_1`) = c("SWIGFunction", class('OBForceField_SteepestDescent__SWIG_1'))
-
-# Start of OBForceField_SteepestDescent
-`OBForceField_SteepestDescent__SWIG_2` = function(self, steps) { steps = as.integer(steps);  if(length(steps) > 1) {
-    warning("using only the first element of steps"); } ;
-  ;.Call('R_swig_OBForceField_SteepestDescent__SWIG_2', self, steps, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SteepestDescent__SWIG_2`, 'returnType') = 'void'
-attr(`OBForceField_SteepestDescent__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_SteepestDescent__SWIG_2`) = c("SWIGFunction", class('OBForceField_SteepestDescent__SWIG_2'))
-
-`OBForceField_SteepestDescent` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 3
-   if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
-      f <- OBForceField_SteepestDescent__SWIG_2; }  }  else if (argc == 3) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( is.numeric(argv[[3]]) && length(argv[[3]]) == 1 )) {
-      f <- OBForceField_SteepestDescent__SWIG_1; }  }  else if (argc == 4) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( is.numeric(argv[[3]]) && length(argv[[3]]) == 1 ) && ( (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1 )) {
-      f <- OBForceField_SteepestDescent__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_SteepestDescent with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
-# Start of OBForceField_SteepestDescentInitialize
-`OBForceField_SteepestDescentInitialize__SWIG_0` = function(self, steps, econv, method) { steps = as.integer(steps); 
-  if(length(steps) > 1) { warning("using only the first element of steps"); } ; method = as.integer(method); 
-  if(length(method) > 1) { warning("using only the first element of method"); } ;
-  ;.Call('R_swig_OBForceField_SteepestDescentInitialize__SWIG_0', self, steps, econv, method, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SteepestDescentInitialize__SWIG_0`, 'returnType') = 'void'
-attr(`OBForceField_SteepestDescentInitialize__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer', 'numeric', 'integer')
-class(`OBForceField_SteepestDescentInitialize__SWIG_0`) = c("SWIGFunction", class('OBForceField_SteepestDescentInitialize__SWIG_0'))
-
-# Start of OBForceField_SteepestDescentInitialize
-`OBForceField_SteepestDescentInitialize__SWIG_1` = function(self, steps, econv) { steps = as.integer(steps); 
-  if(length(steps) > 1) { warning("using only the first element of steps"); } ;
-  ;.Call('R_swig_OBForceField_SteepestDescentInitialize__SWIG_1', self, steps, econv, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SteepestDescentInitialize__SWIG_1`, 'returnType') = 'void'
-attr(`OBForceField_SteepestDescentInitialize__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer', 'numeric')
-class(`OBForceField_SteepestDescentInitialize__SWIG_1`) = c("SWIGFunction", class('OBForceField_SteepestDescentInitialize__SWIG_1'))
-
-# Start of OBForceField_SteepestDescentInitialize
-`OBForceField_SteepestDescentInitialize__SWIG_2` = function(self, steps) { steps = as.integer(steps);  if(length(steps) > 1) {
-    warning("using only the first element of steps"); } ;
-  ;.Call('R_swig_OBForceField_SteepestDescentInitialize__SWIG_2', self, steps, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SteepestDescentInitialize__SWIG_2`, 'returnType') = 'void'
-attr(`OBForceField_SteepestDescentInitialize__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_SteepestDescentInitialize__SWIG_2`) = c("SWIGFunction", class('OBForceField_SteepestDescentInitialize__SWIG_2'))
-
-# Start of OBForceField_SteepestDescentInitialize
-`OBForceField_SteepestDescentInitialize__SWIG_3` = function(self) {
-  ;.Call('R_swig_OBForceField_SteepestDescentInitialize__SWIG_3', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SteepestDescentInitialize__SWIG_3`, 'returnType') = 'void'
-attr(`OBForceField_SteepestDescentInitialize__SWIG_3`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_SteepestDescentInitialize__SWIG_3`) = c("SWIGFunction", class('OBForceField_SteepestDescentInitialize__SWIG_3'))
-
-`OBForceField_SteepestDescentInitialize` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 4
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBForceField')) {
-      f <- OBForceField_SteepestDescentInitialize__SWIG_3; }  }  else if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
-      f <- OBForceField_SteepestDescentInitialize__SWIG_2; }  }  else if (argc == 3) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( is.numeric(argv[[3]]) && length(argv[[3]]) == 1 )) {
-      f <- OBForceField_SteepestDescentInitialize__SWIG_1; }  }  else if (argc == 4) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( is.numeric(argv[[3]]) && length(argv[[3]]) == 1 ) && ( (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1 )) {
-      f <- OBForceField_SteepestDescentInitialize__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_SteepestDescentInitialize with argtypes (",toString(argtypes),")"); }
-  ; f(...); }
-# Dispatch function
-# Start of OBForceField_SteepestDescentTakeNSteps
-`OBForceField_SteepestDescentTakeNSteps` = function(self, n, .copy = FALSE) { n = as.integer(n);  if(length(n) > 1) {
-    warning("using only the first element of n"); } ;
-  ;.Call('R_swig_OBForceField_SteepestDescentTakeNSteps', self, n, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SteepestDescentTakeNSteps`, 'returnType') = 'logical'
-attr(`OBForceField_SteepestDescentTakeNSteps`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_SteepestDescentTakeNSteps`) = c("SWIGFunction", class('OBForceField_SteepestDescentTakeNSteps'))
-
-# Start of OBForceField_ConjugateGradients
-`OBForceField_ConjugateGradients__SWIG_0` = function(self, steps, econv, method) { steps = as.integer(steps); 
-  if(length(steps) > 1) { warning("using only the first element of steps"); } ; method = as.integer(method); 
-  if(length(method) > 1) { warning("using only the first element of method"); } ;
-  ;.Call('R_swig_OBForceField_ConjugateGradients__SWIG_0', self, steps, econv, method, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_ConjugateGradients__SWIG_0`, 'returnType') = 'void'
-attr(`OBForceField_ConjugateGradients__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer', 'numeric', 'integer')
-class(`OBForceField_ConjugateGradients__SWIG_0`) = c("SWIGFunction", class('OBForceField_ConjugateGradients__SWIG_0'))
-
-# Start of OBForceField_ConjugateGradients
-`OBForceField_ConjugateGradients__SWIG_1` = function(self, steps, econv) { steps = as.integer(steps);  if(length(steps) > 1) {
-    warning("using only the first element of steps"); } ;
-  ;.Call('R_swig_OBForceField_ConjugateGradients__SWIG_1', self, steps, econv, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_ConjugateGradients__SWIG_1`, 'returnType') = 'void'
-attr(`OBForceField_ConjugateGradients__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer', 'numeric')
-class(`OBForceField_ConjugateGradients__SWIG_1`) = c("SWIGFunction", class('OBForceField_ConjugateGradients__SWIG_1'))
-
-# Start of OBForceField_ConjugateGradients
-`OBForceField_ConjugateGradients__SWIG_2` = function(self, steps) { steps = as.integer(steps);  if(length(steps) > 1) {
-    warning("using only the first element of steps"); } ;
-  ;.Call('R_swig_OBForceField_ConjugateGradients__SWIG_2', self, steps, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_ConjugateGradients__SWIG_2`, 'returnType') = 'void'
-attr(`OBForceField_ConjugateGradients__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_ConjugateGradients__SWIG_2`) = c("SWIGFunction", class('OBForceField_ConjugateGradients__SWIG_2'))
-
-`OBForceField_ConjugateGradients` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 3
-   if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
-      f <- OBForceField_ConjugateGradients__SWIG_2; }  }  else if (argc == 3) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( is.numeric(argv[[3]]) && length(argv[[3]]) == 1 )) {
-      f <- OBForceField_ConjugateGradients__SWIG_1; }  }  else if (argc == 4) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( is.numeric(argv[[3]]) && length(argv[[3]]) == 1 ) && ( (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1 )) {
-      f <- OBForceField_ConjugateGradients__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_ConjugateGradients with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
-# Start of OBForceField_ConjugateGradientsInitialize
-`OBForceField_ConjugateGradientsInitialize__SWIG_0` = function(self, steps, econv, method) { steps = as.integer(steps); 
-  if(length(steps) > 1) { warning("using only the first element of steps"); } ; method = as.integer(method); 
-  if(length(method) > 1) { warning("using only the first element of method"); } ;
-  ;.Call('R_swig_OBForceField_ConjugateGradientsInitialize__SWIG_0', self, steps, econv, method, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_ConjugateGradientsInitialize__SWIG_0`, 'returnType') = 'void'
-attr(`OBForceField_ConjugateGradientsInitialize__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer', 'numeric', 'integer')
-class(`OBForceField_ConjugateGradientsInitialize__SWIG_0`) = c("SWIGFunction", class('OBForceField_ConjugateGradientsInitialize__SWIG_0'))
-
-# Start of OBForceField_ConjugateGradientsInitialize
-`OBForceField_ConjugateGradientsInitialize__SWIG_1` = function(self, steps, econv) { steps = as.integer(steps); 
-  if(length(steps) > 1) { warning("using only the first element of steps"); } ;
-  ;.Call('R_swig_OBForceField_ConjugateGradientsInitialize__SWIG_1', self, steps, econv, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_ConjugateGradientsInitialize__SWIG_1`, 'returnType') = 'void'
-attr(`OBForceField_ConjugateGradientsInitialize__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer', 'numeric')
-class(`OBForceField_ConjugateGradientsInitialize__SWIG_1`) = c("SWIGFunction", class('OBForceField_ConjugateGradientsInitialize__SWIG_1'))
-
-# Start of OBForceField_ConjugateGradientsInitialize
-`OBForceField_ConjugateGradientsInitialize__SWIG_2` = function(self, steps) { steps = as.integer(steps); 
-  if(length(steps) > 1) { warning("using only the first element of steps"); } ;
-  ;.Call('R_swig_OBForceField_ConjugateGradientsInitialize__SWIG_2', self, steps, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_ConjugateGradientsInitialize__SWIG_2`, 'returnType') = 'void'
-attr(`OBForceField_ConjugateGradientsInitialize__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_ConjugateGradientsInitialize__SWIG_2`) = c("SWIGFunction", class('OBForceField_ConjugateGradientsInitialize__SWIG_2'))
-
-# Start of OBForceField_ConjugateGradientsInitialize
-`OBForceField_ConjugateGradientsInitialize__SWIG_3` = function(self) {
-  ;.Call('R_swig_OBForceField_ConjugateGradientsInitialize__SWIG_3', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_ConjugateGradientsInitialize__SWIG_3`, 'returnType') = 'void'
-attr(`OBForceField_ConjugateGradientsInitialize__SWIG_3`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_ConjugateGradientsInitialize__SWIG_3`) = c("SWIGFunction", class('OBForceField_ConjugateGradientsInitialize__SWIG_3'))
-
-`OBForceField_ConjugateGradientsInitialize` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 4
-   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBForceField')) {
-      f <- OBForceField_ConjugateGradientsInitialize__SWIG_3; }  }  else if (argc == 2) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
-      f <- OBForceField_ConjugateGradientsInitialize__SWIG_2; }  }  else if (argc == 3) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( is.numeric(argv[[3]]) && length(argv[[3]]) == 1 )) {
-      f <- OBForceField_ConjugateGradientsInitialize__SWIG_1; }  }  else if (argc == 4) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( is.numeric(argv[[3]]) && length(argv[[3]]) == 1 ) && ( (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1 )) {
-      f <- OBForceField_ConjugateGradientsInitialize__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_ConjugateGradientsInitialize with argtypes (",toString(argtypes),")"); }
-  ; f(...); }
-# Dispatch function
-# Start of OBForceField_ConjugateGradientsTakeNSteps
-`OBForceField_ConjugateGradientsTakeNSteps` = function(self, n, .copy = FALSE) { n = as.integer(n);  if(length(n) > 1) {
-    warning("using only the first element of n"); } ;
-  ;.Call('R_swig_OBForceField_ConjugateGradientsTakeNSteps', self, n, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_ConjugateGradientsTakeNSteps`, 'returnType') = 'logical'
-attr(`OBForceField_ConjugateGradientsTakeNSteps`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_ConjugateGradientsTakeNSteps`) = c("SWIGFunction", class('OBForceField_ConjugateGradientsTakeNSteps'))
-
-# Start of OBForceField_GenerateVelocities
-`OBForceField_GenerateVelocities` = function(self) {
-  ;.Call('R_swig_OBForceField_GenerateVelocities', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_GenerateVelocities`, 'returnType') = 'void'
-attr(`OBForceField_GenerateVelocities`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_GenerateVelocities`) = c("SWIGFunction", class('OBForceField_GenerateVelocities'))
-
-# Start of OBForceField_CorrectVelocities
-`OBForceField_CorrectVelocities` = function(self) {
-  ;.Call('R_swig_OBForceField_CorrectVelocities', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_CorrectVelocities`, 'returnType') = 'void'
-attr(`OBForceField_CorrectVelocities`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_CorrectVelocities`) = c("SWIGFunction", class('OBForceField_CorrectVelocities'))
-
-# Start of OBForceField_MolecularDynamicsTakeNSteps
-`OBForceField_MolecularDynamicsTakeNSteps__SWIG_0` = function(self, n, T, timestep, method) { n = as.integer(n); 
-  if(length(n) > 1) { warning("using only the first element of n"); } ; method = as.integer(method);  if(length(method) > 1) {
-    warning("using only the first element of method"); } ;
-  ;.Call('R_swig_OBForceField_MolecularDynamicsTakeNSteps__SWIG_0', self, n, T, timestep, method, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_MolecularDynamicsTakeNSteps__SWIG_0`, 'returnType') = 'void'
-attr(`OBForceField_MolecularDynamicsTakeNSteps__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer', 'numeric', 'numeric', 'integer')
-class(`OBForceField_MolecularDynamicsTakeNSteps__SWIG_0`) = c("SWIGFunction", class('OBForceField_MolecularDynamicsTakeNSteps__SWIG_0'))
-
-# Start of OBForceField_MolecularDynamicsTakeNSteps
-`OBForceField_MolecularDynamicsTakeNSteps__SWIG_1` = function(self, n, T, timestep) { n = as.integer(n);  if(length(n) > 1) {
-    warning("using only the first element of n"); } ;
-  ;.Call('R_swig_OBForceField_MolecularDynamicsTakeNSteps__SWIG_1', self, n, T, timestep, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_MolecularDynamicsTakeNSteps__SWIG_1`, 'returnType') = 'void'
-attr(`OBForceField_MolecularDynamicsTakeNSteps__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer', 'numeric', 'numeric')
-class(`OBForceField_MolecularDynamicsTakeNSteps__SWIG_1`) = c("SWIGFunction", class('OBForceField_MolecularDynamicsTakeNSteps__SWIG_1'))
-
-# Start of OBForceField_MolecularDynamicsTakeNSteps
-`OBForceField_MolecularDynamicsTakeNSteps__SWIG_2` = function(self, n, T) { n = as.integer(n);  if(length(n) > 1) {
-    warning("using only the first element of n"); } ;
-  ;.Call('R_swig_OBForceField_MolecularDynamicsTakeNSteps__SWIG_2', self, n, T, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_MolecularDynamicsTakeNSteps__SWIG_2`, 'returnType') = 'void'
-attr(`OBForceField_MolecularDynamicsTakeNSteps__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer', 'numeric')
-class(`OBForceField_MolecularDynamicsTakeNSteps__SWIG_2`) = c("SWIGFunction", class('OBForceField_MolecularDynamicsTakeNSteps__SWIG_2'))
-
-`OBForceField_MolecularDynamicsTakeNSteps` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 3
-   if (argc == 3) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( is.numeric(argv[[3]]) && length(argv[[3]]) == 1 )) {
-      f <- OBForceField_MolecularDynamicsTakeNSteps__SWIG_2; }  }  else if (argc == 4) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( is.numeric(argv[[3]]) && length(argv[[3]]) == 1 ) && ( is.numeric(argv[[4]]) && length(argv[[4]]) == 1 )) {
-      f <- OBForceField_MolecularDynamicsTakeNSteps__SWIG_1; }  }  else if (argc == 5) {
-    if (extends(argtypes[1], '_p_OpenBabel__OBForceField') && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( is.numeric(argv[[3]]) && length(argv[[3]]) == 1 ) && ( is.numeric(argv[[4]]) && length(argv[[4]]) == 1 ) && ( (is.integer(argv[[5]]) || is.numeric(argv[[5]])) && length(argv[[5]]) == 1 )) {
-      f <- OBForceField_MolecularDynamicsTakeNSteps__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_MolecularDynamicsTakeNSteps with argtypes (",toString(argtypes),")"); }
-  ; f(...); }
-# Dispatch function
-# Start of OBForceField_GetConstraints
-`OBForceField_GetConstraints` = function(self, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBForceField_GetConstraints', self, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__OBFFConstraints"; ans }
-attr(`OBForceField_GetConstraints`, 'returnType') = '_p_OpenBabel__OBFFConstraints'
-attr(`OBForceField_GetConstraints`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_GetConstraints`) = c("SWIGFunction", class('OBForceField_GetConstraints'))
-
-# Start of OBForceField_SetConstraints
-`OBForceField_SetConstraints` = function(self, constraints) {
-  ;.Call('R_swig_OBForceField_SetConstraints', self, constraints, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetConstraints`, 'returnType') = 'void'
-attr(`OBForceField_SetConstraints`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBFFConstraints')
-class(`OBForceField_SetConstraints`) = c("SWIGFunction", class('OBForceField_SetConstraints'))
-
-# Start of OBForceField_SetFixAtom
-`OBForceField_SetFixAtom` = function(self, index) { index = as.integer(index);  if(length(index) > 1) {
-    warning("using only the first element of index"); } ;
-  ;.Call('R_swig_OBForceField_SetFixAtom', self, index, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetFixAtom`, 'returnType') = 'void'
-attr(`OBForceField_SetFixAtom`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_SetFixAtom`) = c("SWIGFunction", class('OBForceField_SetFixAtom'))
-
-# Start of OBForceField_UnsetFixAtom
-`OBForceField_UnsetFixAtom` = function(self) { ;.Call('R_swig_OBForceField_UnsetFixAtom', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_UnsetFixAtom`, 'returnType') = 'void'
-attr(`OBForceField_UnsetFixAtom`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_UnsetFixAtom`) = c("SWIGFunction", class('OBForceField_UnsetFixAtom'))
-
-# Start of OBForceField_SetIgnoreAtom
-`OBForceField_SetIgnoreAtom` = function(self, index) { index = as.integer(index);  if(length(index) > 1) {
-    warning("using only the first element of index"); } ;
-  ;.Call('R_swig_OBForceField_SetIgnoreAtom', self, index, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_SetIgnoreAtom`, 'returnType') = 'void'
-attr(`OBForceField_SetIgnoreAtom`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_SetIgnoreAtom`) = c("SWIGFunction", class('OBForceField_SetIgnoreAtom'))
-
-# Start of OBForceField_UnsetIgnoreAtom
-`OBForceField_UnsetIgnoreAtom` = function(self) { ;.Call('R_swig_OBForceField_UnsetIgnoreAtom', self, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_UnsetIgnoreAtom`, 'returnType') = 'void'
-attr(`OBForceField_UnsetIgnoreAtom`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_UnsetIgnoreAtom`) = c("SWIGFunction", class('OBForceField_UnsetIgnoreAtom'))
-
-# Start of OBForceField_IgnoreCalculation
-`OBForceField_IgnoreCalculation__SWIG_0` = function(a, b, .copy = FALSE) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ; b = as.integer(b);  if(length(b) > 1) {
-    warning("using only the first element of b"); } ;
-  ;.Call('R_swig_OBForceField_IgnoreCalculation__SWIG_0', a, b, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_IgnoreCalculation__SWIG_0`, 'returnType') = 'logical'
-attr(`OBForceField_IgnoreCalculation__SWIG_0`, "inputTypes") = c('integer', 'integer')
-class(`OBForceField_IgnoreCalculation__SWIG_0`) = c("SWIGFunction", class('OBForceField_IgnoreCalculation__SWIG_0'))
-
-# Start of OBForceField_IgnoreCalculation
-`OBForceField_IgnoreCalculation__SWIG_1` = function(a, b, c, .copy = FALSE) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ; b = as.integer(b);  if(length(b) > 1) {
-    warning("using only the first element of b"); } ; c = as.integer(c);  if(length(c) > 1) {
-    warning("using only the first element of c"); } ;
-  ;.Call('R_swig_OBForceField_IgnoreCalculation__SWIG_1', a, b, c, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_IgnoreCalculation__SWIG_1`, 'returnType') = 'logical'
-attr(`OBForceField_IgnoreCalculation__SWIG_1`, "inputTypes") = c('integer', 'integer', 'integer')
-class(`OBForceField_IgnoreCalculation__SWIG_1`) = c("SWIGFunction", class('OBForceField_IgnoreCalculation__SWIG_1'))
-
-# Start of OBForceField_IgnoreCalculation
-`OBForceField_IgnoreCalculation__SWIG_2` = function(a, b, c, d, .copy = FALSE) { a = as.integer(a);  if(length(a) > 1) {
-    warning("using only the first element of a"); } ; b = as.integer(b);  if(length(b) > 1) {
-    warning("using only the first element of b"); } ; c = as.integer(c);  if(length(c) > 1) {
-    warning("using only the first element of c"); } ; d = as.integer(d);  if(length(d) > 1) {
-    warning("using only the first element of d"); } ;
-  ;.Call('R_swig_OBForceField_IgnoreCalculation__SWIG_2', a, b, c, d, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_IgnoreCalculation__SWIG_2`, 'returnType') = 'logical'
-attr(`OBForceField_IgnoreCalculation__SWIG_2`, "inputTypes") = c('integer', 'integer', 'integer', 'integer')
-class(`OBForceField_IgnoreCalculation__SWIG_2`) = c("SWIGFunction", class('OBForceField_IgnoreCalculation__SWIG_2'))
-
-`OBForceField_IgnoreCalculation` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 3
-   if (argc == 2) {
-    if (( (is.integer(argv[[1]]) || is.numeric(argv[[1]])) && length(argv[[1]]) == 1 ) && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
-      f <- OBForceField_IgnoreCalculation__SWIG_0; }  }  else if (argc == 3) {
-    if (( (is.integer(argv[[1]]) || is.numeric(argv[[1]])) && length(argv[[1]]) == 1 ) && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 )) {
-      f <- OBForceField_IgnoreCalculation__SWIG_1; }  }  else if (argc == 4) {
-    if (( (is.integer(argv[[1]]) || is.numeric(argv[[1]])) && length(argv[[1]]) == 1 ) && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 ) && ( (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1 )) {
-      f <- OBForceField_IgnoreCalculation__SWIG_2; }  }  else {
-    stop("cannot find overloaded function for OBForceField_IgnoreCalculation with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
-# Start of OBForceField_DetectExplosion
-`OBForceField_DetectExplosion` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_DetectExplosion', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_DetectExplosion`, 'returnType') = 'logical'
-attr(`OBForceField_DetectExplosion`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_DetectExplosion`) = c("SWIGFunction", class('OBForceField_DetectExplosion'))
-
-# Start of OBForceField_ValidateLineSearch
-`OBForceField_ValidateLineSearch` = function(self, atom, direction, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBForceField_ValidateLineSearch', self, atom, direction, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBForceField_ValidateLineSearch`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBForceField_ValidateLineSearch`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__OBAtom', '_p_OpenBabel__vector3')
-class(`OBForceField_ValidateLineSearch`) = c("SWIGFunction", class('OBForceField_ValidateLineSearch'))
-
-# Start of OBForceField_ValidateSteepestDescent
-`OBForceField_ValidateSteepestDescent` = function(self, steps) { steps = as.integer(steps);  if(length(steps) > 1) {
-    warning("using only the first element of steps"); } ;
-  ;.Call('R_swig_OBForceField_ValidateSteepestDescent', self, steps, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_ValidateSteepestDescent`, 'returnType') = 'void'
-attr(`OBForceField_ValidateSteepestDescent`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_ValidateSteepestDescent`) = c("SWIGFunction", class('OBForceField_ValidateSteepestDescent'))
-
-# Start of OBForceField_ValidateConjugateGradients
-`OBForceField_ValidateConjugateGradients` = function(self, steps) { steps = as.integer(steps);  if(length(steps) > 1) {
-    warning("using only the first element of steps"); } ;
-  ;.Call('R_swig_OBForceField_ValidateConjugateGradients', self, steps, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_ValidateConjugateGradients`, 'returnType') = 'void'
-attr(`OBForceField_ValidateConjugateGradients`, "inputTypes") = c('_p_OpenBabel__OBForceField', 'integer')
-class(`OBForceField_ValidateConjugateGradients`) = c("SWIGFunction", class('OBForceField_ValidateConjugateGradients'))
-
-# Start of OBForceField_Validate
-`OBForceField_Validate` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_Validate', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_Validate`, 'returnType') = 'logical'
-attr(`OBForceField_Validate`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_Validate`) = c("SWIGFunction", class('OBForceField_Validate'))
-
-# Start of OBForceField_ValidateGradients
-`OBForceField_ValidateGradients` = function(self, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_ValidateGradients', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_ValidateGradients`, 'returnType') = 'logical'
-attr(`OBForceField_ValidateGradients`, "inputTypes") = c('_p_OpenBabel__OBForceField')
-class(`OBForceField_ValidateGradients`) = c("SWIGFunction", class('OBForceField_ValidateGradients'))
-
-# Start of OBForceField_ValidateGradientError
-`OBForceField_ValidateGradientError` = function(self, numgrad, anagrad, .copy = FALSE) {
-  ;ans = .Call('R_swig_OBForceField_ValidateGradientError', self, numgrad, anagrad, as.logical(.copy), PACKAGE='ChemmineOB');
-  class(ans) <- "_p_OpenBabel__vector3"; ans }
-attr(`OBForceField_ValidateGradientError`, 'returnType') = '_p_OpenBabel__vector3'
-attr(`OBForceField_ValidateGradientError`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_OpenBabel__vector3', '_p_OpenBabel__vector3')
-class(`OBForceField_ValidateGradientError`) = c("SWIGFunction", class('OBForceField_ValidateGradientError'))
-
-# Start of OBForceField_VectorBondDerivative
-`OBForceField_VectorBondDerivative` = function(pos_a, pos_b, force_a, force_b, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_VectorBondDerivative', pos_a, pos_b, force_a, force_b, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorBondDerivative`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorBondDerivative`, "inputTypes") = c('numeric', 'numeric', 'numeric', 'numeric')
-class(`OBForceField_VectorBondDerivative`) = c("SWIGFunction", class('OBForceField_VectorBondDerivative'))
-
-# Start of OBForceField_VectorDistanceDerivative
-`OBForceField_VectorDistanceDerivative` = function(pos_i, pos_j, force_i, force_j, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_VectorDistanceDerivative', pos_i, pos_j, force_i, force_j, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorDistanceDerivative`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorDistanceDerivative`, "inputTypes") = c('numeric', 'numeric', 'numeric', 'numeric')
-class(`OBForceField_VectorDistanceDerivative`) = c("SWIGFunction", class('OBForceField_VectorDistanceDerivative'))
-
-# Start of OBForceField_VectorLengthDerivative
-`OBForceField_VectorLengthDerivative` = function(a, b, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_VectorLengthDerivative', a, b, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorLengthDerivative`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorLengthDerivative`, "inputTypes") = c('_p_OpenBabel__vector3', '_p_OpenBabel__vector3')
-class(`OBForceField_VectorLengthDerivative`) = c("SWIGFunction", class('OBForceField_VectorLengthDerivative'))
-
-# Start of OBForceField_VectorAngleDerivative
-`OBForceField_VectorAngleDerivative__SWIG_0` = function(pos_a, pos_b, pos_c, force_a, force_b, force_c, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_VectorAngleDerivative__SWIG_0', pos_a, pos_b, pos_c, force_a, force_b, force_c, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorAngleDerivative__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorAngleDerivative__SWIG_0`, "inputTypes") = c('numeric', 'numeric', 'numeric', 'numeric', 'numeric', 'numeric')
-class(`OBForceField_VectorAngleDerivative__SWIG_0`) = c("SWIGFunction", class('OBForceField_VectorAngleDerivative__SWIG_0'))
-
-# Start of OBForceField_VectorAngleDerivative
-`OBForceField_VectorAngleDerivative__SWIG_1` = function(a, b, c, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_VectorAngleDerivative__SWIG_1', a, b, c, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorAngleDerivative__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorAngleDerivative__SWIG_1`, "inputTypes") = c('_p_OpenBabel__vector3', '_p_OpenBabel__vector3', '_p_OpenBabel__vector3')
-class(`OBForceField_VectorAngleDerivative__SWIG_1`) = c("SWIGFunction", class('OBForceField_VectorAngleDerivative__SWIG_1'))
-
-`OBForceField_VectorAngleDerivative` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 3) {
-    if (extends(argtypes[1], '_p_OpenBabel__vector3') && length(argv[[1]]) == 1 && extends(argtypes[2], '_p_OpenBabel__vector3') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_OpenBabel__vector3') && length(argv[[3]]) == 1) {
-      f <- OBForceField_VectorAngleDerivative__SWIG_1; }  }  else if (argc == 6) {
-    if (( is.numeric(argv[[1]]) ) && ( is.numeric(argv[[2]]) ) && ( is.numeric(argv[[3]]) ) && ( is.numeric(argv[[4]]) ) && ( is.numeric(argv[[5]]) ) && ( is.numeric(argv[[6]]) )) {
-      f <- OBForceField_VectorAngleDerivative__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_VectorAngleDerivative with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
-# Start of OBForceField_VectorOOPDerivative
-`OBForceField_VectorOOPDerivative__SWIG_0` = function(pos_a, pos_b, pos_c, pos_d, force_a, force_b, force_c, force_d, .copy = FALSE)
-{
-  ;.Call('R_swig_OBForceField_VectorOOPDerivative__SWIG_0', pos_a, pos_b, pos_c, pos_d, force_a, force_b, force_c, force_d, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorOOPDerivative__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorOOPDerivative__SWIG_0`, "inputTypes") = c('numeric', 'numeric', 'numeric', 'numeric', 'numeric', 'numeric', 'numeric', 'numeric')
-class(`OBForceField_VectorOOPDerivative__SWIG_0`) = c("SWIGFunction", class('OBForceField_VectorOOPDerivative__SWIG_0'))
-
-# Start of OBForceField_VectorOOPDerivative
-`OBForceField_VectorOOPDerivative__SWIG_1` = function(a, b, c, d, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_VectorOOPDerivative__SWIG_1', a, b, c, d, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorOOPDerivative__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorOOPDerivative__SWIG_1`, "inputTypes") = c('_p_OpenBabel__vector3', '_p_OpenBabel__vector3', '_p_OpenBabel__vector3', '_p_OpenBabel__vector3')
-class(`OBForceField_VectorOOPDerivative__SWIG_1`) = c("SWIGFunction", class('OBForceField_VectorOOPDerivative__SWIG_1'))
-
-`OBForceField_VectorOOPDerivative` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 4) {
-    if (extends(argtypes[1], '_p_OpenBabel__vector3') && length(argv[[1]]) == 1 && extends(argtypes[2], '_p_OpenBabel__vector3') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_OpenBabel__vector3') && length(argv[[3]]) == 1 && extends(argtypes[4], '_p_OpenBabel__vector3') && length(argv[[4]]) == 1) {
-      f <- OBForceField_VectorOOPDerivative__SWIG_1; }  }  else if (argc == 8) {
-    if (( is.numeric(argv[[1]]) ) && ( is.numeric(argv[[2]]) ) && ( is.numeric(argv[[3]]) ) && ( is.numeric(argv[[4]]) ) && ( is.numeric(argv[[5]]) ) && ( is.numeric(argv[[6]]) ) && ( is.numeric(argv[[7]]) ) && ( is.numeric(argv[[8]]) )) {
-      f <- OBForceField_VectorOOPDerivative__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_VectorOOPDerivative with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
-# Start of OBForceField_VectorTorsionDerivative
-`OBForceField_VectorTorsionDerivative__SWIG_0` = function(pos_a, pos_b, pos_c, pos_d, force_a, force_b, force_c, force_d, .copy = FALSE)
-{
-  ;.Call('R_swig_OBForceField_VectorTorsionDerivative__SWIG_0', pos_a, pos_b, pos_c, pos_d, force_a, force_b, force_c, force_d, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorTorsionDerivative__SWIG_0`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorTorsionDerivative__SWIG_0`, "inputTypes") = c('numeric', 'numeric', 'numeric', 'numeric', 'numeric', 'numeric', 'numeric', 'numeric')
-class(`OBForceField_VectorTorsionDerivative__SWIG_0`) = c("SWIGFunction", class('OBForceField_VectorTorsionDerivative__SWIG_0'))
-
-# Start of OBForceField_VectorTorsionDerivative
-`OBForceField_VectorTorsionDerivative__SWIG_1` = function(a, b, c, d, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_VectorTorsionDerivative__SWIG_1', a, b, c, d, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorTorsionDerivative__SWIG_1`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorTorsionDerivative__SWIG_1`, "inputTypes") = c('_p_OpenBabel__vector3', '_p_OpenBabel__vector3', '_p_OpenBabel__vector3', '_p_OpenBabel__vector3')
-class(`OBForceField_VectorTorsionDerivative__SWIG_1`) = c("SWIGFunction", class('OBForceField_VectorTorsionDerivative__SWIG_1'))
-
-`OBForceField_VectorTorsionDerivative` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
-# dispatch functions 2
-   if (argc == 4) {
-    if (extends(argtypes[1], '_p_OpenBabel__vector3') && length(argv[[1]]) == 1 && extends(argtypes[2], '_p_OpenBabel__vector3') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_OpenBabel__vector3') && length(argv[[3]]) == 1 && extends(argtypes[4], '_p_OpenBabel__vector3') && length(argv[[4]]) == 1) {
-      f <- OBForceField_VectorTorsionDerivative__SWIG_1; }  }  else if (argc == 8) {
-    if (( is.numeric(argv[[1]]) ) && ( is.numeric(argv[[2]]) ) && ( is.numeric(argv[[3]]) ) && ( is.numeric(argv[[4]]) ) && ( is.numeric(argv[[5]]) ) && ( is.numeric(argv[[6]]) ) && ( is.numeric(argv[[7]]) ) && ( is.numeric(argv[[8]]) )) {
-      f <- OBForceField_VectorTorsionDerivative__SWIG_0; }  }  else {
-    stop("cannot find overloaded function for OBForceField_VectorTorsionDerivative with argtypes (",toString(argtypes),")"); } ;
-  f(...); }
-# Dispatch function
-# Start of OBForceField_VectorSubtract
-`OBForceField_VectorSubtract` = function(i, j, result) {
-  ;.Call('R_swig_OBForceField_VectorSubtract', i, j, result, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorSubtract`, 'returnType') = 'void'
-attr(`OBForceField_VectorSubtract`, "inputTypes") = c('numeric', 'numeric', 'numeric')
-class(`OBForceField_VectorSubtract`) = c("SWIGFunction", class('OBForceField_VectorSubtract'))
-
-# Start of OBForceField_VectorAdd
-`OBForceField_VectorAdd` = function(i, j, result) {
-  ;.Call('R_swig_OBForceField_VectorAdd', i, j, result, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorAdd`, 'returnType') = 'void'
-attr(`OBForceField_VectorAdd`, "inputTypes") = c('numeric', 'numeric', 'numeric')
-class(`OBForceField_VectorAdd`) = c("SWIGFunction", class('OBForceField_VectorAdd'))
-
-# Start of OBForceField_VectorDivide
-`OBForceField_VectorDivide` = function(i, n, result) {
-  ;.Call('R_swig_OBForceField_VectorDivide', i, n, result, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorDivide`, 'returnType') = 'void'
-attr(`OBForceField_VectorDivide`, "inputTypes") = c('numeric', 'numeric', 'numeric')
-class(`OBForceField_VectorDivide`) = c("SWIGFunction", class('OBForceField_VectorDivide'))
-
-# Start of OBForceField_VectorMultiply
-`OBForceField_VectorMultiply` = function(i, n, result) {
-  ;.Call('R_swig_OBForceField_VectorMultiply', i, n, result, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorMultiply`, 'returnType') = 'void'
-attr(`OBForceField_VectorMultiply`, "inputTypes") = c('numeric', 'numeric', 'numeric')
-class(`OBForceField_VectorMultiply`) = c("SWIGFunction", class('OBForceField_VectorMultiply'))
-
-# Start of OBForceField_VectorSelfMultiply
-`OBForceField_VectorSelfMultiply` = function(i, n) {
-  ;.Call('R_swig_OBForceField_VectorSelfMultiply', i, n, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorSelfMultiply`, 'returnType') = 'void'
-attr(`OBForceField_VectorSelfMultiply`, "inputTypes") = c('numeric', 'numeric')
-class(`OBForceField_VectorSelfMultiply`) = c("SWIGFunction", class('OBForceField_VectorSelfMultiply'))
-
-# Start of OBForceField_VectorNormalize
-`OBForceField_VectorNormalize` = function(i) { ;.Call('R_swig_OBForceField_VectorNormalize', i, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorNormalize`, 'returnType') = 'void'
-attr(`OBForceField_VectorNormalize`, "inputTypes") = c('numeric')
-class(`OBForceField_VectorNormalize`) = c("SWIGFunction", class('OBForceField_VectorNormalize'))
-
-# Start of OBForceField_VectorCopy
-`OBForceField_VectorCopy` = function(from, to) { ;.Call('R_swig_OBForceField_VectorCopy', from, to, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorCopy`, 'returnType') = 'void'
-attr(`OBForceField_VectorCopy`, "inputTypes") = c('numeric', 'numeric')
-class(`OBForceField_VectorCopy`) = c("SWIGFunction", class('OBForceField_VectorCopy'))
-
-# Start of OBForceField_VectorLength
-`OBForceField_VectorLength` = function(i, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_VectorLength', i, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorLength`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorLength`, "inputTypes") = c('numeric')
-class(`OBForceField_VectorLength`) = c("SWIGFunction", class('OBForceField_VectorLength'))
-
-# Start of OBForceField_VectorDistance
-`OBForceField_VectorDistance` = function(pos_i, pos_j, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_VectorDistance', pos_i, pos_j, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorDistance`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorDistance`, "inputTypes") = c('numeric', 'numeric')
-class(`OBForceField_VectorDistance`) = c("SWIGFunction", class('OBForceField_VectorDistance'))
-
-# Start of OBForceField_VectorAngle
-`OBForceField_VectorAngle` = function(i, j, k, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_VectorAngle', i, j, k, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorAngle`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorAngle`, "inputTypes") = c('numeric', 'numeric', 'numeric')
-class(`OBForceField_VectorAngle`) = c("SWIGFunction", class('OBForceField_VectorAngle'))
-
-# Start of OBForceField_VectorTorsion
-`OBForceField_VectorTorsion` = function(i, j, k, l, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_VectorTorsion', i, j, k, l, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorTorsion`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorTorsion`, "inputTypes") = c('numeric', 'numeric', 'numeric', 'numeric')
-class(`OBForceField_VectorTorsion`) = c("SWIGFunction", class('OBForceField_VectorTorsion'))
-
-# Start of OBForceField_VectorOOP
-`OBForceField_VectorOOP` = function(i, j, k, l, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_VectorOOP', i, j, k, l, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorOOP`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorOOP`, "inputTypes") = c('numeric', 'numeric', 'numeric', 'numeric')
-class(`OBForceField_VectorOOP`) = c("SWIGFunction", class('OBForceField_VectorOOP'))
-
-# Start of OBForceField_VectorClear
-`OBForceField_VectorClear` = function(i) { ;.Call('R_swig_OBForceField_VectorClear', i, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorClear`, 'returnType') = 'void'
-attr(`OBForceField_VectorClear`, "inputTypes") = c('numeric')
-class(`OBForceField_VectorClear`) = c("SWIGFunction", class('OBForceField_VectorClear'))
-
-# Start of OBForceField_VectorDot
-`OBForceField_VectorDot` = function(i, j, .copy = FALSE) {
-  ;.Call('R_swig_OBForceField_VectorDot', i, j, as.logical(.copy), PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorDot`, 'returnType') = 'numeric'
-attr(`OBForceField_VectorDot`, "inputTypes") = c('numeric', 'numeric')
-class(`OBForceField_VectorDot`) = c("SWIGFunction", class('OBForceField_VectorDot'))
-
-# Start of OBForceField_VectorCross
-`OBForceField_VectorCross` = function(i, j, result) {
-  ;.Call('R_swig_OBForceField_VectorCross', i, j, result, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_VectorCross`, 'returnType') = 'void'
-attr(`OBForceField_VectorCross`, "inputTypes") = c('numeric', 'numeric', 'numeric')
-class(`OBForceField_VectorCross`) = c("SWIGFunction", class('OBForceField_VectorCross'))
-
-# Start of OBForceField_PrintVector
-`OBForceField_PrintVector` = function(i) { ;.Call('R_swig_OBForceField_PrintVector', i, PACKAGE='ChemmineOB'); }
-attr(`OBForceField_PrintVector`, 'returnType') = 'void'
-attr(`OBForceField_PrintVector`, "inputTypes") = c('numeric')
-class(`OBForceField_PrintVector`) = c("SWIGFunction", class('OBForceField_PrintVector'))
-
-# Start of accessor method for OpenBabel::OBForceField
-setMethod('$', '_p_OpenBabel__OBForceField', function(x, name) {
-  accessorFuns = list('MakeNewInstance' = OBForceField_MakeNewInstance, 'SetParameterFile' = OBForceField_SetParameterFile, 'GetUnit' = OBForceField_GetUnit, 'HasAnalyticalGradients' = OBForceField_HasAnalyticalGradients, 'Setup' = OBForceField_Setup, 'ParseParamFile' = OBForceField_ParseParamFile, 'SetTypes' = OBForceField_SetTypes, 'SetFormalCharges' = OBForceField_SetFormalCharges, 'SetPartialCharges' = OBForceField_SetPartialCharges, 'SetupCalculations' = OBForceField_SetupCalculations, 'SetupPointers' = OBForceField_SetupPointers, 'IsSetupNeeded' = OBForceField_IsSetupNeeded, 'GetAtomTypes' = OBForceField_GetAtomTypes, 'GetPartialCharges' = OBForceField_GetPartialCharges, 'GetCoordinates' = OBForceField_GetCoordinates, 'UpdateCoordinates' = OBForceField_UpdateCoordinates, 'GetConformers' = OBForceField_GetConformers, 'UpdateConformers' = OBForceField_UpdateConformers, 'SetCoordinates' = OBForceField_SetCoordinates, 'SetConformers' = OBForceField_SetConformers, 'GetGrid' = OBForceField_GetGrid, 'AddIntraGroup' = OBForceField_AddIntraGroup, 'AddInterGroup' = OBForceField_AddInterGroup, 'AddInterGroups' = OBForceField_AddInterGroups, 'ClearGroups' = OBForceField_ClearGroups, 'HasGroups' = OBForceField_HasGroups, 'EnableCutOff' = OBForceField_EnableCutOff, 'IsCutOffEnabled' = OBForceField_IsCutOffEnabled, 'SetVDWCutOff' = OBForceField_SetVDWCutOff, 'GetVDWCutOff' = OBForceField_GetVDWCutOff, 'SetElectrostaticCutOff' = OBForceField_SetElectrostaticCutOff, 'GetElectrostaticCutOff' = OBForceField_GetElectrostaticCutOff, 'SetUpdateFrequency' = OBForceField_SetUpdateFrequency, 'GetUpdateFrequency' = OBForceField_GetUpdateFrequency, 'UpdatePairsSimple' = OBForceField_UpdatePairsSimple, 'GetNumPairs' = OBForceField_GetNumPairs, 'EnableAllPairs' = OBForceField_EnableAllPairs, 'Energy' = OBForceField_Energy, 'E_Bond' = OBForceField_E_Bond, 'E_Angle' = OBForceField_E_Angle, 'E_StrBnd' = OBForceField_E_StrBnd, 'E_Torsion' = OBForceField_E_Torsion, 'E_OOP' = OBForceField_E_OOP, 'E_VDW' = OBForceField_E_VDW, 'E_Electrostatic' = OBForceField_E_Electrostatic, 'PrintTypes' = OBForceField_PrintTypes, 'PrintFormalCharges' = OBForceField_PrintFormalCharges, 'PrintPartialCharges' = OBForceField_PrintPartialCharges, 'PrintVelocities' = OBForceField_PrintVelocities, 'SetLogFile' = OBForceField_SetLogFile, 'SetLogLevel' = OBForceField_SetLogLevel, 'GetLogLevel' = OBForceField_GetLogLevel, 'OBFFLog' = OBForceField_OBFFLog, 'DistanceGeometry' = OBForceField_DistanceGeometry, 'SystematicRotorSearch' = OBForceField_SystematicRotorSearch, 'SystematicRotorSearchInitialize' = OBForceField_SystematicRotorSearchInitialize, 'SystematicRotorSearchNextConformer' = OBForceField_SystematicRotorSearchNextConformer, 'RandomRotorSearch' = OBForceField_RandomRotorSearch, 'RandomRotorSearchInitialize' = OBForceField_RandomRotorSearchInitialize, 'RandomRotorSearchNextConformer' = OBForceField_RandomRotorSearchNextConformer, 'WeightedRotorSearch' = OBForceField_WeightedRotorSearch, 'SetLineSearchType' = OBForceField_SetLineSearchType, 'GetLineSearchType' = OBForceField_GetLineSearchType, 'LineSearch' = OBForceField_LineSearch, 'Newton2NumLineSearch' = OBForceField_Newton2NumLineSearch, 'LineSearchTakeStep' = OBForceField_LineSearchTakeStep, 'SteepestDescent' = OBForceField_SteepestDescent, 'SteepestDescentInitialize' = OBForceField_SteepestDescentInitialize, 'SteepestDescentTakeNSteps' = OBForceField_SteepestDescentTakeNSteps, 'ConjugateGradients' = OBForceField_ConjugateGradients, 'ConjugateGradientsInitialize' = OBForceField_ConjugateGradientsInitialize, 'ConjugateGradientsTakeNSteps' = OBForceField_ConjugateGradientsTakeNSteps, 'GenerateVelocities' = OBForceField_GenerateVelocities, 'CorrectVelocities' = OBForceField_CorrectVelocities, 'MolecularDynamicsTakeNSteps' = OBForceField_MolecularDynamicsTakeNSteps, 'GetConstraints' = OBForceField_GetConstraints, 'SetConstraints' = OBForceField_SetConstraints, 'SetFixAtom' = OBForceField_SetFixAtom, 'UnsetFixAtom' = OBForceField_UnsetFixAtom, 'SetIgnoreAtom' = OBForceField_SetIgnoreAtom, 'UnsetIgnoreAtom' = OBForceField_UnsetIgnoreAtom, 'DetectExplosion' = OBForceField_DetectExplosion, 'ValidateLineSearch' = OBForceField_ValidateLineSearch, 'ValidateSteepestDescent' = OBForceField_ValidateSteepestDescent, 'ValidateConjugateGradients' = OBForceField_ValidateConjugateGradients, 'Validate' = OBForceField_Validate, 'ValidateGradients' = OBForceField_ValidateGradients, 'ValidateGradientError' = OBForceField_ValidateGradientError);
-  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
-  function(...){ f(x, ...)} ; }
-);
-# end of accessor method for OpenBabel::OBForceField
-setMethod('delete', '_p_OpenBabel__OBForceField', function(obj) {delete_OpenBabel__OBForceField(obj)})
 # Start of new_OBBuilder
 `OBBuilder` = function() { ;ans = .Call('R_swig_new_OBBuilder', PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__OBBuilder";
   reg.finalizer(ans, delete_OBBuilder); ans }
@@ -16001,6 +13743,1383 @@ setMethod('$', '_p_OpenBabel__OBOp', function(x, name) { accessorFuns = list('Do
 );
 # end of accessor method for OpenBabel::OBOp
 setMethod('delete', '_p_OpenBabel__OBOp', function(obj) {delete_OpenBabel__OBOp(obj)})
+# Start of OBChargeModel_Default
+`OBChargeModel_Default` = function(.copy = FALSE) {
+  ;ans = .Call('R_swig_OBChargeModel_Default', as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_p_OpenBabel__OBChargeModel"; ans }
+attr(`OBChargeModel_Default`, 'returnType') = '_p_p_OpenBabel__OBChargeModel'
+class(`OBChargeModel_Default`) = c("SWIGFunction", class('OBChargeModel_Default'))
+
+# Start of new_OBChargeModel
+`OBChargeModel__SWIG_0` = function(ID, IsDefault) { ID = as(ID, "character");  IsDefault = as.logical(IsDefault);
+  ;ans = .Call('R_swig_new_OBChargeModel__SWIG_0', ID, IsDefault, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBChargeModel"; reg.finalizer(ans, delete_OBChargeModel); ans }
+attr(`OBChargeModel__SWIG_0`, 'returnType') = '_p_OpenBabel__OBChargeModel'
+attr(`OBChargeModel__SWIG_0`, "inputTypes") = c('character', 'logical')
+class(`OBChargeModel__SWIG_0`) = c("SWIGFunction", class('OBChargeModel__SWIG_0'))
+
+# Start of new_OBChargeModel
+`OBChargeModel__SWIG_1` = function(ID) { ID = as(ID, "character"); 
+  ;ans = .Call('R_swig_new_OBChargeModel__SWIG_1', ID, PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__OBChargeModel";
+  reg.finalizer(ans, delete_OBChargeModel); ans }
+attr(`OBChargeModel__SWIG_1`, 'returnType') = '_p_OpenBabel__OBChargeModel'
+attr(`OBChargeModel__SWIG_1`, "inputTypes") = c('character')
+class(`OBChargeModel__SWIG_1`) = c("SWIGFunction", class('OBChargeModel__SWIG_1'))
+
+`OBChargeModel` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if (is.character(argv[[1]])) { f <- OBChargeModel__SWIG_1; }  }  else if (argc == 2) {
+    if (is.character(argv[[1]]) && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 )) { f <- OBChargeModel__SWIG_0; }  }
+   else { stop("cannot find overloaded function for OBChargeModel with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of OBChargeModel_FindType
+`OBChargeModel_FindType` = function(ID) { ID = as(ID, "character"); 
+  ;ans = .Call('R_swig_OBChargeModel_FindType', ID, PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__OBChargeModel"; ans }
+attr(`OBChargeModel_FindType`, 'returnType') = '_p_OpenBabel__OBChargeModel'
+attr(`OBChargeModel_FindType`, "inputTypes") = c('character')
+class(`OBChargeModel_FindType`) = c("SWIGFunction", class('OBChargeModel_FindType'))
+
+# Start of OBChargeModel_ComputeCharges
+`OBChargeModel_ComputeCharges` = function(self, s_arg2, .copy = FALSE) {
+  ;.Call('R_swig_OBChargeModel_ComputeCharges', self, s_arg2, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBChargeModel_ComputeCharges`, 'returnType') = 'logical'
+attr(`OBChargeModel_ComputeCharges`, "inputTypes") = c('_p_OpenBabel__OBChargeModel', '_p_OpenBabel__OBMol')
+class(`OBChargeModel_ComputeCharges`) = c("SWIGFunction", class('OBChargeModel_ComputeCharges'))
+
+# Start of OBChargeModel_GetFormalCharges
+`OBChargeModel_GetFormalCharges` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBChargeModel_GetFormalCharges', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_double_std__allocatorT_double_t_t"; ans }
+attr(`OBChargeModel_GetFormalCharges`, 'returnType') = '_p_std__vectorT_double_std__allocatorT_double_t_t'
+attr(`OBChargeModel_GetFormalCharges`, "inputTypes") = c('_p_OpenBabel__OBChargeModel')
+class(`OBChargeModel_GetFormalCharges`) = c("SWIGFunction", class('OBChargeModel_GetFormalCharges'))
+
+# Start of OBChargeModel_GetPartialCharges
+`OBChargeModel_GetPartialCharges` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBChargeModel_GetPartialCharges', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_double_std__allocatorT_double_t_t"; ans }
+attr(`OBChargeModel_GetPartialCharges`, 'returnType') = '_p_std__vectorT_double_std__allocatorT_double_t_t'
+attr(`OBChargeModel_GetPartialCharges`, "inputTypes") = c('_p_OpenBabel__OBChargeModel')
+class(`OBChargeModel_GetPartialCharges`) = c("SWIGFunction", class('OBChargeModel_GetPartialCharges'))
+
+# Start of OBChargeModel_GetDipoleMoment
+`OBChargeModel_GetDipoleMoment` = function(self, s_arg2, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBChargeModel_GetDipoleMoment', self, s_arg2, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__vector3"; ans }
+attr(`OBChargeModel_GetDipoleMoment`, 'returnType') = '_p_OpenBabel__vector3'
+attr(`OBChargeModel_GetDipoleMoment`, "inputTypes") = c('_p_OpenBabel__OBChargeModel', '_p_OpenBabel__OBMol')
+class(`OBChargeModel_GetDipoleMoment`) = c("SWIGFunction", class('OBChargeModel_GetDipoleMoment'))
+
+# Start of delete_OBChargeModel
+`delete_OBChargeModel` = function(self) { ;.Call('R_swig_delete_OBChargeModel', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBChargeModel`, 'returnType') = 'void'
+attr(`delete_OBChargeModel`, "inputTypes") = c('_p_OpenBabel__OBChargeModel')
+class(`delete_OBChargeModel`) = c("SWIGFunction", class('delete_OBChargeModel'))
+
+# Start of accessor method for OpenBabel::OBChargeModel
+setMethod('$', '_p_OpenBabel__OBChargeModel', function(x, name) {
+  accessorFuns = list('ComputeCharges' = OBChargeModel_ComputeCharges, 'GetFormalCharges' = OBChargeModel_GetFormalCharges, 'GetPartialCharges' = OBChargeModel_GetPartialCharges, 'GetDipoleMoment' = OBChargeModel_GetDipoleMoment);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBChargeModel
+setMethod('delete', '_p_OpenBabel__OBChargeModel', function(obj) {delete_OpenBabel__OBChargeModel(obj)})
+# Start of new_OBGraphSym
+`OBGraphSym__SWIG_0` = function(pmol, frag_atoms) {
+  ;ans = .Call('R_swig_new_OBGraphSym__SWIG_0', pmol, frag_atoms, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBGraphSym"; reg.finalizer(ans, delete_OBGraphSym); ans }
+attr(`OBGraphSym__SWIG_0`, 'returnType') = '_p_OpenBabel__OBGraphSym'
+attr(`OBGraphSym__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_OpenBabel__OBBitVec')
+class(`OBGraphSym__SWIG_0`) = c("SWIGFunction", class('OBGraphSym__SWIG_0'))
+
+# Start of new_OBGraphSym
+`OBGraphSym__SWIG_1` = function(pmol) { ;ans = .Call('R_swig_new_OBGraphSym__SWIG_1', pmol, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBGraphSym"; reg.finalizer(ans, delete_OBGraphSym); ans }
+attr(`OBGraphSym__SWIG_1`, 'returnType') = '_p_OpenBabel__OBGraphSym'
+attr(`OBGraphSym__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol')
+class(`OBGraphSym__SWIG_1`) = c("SWIGFunction", class('OBGraphSym__SWIG_1'))
+
+`OBGraphSym` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBMol')) { f <- OBGraphSym__SWIG_1; }  }  else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_OpenBabel__OBBitVec')) {
+      f <- OBGraphSym__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBGraphSym with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of delete_OBGraphSym
+`delete_OBGraphSym` = function(self) { ;.Call('R_swig_delete_OBGraphSym', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBGraphSym`, 'returnType') = 'void'
+attr(`delete_OBGraphSym`, "inputTypes") = c('_p_OpenBabel__OBGraphSym')
+class(`delete_OBGraphSym`) = c("SWIGFunction", class('delete_OBGraphSym'))
+
+# Start of OBGraphSym_NoSymmetryClass_get
+`OBGraphSym_NoSymmetryClass_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_OBGraphSym_NoSymmetryClass_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBGraphSym_NoSymmetryClass_get`, 'returnType') = 'integer'
+class(`OBGraphSym_NoSymmetryClass_get`) = c("SWIGFunction", class('OBGraphSym_NoSymmetryClass_get'))
+
+OBGraphSym_NoSymmetryClass = OBGraphSym_NoSymmetryClass_get
+# Start of OBGraphSym_GetSymmetry
+`OBGraphSym_GetSymmetry` = function(self, symmetry_classes, .copy = FALSE) {
+  ;.Call('R_swig_OBGraphSym_GetSymmetry', self, symmetry_classes, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBGraphSym_GetSymmetry`, 'returnType') = 'integer'
+attr(`OBGraphSym_GetSymmetry`, "inputTypes") = c('_p_OpenBabel__OBGraphSym', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t')
+class(`OBGraphSym_GetSymmetry`) = c("SWIGFunction", class('OBGraphSym_GetSymmetry'))
+
+# Start of OBGraphSym_ClearSymmetry
+`OBGraphSym_ClearSymmetry` = function(self) { ;.Call('R_swig_OBGraphSym_ClearSymmetry', self, PACKAGE='ChemmineOB'); }
+attr(`OBGraphSym_ClearSymmetry`, 'returnType') = 'void'
+attr(`OBGraphSym_ClearSymmetry`, "inputTypes") = c('_p_OpenBabel__OBGraphSym')
+class(`OBGraphSym_ClearSymmetry`) = c("SWIGFunction", class('OBGraphSym_ClearSymmetry'))
+
+# Start of accessor method for OpenBabel::OBGraphSym
+setMethod('$', '_p_OpenBabel__OBGraphSym', function(x, name) { accessorFuns = list('GetSymmetry' = OBGraphSym_GetSymmetry, 'ClearSymmetry' = OBGraphSym_ClearSymmetry);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBGraphSym
+setMethod('delete', '_p_OpenBabel__OBGraphSym', function(obj) {delete_OpenBabel__OBGraphSym(obj)})
+# Start of delete_OBIsomorphismMapper
+`delete_OBIsomorphismMapper` = function(self) { ;.Call('R_swig_delete_OBIsomorphismMapper', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBIsomorphismMapper`, 'returnType') = 'void'
+attr(`delete_OBIsomorphismMapper`, "inputTypes") = c('_p_OpenBabel__OBIsomorphismMapper')
+class(`delete_OBIsomorphismMapper`) = c("SWIGFunction", class('delete_OBIsomorphismMapper'))
+
+# Start of OBIsomorphismMapper_GetInstance
+`OBIsomorphismMapper_GetInstance__SWIG_0` = function(query, algorithm) { algorithm = as(algorithm, "character");     
+  ;ans = .Call('R_swig_OBIsomorphismMapper_GetInstance__SWIG_0', query, algorithm, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBIsomorphismMapper"; ans }
+attr(`OBIsomorphismMapper_GetInstance__SWIG_0`, 'returnType') = '_p_OpenBabel__OBIsomorphismMapper'
+attr(`OBIsomorphismMapper_GetInstance__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBQuery', 'character')
+class(`OBIsomorphismMapper_GetInstance__SWIG_0`) = c("SWIGFunction", class('OBIsomorphismMapper_GetInstance__SWIG_0'))
+
+# Start of OBIsomorphismMapper_GetInstance
+`OBIsomorphismMapper_GetInstance__SWIG_1` = function(query) {
+  ;ans = .Call('R_swig_OBIsomorphismMapper_GetInstance__SWIG_1', query, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBIsomorphismMapper"; ans }
+attr(`OBIsomorphismMapper_GetInstance__SWIG_1`, 'returnType') = '_p_OpenBabel__OBIsomorphismMapper'
+attr(`OBIsomorphismMapper_GetInstance__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBQuery')
+class(`OBIsomorphismMapper_GetInstance__SWIG_1`) = c("SWIGFunction", class('OBIsomorphismMapper_GetInstance__SWIG_1'))
+
+`OBIsomorphismMapper_GetInstance` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBQuery')) { f <- OBIsomorphismMapper_GetInstance__SWIG_1; }  }
+   else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBQuery') && is.character(argv[[2]]) && length(argv[[2]]) == 1) {
+      f <- OBIsomorphismMapper_GetInstance__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBIsomorphismMapper_GetInstance with argtypes (",toString(argtypes),")"); } ;
+  f(...); }
+# Dispatch function
+# Start of OBIsomorphismMapper_MapFirst
+`OBIsomorphismMapper_MapFirst__SWIG_0` = function(self, queried, map, mask) {
+  ;.Call('R_swig_OBIsomorphismMapper_MapFirst__SWIG_0', self, queried, map, mask, PACKAGE='ChemmineOB'); }
+attr(`OBIsomorphismMapper_MapFirst__SWIG_0`, 'returnType') = 'void'
+attr(`OBIsomorphismMapper_MapFirst__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBIsomorphismMapper', '_p_OpenBabel__OBMol', '_p_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t', '_p_OpenBabel__OBBitVec')
+class(`OBIsomorphismMapper_MapFirst__SWIG_0`) = c("SWIGFunction", class('OBIsomorphismMapper_MapFirst__SWIG_0'))
+
+# Start of OBIsomorphismMapper_MapFirst
+`OBIsomorphismMapper_MapFirst__SWIG_1` = function(self, queried, map) {
+  ;.Call('R_swig_OBIsomorphismMapper_MapFirst__SWIG_1', self, queried, map, PACKAGE='ChemmineOB'); }
+attr(`OBIsomorphismMapper_MapFirst__SWIG_1`, 'returnType') = 'void'
+attr(`OBIsomorphismMapper_MapFirst__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBIsomorphismMapper', '_p_OpenBabel__OBMol', '_p_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t')
+class(`OBIsomorphismMapper_MapFirst__SWIG_1`) = c("SWIGFunction", class('OBIsomorphismMapper_MapFirst__SWIG_1'))
+
+`OBIsomorphismMapper_MapFirst` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBIsomorphismMapper') && extends(argtypes[2], '_p_OpenBabel__OBMol') && extends(argtypes[3], '_p_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t') && length(argv[[3]]) == 1) {
+      f <- OBIsomorphismMapper_MapFirst__SWIG_1; }  }  else if (argc == 4) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBIsomorphismMapper') && extends(argtypes[2], '_p_OpenBabel__OBMol') && extends(argtypes[3], '_p_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t') && length(argv[[3]]) == 1 && extends(argtypes[4], '_p_OpenBabel__OBBitVec') && length(argv[[4]]) == 1) {
+      f <- OBIsomorphismMapper_MapFirst__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBIsomorphismMapper_MapFirst with argtypes (",toString(argtypes),")"); } ;
+  f(...); }
+# Dispatch function
+# Start of OBIsomorphismMapper_MapUnique
+`OBIsomorphismMapper_MapUnique__SWIG_0` = function(self, queried, maps, mask) {
+  ;.Call('R_swig_OBIsomorphismMapper_MapUnique__SWIG_0', self, queried, maps, mask, PACKAGE='ChemmineOB'); }
+attr(`OBIsomorphismMapper_MapUnique__SWIG_0`, 'returnType') = 'void'
+attr(`OBIsomorphismMapper_MapUnique__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBIsomorphismMapper', '_p_OpenBabel__OBMol', '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t', '_p_OpenBabel__OBBitVec')
+class(`OBIsomorphismMapper_MapUnique__SWIG_0`) = c("SWIGFunction", class('OBIsomorphismMapper_MapUnique__SWIG_0'))
+
+# Start of OBIsomorphismMapper_MapUnique
+`OBIsomorphismMapper_MapUnique__SWIG_1` = function(self, queried, maps) {
+  ;.Call('R_swig_OBIsomorphismMapper_MapUnique__SWIG_1', self, queried, maps, PACKAGE='ChemmineOB'); }
+attr(`OBIsomorphismMapper_MapUnique__SWIG_1`, 'returnType') = 'void'
+attr(`OBIsomorphismMapper_MapUnique__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBIsomorphismMapper', '_p_OpenBabel__OBMol', '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t')
+class(`OBIsomorphismMapper_MapUnique__SWIG_1`) = c("SWIGFunction", class('OBIsomorphismMapper_MapUnique__SWIG_1'))
+
+`OBIsomorphismMapper_MapUnique` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBIsomorphismMapper') && extends(argtypes[2], '_p_OpenBabel__OBMol') && extends(argtypes[3], '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t') && length(argv[[3]]) == 1) {
+      f <- OBIsomorphismMapper_MapUnique__SWIG_1; }  }  else if (argc == 4) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBIsomorphismMapper') && extends(argtypes[2], '_p_OpenBabel__OBMol') && extends(argtypes[3], '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t') && length(argv[[3]]) == 1 && extends(argtypes[4], '_p_OpenBabel__OBBitVec') && length(argv[[4]]) == 1) {
+      f <- OBIsomorphismMapper_MapUnique__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBIsomorphismMapper_MapUnique with argtypes (",toString(argtypes),")"); } ;
+  f(...); }
+# Dispatch function
+# Start of OBIsomorphismMapper_MapAll
+`OBIsomorphismMapper_MapAll__SWIG_0` = function(self, queried, maps, mask, maxMemory) { if(length(maxMemory) > 1) {
+    warning("using only the first element of maxMemory"); } ;
+  ;.Call('R_swig_OBIsomorphismMapper_MapAll__SWIG_0', self, queried, maps, mask, maxMemory, PACKAGE='ChemmineOB'); }
+attr(`OBIsomorphismMapper_MapAll__SWIG_0`, 'returnType') = 'void'
+attr(`OBIsomorphismMapper_MapAll__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBIsomorphismMapper', '_p_OpenBabel__OBMol', '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t', '_p_OpenBabel__OBBitVec', 'integer')
+class(`OBIsomorphismMapper_MapAll__SWIG_0`) = c("SWIGFunction", class('OBIsomorphismMapper_MapAll__SWIG_0'))
+
+# Start of OBIsomorphismMapper_MapAll
+`OBIsomorphismMapper_MapAll__SWIG_1` = function(self, queried, maps, mask) {
+  ;.Call('R_swig_OBIsomorphismMapper_MapAll__SWIG_1', self, queried, maps, mask, PACKAGE='ChemmineOB'); }
+attr(`OBIsomorphismMapper_MapAll__SWIG_1`, 'returnType') = 'void'
+attr(`OBIsomorphismMapper_MapAll__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBIsomorphismMapper', '_p_OpenBabel__OBMol', '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t', '_p_OpenBabel__OBBitVec')
+class(`OBIsomorphismMapper_MapAll__SWIG_1`) = c("SWIGFunction", class('OBIsomorphismMapper_MapAll__SWIG_1'))
+
+# Start of OBIsomorphismMapper_MapAll
+`OBIsomorphismMapper_MapAll__SWIG_2` = function(self, queried, maps) {
+  ;.Call('R_swig_OBIsomorphismMapper_MapAll__SWIG_2', self, queried, maps, PACKAGE='ChemmineOB'); }
+attr(`OBIsomorphismMapper_MapAll__SWIG_2`, 'returnType') = 'void'
+attr(`OBIsomorphismMapper_MapAll__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBIsomorphismMapper', '_p_OpenBabel__OBMol', '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t')
+class(`OBIsomorphismMapper_MapAll__SWIG_2`) = c("SWIGFunction", class('OBIsomorphismMapper_MapAll__SWIG_2'))
+
+`OBIsomorphismMapper_MapAll` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 3
+   if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBIsomorphismMapper') && extends(argtypes[2], '_p_OpenBabel__OBMol') && extends(argtypes[3], '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t') && length(argv[[3]]) == 1) {
+      f <- OBIsomorphismMapper_MapAll__SWIG_2; }  }  else if (argc == 4) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBIsomorphismMapper') && extends(argtypes[2], '_p_OpenBabel__OBMol') && extends(argtypes[3], '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t') && length(argv[[3]]) == 1 && extends(argtypes[4], '_p_OpenBabel__OBBitVec') && length(argv[[4]]) == 1) {
+      f <- OBIsomorphismMapper_MapAll__SWIG_1; }  }  else if (argc == 5) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBIsomorphismMapper') && extends(argtypes[2], '_p_OpenBabel__OBMol') && extends(argtypes[3], '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t') && length(argv[[3]]) == 1 && extends(argtypes[4], '_p_OpenBabel__OBBitVec') && length(argv[[4]]) == 1 && (is.integer(argv[[5]]) || is.numeric(argv[[5]])) && length(argv[[5]]) == 1) {
+      f <- OBIsomorphismMapper_MapAll__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBIsomorphismMapper_MapAll with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of OBIsomorphismMapper_MapGeneric
+`OBIsomorphismMapper_MapGeneric__SWIG_0` = function(self, functor, queried, mask) {
+  ;.Call('R_swig_OBIsomorphismMapper_MapGeneric__SWIG_0', self, functor, queried, mask, PACKAGE='ChemmineOB'); }
+attr(`OBIsomorphismMapper_MapGeneric__SWIG_0`, 'returnType') = 'void'
+attr(`OBIsomorphismMapper_MapGeneric__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBIsomorphismMapper', '_p_OpenBabel__OBIsomorphismMapper__Functor', '_p_OpenBabel__OBMol', '_p_OpenBabel__OBBitVec')
+class(`OBIsomorphismMapper_MapGeneric__SWIG_0`) = c("SWIGFunction", class('OBIsomorphismMapper_MapGeneric__SWIG_0'))
+
+# Start of OBIsomorphismMapper_MapGeneric
+`OBIsomorphismMapper_MapGeneric__SWIG_1` = function(self, functor, queried) {
+  ;.Call('R_swig_OBIsomorphismMapper_MapGeneric__SWIG_1', self, functor, queried, PACKAGE='ChemmineOB'); }
+attr(`OBIsomorphismMapper_MapGeneric__SWIG_1`, 'returnType') = 'void'
+attr(`OBIsomorphismMapper_MapGeneric__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBIsomorphismMapper', '_p_OpenBabel__OBIsomorphismMapper__Functor', '_p_OpenBabel__OBMol')
+class(`OBIsomorphismMapper_MapGeneric__SWIG_1`) = c("SWIGFunction", class('OBIsomorphismMapper_MapGeneric__SWIG_1'))
+
+`OBIsomorphismMapper_MapGeneric` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBIsomorphismMapper') && extends(argtypes[2], '_p_OpenBabel__OBIsomorphismMapper__Functor') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_OpenBabel__OBMol')) {
+      f <- OBIsomorphismMapper_MapGeneric__SWIG_1; }  }  else if (argc == 4) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBIsomorphismMapper') && extends(argtypes[2], '_p_OpenBabel__OBIsomorphismMapper__Functor') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_OpenBabel__OBMol') && extends(argtypes[4], '_p_OpenBabel__OBBitVec') && length(argv[[4]]) == 1) {
+      f <- OBIsomorphismMapper_MapGeneric__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBIsomorphismMapper_MapGeneric with argtypes (",toString(argtypes),")"); } ;
+  f(...); }
+# Dispatch function
+# Start of OBIsomorphismMapper_SetTimeout
+`OBIsomorphismMapper_SetTimeout` = function(self, seconds) { if(length(seconds) > 1) {
+    warning("using only the first element of seconds"); } ;
+  ;.Call('R_swig_OBIsomorphismMapper_SetTimeout', self, seconds, PACKAGE='ChemmineOB'); }
+attr(`OBIsomorphismMapper_SetTimeout`, 'returnType') = 'void'
+attr(`OBIsomorphismMapper_SetTimeout`, "inputTypes") = c('_p_OpenBabel__OBIsomorphismMapper', 'integer')
+class(`OBIsomorphismMapper_SetTimeout`) = c("SWIGFunction", class('OBIsomorphismMapper_SetTimeout'))
+
+# Start of accessor method for OpenBabel::OBIsomorphismMapper
+setMethod('$', '_p_OpenBabel__OBIsomorphismMapper', function(x, name) {
+  accessorFuns = list('MapFirst' = OBIsomorphismMapper_MapFirst, 'MapUnique' = OBIsomorphismMapper_MapUnique, 'MapAll' = OBIsomorphismMapper_MapAll, 'MapGeneric' = OBIsomorphismMapper_MapGeneric, 'SetTimeout' = OBIsomorphismMapper_SetTimeout);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBIsomorphismMapper
+setMethod('delete', '_p_OpenBabel__OBIsomorphismMapper', function(obj) {delete_OpenBabel__OBIsomorphismMapper(obj)})
+# Start of MapsTo
+`MapsTo` = function(map, queryIndex, queriedIndex, .copy = FALSE) { if(length(queryIndex) > 1) {
+    warning("using only the first element of queryIndex"); } ;
+  ;.Call('R_swig_MapsTo', map, queryIndex, queriedIndex, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`MapsTo`, 'returnType') = 'logical'
+attr(`MapsTo`, "inputTypes") = c('_p_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t', 'integer', '_p_unsigned_int')
+class(`MapsTo`) = c("SWIGFunction", class('MapsTo'))
+
+# Start of FindAutomorphisms
+`FindAutomorphisms__SWIG_0` = function(mol, aut, symmetry_classes, mask, maxMemory, .copy = FALSE) { if(length(maxMemory) > 1) {
+    warning("using only the first element of maxMemory"); } ;
+  ;.Call('R_swig_FindAutomorphisms__SWIG_0', mol, aut, symmetry_classes, mask, maxMemory, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`FindAutomorphisms__SWIG_0`, 'returnType') = 'logical'
+attr(`FindAutomorphisms__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t', '_p_OpenBabel__OBBitVec', 'integer')
+class(`FindAutomorphisms__SWIG_0`) = c("SWIGFunction", class('FindAutomorphisms__SWIG_0'))
+
+# Start of FindAutomorphisms
+`FindAutomorphisms__SWIG_1` = function(mol, aut, symmetry_classes, mask, .copy = FALSE) {
+  ;.Call('R_swig_FindAutomorphisms__SWIG_1', mol, aut, symmetry_classes, mask, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`FindAutomorphisms__SWIG_1`, 'returnType') = 'logical'
+attr(`FindAutomorphisms__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t', '_p_OpenBabel__OBBitVec')
+class(`FindAutomorphisms__SWIG_1`) = c("SWIGFunction", class('FindAutomorphisms__SWIG_1'))
+
+# Start of FindAutomorphisms
+`FindAutomorphisms__SWIG_2` = function(mol, aut, symmetry_classes, .copy = FALSE) {
+  ;.Call('R_swig_FindAutomorphisms__SWIG_2', mol, aut, symmetry_classes, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`FindAutomorphisms__SWIG_2`, 'returnType') = 'logical'
+attr(`FindAutomorphisms__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t')
+class(`FindAutomorphisms__SWIG_2`) = c("SWIGFunction", class('FindAutomorphisms__SWIG_2'))
+
+# Start of FindAutomorphisms
+`FindAutomorphisms__SWIG_3` = function(mol, aut, mask, maxMemory, .copy = FALSE) { if(length(maxMemory) > 1) {
+    warning("using only the first element of maxMemory"); } ;
+  ;.Call('R_swig_FindAutomorphisms__SWIG_3', mol, aut, mask, maxMemory, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`FindAutomorphisms__SWIG_3`, 'returnType') = 'logical'
+attr(`FindAutomorphisms__SWIG_3`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t', '_p_OpenBabel__OBBitVec', 'integer')
+class(`FindAutomorphisms__SWIG_3`) = c("SWIGFunction", class('FindAutomorphisms__SWIG_3'))
+
+# Start of FindAutomorphisms
+`FindAutomorphisms__SWIG_4` = function(mol, aut, mask, .copy = FALSE) {
+  ;.Call('R_swig_FindAutomorphisms__SWIG_4', mol, aut, mask, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`FindAutomorphisms__SWIG_4`, 'returnType') = 'logical'
+attr(`FindAutomorphisms__SWIG_4`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t', '_p_OpenBabel__OBBitVec')
+class(`FindAutomorphisms__SWIG_4`) = c("SWIGFunction", class('FindAutomorphisms__SWIG_4'))
+
+# Start of FindAutomorphisms
+`FindAutomorphisms__SWIG_5` = function(mol, aut, .copy = FALSE) {
+  ;.Call('R_swig_FindAutomorphisms__SWIG_5', mol, aut, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`FindAutomorphisms__SWIG_5`, 'returnType') = 'logical'
+attr(`FindAutomorphisms__SWIG_5`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t')
+class(`FindAutomorphisms__SWIG_5`) = c("SWIGFunction", class('FindAutomorphisms__SWIG_5'))
+
+# Start of FindAutomorphisms
+`FindAutomorphisms__SWIG_6` = function(functor, mol, symmetry_classes, mask) {
+  ;.Call('R_swig_FindAutomorphisms__SWIG_6', functor, mol, symmetry_classes, mask, PACKAGE='ChemmineOB'); }
+attr(`FindAutomorphisms__SWIG_6`, 'returnType') = 'void'
+attr(`FindAutomorphisms__SWIG_6`, "inputTypes") = c('_p_OpenBabel__OBIsomorphismMapper__Functor', '_p_OpenBabel__OBMol', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t', '_p_OpenBabel__OBBitVec')
+class(`FindAutomorphisms__SWIG_6`) = c("SWIGFunction", class('FindAutomorphisms__SWIG_6'))
+
+# Start of FindAutomorphisms
+`FindAutomorphisms__SWIG_7` = function(functor, mol, symmetry_classes) {
+  ;.Call('R_swig_FindAutomorphisms__SWIG_7', functor, mol, symmetry_classes, PACKAGE='ChemmineOB'); }
+attr(`FindAutomorphisms__SWIG_7`, 'returnType') = 'void'
+attr(`FindAutomorphisms__SWIG_7`, "inputTypes") = c('_p_OpenBabel__OBIsomorphismMapper__Functor', '_p_OpenBabel__OBMol', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t')
+class(`FindAutomorphisms__SWIG_7`) = c("SWIGFunction", class('FindAutomorphisms__SWIG_7'))
+
+`FindAutomorphisms` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 8
+   if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t') && length(argv[[2]]) == 1) {
+      f <- FindAutomorphisms__SWIG_5; }  }  else if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_OpenBabel__OBBitVec') && length(argv[[3]]) == 1) {
+      f <- FindAutomorphisms__SWIG_4; } 
+    else if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[3]]) == 1) {
+      f <- FindAutomorphisms__SWIG_2; } 
+    else if (extends(argtypes[1], '_p_OpenBabel__OBIsomorphismMapper__Functor') && length(argv[[1]]) == 1 && extends(argtypes[2], '_p_OpenBabel__OBMol') && extends(argtypes[3], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[3]]) == 1) {
+      f <- FindAutomorphisms__SWIG_7; }  }  else if (argc == 4) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_OpenBabel__OBBitVec') && length(argv[[3]]) == 1 && (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1) {
+      f <- FindAutomorphisms__SWIG_3; } 
+    else if (extends(argtypes[1], '_p_OpenBabel__OBIsomorphismMapper__Functor') && length(argv[[1]]) == 1 && extends(argtypes[2], '_p_OpenBabel__OBMol') && extends(argtypes[3], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[3]]) == 1 && extends(argtypes[4], '_p_OpenBabel__OBBitVec') && length(argv[[4]]) == 1) {
+      f <- FindAutomorphisms__SWIG_6; } 
+    else if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[3]]) == 1 && extends(argtypes[4], '_p_OpenBabel__OBBitVec') && length(argv[[4]]) == 1) {
+      f <- FindAutomorphisms__SWIG_1; }  }  else if (argc == 5) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[3]]) == 1 && extends(argtypes[4], '_p_OpenBabel__OBBitVec') && length(argv[[4]]) == 1 && (is.integer(argv[[5]]) || is.numeric(argv[[5]])) && length(argv[[5]]) == 1) {
+      f <- FindAutomorphisms__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for FindAutomorphisms with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of new_OBQueryAtom
+`OBQueryAtom__SWIG_0` = function(atomicNum, isInRing, isAromatic) { atomicNum = as.integer(atomicNum); 
+  if(length(atomicNum) > 1) { warning("using only the first element of atomicNum"); } ; isInRing = as.logical(isInRing);
+  isAromatic = as.logical(isAromatic);
+  ;ans = .Call('R_swig_new_OBQueryAtom__SWIG_0', atomicNum, isInRing, isAromatic, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBQueryAtom"; reg.finalizer(ans, delete_OBQueryAtom); ans }
+attr(`OBQueryAtom__SWIG_0`, 'returnType') = '_p_OpenBabel__OBQueryAtom'
+attr(`OBQueryAtom__SWIG_0`, "inputTypes") = c('integer', 'logical', 'logical')
+class(`OBQueryAtom__SWIG_0`) = c("SWIGFunction", class('OBQueryAtom__SWIG_0'))
+
+# Start of new_OBQueryAtom
+`OBQueryAtom__SWIG_1` = function(atomicNum, isInRing) { atomicNum = as.integer(atomicNum);  if(length(atomicNum) > 1) {
+    warning("using only the first element of atomicNum"); } ; isInRing = as.logical(isInRing);
+  ;ans = .Call('R_swig_new_OBQueryAtom__SWIG_1', atomicNum, isInRing, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBQueryAtom"; reg.finalizer(ans, delete_OBQueryAtom); ans }
+attr(`OBQueryAtom__SWIG_1`, 'returnType') = '_p_OpenBabel__OBQueryAtom'
+attr(`OBQueryAtom__SWIG_1`, "inputTypes") = c('integer', 'logical')
+class(`OBQueryAtom__SWIG_1`) = c("SWIGFunction", class('OBQueryAtom__SWIG_1'))
+
+# Start of new_OBQueryAtom
+`OBQueryAtom__SWIG_2` = function(atomicNum) { atomicNum = as.integer(atomicNum);  if(length(atomicNum) > 1) {
+    warning("using only the first element of atomicNum"); } ;
+  ;ans = .Call('R_swig_new_OBQueryAtom__SWIG_2', atomicNum, PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__OBQueryAtom";
+  reg.finalizer(ans, delete_OBQueryAtom); ans }
+attr(`OBQueryAtom__SWIG_2`, 'returnType') = '_p_OpenBabel__OBQueryAtom'
+attr(`OBQueryAtom__SWIG_2`, "inputTypes") = c('integer')
+class(`OBQueryAtom__SWIG_2`) = c("SWIGFunction", class('OBQueryAtom__SWIG_2'))
+
+# Start of new_OBQueryAtom
+`OBQueryAtom__SWIG_3` = function() { ;ans = .Call('R_swig_new_OBQueryAtom__SWIG_3', PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBQueryAtom"; reg.finalizer(ans, delete_OBQueryAtom); ans }
+attr(`OBQueryAtom__SWIG_3`, 'returnType') = '_p_OpenBabel__OBQueryAtom'
+class(`OBQueryAtom__SWIG_3`) = c("SWIGFunction", class('OBQueryAtom__SWIG_3'))
+
+`OBQueryAtom` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 4
+   if (argc == 0) { f <- OBQueryAtom__SWIG_3; }  else if (argc == 1) {
+    if (( (is.integer(argv[[1]]) || is.numeric(argv[[1]])) && length(argv[[1]]) == 1 )) { f <- OBQueryAtom__SWIG_2; }  }
+   else if (argc == 2) {
+    if (( (is.integer(argv[[1]]) || is.numeric(argv[[1]])) && length(argv[[1]]) == 1 ) && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 )) {
+      f <- OBQueryAtom__SWIG_1; }  }  else if (argc == 3) {
+    if (( (is.integer(argv[[1]]) || is.numeric(argv[[1]])) && length(argv[[1]]) == 1 ) && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 ) && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
+      f <- OBQueryAtom__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBQueryAtom with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of delete_OBQueryAtom
+`delete_OBQueryAtom` = function(self) { ;.Call('R_swig_delete_OBQueryAtom', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBQueryAtom`, 'returnType') = 'void'
+attr(`delete_OBQueryAtom`, "inputTypes") = c('_p_OpenBabel__OBQueryAtom')
+class(`delete_OBQueryAtom`) = c("SWIGFunction", class('delete_OBQueryAtom'))
+
+# Start of OBQueryAtom_GetIndex
+`OBQueryAtom_GetIndex` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBQueryAtom_GetIndex', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBQueryAtom_GetIndex`, 'returnType') = 'integer'
+attr(`OBQueryAtom_GetIndex`, "inputTypes") = c('_p_OpenBabel__OBQueryAtom')
+class(`OBQueryAtom_GetIndex`) = c("SWIGFunction", class('OBQueryAtom_GetIndex'))
+
+# Start of OBQueryAtom_GetBonds
+`OBQueryAtom_GetBonds` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBQueryAtom_GetBonds', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBQueryBond_p_std__allocatorT_OpenBabel__OBQueryBond_p_t_t"; ans }
+attr(`OBQueryAtom_GetBonds`, 'returnType') = '_p_std__vectorT_OpenBabel__OBQueryBond_p_std__allocatorT_OpenBabel__OBQueryBond_p_t_t'
+attr(`OBQueryAtom_GetBonds`, "inputTypes") = c('_p_OpenBabel__OBQueryAtom')
+class(`OBQueryAtom_GetBonds`) = c("SWIGFunction", class('OBQueryAtom_GetBonds'))
+
+# Start of OBQueryAtom_GetNbrs
+`OBQueryAtom_GetNbrs` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBQueryAtom_GetNbrs', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBQueryAtom_p_std__allocatorT_OpenBabel__OBQueryAtom_p_t_t"; ans }
+attr(`OBQueryAtom_GetNbrs`, 'returnType') = '_p_std__vectorT_OpenBabel__OBQueryAtom_p_std__allocatorT_OpenBabel__OBQueryAtom_p_t_t'
+attr(`OBQueryAtom_GetNbrs`, "inputTypes") = c('_p_OpenBabel__OBQueryAtom')
+class(`OBQueryAtom_GetNbrs`) = c("SWIGFunction", class('OBQueryAtom_GetNbrs'))
+
+# Start of OBQueryAtom_Matches
+`OBQueryAtom_Matches` = function(self, atom, .copy = FALSE) {
+  ;.Call('R_swig_OBQueryAtom_Matches', self, atom, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBQueryAtom_Matches`, 'returnType') = 'logical'
+attr(`OBQueryAtom_Matches`, "inputTypes") = c('_p_OpenBabel__OBQueryAtom', '_p_OpenBabel__OBAtom')
+class(`OBQueryAtom_Matches`) = c("SWIGFunction", class('OBQueryAtom_Matches'))
+
+# Start of accessor method for OpenBabel::OBQueryAtom
+setMethod('$', '_p_OpenBabel__OBQueryAtom', function(x, name) {
+  accessorFuns = list('GetIndex' = OBQueryAtom_GetIndex, 'GetBonds' = OBQueryAtom_GetBonds, 'GetNbrs' = OBQueryAtom_GetNbrs, 'Matches' = OBQueryAtom_Matches);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBQueryAtom
+setMethod('delete', '_p_OpenBabel__OBQueryAtom', function(obj) {delete_OpenBabel__OBQueryAtom(obj)})
+# Start of new_OBQueryBond
+`OBQueryBond__SWIG_0` = function(begin, end, order, aromatic) { order = as.integer(order);  if(length(order) > 1) {
+    warning("using only the first element of order"); } ; aromatic = as.logical(aromatic);
+  ;ans = .Call('R_swig_new_OBQueryBond__SWIG_0', begin, end, order, aromatic, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBQueryBond"; reg.finalizer(ans, delete_OBQueryBond); ans }
+attr(`OBQueryBond__SWIG_0`, 'returnType') = '_p_OpenBabel__OBQueryBond'
+attr(`OBQueryBond__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBQueryAtom', '_p_OpenBabel__OBQueryAtom', 'integer', 'logical')
+class(`OBQueryBond__SWIG_0`) = c("SWIGFunction", class('OBQueryBond__SWIG_0'))
+
+# Start of new_OBQueryBond
+`OBQueryBond__SWIG_1` = function(begin, end, order) { order = as.integer(order);  if(length(order) > 1) {
+    warning("using only the first element of order"); } ;
+  ;ans = .Call('R_swig_new_OBQueryBond__SWIG_1', begin, end, order, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBQueryBond"; reg.finalizer(ans, delete_OBQueryBond); ans }
+attr(`OBQueryBond__SWIG_1`, 'returnType') = '_p_OpenBabel__OBQueryBond'
+attr(`OBQueryBond__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBQueryAtom', '_p_OpenBabel__OBQueryAtom', 'integer')
+class(`OBQueryBond__SWIG_1`) = c("SWIGFunction", class('OBQueryBond__SWIG_1'))
+
+# Start of new_OBQueryBond
+`OBQueryBond__SWIG_2` = function(begin, end) { ;ans = .Call('R_swig_new_OBQueryBond__SWIG_2', begin, end, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBQueryBond"; reg.finalizer(ans, delete_OBQueryBond); ans }
+attr(`OBQueryBond__SWIG_2`, 'returnType') = '_p_OpenBabel__OBQueryBond'
+attr(`OBQueryBond__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBQueryAtom', '_p_OpenBabel__OBQueryAtom')
+class(`OBQueryBond__SWIG_2`) = c("SWIGFunction", class('OBQueryBond__SWIG_2'))
+
+`OBQueryBond` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 3
+   if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBQueryAtom') && extends(argtypes[2], '_p_OpenBabel__OBQueryAtom')) {
+      f <- OBQueryBond__SWIG_2; }  }  else if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBQueryAtom') && extends(argtypes[2], '_p_OpenBabel__OBQueryAtom') && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 )) {
+      f <- OBQueryBond__SWIG_1; }  }  else if (argc == 4) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBQueryAtom') && extends(argtypes[2], '_p_OpenBabel__OBQueryAtom') && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 ) && ( is.logical(argv[[4]]) && length(argv[[4]]) == 1 )) {
+      f <- OBQueryBond__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBQueryBond with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of delete_OBQueryBond
+`delete_OBQueryBond` = function(self) { ;.Call('R_swig_delete_OBQueryBond', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBQueryBond`, 'returnType') = 'void'
+attr(`delete_OBQueryBond`, "inputTypes") = c('_p_OpenBabel__OBQueryBond')
+class(`delete_OBQueryBond`) = c("SWIGFunction", class('delete_OBQueryBond'))
+
+# Start of OBQueryBond_GetIndex
+`OBQueryBond_GetIndex` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBQueryBond_GetIndex', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBQueryBond_GetIndex`, 'returnType') = 'integer'
+attr(`OBQueryBond_GetIndex`, "inputTypes") = c('_p_OpenBabel__OBQueryBond')
+class(`OBQueryBond_GetIndex`) = c("SWIGFunction", class('OBQueryBond_GetIndex'))
+
+# Start of OBQueryBond_GetBeginAtom
+`OBQueryBond_GetBeginAtom` = function(self) { ;ans = .Call('R_swig_OBQueryBond_GetBeginAtom', self, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBQueryAtom"; ans }
+attr(`OBQueryBond_GetBeginAtom`, 'returnType') = '_p_OpenBabel__OBQueryAtom'
+attr(`OBQueryBond_GetBeginAtom`, "inputTypes") = c('_p_OpenBabel__OBQueryBond')
+class(`OBQueryBond_GetBeginAtom`) = c("SWIGFunction", class('OBQueryBond_GetBeginAtom'))
+
+# Start of OBQueryBond_GetEndAtom
+`OBQueryBond_GetEndAtom` = function(self) { ;ans = .Call('R_swig_OBQueryBond_GetEndAtom', self, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBQueryAtom"; ans }
+attr(`OBQueryBond_GetEndAtom`, 'returnType') = '_p_OpenBabel__OBQueryAtom'
+attr(`OBQueryBond_GetEndAtom`, "inputTypes") = c('_p_OpenBabel__OBQueryBond')
+class(`OBQueryBond_GetEndAtom`) = c("SWIGFunction", class('OBQueryBond_GetEndAtom'))
+
+# Start of OBQueryBond_Matches
+`OBQueryBond_Matches` = function(self, bond, .copy = FALSE) {
+  ;.Call('R_swig_OBQueryBond_Matches', self, bond, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBQueryBond_Matches`, 'returnType') = 'logical'
+attr(`OBQueryBond_Matches`, "inputTypes") = c('_p_OpenBabel__OBQueryBond', '_p_OpenBabel__OBBond')
+class(`OBQueryBond_Matches`) = c("SWIGFunction", class('OBQueryBond_Matches'))
+
+# Start of accessor method for OpenBabel::OBQueryBond
+setMethod('$', '_p_OpenBabel__OBQueryBond', function(x, name) {
+  accessorFuns = list('GetIndex' = OBQueryBond_GetIndex, 'GetBeginAtom' = OBQueryBond_GetBeginAtom, 'GetEndAtom' = OBQueryBond_GetEndAtom, 'Matches' = OBQueryBond_Matches);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBQueryBond
+setMethod('delete', '_p_OpenBabel__OBQueryBond', function(obj) {delete_OpenBabel__OBQueryBond(obj)})
+# Start of delete_OBQuery
+`delete_OBQuery` = function(self) { ;.Call('R_swig_delete_OBQuery', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBQuery`, 'returnType') = 'void'
+attr(`delete_OBQuery`, "inputTypes") = c('_p_OpenBabel__OBQuery')
+class(`delete_OBQuery`) = c("SWIGFunction", class('delete_OBQuery'))
+
+# Start of OBQuery_NumAtoms
+`OBQuery_NumAtoms` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBQuery_NumAtoms', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBQuery_NumAtoms`, 'returnType') = 'integer'
+attr(`OBQuery_NumAtoms`, "inputTypes") = c('_p_OpenBabel__OBQuery')
+class(`OBQuery_NumAtoms`) = c("SWIGFunction", class('OBQuery_NumAtoms'))
+
+# Start of OBQuery_NumBonds
+`OBQuery_NumBonds` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBQuery_NumBonds', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBQuery_NumBonds`, 'returnType') = 'integer'
+attr(`OBQuery_NumBonds`, "inputTypes") = c('_p_OpenBabel__OBQuery')
+class(`OBQuery_NumBonds`) = c("SWIGFunction", class('OBQuery_NumBonds'))
+
+# Start of OBQuery_GetAtoms
+`OBQuery_GetAtoms` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBQuery_GetAtoms', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBQueryAtom_p_std__allocatorT_OpenBabel__OBQueryAtom_p_t_t"; ans }
+attr(`OBQuery_GetAtoms`, 'returnType') = '_p_std__vectorT_OpenBabel__OBQueryAtom_p_std__allocatorT_OpenBabel__OBQueryAtom_p_t_t'
+attr(`OBQuery_GetAtoms`, "inputTypes") = c('_p_OpenBabel__OBQuery')
+class(`OBQuery_GetAtoms`) = c("SWIGFunction", class('OBQuery_GetAtoms'))
+
+# Start of OBQuery_GetBonds
+`OBQuery_GetBonds` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBQuery_GetBonds', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBQueryBond_p_std__allocatorT_OpenBabel__OBQueryBond_p_t_t"; ans }
+attr(`OBQuery_GetBonds`, 'returnType') = '_p_std__vectorT_OpenBabel__OBQueryBond_p_std__allocatorT_OpenBabel__OBQueryBond_p_t_t'
+attr(`OBQuery_GetBonds`, "inputTypes") = c('_p_OpenBabel__OBQuery')
+class(`OBQuery_GetBonds`) = c("SWIGFunction", class('OBQuery_GetBonds'))
+
+# Start of OBQuery_GetBond
+`OBQuery_GetBond` = function(self, begin, end) { ;ans = .Call('R_swig_OBQuery_GetBond', self, begin, end, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBQueryBond"; ans }
+attr(`OBQuery_GetBond`, 'returnType') = '_p_OpenBabel__OBQueryBond'
+attr(`OBQuery_GetBond`, "inputTypes") = c('_p_OpenBabel__OBQuery', '_p_OpenBabel__OBQueryAtom', '_p_OpenBabel__OBQueryAtom')
+class(`OBQuery_GetBond`) = c("SWIGFunction", class('OBQuery_GetBond'))
+
+# Start of OBQuery_AddAtom
+`OBQuery_AddAtom` = function(self, atom) { ;.Call('R_swig_OBQuery_AddAtom', self, atom, PACKAGE='ChemmineOB'); }
+attr(`OBQuery_AddAtom`, 'returnType') = 'void'
+attr(`OBQuery_AddAtom`, "inputTypes") = c('_p_OpenBabel__OBQuery', '_p_OpenBabel__OBQueryAtom')
+class(`OBQuery_AddAtom`) = c("SWIGFunction", class('OBQuery_AddAtom'))
+
+# Start of OBQuery_AddBond
+`OBQuery_AddBond` = function(self, bond) { ;.Call('R_swig_OBQuery_AddBond', self, bond, PACKAGE='ChemmineOB'); }
+attr(`OBQuery_AddBond`, 'returnType') = 'void'
+attr(`OBQuery_AddBond`, "inputTypes") = c('_p_OpenBabel__OBQuery', '_p_OpenBabel__OBQueryBond')
+class(`OBQuery_AddBond`) = c("SWIGFunction", class('OBQuery_AddBond'))
+
+# Start of new_OBQuery
+`OBQuery` = function() { ;ans = .Call('R_swig_new_OBQuery', PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__OBQuery";
+  reg.finalizer(ans, delete_OBQuery); ans }
+attr(`OBQuery`, 'returnType') = '_p_OpenBabel__OBQuery'
+class(`OBQuery`) = c("SWIGFunction", class('OBQuery'))
+
+# Start of accessor method for OpenBabel::OBQuery
+setMethod('$', '_p_OpenBabel__OBQuery', function(x, name) {
+  accessorFuns = list('NumAtoms' = OBQuery_NumAtoms, 'NumBonds' = OBQuery_NumBonds, 'GetAtoms' = OBQuery_GetAtoms, 'GetBonds' = OBQuery_GetBonds, 'GetBond' = OBQuery_GetBond, 'AddAtom' = OBQuery_AddAtom, 'AddBond' = OBQuery_AddBond);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBQuery
+setMethod('delete', '_p_OpenBabel__OBQuery', function(obj) {delete_OpenBabel__OBQuery(obj)})
+# Start of CompileMoleculeQuery
+`CompileMoleculeQuery__SWIG_0` = function(mol, mask) {
+  ;ans = .Call('R_swig_CompileMoleculeQuery__SWIG_0', mol, mask, PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__OBQuery";
+  ans }
+attr(`CompileMoleculeQuery__SWIG_0`, 'returnType') = '_p_OpenBabel__OBQuery'
+attr(`CompileMoleculeQuery__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_OpenBabel__OBBitVec')
+class(`CompileMoleculeQuery__SWIG_0`) = c("SWIGFunction", class('CompileMoleculeQuery__SWIG_0'))
+
+# Start of CompileMoleculeQuery
+`CompileMoleculeQuery__SWIG_1` = function(mol) { ;ans = .Call('R_swig_CompileMoleculeQuery__SWIG_1', mol, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBQuery"; ans }
+attr(`CompileMoleculeQuery__SWIG_1`, 'returnType') = '_p_OpenBabel__OBQuery'
+attr(`CompileMoleculeQuery__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol')
+class(`CompileMoleculeQuery__SWIG_1`) = c("SWIGFunction", class('CompileMoleculeQuery__SWIG_1'))
+
+`CompileMoleculeQuery` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBMol')) { f <- CompileMoleculeQuery__SWIG_1; }  }
+   else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_OpenBabel__OBBitVec') && length(argv[[2]]) == 1) {
+      f <- CompileMoleculeQuery__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for CompileMoleculeQuery with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of CompileSmilesQuery
+`CompileSmilesQuery__SWIG_0` = function(smiles, mask) { smiles = as(smiles, "character");     
+  ;ans = .Call('R_swig_CompileSmilesQuery__SWIG_0', smiles, mask, PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__OBQuery";
+  ans }
+attr(`CompileSmilesQuery__SWIG_0`, 'returnType') = '_p_OpenBabel__OBQuery'
+attr(`CompileSmilesQuery__SWIG_0`, "inputTypes") = c('character', '_p_OpenBabel__OBBitVec')
+class(`CompileSmilesQuery__SWIG_0`) = c("SWIGFunction", class('CompileSmilesQuery__SWIG_0'))
+
+# Start of CompileSmilesQuery
+`CompileSmilesQuery__SWIG_1` = function(smiles) { smiles = as(smiles, "character");     
+  ;ans = .Call('R_swig_CompileSmilesQuery__SWIG_1', smiles, PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__OBQuery"; ans }
+attr(`CompileSmilesQuery__SWIG_1`, 'returnType') = '_p_OpenBabel__OBQuery'
+attr(`CompileSmilesQuery__SWIG_1`, "inputTypes") = c('character')
+class(`CompileSmilesQuery__SWIG_1`) = c("SWIGFunction", class('CompileSmilesQuery__SWIG_1'))
+
+`CompileSmilesQuery` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if (is.character(argv[[1]]) && length(argv[[1]]) == 1) { f <- CompileSmilesQuery__SWIG_1; }  }
+   else if (argc == 2) {
+    if (is.character(argv[[1]]) && length(argv[[1]]) == 1 && extends(argtypes[2], '_p_OpenBabel__OBBitVec') && length(argv[[2]]) == 1) {
+      f <- CompileSmilesQuery__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for CompileSmilesQuery with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of CanonicalLabels
+`CanonicalLabels__SWIG_0` = function(mol, symmetry_classes, canonical_labels, mask, maxSeconds, onlyOne) {
+  maxSeconds = as.integer(maxSeconds);  if(length(maxSeconds) > 1) { warning("using only the first element of maxSeconds"); } ;
+  onlyOne = as.logical(onlyOne);
+  ;.Call('R_swig_CanonicalLabels__SWIG_0', mol, symmetry_classes, canonical_labels, mask, maxSeconds, onlyOne, PACKAGE='ChemmineOB'); }
+attr(`CanonicalLabels__SWIG_0`, 'returnType') = 'void'
+attr(`CanonicalLabels__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t', '_p_OpenBabel__OBBitVec', 'integer', 'logical')
+class(`CanonicalLabels__SWIG_0`) = c("SWIGFunction", class('CanonicalLabels__SWIG_0'))
+
+# Start of CanonicalLabels
+`CanonicalLabels__SWIG_1` = function(mol, symmetry_classes, canonical_labels, mask, maxSeconds) {
+  maxSeconds = as.integer(maxSeconds);  if(length(maxSeconds) > 1) { warning("using only the first element of maxSeconds"); } ;
+  ;.Call('R_swig_CanonicalLabels__SWIG_1', mol, symmetry_classes, canonical_labels, mask, maxSeconds, PACKAGE='ChemmineOB'); }
+attr(`CanonicalLabels__SWIG_1`, 'returnType') = 'void'
+attr(`CanonicalLabels__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t', '_p_OpenBabel__OBBitVec', 'integer')
+class(`CanonicalLabels__SWIG_1`) = c("SWIGFunction", class('CanonicalLabels__SWIG_1'))
+
+# Start of CanonicalLabels
+`CanonicalLabels__SWIG_2` = function(mol, symmetry_classes, canonical_labels, mask) {
+  ;.Call('R_swig_CanonicalLabels__SWIG_2', mol, symmetry_classes, canonical_labels, mask, PACKAGE='ChemmineOB'); }
+attr(`CanonicalLabels__SWIG_2`, 'returnType') = 'void'
+attr(`CanonicalLabels__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t', '_p_OpenBabel__OBBitVec')
+class(`CanonicalLabels__SWIG_2`) = c("SWIGFunction", class('CanonicalLabels__SWIG_2'))
+
+# Start of CanonicalLabels
+`CanonicalLabels__SWIG_3` = function(mol, symmetry_classes, canonical_labels) {
+  ;.Call('R_swig_CanonicalLabels__SWIG_3', mol, symmetry_classes, canonical_labels, PACKAGE='ChemmineOB'); }
+attr(`CanonicalLabels__SWIG_3`, 'returnType') = 'void'
+attr(`CanonicalLabels__SWIG_3`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t')
+class(`CanonicalLabels__SWIG_3`) = c("SWIGFunction", class('CanonicalLabels__SWIG_3'))
+
+`CanonicalLabels` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 4
+   if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[3]]) == 1) {
+      f <- CanonicalLabels__SWIG_3; }  }  else if (argc == 4) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[3]]) == 1 && extends(argtypes[4], '_p_OpenBabel__OBBitVec') && length(argv[[4]]) == 1) {
+      f <- CanonicalLabels__SWIG_2; }  }  else if (argc == 5) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[3]]) == 1 && extends(argtypes[4], '_p_OpenBabel__OBBitVec') && length(argv[[4]]) == 1 && ( (is.integer(argv[[5]]) || is.numeric(argv[[5]])) && length(argv[[5]]) == 1 )) {
+      f <- CanonicalLabels__SWIG_1; }  }  else if (argc == 6) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[3]]) == 1 && extends(argtypes[4], '_p_OpenBabel__OBBitVec') && length(argv[[4]]) == 1 && ( (is.integer(argv[[5]]) || is.numeric(argv[[5]])) && length(argv[[5]]) == 1 ) && ( is.logical(argv[[6]]) && length(argv[[6]]) == 1 )) {
+      f <- CanonicalLabels__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for CanonicalLabels with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+defineEnumeration('_OpenBabel__OBStereo__Type',
+                    .values = c(
+                        'CisTrans' = 0, 
+                        'ExtendedCisTrans' = 0, 
+                        'SquarePlanar' = 0, 
+                        'Tetrahedral' = 0, 
+                        'ExtendedTetrahedral' = 0, 
+                        'TrigonalBipyramidal' = 0, 
+                        'Octahedral' = 0
+))
+defineEnumeration('_OpenBabel__OBStereo__BondDirection',
+                    .values = c(
+                        'NotStereo' = 0, 
+                        'UpBond' = 1, 
+                        'DownBond' = 6, 
+                        'UnknownDir' = 4
+))
+defineEnumeration('_OpenBabel__OBStereo__Shape',
+                    .values = c(
+                        'ShapeU' = 1, 
+                        'ShapeZ' = 2, 
+                        'Shape4' = 3
+))
+defineEnumeration('_OpenBabel__OBStereo__View',
+                    .values = c(
+                        'ViewFrom' = 1, 
+                        'ViewTowards' = 2
+))
+defineEnumeration('_OpenBabel__OBStereo__Winding',
+                    .values = c(
+                        'Clockwise' = 1, 
+                        'AntiClockwise' = 2, 
+                        'UnknownWinding' = 3
+))
+# Start of OBStereo_MakeRefs
+`OBStereo_MakeRefs__SWIG_0` = function(ref1, ref2, ref3, ref4, .copy = FALSE) { if(length(ref1) > 1) {
+    warning("using only the first element of ref1"); } ; if(length(ref2) > 1) {
+    warning("using only the first element of ref2"); } ; if(length(ref3) > 1) {
+    warning("using only the first element of ref3"); } ; if(length(ref4) > 1) {
+    warning("using only the first element of ref4"); } ;
+  ;ans = .Call('R_swig_OBStereo_MakeRefs__SWIG_0', ref1, ref2, ref3, ref4, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t"; ans }
+attr(`OBStereo_MakeRefs__SWIG_0`, 'returnType') = '_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t'
+attr(`OBStereo_MakeRefs__SWIG_0`, "inputTypes") = c('integer', 'integer', 'integer', 'integer')
+class(`OBStereo_MakeRefs__SWIG_0`) = c("SWIGFunction", class('OBStereo_MakeRefs__SWIG_0'))
+
+# Start of OBStereo_MakeRefs
+`OBStereo_MakeRefs__SWIG_1` = function(ref1, ref2, ref3, .copy = FALSE) { if(length(ref1) > 1) {
+    warning("using only the first element of ref1"); } ; if(length(ref2) > 1) {
+    warning("using only the first element of ref2"); } ; if(length(ref3) > 1) {
+    warning("using only the first element of ref3"); } ;
+  ;ans = .Call('R_swig_OBStereo_MakeRefs__SWIG_1', ref1, ref2, ref3, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t"; ans }
+attr(`OBStereo_MakeRefs__SWIG_1`, 'returnType') = '_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t'
+attr(`OBStereo_MakeRefs__SWIG_1`, "inputTypes") = c('integer', 'integer', 'integer')
+class(`OBStereo_MakeRefs__SWIG_1`) = c("SWIGFunction", class('OBStereo_MakeRefs__SWIG_1'))
+
+`OBStereo_MakeRefs` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 3) {
+    if ((is.integer(argv[[1]]) || is.numeric(argv[[1]])) && length(argv[[1]]) == 1 && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 && (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1) {
+      f <- OBStereo_MakeRefs__SWIG_1; }  }  else if (argc == 4) {
+    if ((is.integer(argv[[1]]) || is.numeric(argv[[1]])) && length(argv[[1]]) == 1 && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 && (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 && (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1) {
+      f <- OBStereo_MakeRefs__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBStereo_MakeRefs with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of OBStereo_ContainsSameRefs
+`OBStereo_ContainsSameRefs` = function(refs1, refs2, .copy = FALSE) {
+  ;.Call('R_swig_OBStereo_ContainsSameRefs', refs1, refs2, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBStereo_ContainsSameRefs`, 'returnType') = 'logical'
+attr(`OBStereo_ContainsSameRefs`, "inputTypes") = c('_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t', '_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t')
+class(`OBStereo_ContainsSameRefs`) = c("SWIGFunction", class('OBStereo_ContainsSameRefs'))
+
+# Start of OBStereo_ContainsRef
+`OBStereo_ContainsRef` = function(refs, ref, .copy = FALSE) { if(length(ref) > 1) {
+    warning("using only the first element of ref"); } ;
+  ;.Call('R_swig_OBStereo_ContainsRef', refs, ref, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBStereo_ContainsRef`, 'returnType') = 'logical'
+attr(`OBStereo_ContainsRef`, "inputTypes") = c('_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t', 'integer')
+class(`OBStereo_ContainsRef`) = c("SWIGFunction", class('OBStereo_ContainsRef'))
+
+# Start of OBStereo_NumInversions
+`OBStereo_NumInversions` = function(refs, .copy = FALSE) {
+  ;.Call('R_swig_OBStereo_NumInversions', refs, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBStereo_NumInversions`, 'returnType') = 'integer'
+attr(`OBStereo_NumInversions`, "inputTypes") = c('_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t')
+class(`OBStereo_NumInversions`) = c("SWIGFunction", class('OBStereo_NumInversions'))
+
+# Start of OBStereo_Permutate
+`OBStereo_Permutate` = function(refs, i, j) { i = as.integer(i);  if(length(i) > 1) {
+    warning("using only the first element of i"); } ; j = as.integer(j);  if(length(j) > 1) {
+    warning("using only the first element of j"); } ; ;.Call('R_swig_OBStereo_Permutate', refs, i, j, PACKAGE='ChemmineOB'); }
+attr(`OBStereo_Permutate`, 'returnType') = 'void'
+attr(`OBStereo_Permutate`, "inputTypes") = c('_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t', 'integer', 'integer')
+class(`OBStereo_Permutate`) = c("SWIGFunction", class('OBStereo_Permutate'))
+
+# Start of OBStereo_Permutated
+`OBStereo_Permutated` = function(refs, i, j, .copy = FALSE) { i = as.integer(i);  if(length(i) > 1) {
+    warning("using only the first element of i"); } ; j = as.integer(j);  if(length(j) > 1) {
+    warning("using only the first element of j"); } ;
+  ;ans = .Call('R_swig_OBStereo_Permutated', refs, i, j, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t"; ans }
+attr(`OBStereo_Permutated`, 'returnType') = '_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t'
+attr(`OBStereo_Permutated`, "inputTypes") = c('_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t', 'integer', 'integer')
+class(`OBStereo_Permutated`) = c("SWIGFunction", class('OBStereo_Permutated'))
+
+# Start of new_OBStereo
+`OBStereo` = function() { ;ans = .Call('R_swig_new_OBStereo', PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__OBStereo";
+  reg.finalizer(ans, delete_OBStereo); ans }
+attr(`OBStereo`, 'returnType') = '_p_OpenBabel__OBStereo'
+class(`OBStereo`) = c("SWIGFunction", class('OBStereo'))
+
+# Start of delete_OBStereo
+`delete_OBStereo` = function(self) { ;.Call('R_swig_delete_OBStereo', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBStereo`, 'returnType') = 'void'
+attr(`delete_OBStereo`, "inputTypes") = c('_p_OpenBabel__OBStereo')
+class(`delete_OBStereo`) = c("SWIGFunction", class('delete_OBStereo'))
+
+setMethod('delete', '_p_OpenBabel__OBStereo', function(obj) {delete_OpenBabel__OBStereo(obj)})
+# Start definition of copy functions & methods for OpenBabel::OBStereo
+CopyToR_OpenBabel__OBStereo = function(value, obj = new("OpenBabel::OBStereo")) { obj; }
+CopyToC_OpenBabel__OBStereo = function(value, obj) { obj }
+# Start definition of copy methods for OpenBabel::OBStereo
+setMethod('copyToR', '_p_OpenBabel::OBStereo', CopyToR_OpenBabel__OBStereo);
+setMethod('copyToC', 'OpenBabel::OBStereo', CopyToC_OpenBabel__OBStereo);
+
+# End definition of copy methods for OpenBabel::OBStereo
+# End definition of copy functions & methods for OpenBabel::OBStereo
+# Start of new_OBStereoUnit
+`OBStereoUnit__SWIG_0` = function() { ;ans = .Call('R_swig_new_OBStereoUnit__SWIG_0', PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBStereoUnit"; reg.finalizer(ans, delete_OBStereoUnit); ans }
+attr(`OBStereoUnit__SWIG_0`, 'returnType') = '_p_OpenBabel__OBStereoUnit'
+class(`OBStereoUnit__SWIG_0`) = c("SWIGFunction", class('OBStereoUnit__SWIG_0'))
+
+# Start of new_OBStereoUnit
+`OBStereoUnit__SWIG_1` = function(s_type, s_id, s_para) { s_type = enumToInteger(s_type, "_OpenBabel__OBStereo__Type"); 
+  if(length(s_type) > 1) { warning("using only the first element of s_type"); } ; if(length(s_id) > 1) {
+    warning("using only the first element of s_id"); } ; s_para = as.logical(s_para);
+  ;ans = .Call('R_swig_new_OBStereoUnit__SWIG_1', s_type, s_id, s_para, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBStereoUnit"; reg.finalizer(ans, delete_OBStereoUnit); ans }
+attr(`OBStereoUnit__SWIG_1`, 'returnType') = '_p_OpenBabel__OBStereoUnit'
+attr(`OBStereoUnit__SWIG_1`, "inputTypes") = c('character', 'integer', 'logical')
+class(`OBStereoUnit__SWIG_1`) = c("SWIGFunction", class('OBStereoUnit__SWIG_1'))
+
+# Start of new_OBStereoUnit
+`OBStereoUnit__SWIG_2` = function(s_type, s_id) { s_type = enumToInteger(s_type, "_OpenBabel__OBStereo__Type"); 
+  if(length(s_type) > 1) { warning("using only the first element of s_type"); } ; if(length(s_id) > 1) {
+    warning("using only the first element of s_id"); } ;
+  ;ans = .Call('R_swig_new_OBStereoUnit__SWIG_2', s_type, s_id, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBStereoUnit"; reg.finalizer(ans, delete_OBStereoUnit); ans }
+attr(`OBStereoUnit__SWIG_2`, 'returnType') = '_p_OpenBabel__OBStereoUnit'
+attr(`OBStereoUnit__SWIG_2`, "inputTypes") = c('character', 'integer')
+class(`OBStereoUnit__SWIG_2`) = c("SWIGFunction", class('OBStereoUnit__SWIG_2'))
+
+`OBStereoUnit` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 3
+   if (argc == 0) { f <- OBStereoUnit__SWIG_0; }  else if (argc == 2) {
+    if (is.character(argv[[1]]) && length(argv[[1]]) == 1 && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1) {
+      f <- OBStereoUnit__SWIG_2; }  }  else if (argc == 3) {
+    if (is.character(argv[[1]]) && length(argv[[1]]) == 1 && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
+      f <- OBStereoUnit__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for OBStereoUnit with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of OBStereoUnit_type_set
+`OBStereoUnit_type_set` = function(self, s_type) { s_type = enumToInteger(s_type, "_OpenBabel__OBStereo__Type"); 
+  if(length(s_type) > 1) { warning("using only the first element of s_type"); } ;
+  ;.Call('R_swig_OBStereoUnit_type_set', self, s_type, PACKAGE='ChemmineOB'); }
+attr(`OBStereoUnit_type_set`, 'returnType') = 'void'
+attr(`OBStereoUnit_type_set`, "inputTypes") = c('_p_OpenBabel__OBStereoUnit', 'character')
+class(`OBStereoUnit_type_set`) = c("SWIGFunction", class('OBStereoUnit_type_set'))
+
+# Start of OBStereoUnit_type_get
+`OBStereoUnit_type_get` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBStereoUnit_type_get', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans = enumFromInteger(ans, "_OpenBabel__OBStereo__Type"); ans }
+attr(`OBStereoUnit_type_get`, 'returnType') = 'character'
+attr(`OBStereoUnit_type_get`, "inputTypes") = c('_p_OpenBabel__OBStereoUnit')
+class(`OBStereoUnit_type_get`) = c("SWIGFunction", class('OBStereoUnit_type_get'))
+
+# Start of OBStereoUnit_id_set
+`OBStereoUnit_id_set` = function(self, s_id) { if(length(s_id) > 1) { warning("using only the first element of s_id"); } ;
+  ;.Call('R_swig_OBStereoUnit_id_set', self, s_id, PACKAGE='ChemmineOB'); }
+attr(`OBStereoUnit_id_set`, 'returnType') = 'void'
+attr(`OBStereoUnit_id_set`, "inputTypes") = c('_p_OpenBabel__OBStereoUnit', 'integer')
+class(`OBStereoUnit_id_set`) = c("SWIGFunction", class('OBStereoUnit_id_set'))
+
+# Start of OBStereoUnit_id_get
+`OBStereoUnit_id_get` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBStereoUnit_id_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBStereoUnit_id_get`, 'returnType') = 'integer'
+attr(`OBStereoUnit_id_get`, "inputTypes") = c('_p_OpenBabel__OBStereoUnit')
+class(`OBStereoUnit_id_get`) = c("SWIGFunction", class('OBStereoUnit_id_get'))
+
+# Start of OBStereoUnit_para_set
+`OBStereoUnit_para_set` = function(self, s_para) { s_para = as.logical(s_para);
+  ;.Call('R_swig_OBStereoUnit_para_set', self, s_para, PACKAGE='ChemmineOB'); }
+attr(`OBStereoUnit_para_set`, 'returnType') = 'void'
+attr(`OBStereoUnit_para_set`, "inputTypes") = c('_p_OpenBabel__OBStereoUnit', 'logical')
+class(`OBStereoUnit_para_set`) = c("SWIGFunction", class('OBStereoUnit_para_set'))
+
+# Start of OBStereoUnit_para_get
+`OBStereoUnit_para_get` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBStereoUnit_para_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBStereoUnit_para_get`, 'returnType') = 'logical'
+attr(`OBStereoUnit_para_get`, "inputTypes") = c('_p_OpenBabel__OBStereoUnit')
+class(`OBStereoUnit_para_get`) = c("SWIGFunction", class('OBStereoUnit_para_get'))
+
+# Start of delete_OBStereoUnit
+`delete_OBStereoUnit` = function(self) { ;.Call('R_swig_delete_OBStereoUnit', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBStereoUnit`, 'returnType') = 'void'
+attr(`delete_OBStereoUnit`, "inputTypes") = c('_p_OpenBabel__OBStereoUnit')
+class(`delete_OBStereoUnit`) = c("SWIGFunction", class('delete_OBStereoUnit'))
+
+# Start of accessor method for OpenBabel::OBStereoUnit
+setMethod('$', '_p_OpenBabel__OBStereoUnit', function(x, name) {
+  accessorFuns = list('type' = OBStereoUnit_type_get, 'id' = OBStereoUnit_id_get, 'para' = OBStereoUnit_para_get);
+  vaccessors = c('type', 'id', 'para'); ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx)) 
+  return(callNextMethod(x, name)); f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}
+   else f(x); }
+);
+# end of accessor method for OpenBabel::OBStereoUnit
+# Start of accessor method for OpenBabel::OBStereoUnit
+setMethod('$<-', '_p_OpenBabel__OBStereoUnit', function(x, name, value) {
+  accessorFuns = list('type' = OBStereoUnit_type_set, 'id' = OBStereoUnit_id_set, 'para' = OBStereoUnit_para_set);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
+  f = accessorFuns[[idx]]; f(x, value); x; }
+);
+setMethod('[[<-', c('_p_OpenBabel__OBStereoUnit', 'character'),function(x, i, j, ..., value) { name = i;
+  accessorFuns = list('type' = OBStereoUnit_type_set, 'id' = OBStereoUnit_id_set, 'para' = OBStereoUnit_para_set);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
+  f = accessorFuns[[idx]]; f(x, value); x; }
+);
+# end of accessor method for OpenBabel::OBStereoUnit
+setMethod('delete', '_p_OpenBabel__OBStereoUnit', function(obj) {delete_OpenBabel__OBStereoUnit(obj)})
+# Start definition of copy functions & methods for OpenBabel::OBStereoUnit
+CopyToR_OpenBabel__OBStereoUnit = function(value, obj = new("OpenBabel::OBStereoUnit")) { obj@type = value$type;
+  obj@id = value$id; obj@para = value$para; obj; }
+CopyToC_OpenBabel__OBStereoUnit = function(value, obj) { obj$type = value@type; obj$id = value@id; obj$para = value@para; obj }
+# Start definition of copy methods for OpenBabel::OBStereoUnit
+setMethod('copyToR', '_p_OpenBabel::OBStereoUnit', CopyToR_OpenBabel__OBStereoUnit);
+setMethod('copyToC', 'OpenBabel::OBStereoUnit', CopyToC_OpenBabel__OBStereoUnit);
+
+# End definition of copy methods for OpenBabel::OBStereoUnit
+# End definition of copy functions & methods for OpenBabel::OBStereoUnit
+# Start of delete_OBStereoBase
+`delete_OBStereoBase` = function(self) { ;.Call('R_swig_delete_OBStereoBase', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBStereoBase`, 'returnType') = 'void'
+attr(`delete_OBStereoBase`, "inputTypes") = c('_p_OpenBabel__OBStereoBase')
+class(`delete_OBStereoBase`) = c("SWIGFunction", class('delete_OBStereoBase'))
+
+# Start of OBStereoBase_GetMolecule
+`OBStereoBase_GetMolecule` = function(self) { ;ans = .Call('R_swig_OBStereoBase_GetMolecule', self, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBMol"; ans }
+attr(`OBStereoBase_GetMolecule`, 'returnType') = '_p_OpenBabel__OBMol'
+attr(`OBStereoBase_GetMolecule`, "inputTypes") = c('_p_OpenBabel__OBStereoBase')
+class(`OBStereoBase_GetMolecule`) = c("SWIGFunction", class('OBStereoBase_GetMolecule'))
+
+# Start of OBStereoBase_GetType
+`OBStereoBase_GetType` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBStereoBase_GetType', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans = enumFromInteger(ans, "_OpenBabel__OBStereo__Type"); ans }
+attr(`OBStereoBase_GetType`, 'returnType') = 'character'
+attr(`OBStereoBase_GetType`, "inputTypes") = c('_p_OpenBabel__OBStereoBase')
+class(`OBStereoBase_GetType`) = c("SWIGFunction", class('OBStereoBase_GetType'))
+
+# Start of OBStereoBase_SetSpecified
+`OBStereoBase_SetSpecified` = function(self, specified) { specified = as.logical(specified);
+  ;.Call('R_swig_OBStereoBase_SetSpecified', self, specified, PACKAGE='ChemmineOB'); }
+attr(`OBStereoBase_SetSpecified`, 'returnType') = 'void'
+attr(`OBStereoBase_SetSpecified`, "inputTypes") = c('_p_OpenBabel__OBStereoBase', 'logical')
+class(`OBStereoBase_SetSpecified`) = c("SWIGFunction", class('OBStereoBase_SetSpecified'))
+
+# Start of OBStereoBase_IsSpecified
+`OBStereoBase_IsSpecified` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBStereoBase_IsSpecified', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBStereoBase_IsSpecified`, 'returnType') = 'logical'
+attr(`OBStereoBase_IsSpecified`, "inputTypes") = c('_p_OpenBabel__OBStereoBase')
+class(`OBStereoBase_IsSpecified`) = c("SWIGFunction", class('OBStereoBase_IsSpecified'))
+
+# Start of accessor method for OpenBabel::OBStereoBase
+setMethod('$', '_p_OpenBabel__OBStereoBase', function(x, name) {
+  accessorFuns = list('GetMolecule' = OBStereoBase_GetMolecule, 'GetType' = OBStereoBase_GetType, 'SetSpecified' = OBStereoBase_SetSpecified, 'IsSpecified' = OBStereoBase_IsSpecified);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBStereoBase
+setMethod('delete', '_p_OpenBabel__OBStereoBase', function(obj) {delete_OpenBabel__OBStereoBase(obj)})
+# Start of new_OBStereoFacade
+`OBStereoFacade__SWIG_0` = function(mol, perceive) { perceive = as.logical(perceive);
+  ;ans = .Call('R_swig_new_OBStereoFacade__SWIG_0', mol, perceive, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBStereoFacade"; reg.finalizer(ans, delete_OBStereoFacade); ans }
+attr(`OBStereoFacade__SWIG_0`, 'returnType') = '_p_OpenBabel__OBStereoFacade'
+attr(`OBStereoFacade__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', 'logical')
+class(`OBStereoFacade__SWIG_0`) = c("SWIGFunction", class('OBStereoFacade__SWIG_0'))
+
+# Start of new_OBStereoFacade
+`OBStereoFacade__SWIG_1` = function(mol) { ;ans = .Call('R_swig_new_OBStereoFacade__SWIG_1', mol, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBStereoFacade"; reg.finalizer(ans, delete_OBStereoFacade); ans }
+attr(`OBStereoFacade__SWIG_1`, 'returnType') = '_p_OpenBabel__OBStereoFacade'
+attr(`OBStereoFacade__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol')
+class(`OBStereoFacade__SWIG_1`) = c("SWIGFunction", class('OBStereoFacade__SWIG_1'))
+
+`OBStereoFacade` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBMol')) { f <- OBStereoFacade__SWIG_1; }  }  else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 )) {
+      f <- OBStereoFacade__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBStereoFacade with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of OBStereoFacade_NumTetrahedralStereo
+`OBStereoFacade_NumTetrahedralStereo` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBStereoFacade_NumTetrahedralStereo', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBStereoFacade_NumTetrahedralStereo`, 'returnType') = 'integer'
+attr(`OBStereoFacade_NumTetrahedralStereo`, "inputTypes") = c('_p_OpenBabel__OBStereoFacade')
+class(`OBStereoFacade_NumTetrahedralStereo`) = c("SWIGFunction", class('OBStereoFacade_NumTetrahedralStereo'))
+
+# Start of OBStereoFacade_HasTetrahedralStereo
+`OBStereoFacade_HasTetrahedralStereo` = function(self, atomId, .copy = FALSE) { if(length(atomId) > 1) {
+    warning("using only the first element of atomId"); } ;
+  ;.Call('R_swig_OBStereoFacade_HasTetrahedralStereo', self, atomId, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBStereoFacade_HasTetrahedralStereo`, 'returnType') = 'logical'
+attr(`OBStereoFacade_HasTetrahedralStereo`, "inputTypes") = c('_p_OpenBabel__OBStereoFacade', 'integer')
+class(`OBStereoFacade_HasTetrahedralStereo`) = c("SWIGFunction", class('OBStereoFacade_HasTetrahedralStereo'))
+
+# Start of OBStereoFacade_GetTetrahedralStereo
+`OBStereoFacade_GetTetrahedralStereo` = function(self, atomId) { if(length(atomId) > 1) {
+    warning("using only the first element of atomId"); } ;
+  ;ans = .Call('R_swig_OBStereoFacade_GetTetrahedralStereo', self, atomId, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBTetrahedralStereo"; ans }
+attr(`OBStereoFacade_GetTetrahedralStereo`, 'returnType') = '_p_OpenBabel__OBTetrahedralStereo'
+attr(`OBStereoFacade_GetTetrahedralStereo`, "inputTypes") = c('_p_OpenBabel__OBStereoFacade', 'integer')
+class(`OBStereoFacade_GetTetrahedralStereo`) = c("SWIGFunction", class('OBStereoFacade_GetTetrahedralStereo'))
+
+# Start of OBStereoFacade_NumCisTransStereo
+`OBStereoFacade_NumCisTransStereo` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBStereoFacade_NumCisTransStereo', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBStereoFacade_NumCisTransStereo`, 'returnType') = 'integer'
+attr(`OBStereoFacade_NumCisTransStereo`, "inputTypes") = c('_p_OpenBabel__OBStereoFacade')
+class(`OBStereoFacade_NumCisTransStereo`) = c("SWIGFunction", class('OBStereoFacade_NumCisTransStereo'))
+
+# Start of OBStereoFacade_HasCisTransStereo
+`OBStereoFacade_HasCisTransStereo` = function(self, bondId, .copy = FALSE) { if(length(bondId) > 1) {
+    warning("using only the first element of bondId"); } ;
+  ;.Call('R_swig_OBStereoFacade_HasCisTransStereo', self, bondId, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBStereoFacade_HasCisTransStereo`, 'returnType') = 'logical'
+attr(`OBStereoFacade_HasCisTransStereo`, "inputTypes") = c('_p_OpenBabel__OBStereoFacade', 'integer')
+class(`OBStereoFacade_HasCisTransStereo`) = c("SWIGFunction", class('OBStereoFacade_HasCisTransStereo'))
+
+# Start of OBStereoFacade_GetCisTransStereo
+`OBStereoFacade_GetCisTransStereo` = function(self, bondId) { if(length(bondId) > 1) {
+    warning("using only the first element of bondId"); } ;
+  ;ans = .Call('R_swig_OBStereoFacade_GetCisTransStereo', self, bondId, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBCisTransStereo"; ans }
+attr(`OBStereoFacade_GetCisTransStereo`, 'returnType') = '_p_OpenBabel__OBCisTransStereo'
+attr(`OBStereoFacade_GetCisTransStereo`, "inputTypes") = c('_p_OpenBabel__OBStereoFacade', 'integer')
+class(`OBStereoFacade_GetCisTransStereo`) = c("SWIGFunction", class('OBStereoFacade_GetCisTransStereo'))
+
+# Start of OBStereoFacade_NumSquarePlanarStereo
+`OBStereoFacade_NumSquarePlanarStereo` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBStereoFacade_NumSquarePlanarStereo', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBStereoFacade_NumSquarePlanarStereo`, 'returnType') = 'integer'
+attr(`OBStereoFacade_NumSquarePlanarStereo`, "inputTypes") = c('_p_OpenBabel__OBStereoFacade')
+class(`OBStereoFacade_NumSquarePlanarStereo`) = c("SWIGFunction", class('OBStereoFacade_NumSquarePlanarStereo'))
+
+# Start of OBStereoFacade_HasSquarePlanarStereo
+`OBStereoFacade_HasSquarePlanarStereo` = function(self, atomId, .copy = FALSE) { if(length(atomId) > 1) {
+    warning("using only the first element of atomId"); } ;
+  ;.Call('R_swig_OBStereoFacade_HasSquarePlanarStereo', self, atomId, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBStereoFacade_HasSquarePlanarStereo`, 'returnType') = 'logical'
+attr(`OBStereoFacade_HasSquarePlanarStereo`, "inputTypes") = c('_p_OpenBabel__OBStereoFacade', 'integer')
+class(`OBStereoFacade_HasSquarePlanarStereo`) = c("SWIGFunction", class('OBStereoFacade_HasSquarePlanarStereo'))
+
+# Start of OBStereoFacade_GetSquarePlanarStereo
+`OBStereoFacade_GetSquarePlanarStereo` = function(self, atomId) { if(length(atomId) > 1) {
+    warning("using only the first element of atomId"); } ;
+  ;ans = .Call('R_swig_OBStereoFacade_GetSquarePlanarStereo', self, atomId, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBSquarePlanarStereo"; ans }
+attr(`OBStereoFacade_GetSquarePlanarStereo`, 'returnType') = '_p_OpenBabel__OBSquarePlanarStereo'
+attr(`OBStereoFacade_GetSquarePlanarStereo`, "inputTypes") = c('_p_OpenBabel__OBStereoFacade', 'integer')
+class(`OBStereoFacade_GetSquarePlanarStereo`) = c("SWIGFunction", class('OBStereoFacade_GetSquarePlanarStereo'))
+
+# Start of delete_OBStereoFacade
+`delete_OBStereoFacade` = function(self) { ;.Call('R_swig_delete_OBStereoFacade', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBStereoFacade`, 'returnType') = 'void'
+attr(`delete_OBStereoFacade`, "inputTypes") = c('_p_OpenBabel__OBStereoFacade')
+class(`delete_OBStereoFacade`) = c("SWIGFunction", class('delete_OBStereoFacade'))
+
+# Start of accessor method for OpenBabel::OBStereoFacade
+setMethod('$', '_p_OpenBabel__OBStereoFacade', function(x, name) {
+  accessorFuns = list('NumTetrahedralStereo' = OBStereoFacade_NumTetrahedralStereo, 'HasTetrahedralStereo' = OBStereoFacade_HasTetrahedralStereo, 'GetTetrahedralStereo' = OBStereoFacade_GetTetrahedralStereo, 'NumCisTransStereo' = OBStereoFacade_NumCisTransStereo, 'HasCisTransStereo' = OBStereoFacade_HasCisTransStereo, 'GetCisTransStereo' = OBStereoFacade_GetCisTransStereo, 'NumSquarePlanarStereo' = OBStereoFacade_NumSquarePlanarStereo, 'HasSquarePlanarStereo' = OBStereoFacade_HasSquarePlanarStereo, 'GetSquarePlanarStereo' = OBStereoFacade_GetSquarePlanarStereo);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBStereoFacade
+setMethod('delete', '_p_OpenBabel__OBStereoFacade', function(obj) {delete_OpenBabel__OBStereoFacade(obj)})
+# Start of PerceiveStereo
+`PerceiveStereo__SWIG_0` = function(mol, force) { force = as.logical(force);
+  ;.Call('R_swig_PerceiveStereo__SWIG_0', mol, force, PACKAGE='ChemmineOB'); }
+attr(`PerceiveStereo__SWIG_0`, 'returnType') = 'void'
+attr(`PerceiveStereo__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', 'logical')
+class(`PerceiveStereo__SWIG_0`) = c("SWIGFunction", class('PerceiveStereo__SWIG_0'))
+
+# Start of PerceiveStereo
+`PerceiveStereo__SWIG_1` = function(mol) { ;.Call('R_swig_PerceiveStereo__SWIG_1', mol, PACKAGE='ChemmineOB'); }
+attr(`PerceiveStereo__SWIG_1`, 'returnType') = 'void'
+attr(`PerceiveStereo__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol')
+class(`PerceiveStereo__SWIG_1`) = c("SWIGFunction", class('PerceiveStereo__SWIG_1'))
+
+`PerceiveStereo` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBMol')) { f <- PerceiveStereo__SWIG_1; }  }  else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 )) {
+      f <- PerceiveStereo__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for PerceiveStereo with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of StereoFrom2D
+`StereoFrom2D__SWIG_0` = function(mol, updown, force) { force = as.logical(force);
+  ;.Call('R_swig_StereoFrom2D__SWIG_0', mol, updown, force, PACKAGE='ChemmineOB'); }
+attr(`StereoFrom2D__SWIG_0`, 'returnType') = 'void'
+attr(`StereoFrom2D__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__mapT_OpenBabel__OBBond_p_OpenBabel__OBStereo__BondDirection_std__lessT_OpenBabel__OBBond_p_t_std__allocatorT_std__pairT_OpenBabel__OBBond_pconst_OpenBabel__OBStereo__BondDirection_t_t_t', 'logical')
+class(`StereoFrom2D__SWIG_0`) = c("SWIGFunction", class('StereoFrom2D__SWIG_0'))
+
+# Start of StereoFrom2D
+`StereoFrom2D__SWIG_1` = function(mol, updown) { ;.Call('R_swig_StereoFrom2D__SWIG_1', mol, updown, PACKAGE='ChemmineOB'); }
+attr(`StereoFrom2D__SWIG_1`, 'returnType') = 'void'
+attr(`StereoFrom2D__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__mapT_OpenBabel__OBBond_p_OpenBabel__OBStereo__BondDirection_std__lessT_OpenBabel__OBBond_p_t_std__allocatorT_std__pairT_OpenBabel__OBBond_pconst_OpenBabel__OBStereo__BondDirection_t_t_t')
+class(`StereoFrom2D__SWIG_1`) = c("SWIGFunction", class('StereoFrom2D__SWIG_1'))
+
+# Start of StereoFrom2D
+`StereoFrom2D__SWIG_2` = function(mol) { ;.Call('R_swig_StereoFrom2D__SWIG_2', mol, PACKAGE='ChemmineOB'); }
+attr(`StereoFrom2D__SWIG_2`, 'returnType') = 'void'
+attr(`StereoFrom2D__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBMol')
+class(`StereoFrom2D__SWIG_2`) = c("SWIGFunction", class('StereoFrom2D__SWIG_2'))
+
+`StereoFrom2D` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 3
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBMol')) { f <- StereoFrom2D__SWIG_2; }  }  else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__mapT_OpenBabel__OBBond_p_OpenBabel__OBStereo__BondDirection_std__lessT_OpenBabel__OBBond_p_t_std__allocatorT_std__pairT_OpenBabel__OBBond_pconst_OpenBabel__OBStereo__BondDirection_t_t_t')) {
+      f <- StereoFrom2D__SWIG_1; }  }  else if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__mapT_OpenBabel__OBBond_p_OpenBabel__OBStereo__BondDirection_std__lessT_OpenBabel__OBBond_p_t_std__allocatorT_std__pairT_OpenBabel__OBBond_pconst_OpenBabel__OBStereo__BondDirection_t_t_t') && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
+      f <- StereoFrom2D__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for StereoFrom2D with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of StereoFrom3D
+`StereoFrom3D__SWIG_0` = function(mol, force) { force = as.logical(force);
+  ;.Call('R_swig_StereoFrom3D__SWIG_0', mol, force, PACKAGE='ChemmineOB'); }
+attr(`StereoFrom3D__SWIG_0`, 'returnType') = 'void'
+attr(`StereoFrom3D__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', 'logical')
+class(`StereoFrom3D__SWIG_0`) = c("SWIGFunction", class('StereoFrom3D__SWIG_0'))
+
+# Start of StereoFrom3D
+`StereoFrom3D__SWIG_1` = function(mol) { ;.Call('R_swig_StereoFrom3D__SWIG_1', mol, PACKAGE='ChemmineOB'); }
+attr(`StereoFrom3D__SWIG_1`, 'returnType') = 'void'
+attr(`StereoFrom3D__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol')
+class(`StereoFrom3D__SWIG_1`) = c("SWIGFunction", class('StereoFrom3D__SWIG_1'))
+
+`StereoFrom3D` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBMol')) { f <- StereoFrom3D__SWIG_1; }  }  else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && ( is.logical(argv[[2]]) && length(argv[[2]]) == 1 )) {
+      f <- StereoFrom3D__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for StereoFrom3D with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of StereoFrom0D
+`StereoFrom0D` = function(mol) { ;.Call('R_swig_StereoFrom0D', mol, PACKAGE='ChemmineOB'); }
+attr(`StereoFrom0D`, 'returnType') = 'void'
+attr(`StereoFrom0D`, "inputTypes") = c('_p_OpenBabel__OBMol')
+class(`StereoFrom0D`) = c("SWIGFunction", class('StereoFrom0D'))
+
+# Start of TetrahedralFrom3D
+`TetrahedralFrom3D__SWIG_0` = function(mol, stereoUnits, addToMol, .copy = FALSE) { addToMol = as.logical(addToMol);
+  ;ans = .Call('R_swig_TetrahedralFrom3D__SWIG_0', mol, stereoUnits, addToMol, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBTetrahedralStereo_p_std__allocatorT_OpenBabel__OBTetrahedralStereo_p_t_t"; ans }
+attr(`TetrahedralFrom3D__SWIG_0`, 'returnType') = '_p_std__vectorT_OpenBabel__OBTetrahedralStereo_p_std__allocatorT_OpenBabel__OBTetrahedralStereo_p_t_t'
+attr(`TetrahedralFrom3D__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t', 'logical')
+class(`TetrahedralFrom3D__SWIG_0`) = c("SWIGFunction", class('TetrahedralFrom3D__SWIG_0'))
+
+# Start of TetrahedralFrom3D
+`TetrahedralFrom3D__SWIG_1` = function(mol, stereoUnits, .copy = FALSE) {
+  ;ans = .Call('R_swig_TetrahedralFrom3D__SWIG_1', mol, stereoUnits, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBTetrahedralStereo_p_std__allocatorT_OpenBabel__OBTetrahedralStereo_p_t_t"; ans }
+attr(`TetrahedralFrom3D__SWIG_1`, 'returnType') = '_p_std__vectorT_OpenBabel__OBTetrahedralStereo_p_std__allocatorT_OpenBabel__OBTetrahedralStereo_p_t_t'
+attr(`TetrahedralFrom3D__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t')
+class(`TetrahedralFrom3D__SWIG_1`) = c("SWIGFunction", class('TetrahedralFrom3D__SWIG_1'))
+
+`TetrahedralFrom3D` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t') && length(argv[[2]]) == 1) {
+      f <- TetrahedralFrom3D__SWIG_1; }  }  else if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t') && length(argv[[2]]) == 1 && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
+      f <- TetrahedralFrom3D__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for TetrahedralFrom3D with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of TetrahedralFrom2D
+`TetrahedralFrom2D__SWIG_0` = function(mol, stereoUnits, addToMol, .copy = FALSE) { addToMol = as.logical(addToMol);
+  ;ans = .Call('R_swig_TetrahedralFrom2D__SWIG_0', mol, stereoUnits, addToMol, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBTetrahedralStereo_p_std__allocatorT_OpenBabel__OBTetrahedralStereo_p_t_t"; ans }
+attr(`TetrahedralFrom2D__SWIG_0`, 'returnType') = '_p_std__vectorT_OpenBabel__OBTetrahedralStereo_p_std__allocatorT_OpenBabel__OBTetrahedralStereo_p_t_t'
+attr(`TetrahedralFrom2D__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t', 'logical')
+class(`TetrahedralFrom2D__SWIG_0`) = c("SWIGFunction", class('TetrahedralFrom2D__SWIG_0'))
+
+# Start of TetrahedralFrom2D
+`TetrahedralFrom2D__SWIG_1` = function(mol, stereoUnits, .copy = FALSE) {
+  ;ans = .Call('R_swig_TetrahedralFrom2D__SWIG_1', mol, stereoUnits, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBTetrahedralStereo_p_std__allocatorT_OpenBabel__OBTetrahedralStereo_p_t_t"; ans }
+attr(`TetrahedralFrom2D__SWIG_1`, 'returnType') = '_p_std__vectorT_OpenBabel__OBTetrahedralStereo_p_std__allocatorT_OpenBabel__OBTetrahedralStereo_p_t_t'
+attr(`TetrahedralFrom2D__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t')
+class(`TetrahedralFrom2D__SWIG_1`) = c("SWIGFunction", class('TetrahedralFrom2D__SWIG_1'))
+
+`TetrahedralFrom2D` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t') && length(argv[[2]]) == 1) {
+      f <- TetrahedralFrom2D__SWIG_1; }  }  else if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t') && length(argv[[2]]) == 1 && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
+      f <- TetrahedralFrom2D__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for TetrahedralFrom2D with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of TetrahedralFrom0D
+`TetrahedralFrom0D__SWIG_0` = function(mol, stereoUnits, addToMol, .copy = FALSE) { addToMol = as.logical(addToMol);
+  ;ans = .Call('R_swig_TetrahedralFrom0D__SWIG_0', mol, stereoUnits, addToMol, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBTetrahedralStereo_p_std__allocatorT_OpenBabel__OBTetrahedralStereo_p_t_t"; ans }
+attr(`TetrahedralFrom0D__SWIG_0`, 'returnType') = '_p_std__vectorT_OpenBabel__OBTetrahedralStereo_p_std__allocatorT_OpenBabel__OBTetrahedralStereo_p_t_t'
+attr(`TetrahedralFrom0D__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t', 'logical')
+class(`TetrahedralFrom0D__SWIG_0`) = c("SWIGFunction", class('TetrahedralFrom0D__SWIG_0'))
+
+# Start of TetrahedralFrom0D
+`TetrahedralFrom0D__SWIG_1` = function(mol, stereoUnits, .copy = FALSE) {
+  ;ans = .Call('R_swig_TetrahedralFrom0D__SWIG_1', mol, stereoUnits, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBTetrahedralStereo_p_std__allocatorT_OpenBabel__OBTetrahedralStereo_p_t_t"; ans }
+attr(`TetrahedralFrom0D__SWIG_1`, 'returnType') = '_p_std__vectorT_OpenBabel__OBTetrahedralStereo_p_std__allocatorT_OpenBabel__OBTetrahedralStereo_p_t_t'
+attr(`TetrahedralFrom0D__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t')
+class(`TetrahedralFrom0D__SWIG_1`) = c("SWIGFunction", class('TetrahedralFrom0D__SWIG_1'))
+
+`TetrahedralFrom0D` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t') && length(argv[[2]]) == 1) {
+      f <- TetrahedralFrom0D__SWIG_1; }  }  else if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t') && length(argv[[2]]) == 1 && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
+      f <- TetrahedralFrom0D__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for TetrahedralFrom0D with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of CisTransFrom3D
+`CisTransFrom3D__SWIG_0` = function(mol, stereoUnits, addToMol, .copy = FALSE) { addToMol = as.logical(addToMol);
+  ;ans = .Call('R_swig_CisTransFrom3D__SWIG_0', mol, stereoUnits, addToMol, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBCisTransStereo_p_std__allocatorT_OpenBabel__OBCisTransStereo_p_t_t"; ans }
+attr(`CisTransFrom3D__SWIG_0`, 'returnType') = '_p_std__vectorT_OpenBabel__OBCisTransStereo_p_std__allocatorT_OpenBabel__OBCisTransStereo_p_t_t'
+attr(`CisTransFrom3D__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t', 'logical')
+class(`CisTransFrom3D__SWIG_0`) = c("SWIGFunction", class('CisTransFrom3D__SWIG_0'))
+
+# Start of CisTransFrom3D
+`CisTransFrom3D__SWIG_1` = function(mol, stereoUnits, .copy = FALSE) {
+  ;ans = .Call('R_swig_CisTransFrom3D__SWIG_1', mol, stereoUnits, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBCisTransStereo_p_std__allocatorT_OpenBabel__OBCisTransStereo_p_t_t"; ans }
+attr(`CisTransFrom3D__SWIG_1`, 'returnType') = '_p_std__vectorT_OpenBabel__OBCisTransStereo_p_std__allocatorT_OpenBabel__OBCisTransStereo_p_t_t'
+attr(`CisTransFrom3D__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t')
+class(`CisTransFrom3D__SWIG_1`) = c("SWIGFunction", class('CisTransFrom3D__SWIG_1'))
+
+`CisTransFrom3D` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t') && length(argv[[2]]) == 1) {
+      f <- CisTransFrom3D__SWIG_1; }  }  else if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t') && length(argv[[2]]) == 1 && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
+      f <- CisTransFrom3D__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for CisTransFrom3D with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of CisTransFrom2D
+`CisTransFrom2D__SWIG_0` = function(mol, stereoUnits, updown, addToMol, .copy = FALSE) { addToMol = as.logical(addToMol);
+  ;ans = .Call('R_swig_CisTransFrom2D__SWIG_0', mol, stereoUnits, updown, addToMol, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBCisTransStereo_p_std__allocatorT_OpenBabel__OBCisTransStereo_p_t_t"; ans }
+attr(`CisTransFrom2D__SWIG_0`, 'returnType') = '_p_std__vectorT_OpenBabel__OBCisTransStereo_p_std__allocatorT_OpenBabel__OBCisTransStereo_p_t_t'
+attr(`CisTransFrom2D__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t', '_p_std__mapT_OpenBabel__OBBond_p_OpenBabel__OBStereo__BondDirection_std__lessT_OpenBabel__OBBond_p_t_std__allocatorT_std__pairT_OpenBabel__OBBond_pconst_OpenBabel__OBStereo__BondDirection_t_t_t', 'logical')
+class(`CisTransFrom2D__SWIG_0`) = c("SWIGFunction", class('CisTransFrom2D__SWIG_0'))
+
+# Start of CisTransFrom2D
+`CisTransFrom2D__SWIG_1` = function(mol, stereoUnits, updown, .copy = FALSE) {
+  ;ans = .Call('R_swig_CisTransFrom2D__SWIG_1', mol, stereoUnits, updown, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBCisTransStereo_p_std__allocatorT_OpenBabel__OBCisTransStereo_p_t_t"; ans }
+attr(`CisTransFrom2D__SWIG_1`, 'returnType') = '_p_std__vectorT_OpenBabel__OBCisTransStereo_p_std__allocatorT_OpenBabel__OBCisTransStereo_p_t_t'
+attr(`CisTransFrom2D__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t', '_p_std__mapT_OpenBabel__OBBond_p_OpenBabel__OBStereo__BondDirection_std__lessT_OpenBabel__OBBond_p_t_std__allocatorT_std__pairT_OpenBabel__OBBond_pconst_OpenBabel__OBStereo__BondDirection_t_t_t')
+class(`CisTransFrom2D__SWIG_1`) = c("SWIGFunction", class('CisTransFrom2D__SWIG_1'))
+
+# Start of CisTransFrom2D
+`CisTransFrom2D__SWIG_2` = function(mol, stereoUnits, .copy = FALSE) {
+  ;ans = .Call('R_swig_CisTransFrom2D__SWIG_2', mol, stereoUnits, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBCisTransStereo_p_std__allocatorT_OpenBabel__OBCisTransStereo_p_t_t"; ans }
+attr(`CisTransFrom2D__SWIG_2`, 'returnType') = '_p_std__vectorT_OpenBabel__OBCisTransStereo_p_std__allocatorT_OpenBabel__OBCisTransStereo_p_t_t'
+attr(`CisTransFrom2D__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t')
+class(`CisTransFrom2D__SWIG_2`) = c("SWIGFunction", class('CisTransFrom2D__SWIG_2'))
+
+`CisTransFrom2D` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 3
+   if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t') && length(argv[[2]]) == 1) {
+      f <- CisTransFrom2D__SWIG_2; }  }  else if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_std__mapT_OpenBabel__OBBond_p_OpenBabel__OBStereo__BondDirection_std__lessT_OpenBabel__OBBond_p_t_std__allocatorT_std__pairT_OpenBabel__OBBond_pconst_OpenBabel__OBStereo__BondDirection_t_t_t')) {
+      f <- CisTransFrom2D__SWIG_1; }  }  else if (argc == 4) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_std__mapT_OpenBabel__OBBond_p_OpenBabel__OBStereo__BondDirection_std__lessT_OpenBabel__OBBond_p_t_std__allocatorT_std__pairT_OpenBabel__OBBond_pconst_OpenBabel__OBStereo__BondDirection_t_t_t') && ( is.logical(argv[[4]]) && length(argv[[4]]) == 1 )) {
+      f <- CisTransFrom2D__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for CisTransFrom2D with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of TetStereoToWedgeHash
+`TetStereoToWedgeHash` = function(mol, updown, from, .copy = FALSE) {
+  ;.Call('R_swig_TetStereoToWedgeHash', mol, updown, from, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`TetStereoToWedgeHash`, 'returnType') = 'logical'
+attr(`TetStereoToWedgeHash`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__mapT_OpenBabel__OBBond_p_OpenBabel__OBStereo__BondDirection_std__lessT_OpenBabel__OBBond_p_t_std__allocatorT_std__pairT_OpenBabel__OBBond_pconst_OpenBabel__OBStereo__BondDirection_t_t_t', '_p_std__mapT_OpenBabel__OBBond_p_unsigned_long_std__lessT_OpenBabel__OBBond_p_t_std__allocatorT_std__pairT_OpenBabel__OBBond_pconst_unsigned_long_t_t_t')
+class(`TetStereoToWedgeHash`) = c("SWIGFunction", class('TetStereoToWedgeHash'))
+
+# Start of GetUnspecifiedCisTrans
+`GetUnspecifiedCisTrans` = function(mol, .copy = FALSE) {
+  ;ans = .Call('R_swig_GetUnspecifiedCisTrans', mol, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__setT_OpenBabel__OBBond_p_t"; ans }
+attr(`GetUnspecifiedCisTrans`, 'returnType') = '_p_std__setT_OpenBabel__OBBond_p_t'
+attr(`GetUnspecifiedCisTrans`, "inputTypes") = c('_p_OpenBabel__OBMol')
+class(`GetUnspecifiedCisTrans`) = c("SWIGFunction", class('GetUnspecifiedCisTrans'))
+
+# Start of StereoRefToImplicit
+`StereoRefToImplicit` = function(mol, atomId) { if(length(atomId) > 1) { warning("using only the first element of atomId"); } ;
+  ;.Call('R_swig_StereoRefToImplicit', mol, atomId, PACKAGE='ChemmineOB'); }
+attr(`StereoRefToImplicit`, 'returnType') = 'void'
+attr(`StereoRefToImplicit`, "inputTypes") = c('_p_OpenBabel__OBMol', 'integer')
+class(`StereoRefToImplicit`) = c("SWIGFunction", class('StereoRefToImplicit'))
+
+# Start of CisTransFrom0D
+`CisTransFrom0D__SWIG_0` = function(mol, stereoUnits, addToMol, .copy = FALSE) { addToMol = as.logical(addToMol);
+  ;ans = .Call('R_swig_CisTransFrom0D__SWIG_0', mol, stereoUnits, addToMol, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBCisTransStereo_p_std__allocatorT_OpenBabel__OBCisTransStereo_p_t_t"; ans }
+attr(`CisTransFrom0D__SWIG_0`, 'returnType') = '_p_std__vectorT_OpenBabel__OBCisTransStereo_p_std__allocatorT_OpenBabel__OBCisTransStereo_p_t_t'
+attr(`CisTransFrom0D__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t', 'logical')
+class(`CisTransFrom0D__SWIG_0`) = c("SWIGFunction", class('CisTransFrom0D__SWIG_0'))
+
+# Start of CisTransFrom0D
+`CisTransFrom0D__SWIG_1` = function(mol, stereoUnits, .copy = FALSE) {
+  ;ans = .Call('R_swig_CisTransFrom0D__SWIG_1', mol, stereoUnits, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBCisTransStereo_p_std__allocatorT_OpenBabel__OBCisTransStereo_p_t_t"; ans }
+attr(`CisTransFrom0D__SWIG_1`, 'returnType') = '_p_std__vectorT_OpenBabel__OBCisTransStereo_p_std__allocatorT_OpenBabel__OBCisTransStereo_p_t_t'
+attr(`CisTransFrom0D__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t')
+class(`CisTransFrom0D__SWIG_1`) = c("SWIGFunction", class('CisTransFrom0D__SWIG_1'))
+
+`CisTransFrom0D` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t') && length(argv[[2]]) == 1) {
+      f <- CisTransFrom0D__SWIG_1; }  }  else if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t') && length(argv[[2]]) == 1 && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
+      f <- CisTransFrom0D__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for CisTransFrom0D with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of FindStereogenicUnits
+`FindStereogenicUnits__SWIG_0` = function(mol, symClasses, .copy = FALSE) {
+  ;ans = .Call('R_swig_FindStereogenicUnits__SWIG_0', mol, symClasses, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t"; ans }
+attr(`FindStereogenicUnits__SWIG_0`, 'returnType') = '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t'
+attr(`FindStereogenicUnits__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t')
+class(`FindStereogenicUnits__SWIG_0`) = c("SWIGFunction", class('FindStereogenicUnits__SWIG_0'))
+
+# Start of FindStereogenicUnits
+`FindStereogenicUnits__SWIG_1` = function(mol, symClasses, automorphisms, .copy = FALSE) {
+  ;ans = .Call('R_swig_FindStereogenicUnits__SWIG_1', mol, symClasses, automorphisms, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t"; ans }
+attr(`FindStereogenicUnits__SWIG_1`, 'returnType') = '_p_std__vectorT_OpenBabel__OBStereoUnit_std__allocatorT_OpenBabel__OBStereoUnit_t_t'
+attr(`FindStereogenicUnits__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBMol', '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t', '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t')
+class(`FindStereogenicUnits__SWIG_1`) = c("SWIGFunction", class('FindStereogenicUnits__SWIG_1'))
+
+`FindStereogenicUnits` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[2]]) == 1) {
+      f <- FindStereogenicUnits__SWIG_0; }  }  else if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBMol') && extends(argtypes[2], '_p_std__vectorT_unsigned_int_std__allocatorT_unsigned_int_t_t') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_std__vectorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_std__allocatorT_std__vectorT_std__pairT_unsigned_int_unsigned_int_t_std__allocatorT_std__pairT_unsigned_int_unsigned_int_t_t_t_t_t') && length(argv[[3]]) == 1) {
+      f <- FindStereogenicUnits__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for FindStereogenicUnits with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
 # Start of new_OBBitVec
 `OBBitVec__SWIG_0` = function() { ;ans = .Call('R_swig_new_OBBitVec__SWIG_0', PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__OBBitVec"; reg.finalizer(ans, delete_OBBitVec); ans }
@@ -16250,6 +15369,1126 @@ attr(`Tanimoto`, 'returnType') = 'numeric'
 attr(`Tanimoto`, "inputTypes") = c('_p_OpenBabel__OBBitVec', '_p_OpenBabel__OBBitVec')
 class(`Tanimoto`) = c("SWIGFunction", class('Tanimoto'))
 
+# Start of new_OBRotorRule
+`OBRotorRule` = function(buffer, ref, vals, d) { buffer = as(buffer, "character"); ref = as.integer(ref); 
+#  assert(length(ref) >= 4)
+    ;ans = .Call('R_swig_new_OBRotorRule', buffer, ref, vals, d, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBRotorRule"; reg.finalizer(ans, delete_OBRotorRule); ans }
+attr(`OBRotorRule`, 'returnType') = '_p_OpenBabel__OBRotorRule'
+attr(`OBRotorRule`, "inputTypes") = c('character', '_p_int', '_p_std__vectorT_double_std__allocatorT_double_t_t', 'numeric')
+class(`OBRotorRule`) = c("SWIGFunction", class('OBRotorRule'))
+
+# Start of delete_OBRotorRule
+`delete_OBRotorRule` = function(self) { ;.Call('R_swig_delete_OBRotorRule', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBRotorRule`, 'returnType') = 'void'
+attr(`delete_OBRotorRule`, "inputTypes") = c('_p_OpenBabel__OBRotorRule')
+class(`delete_OBRotorRule`) = c("SWIGFunction", class('delete_OBRotorRule'))
+
+# Start of OBRotorRule_IsValid
+`OBRotorRule_IsValid` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBRotorRule_IsValid', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotorRule_IsValid`, 'returnType') = 'logical'
+attr(`OBRotorRule_IsValid`, "inputTypes") = c('_p_OpenBabel__OBRotorRule')
+class(`OBRotorRule_IsValid`) = c("SWIGFunction", class('OBRotorRule_IsValid'))
+
+# Start of OBRotorRule_GetReferenceAtoms
+`OBRotorRule_GetReferenceAtoms` = function(self, ref) {ref = as.integer(ref); 
+#  assert(length(ref) >= 4)
+    ;.Call('R_swig_OBRotorRule_GetReferenceAtoms', self, ref, PACKAGE='ChemmineOB'); }
+attr(`OBRotorRule_GetReferenceAtoms`, 'returnType') = 'void'
+attr(`OBRotorRule_GetReferenceAtoms`, "inputTypes") = c('_p_OpenBabel__OBRotorRule', '_p_int')
+class(`OBRotorRule_GetReferenceAtoms`) = c("SWIGFunction", class('OBRotorRule_GetReferenceAtoms'))
+
+# Start of OBRotorRule_SetDelta
+`OBRotorRule_SetDelta` = function(self, d) { ;.Call('R_swig_OBRotorRule_SetDelta', self, d, PACKAGE='ChemmineOB'); }
+attr(`OBRotorRule_SetDelta`, 'returnType') = 'void'
+attr(`OBRotorRule_SetDelta`, "inputTypes") = c('_p_OpenBabel__OBRotorRule', 'numeric')
+class(`OBRotorRule_SetDelta`) = c("SWIGFunction", class('OBRotorRule_SetDelta'))
+
+# Start of OBRotorRule_GetDelta
+`OBRotorRule_GetDelta` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBRotorRule_GetDelta', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotorRule_GetDelta`, 'returnType') = 'numeric'
+attr(`OBRotorRule_GetDelta`, "inputTypes") = c('_p_OpenBabel__OBRotorRule')
+class(`OBRotorRule_GetDelta`) = c("SWIGFunction", class('OBRotorRule_GetDelta'))
+
+# Start of OBRotorRule_GetTorsionVals
+`OBRotorRule_GetTorsionVals` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotorRule_GetTorsionVals', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_double_std__allocatorT_double_t_t"; ans }
+attr(`OBRotorRule_GetTorsionVals`, 'returnType') = '_p_std__vectorT_double_std__allocatorT_double_t_t'
+attr(`OBRotorRule_GetTorsionVals`, "inputTypes") = c('_p_OpenBabel__OBRotorRule')
+class(`OBRotorRule_GetTorsionVals`) = c("SWIGFunction", class('OBRotorRule_GetTorsionVals'))
+
+# Start of OBRotorRule_GetSmartsString
+`OBRotorRule_GetSmartsString` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBRotorRule_GetSmartsString', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotorRule_GetSmartsString`, 'returnType') = '_p_std__string'
+attr(`OBRotorRule_GetSmartsString`, "inputTypes") = c('_p_OpenBabel__OBRotorRule')
+class(`OBRotorRule_GetSmartsString`) = c("SWIGFunction", class('OBRotorRule_GetSmartsString'))
+
+# Start of OBRotorRule_GetSmartsPattern
+`OBRotorRule_GetSmartsPattern` = function(self) {
+  ;ans = .Call('R_swig_OBRotorRule_GetSmartsPattern', self, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBSmartsPattern"; ans }
+attr(`OBRotorRule_GetSmartsPattern`, 'returnType') = '_p_OpenBabel__OBSmartsPattern'
+attr(`OBRotorRule_GetSmartsPattern`, "inputTypes") = c('_p_OpenBabel__OBRotorRule')
+class(`OBRotorRule_GetSmartsPattern`) = c("SWIGFunction", class('OBRotorRule_GetSmartsPattern'))
+
+# Start of accessor method for OpenBabel::OBRotorRule
+setMethod('$', '_p_OpenBabel__OBRotorRule', function(x, name) {
+  accessorFuns = list('IsValid' = OBRotorRule_IsValid, 'GetReferenceAtoms' = OBRotorRule_GetReferenceAtoms, 'SetDelta' = OBRotorRule_SetDelta, 'GetDelta' = OBRotorRule_GetDelta, 'GetTorsionVals' = OBRotorRule_GetTorsionVals, 'GetSmartsString' = OBRotorRule_GetSmartsString, 'GetSmartsPattern' = OBRotorRule_GetSmartsPattern);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBRotorRule
+setMethod('delete', '_p_OpenBabel__OBRotorRule', function(obj) {delete_OpenBabel__OBRotorRule(obj)})
+# Start of new_OBRotorRules
+`OBRotorRules` = function() { ;ans = .Call('R_swig_new_OBRotorRules', PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBRotorRules"; reg.finalizer(ans, delete_OBRotorRules); ans }
+attr(`OBRotorRules`, 'returnType') = '_p_OpenBabel__OBRotorRules'
+class(`OBRotorRules`) = c("SWIGFunction", class('OBRotorRules'))
+
+# Start of delete_OBRotorRules
+`delete_OBRotorRules` = function(self) { ;.Call('R_swig_delete_OBRotorRules', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBRotorRules`, 'returnType') = 'void'
+attr(`delete_OBRotorRules`, "inputTypes") = c('_p_OpenBabel__OBRotorRules')
+class(`delete_OBRotorRules`) = c("SWIGFunction", class('delete_OBRotorRules'))
+
+# Start of OBRotorRules_SetFilename
+`OBRotorRules_SetFilename` = function(self, s) { ;.Call('R_swig_OBRotorRules_SetFilename', self, s, PACKAGE='ChemmineOB'); }
+attr(`OBRotorRules_SetFilename`, 'returnType') = 'void'
+attr(`OBRotorRules_SetFilename`, "inputTypes") = c('_p_OpenBabel__OBRotorRules', '_p_std__string')
+class(`OBRotorRules_SetFilename`) = c("SWIGFunction", class('OBRotorRules_SetFilename'))
+
+# Start of OBRotorRules_GetRotorIncrements
+`OBRotorRules_GetRotorIncrements` = function(self, mol, bond, refs, vals, delta) {refs = as.integer(refs); 
+#  assert(length(refs) >= 4)
+    ;.Call('R_swig_OBRotorRules_GetRotorIncrements', self, mol, bond, refs, vals, delta, PACKAGE='ChemmineOB'); }
+attr(`OBRotorRules_GetRotorIncrements`, 'returnType') = 'void'
+attr(`OBRotorRules_GetRotorIncrements`, "inputTypes") = c('_p_OpenBabel__OBRotorRules', '_p_OpenBabel__OBMol', '_p_OpenBabel__OBBond', '_p_int', '_p_std__vectorT_double_std__allocatorT_double_t_t', 'numeric')
+class(`OBRotorRules_GetRotorIncrements`) = c("SWIGFunction", class('OBRotorRules_GetRotorIncrements'))
+
+# Start of OBRotorRules_Quiet
+`OBRotorRules_Quiet` = function(self) { ;.Call('R_swig_OBRotorRules_Quiet', self, PACKAGE='ChemmineOB'); }
+attr(`OBRotorRules_Quiet`, 'returnType') = 'void'
+attr(`OBRotorRules_Quiet`, "inputTypes") = c('_p_OpenBabel__OBRotorRules')
+class(`OBRotorRules_Quiet`) = c("SWIGFunction", class('OBRotorRules_Quiet'))
+
+# Start of accessor method for OpenBabel::OBRotorRules
+setMethod('$', '_p_OpenBabel__OBRotorRules', function(x, name) {
+  accessorFuns = list('SetFilename' = OBRotorRules_SetFilename, 'GetRotorIncrements' = OBRotorRules_GetRotorIncrements, 'Quiet' = OBRotorRules_Quiet);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBRotorRules
+setMethod('delete', '_p_OpenBabel__OBRotorRules', function(obj) {delete_OpenBabel__OBRotorRules(obj)})
+# Start of new_OBRotor
+`OBRotor` = function() { ;ans = .Call('R_swig_new_OBRotor', PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__OBRotor";
+  reg.finalizer(ans, delete_OBRotor); ans }
+attr(`OBRotor`, 'returnType') = '_p_OpenBabel__OBRotor'
+class(`OBRotor`) = c("SWIGFunction", class('OBRotor'))
+
+# Start of delete_OBRotor
+`delete_OBRotor` = function(self) { ;.Call('R_swig_delete_OBRotor', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBRotor`, 'returnType') = 'void'
+attr(`delete_OBRotor`, "inputTypes") = c('_p_OpenBabel__OBRotor')
+class(`delete_OBRotor`) = c("SWIGFunction", class('delete_OBRotor'))
+
+# Start of OBRotor_SetBond
+`OBRotor_SetBond` = function(self, bond) { ;.Call('R_swig_OBRotor_SetBond', self, bond, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_SetBond`, 'returnType') = 'void'
+attr(`OBRotor_SetBond`, "inputTypes") = c('_p_OpenBabel__OBRotor', '_p_OpenBabel__OBBond')
+class(`OBRotor_SetBond`) = c("SWIGFunction", class('OBRotor_SetBond'))
+
+# Start of OBRotor_SetIdx
+`OBRotor_SetIdx` = function(self, idx) { idx = as.integer(idx);  if(length(idx) > 1) {
+    warning("using only the first element of idx"); } ; ;.Call('R_swig_OBRotor_SetIdx', self, idx, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_SetIdx`, 'returnType') = 'void'
+attr(`OBRotor_SetIdx`, "inputTypes") = c('_p_OpenBabel__OBRotor', 'integer')
+class(`OBRotor_SetIdx`) = c("SWIGFunction", class('OBRotor_SetIdx'))
+
+# Start of OBRotor_SetDihedralAtoms
+`OBRotor_SetDihedralAtoms__SWIG_0` = function(self, ref) {
+  ;.Call('R_swig_OBRotor_SetDihedralAtoms__SWIG_0', self, ref, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_SetDihedralAtoms__SWIG_0`, 'returnType') = 'void'
+attr(`OBRotor_SetDihedralAtoms__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBRotor', '_p_std__vectorT_int_std__allocatorT_int_t_t')
+class(`OBRotor_SetDihedralAtoms__SWIG_0`) = c("SWIGFunction", class('OBRotor_SetDihedralAtoms__SWIG_0'))
+
+# Start of OBRotor_SetDihedralAtoms
+`OBRotor_SetDihedralAtoms__SWIG_1` = function(self, ref) {ref = as.integer(ref); 
+#  assert(length(ref) >= 4)
+    ;.Call('R_swig_OBRotor_SetDihedralAtoms__SWIG_1', self, ref, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_SetDihedralAtoms__SWIG_1`, 'returnType') = 'void'
+attr(`OBRotor_SetDihedralAtoms__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBRotor', '_p_int')
+class(`OBRotor_SetDihedralAtoms__SWIG_1`) = c("SWIGFunction", class('OBRotor_SetDihedralAtoms__SWIG_1'))
+
+`OBRotor_SetDihedralAtoms` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBRotor') && extends(argtypes[2], '_p_std__vectorT_int_std__allocatorT_int_t_t') && length(argv[[2]]) == 1) {
+      f <- OBRotor_SetDihedralAtoms__SWIG_0; } 
+    else if (extends(argtypes[1], '_p_OpenBabel__OBRotor') && extends(argtypes[2], '_p_int') && length(argv[[2]]) == 1) {
+      f <- OBRotor_SetDihedralAtoms__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for OBRotor_SetDihedralAtoms with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of OBRotor_SetRotAtoms
+`OBRotor_SetRotAtoms` = function(self, atoms) { ;.Call('R_swig_OBRotor_SetRotAtoms', self, atoms, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_SetRotAtoms`, 'returnType') = 'void'
+attr(`OBRotor_SetRotAtoms`, "inputTypes") = c('_p_OpenBabel__OBRotor', '_p_std__vectorT_int_std__allocatorT_int_t_t')
+class(`OBRotor_SetRotAtoms`) = c("SWIGFunction", class('OBRotor_SetRotAtoms'))
+
+# Start of OBRotor_SetTorsionValues
+`OBRotor_SetTorsionValues` = function(self, angles) {
+  ;.Call('R_swig_OBRotor_SetTorsionValues', self, angles, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_SetTorsionValues`, 'returnType') = 'void'
+attr(`OBRotor_SetTorsionValues`, "inputTypes") = c('_p_OpenBabel__OBRotor', '_p_std__vectorT_double_std__allocatorT_double_t_t')
+class(`OBRotor_SetTorsionValues`) = c("SWIGFunction", class('OBRotor_SetTorsionValues'))
+
+# Start of OBRotor_SetFixedBonds
+`OBRotor_SetFixedBonds` = function(self, bv) { ;.Call('R_swig_OBRotor_SetFixedBonds', self, bv, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_SetFixedBonds`, 'returnType') = 'void'
+attr(`OBRotor_SetFixedBonds`, "inputTypes") = c('_p_OpenBabel__OBRotor', '_p_OpenBabel__OBBitVec')
+class(`OBRotor_SetFixedBonds`) = c("SWIGFunction", class('OBRotor_SetFixedBonds'))
+
+# Start of OBRotor_SetToAngle
+`OBRotor_SetToAngle` = function(self, coordinates, setang) {
+  ;.Call('R_swig_OBRotor_SetToAngle', self, coordinates, setang, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_SetToAngle`, 'returnType') = 'void'
+attr(`OBRotor_SetToAngle`, "inputTypes") = c('_p_OpenBabel__OBRotor', 'numeric', 'numeric')
+class(`OBRotor_SetToAngle`) = c("SWIGFunction", class('OBRotor_SetToAngle'))
+
+# Start of OBRotor_SetRotor
+`OBRotor_SetRotor__SWIG_0` = function(self, coordinates, s_arg3, prev) { s_arg3 = as.integer(s_arg3);  if(length(s_arg3) > 1) {
+    warning("using only the first element of s_arg3"); } ; prev = as.integer(prev);  if(length(prev) > 1) {
+    warning("using only the first element of prev"); } ;
+  ;.Call('R_swig_OBRotor_SetRotor__SWIG_0', self, coordinates, s_arg3, prev, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_SetRotor__SWIG_0`, 'returnType') = 'void'
+attr(`OBRotor_SetRotor__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBRotor', 'numeric', 'integer', 'integer')
+class(`OBRotor_SetRotor__SWIG_0`) = c("SWIGFunction", class('OBRotor_SetRotor__SWIG_0'))
+
+# Start of OBRotor_SetRotor
+`OBRotor_SetRotor__SWIG_1` = function(self, coordinates, s_arg3) { s_arg3 = as.integer(s_arg3);  if(length(s_arg3) > 1) {
+    warning("using only the first element of s_arg3"); } ;
+  ;.Call('R_swig_OBRotor_SetRotor__SWIG_1', self, coordinates, s_arg3, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_SetRotor__SWIG_1`, 'returnType') = 'void'
+attr(`OBRotor_SetRotor__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBRotor', 'numeric', 'integer')
+class(`OBRotor_SetRotor__SWIG_1`) = c("SWIGFunction", class('OBRotor_SetRotor__SWIG_1'))
+
+`OBRotor_SetRotor` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBRotor') && ( is.numeric(argv[[2]]) ) && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 )) {
+      f <- OBRotor_SetRotor__SWIG_1; }  }  else if (argc == 4) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBRotor') && ( is.numeric(argv[[2]]) ) && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 ) && ( (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1 )) {
+      f <- OBRotor_SetRotor__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBRotor_SetRotor with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of OBRotor_Set
+`OBRotor_Set__SWIG_0` = function(self, coordinates, sine, cosine, translation, invmag) {
+  ;.Call('R_swig_OBRotor_Set__SWIG_0', self, coordinates, sine, cosine, translation, invmag, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_Set__SWIG_0`, 'returnType') = 'void'
+attr(`OBRotor_Set__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBRotor', 'numeric', 'numeric', 'numeric', 'numeric', 'numeric')
+class(`OBRotor_Set__SWIG_0`) = c("SWIGFunction", class('OBRotor_Set__SWIG_0'))
+
+# Start of OBRotor_Precompute
+`OBRotor_Precompute` = function(self, coordinates) {
+  ;.Call('R_swig_OBRotor_Precompute', self, coordinates, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_Precompute`, 'returnType') = 'void'
+attr(`OBRotor_Precompute`, "inputTypes") = c('_p_OpenBabel__OBRotor', 'numeric')
+class(`OBRotor_Precompute`) = c("SWIGFunction", class('OBRotor_Precompute'))
+
+# Start of OBRotor_Set
+`OBRotor_Set__SWIG_1` = function(self, coordinates, idx) { idx = as.integer(idx);  if(length(idx) > 1) {
+    warning("using only the first element of idx"); } ;
+  ;.Call('R_swig_OBRotor_Set__SWIG_1', self, coordinates, idx, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_Set__SWIG_1`, 'returnType') = 'void'
+attr(`OBRotor_Set__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBRotor', 'numeric', 'integer')
+class(`OBRotor_Set__SWIG_1`) = c("SWIGFunction", class('OBRotor_Set__SWIG_1'))
+
+# Start of OBRotor_Precalc
+`OBRotor_Precalc` = function(self, conformers) { ;.Call('R_swig_OBRotor_Precalc', self, conformers, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_Precalc`, 'returnType') = 'void'
+attr(`OBRotor_Precalc`, "inputTypes") = c('_p_OpenBabel__OBRotor', '_p_std__vectorT_double_p_std__allocatorT_double_p_t_t')
+class(`OBRotor_Precalc`) = c("SWIGFunction", class('OBRotor_Precalc'))
+
+# Start of OBRotor_Set
+`OBRotor_Set__SWIG_2` = function(self, coordinates, conformer, idx) { conformer = as.integer(conformer); 
+  if(length(conformer) > 1) { warning("using only the first element of conformer"); } ; idx = as.integer(idx); 
+  if(length(idx) > 1) { warning("using only the first element of idx"); } ;
+  ;.Call('R_swig_OBRotor_Set__SWIG_2', self, coordinates, conformer, idx, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_Set__SWIG_2`, 'returnType') = 'void'
+attr(`OBRotor_Set__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBRotor', 'numeric', 'integer', 'integer')
+class(`OBRotor_Set__SWIG_2`) = c("SWIGFunction", class('OBRotor_Set__SWIG_2'))
+
+`OBRotor_Set` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 3
+   if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBRotor') && ( is.numeric(argv[[2]]) ) && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 )) {
+      f <- OBRotor_Set__SWIG_1; }  }  else if (argc == 4) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBRotor') && ( is.numeric(argv[[2]]) ) && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 ) && ( (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1 )) {
+      f <- OBRotor_Set__SWIG_2; }  }  else if (argc == 6) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBRotor') && ( is.numeric(argv[[2]]) ) && ( is.numeric(argv[[3]]) && length(argv[[3]]) == 1 ) && ( is.numeric(argv[[4]]) && length(argv[[4]]) == 1 ) && ( is.numeric(argv[[5]]) && length(argv[[5]]) == 1 ) && ( is.numeric(argv[[6]]) && length(argv[[6]]) == 1 )) {
+      f <- OBRotor_Set__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBRotor_Set with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of OBRotor_GetBond
+`OBRotor_GetBond` = function(self) { ;ans = .Call('R_swig_OBRotor_GetBond', self, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBBond"; ans }
+attr(`OBRotor_GetBond`, 'returnType') = '_p_OpenBabel__OBBond'
+attr(`OBRotor_GetBond`, "inputTypes") = c('_p_OpenBabel__OBRotor')
+class(`OBRotor_GetBond`) = c("SWIGFunction", class('OBRotor_GetBond'))
+
+# Start of OBRotor_Size
+`OBRotor_Size` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotor_Size', self, as.logical(.copy), PACKAGE='ChemmineOB'); class(ans) <- "_p_size_t"; ans }
+attr(`OBRotor_Size`, 'returnType') = 'integer'
+attr(`OBRotor_Size`, "inputTypes") = c('_p_OpenBabel__OBRotor')
+class(`OBRotor_Size`) = c("SWIGFunction", class('OBRotor_Size'))
+
+# Start of OBRotor_GetIdx
+`OBRotor_GetIdx` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBRotor_GetIdx', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotor_GetIdx`, 'returnType') = 'integer'
+attr(`OBRotor_GetIdx`, "inputTypes") = c('_p_OpenBabel__OBRotor')
+class(`OBRotor_GetIdx`) = c("SWIGFunction", class('OBRotor_GetIdx'))
+
+# Start of OBRotor_GetDihedralAtoms
+`OBRotor_GetDihedralAtoms__SWIG_0` = function(self, ref) {ref = as.integer(ref); 
+#  assert(length(ref) >= 4)
+    ;.Call('R_swig_OBRotor_GetDihedralAtoms__SWIG_0', self, ref, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_GetDihedralAtoms__SWIG_0`, 'returnType') = 'void'
+attr(`OBRotor_GetDihedralAtoms__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBRotor', '_p_int')
+class(`OBRotor_GetDihedralAtoms__SWIG_0`) = c("SWIGFunction", class('OBRotor_GetDihedralAtoms__SWIG_0'))
+
+# Start of OBRotor_GetDihedralAtoms
+`OBRotor_GetDihedralAtoms__SWIG_1` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotor_GetDihedralAtoms__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_int_std__allocatorT_int_t_t"; ans }
+attr(`OBRotor_GetDihedralAtoms__SWIG_1`, 'returnType') = '_p_std__vectorT_int_std__allocatorT_int_t_t'
+attr(`OBRotor_GetDihedralAtoms__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBRotor')
+class(`OBRotor_GetDihedralAtoms__SWIG_1`) = c("SWIGFunction", class('OBRotor_GetDihedralAtoms__SWIG_1'))
+
+`OBRotor_GetDihedralAtoms` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBRotor')) { f <- OBRotor_GetDihedralAtoms__SWIG_1; }  }
+   else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBRotor') && extends(argtypes[2], '_p_int') && length(argv[[2]]) == 1) {
+      f <- OBRotor_GetDihedralAtoms__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBRotor_GetDihedralAtoms with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of OBRotor_GetTorsionValues
+`OBRotor_GetTorsionValues` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotor_GetTorsionValues', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_double_std__allocatorT_double_t_t"; ans }
+attr(`OBRotor_GetTorsionValues`, 'returnType') = '_p_std__vectorT_double_std__allocatorT_double_t_t'
+attr(`OBRotor_GetTorsionValues`, "inputTypes") = c('_p_OpenBabel__OBRotor')
+class(`OBRotor_GetTorsionValues`) = c("SWIGFunction", class('OBRotor_GetTorsionValues'))
+
+# Start of OBRotor_GetFixedBonds
+`OBRotor_GetFixedBonds` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotor_GetFixedBonds', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBBitVec"; ans }
+attr(`OBRotor_GetFixedBonds`, 'returnType') = '_p_OpenBabel__OBBitVec'
+attr(`OBRotor_GetFixedBonds`, "inputTypes") = c('_p_OpenBabel__OBRotor')
+class(`OBRotor_GetFixedBonds`) = c("SWIGFunction", class('OBRotor_GetFixedBonds'))
+
+# Start of OBRotor_CalcTorsion
+`OBRotor_CalcTorsion` = function(self, coordinates, .copy = FALSE) {
+  ;.Call('R_swig_OBRotor_CalcTorsion', self, coordinates, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotor_CalcTorsion`, 'returnType') = 'numeric'
+attr(`OBRotor_CalcTorsion`, "inputTypes") = c('_p_OpenBabel__OBRotor', 'numeric')
+class(`OBRotor_CalcTorsion`) = c("SWIGFunction", class('OBRotor_CalcTorsion'))
+
+# Start of OBRotor_CalcBondLength
+`OBRotor_CalcBondLength` = function(self, coordinates, .copy = FALSE) {
+  ;.Call('R_swig_OBRotor_CalcBondLength', self, coordinates, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotor_CalcBondLength`, 'returnType') = 'numeric'
+attr(`OBRotor_CalcBondLength`, "inputTypes") = c('_p_OpenBabel__OBRotor', 'numeric')
+class(`OBRotor_CalcBondLength`) = c("SWIGFunction", class('OBRotor_CalcBondLength'))
+
+# Start of OBRotor_BeginTorIncrement
+`OBRotor_BeginTorIncrement` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotor_BeginTorIncrement', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_double_std__allocatorT_double_t_t__iterator"; ans }
+attr(`OBRotor_BeginTorIncrement`, 'returnType') = '_p_std__vectorT_double_std__allocatorT_double_t_t__iterator'
+attr(`OBRotor_BeginTorIncrement`, "inputTypes") = c('_p_OpenBabel__OBRotor')
+class(`OBRotor_BeginTorIncrement`) = c("SWIGFunction", class('OBRotor_BeginTorIncrement'))
+
+# Start of OBRotor_EndTorIncrement
+`OBRotor_EndTorIncrement` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotor_EndTorIncrement', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_double_std__allocatorT_double_t_t__iterator"; ans }
+attr(`OBRotor_EndTorIncrement`, 'returnType') = '_p_std__vectorT_double_std__allocatorT_double_t_t__iterator'
+attr(`OBRotor_EndTorIncrement`, "inputTypes") = c('_p_OpenBabel__OBRotor')
+class(`OBRotor_EndTorIncrement`) = c("SWIGFunction", class('OBRotor_EndTorIncrement'))
+
+# Start of OBRotor_RemoveSymTorsionValues
+`OBRotor_RemoveSymTorsionValues` = function(self, s_arg2) { s_arg2 = as.integer(s_arg2);  if(length(s_arg2) > 1) {
+    warning("using only the first element of s_arg2"); } ;
+  ;.Call('R_swig_OBRotor_RemoveSymTorsionValues', self, s_arg2, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_RemoveSymTorsionValues`, 'returnType') = 'void'
+attr(`OBRotor_RemoveSymTorsionValues`, "inputTypes") = c('_p_OpenBabel__OBRotor', 'integer')
+class(`OBRotor_RemoveSymTorsionValues`) = c("SWIGFunction", class('OBRotor_RemoveSymTorsionValues'))
+
+# Start of OBRotor_SetDelta
+`OBRotor_SetDelta` = function(self, d) { ;.Call('R_swig_OBRotor_SetDelta', self, d, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_SetDelta`, 'returnType') = 'void'
+attr(`OBRotor_SetDelta`, "inputTypes") = c('_p_OpenBabel__OBRotor', 'numeric')
+class(`OBRotor_SetDelta`) = c("SWIGFunction", class('OBRotor_SetDelta'))
+
+# Start of OBRotor_GetDelta
+`OBRotor_GetDelta` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBRotor_GetDelta', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotor_GetDelta`, 'returnType') = 'numeric'
+attr(`OBRotor_GetDelta`, "inputTypes") = c('_p_OpenBabel__OBRotor')
+class(`OBRotor_GetDelta`) = c("SWIGFunction", class('OBRotor_GetDelta'))
+
+# Start of OBRotor_GetFixedAtoms
+`OBRotor_GetFixedAtoms` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotor_GetFixedAtoms', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBBitVec"; ans }
+attr(`OBRotor_GetFixedAtoms`, 'returnType') = '_p_OpenBabel__OBBitVec'
+attr(`OBRotor_GetFixedAtoms`, "inputTypes") = c('_p_OpenBabel__OBRotor')
+class(`OBRotor_GetFixedAtoms`) = c("SWIGFunction", class('OBRotor_GetFixedAtoms'))
+
+# Start of OBRotor_SetFixedAtoms
+`OBRotor_SetFixedAtoms` = function(self, bv) { ;.Call('R_swig_OBRotor_SetFixedAtoms', self, bv, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_SetFixedAtoms`, 'returnType') = 'void'
+attr(`OBRotor_SetFixedAtoms`, "inputTypes") = c('_p_OpenBabel__OBRotor', '_p_OpenBabel__OBBitVec')
+class(`OBRotor_SetFixedAtoms`) = c("SWIGFunction", class('OBRotor_SetFixedAtoms'))
+
+# Start of OBRotor_GetEvalAtoms
+`OBRotor_GetEvalAtoms` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotor_GetEvalAtoms', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBBitVec"; ans }
+attr(`OBRotor_GetEvalAtoms`, 'returnType') = '_p_OpenBabel__OBBitVec'
+attr(`OBRotor_GetEvalAtoms`, "inputTypes") = c('_p_OpenBabel__OBRotor')
+class(`OBRotor_GetEvalAtoms`) = c("SWIGFunction", class('OBRotor_GetEvalAtoms'))
+
+# Start of OBRotor_SetEvalAtoms
+`OBRotor_SetEvalAtoms` = function(self, bv) { ;.Call('R_swig_OBRotor_SetEvalAtoms', self, bv, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_SetEvalAtoms`, 'returnType') = 'void'
+attr(`OBRotor_SetEvalAtoms`, "inputTypes") = c('_p_OpenBabel__OBRotor', '_p_OpenBabel__OBBitVec')
+class(`OBRotor_SetEvalAtoms`) = c("SWIGFunction", class('OBRotor_SetEvalAtoms'))
+
+# Start of OBRotor_GetRotAtoms
+`OBRotor_GetRotAtoms` = function(self) { ;ans = .Call('R_swig_OBRotor_GetRotAtoms', self, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_void"; ans }
+attr(`OBRotor_GetRotAtoms`, 'returnType') = '_p_void'
+attr(`OBRotor_GetRotAtoms`, "inputTypes") = c('_p_OpenBabel__OBRotor')
+class(`OBRotor_GetRotAtoms`) = c("SWIGFunction", class('OBRotor_GetRotAtoms'))
+
+# Start of OBRotor_GetResolution
+`OBRotor_GetResolution` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotor_GetResolution', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_double_std__allocatorT_double_t_t"; ans }
+attr(`OBRotor_GetResolution`, 'returnType') = '_p_std__vectorT_double_std__allocatorT_double_t_t'
+attr(`OBRotor_GetResolution`, "inputTypes") = c('_p_OpenBabel__OBRotor')
+class(`OBRotor_GetResolution`) = c("SWIGFunction", class('OBRotor_GetResolution'))
+
+# Start of OBRotor_SetNumCoords
+`OBRotor_SetNumCoords` = function(self, nc) { nc = as.integer(nc);  if(length(nc) > 1) {
+    warning("using only the first element of nc"); } ; ;.Call('R_swig_OBRotor_SetNumCoords', self, nc, PACKAGE='ChemmineOB'); }
+attr(`OBRotor_SetNumCoords`, 'returnType') = 'void'
+attr(`OBRotor_SetNumCoords`, "inputTypes") = c('_p_OpenBabel__OBRotor', 'integer')
+class(`OBRotor_SetNumCoords`) = c("SWIGFunction", class('OBRotor_SetNumCoords'))
+
+# Start of accessor method for OpenBabel::OBRotor
+setMethod('$', '_p_OpenBabel__OBRotor', function(x, name) {
+  accessorFuns = list('SetBond' = OBRotor_SetBond, 'SetIdx' = OBRotor_SetIdx, 'SetDihedralAtoms' = OBRotor_SetDihedralAtoms, 'SetRotAtoms' = OBRotor_SetRotAtoms, 'SetTorsionValues' = OBRotor_SetTorsionValues, 'SetFixedBonds' = OBRotor_SetFixedBonds, 'SetToAngle' = OBRotor_SetToAngle, 'SetRotor' = OBRotor_SetRotor, 'Set' = OBRotor_Set, 'Precompute' = OBRotor_Precompute, 'Precalc' = OBRotor_Precalc, 'GetBond' = OBRotor_GetBond, 'Size' = OBRotor_Size, 'GetIdx' = OBRotor_GetIdx, 'GetDihedralAtoms' = OBRotor_GetDihedralAtoms, 'GetTorsionValues' = OBRotor_GetTorsionValues, 'GetFixedBonds' = OBRotor_GetFixedBonds, 'CalcTorsion' = OBRotor_CalcTorsion, 'CalcBondLength' = OBRotor_CalcBondLength, 'BeginTorIncrement' = OBRotor_BeginTorIncrement, 'EndTorIncrement' = OBRotor_EndTorIncrement, 'RemoveSymTorsionValues' = OBRotor_RemoveSymTorsionValues, 'SetDelta' = OBRotor_SetDelta, 'GetDelta' = OBRotor_GetDelta, 'GetFixedAtoms' = OBRotor_GetFixedAtoms, 'SetFixedAtoms' = OBRotor_SetFixedAtoms, 'GetEvalAtoms' = OBRotor_GetEvalAtoms, 'SetEvalAtoms' = OBRotor_SetEvalAtoms, 'GetRotAtoms' = OBRotor_GetRotAtoms, 'GetResolution' = OBRotor_GetResolution, 'SetNumCoords' = OBRotor_SetNumCoords);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBRotor
+setMethod('delete', '_p_OpenBabel__OBRotor', function(obj) {delete_OpenBabel__OBRotor(obj)})
+# Start of new_OBRotorList
+`OBRotorList` = function() { ;ans = .Call('R_swig_new_OBRotorList', PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBRotorList"; reg.finalizer(ans, delete_OBRotorList); ans }
+attr(`OBRotorList`, 'returnType') = '_p_OpenBabel__OBRotorList'
+class(`OBRotorList`) = c("SWIGFunction", class('OBRotorList'))
+
+# Start of delete_OBRotorList
+`delete_OBRotorList` = function(self) { ;.Call('R_swig_delete_OBRotorList', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBRotorList`, 'returnType') = 'void'
+attr(`delete_OBRotorList`, "inputTypes") = c('_p_OpenBabel__OBRotorList')
+class(`delete_OBRotorList`) = c("SWIGFunction", class('delete_OBRotorList'))
+
+# Start of OBRotorList_Clear
+`OBRotorList_Clear` = function(self) { ;.Call('R_swig_OBRotorList_Clear', self, PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_Clear`, 'returnType') = 'void'
+attr(`OBRotorList_Clear`, "inputTypes") = c('_p_OpenBabel__OBRotorList')
+class(`OBRotorList_Clear`) = c("SWIGFunction", class('OBRotorList_Clear'))
+
+# Start of OBRotorList_Size
+`OBRotorList_Size` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotorList_Size', self, as.logical(.copy), PACKAGE='ChemmineOB'); class(ans) <- "_p_size_t"; ans }
+attr(`OBRotorList_Size`, 'returnType') = 'integer'
+attr(`OBRotorList_Size`, "inputTypes") = c('_p_OpenBabel__OBRotorList')
+class(`OBRotorList_Size`) = c("SWIGFunction", class('OBRotorList_Size'))
+
+# Start of OBRotorList_IsFixedBond
+`OBRotorList_IsFixedBond` = function(self, s_arg2, .copy = FALSE) {
+  ;.Call('R_swig_OBRotorList_IsFixedBond', self, s_arg2, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_IsFixedBond`, 'returnType') = 'logical'
+attr(`OBRotorList_IsFixedBond`, "inputTypes") = c('_p_OpenBabel__OBRotorList', '_p_OpenBabel__OBBond')
+class(`OBRotorList_IsFixedBond`) = c("SWIGFunction", class('OBRotorList_IsFixedBond'))
+
+# Start of OBRotorList_HasFixedBonds
+`OBRotorList_HasFixedBonds` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBRotorList_HasFixedBonds', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_HasFixedBonds`, 'returnType') = 'logical'
+attr(`OBRotorList_HasFixedBonds`, "inputTypes") = c('_p_OpenBabel__OBRotorList')
+class(`OBRotorList_HasFixedBonds`) = c("SWIGFunction", class('OBRotorList_HasFixedBonds'))
+
+# Start of OBRotorList_RemoveSymVals
+`OBRotorList_RemoveSymVals` = function(self, s_arg2) {
+  ;.Call('R_swig_OBRotorList_RemoveSymVals', self, s_arg2, PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_RemoveSymVals`, 'returnType') = 'void'
+attr(`OBRotorList_RemoveSymVals`, "inputTypes") = c('_p_OpenBabel__OBRotorList', '_p_OpenBabel__OBMol')
+class(`OBRotorList_RemoveSymVals`) = c("SWIGFunction", class('OBRotorList_RemoveSymVals'))
+
+# Start of OBRotorList_Setup
+`OBRotorList_Setup` = function(self, mol, .copy = FALSE) {
+  ;.Call('R_swig_OBRotorList_Setup', self, mol, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_Setup`, 'returnType') = 'logical'
+attr(`OBRotorList_Setup`, "inputTypes") = c('_p_OpenBabel__OBRotorList', '_p_OpenBabel__OBMol')
+class(`OBRotorList_Setup`) = c("SWIGFunction", class('OBRotorList_Setup'))
+
+# Start of OBRotorList_SetFixedBonds
+`OBRotorList_SetFixedBonds` = function(self, fix) {
+  ;.Call('R_swig_OBRotorList_SetFixedBonds', self, fix, PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_SetFixedBonds`, 'returnType') = 'void'
+attr(`OBRotorList_SetFixedBonds`, "inputTypes") = c('_p_OpenBabel__OBRotorList', '_p_OpenBabel__OBBitVec')
+class(`OBRotorList_SetFixedBonds`) = c("SWIGFunction", class('OBRotorList_SetFixedBonds'))
+
+# Start of OBRotorList_Init
+`OBRotorList_Init` = function(self, fname) { ;.Call('R_swig_OBRotorList_Init', self, fname, PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_Init`, 'returnType') = 'void'
+attr(`OBRotorList_Init`, "inputTypes") = c('_p_OpenBabel__OBRotorList', '_p_std__string')
+class(`OBRotorList_Init`) = c("SWIGFunction", class('OBRotorList_Init'))
+
+# Start of OBRotorList_SetQuiet
+`OBRotorList_SetQuiet` = function(self) { ;.Call('R_swig_OBRotorList_SetQuiet', self, PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_SetQuiet`, 'returnType') = 'void'
+attr(`OBRotorList_SetQuiet`, "inputTypes") = c('_p_OpenBabel__OBRotorList')
+class(`OBRotorList_SetQuiet`) = c("SWIGFunction", class('OBRotorList_SetQuiet'))
+
+# Start of OBRotorList_SetRotAtoms
+`OBRotorList_SetRotAtoms` = function(self, s_arg2, .copy = FALSE) {
+  ;.Call('R_swig_OBRotorList_SetRotAtoms', self, s_arg2, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_SetRotAtoms`, 'returnType') = 'logical'
+attr(`OBRotorList_SetRotAtoms`, "inputTypes") = c('_p_OpenBabel__OBRotorList', '_p_OpenBabel__OBMol')
+class(`OBRotorList_SetRotAtoms`) = c("SWIGFunction", class('OBRotorList_SetRotAtoms'))
+
+# Start of OBRotorList_FindRotors
+`OBRotorList_FindRotors` = function(self, mol, .copy = FALSE) {
+  ;.Call('R_swig_OBRotorList_FindRotors', self, mol, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_FindRotors`, 'returnType') = 'logical'
+attr(`OBRotorList_FindRotors`, "inputTypes") = c('_p_OpenBabel__OBRotorList', '_p_OpenBabel__OBMol')
+class(`OBRotorList_FindRotors`) = c("SWIGFunction", class('OBRotorList_FindRotors'))
+
+# Start of OBRotorList_SetEvalAtoms
+`OBRotorList_SetEvalAtoms` = function(self, s_arg2, .copy = FALSE) {
+  ;.Call('R_swig_OBRotorList_SetEvalAtoms', self, s_arg2, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_SetEvalAtoms`, 'returnType') = 'logical'
+attr(`OBRotorList_SetEvalAtoms`, "inputTypes") = c('_p_OpenBabel__OBRotorList', '_p_OpenBabel__OBMol')
+class(`OBRotorList_SetEvalAtoms`) = c("SWIGFunction", class('OBRotorList_SetEvalAtoms'))
+
+# Start of OBRotorList_AssignTorVals
+`OBRotorList_AssignTorVals` = function(self, s_arg2, .copy = FALSE) {
+  ;.Call('R_swig_OBRotorList_AssignTorVals', self, s_arg2, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_AssignTorVals`, 'returnType') = 'logical'
+attr(`OBRotorList_AssignTorVals`, "inputTypes") = c('_p_OpenBabel__OBRotorList', '_p_OpenBabel__OBMol')
+class(`OBRotorList_AssignTorVals`) = c("SWIGFunction", class('OBRotorList_AssignTorVals'))
+
+# Start of OBRotorList_BeginRotor
+`OBRotorList_BeginRotor` = function(self, i) { ;ans = .Call('R_swig_OBRotorList_BeginRotor', self, i, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBRotor"; ans }
+attr(`OBRotorList_BeginRotor`, 'returnType') = '_p_OpenBabel__OBRotor'
+attr(`OBRotorList_BeginRotor`, "inputTypes") = c('_p_OpenBabel__OBRotorList', '_p_std__vectorT_OpenBabel__OBRotor_p_std__allocatorT_OpenBabel__OBRotor_p_t_t__iterator')
+class(`OBRotorList_BeginRotor`) = c("SWIGFunction", class('OBRotorList_BeginRotor'))
+
+# Start of OBRotorList_NextRotor
+`OBRotorList_NextRotor` = function(self, i) { ;ans = .Call('R_swig_OBRotorList_NextRotor', self, i, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBRotor"; ans }
+attr(`OBRotorList_NextRotor`, 'returnType') = '_p_OpenBabel__OBRotor'
+attr(`OBRotorList_NextRotor`, "inputTypes") = c('_p_OpenBabel__OBRotorList', '_p_std__vectorT_OpenBabel__OBRotor_p_std__allocatorT_OpenBabel__OBRotor_p_t_t__iterator')
+class(`OBRotorList_NextRotor`) = c("SWIGFunction", class('OBRotorList_NextRotor'))
+
+# Start of OBRotorList_BeginRotors
+`OBRotorList_BeginRotors` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotorList_BeginRotors', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBRotor_p_std__allocatorT_OpenBabel__OBRotor_p_t_t__iterator"; ans }
+attr(`OBRotorList_BeginRotors`, 'returnType') = '_p_std__vectorT_OpenBabel__OBRotor_p_std__allocatorT_OpenBabel__OBRotor_p_t_t__iterator'
+attr(`OBRotorList_BeginRotors`, "inputTypes") = c('_p_OpenBabel__OBRotorList')
+class(`OBRotorList_BeginRotors`) = c("SWIGFunction", class('OBRotorList_BeginRotors'))
+
+# Start of OBRotorList_EndRotors
+`OBRotorList_EndRotors` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotorList_EndRotors', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_OpenBabel__OBRotor_p_std__allocatorT_OpenBabel__OBRotor_p_t_t__iterator"; ans }
+attr(`OBRotorList_EndRotors`, 'returnType') = '_p_std__vectorT_OpenBabel__OBRotor_p_std__allocatorT_OpenBabel__OBRotor_p_t_t__iterator'
+attr(`OBRotorList_EndRotors`, "inputTypes") = c('_p_OpenBabel__OBRotorList')
+class(`OBRotorList_EndRotors`) = c("SWIGFunction", class('OBRotorList_EndRotors'))
+
+# Start of OBRotorList_IdentifyEvalAtoms
+`OBRotorList_IdentifyEvalAtoms` = function(self, mol, .copy = FALSE) {
+  ;.Call('R_swig_OBRotorList_IdentifyEvalAtoms', self, mol, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_IdentifyEvalAtoms`, 'returnType') = 'logical'
+attr(`OBRotorList_IdentifyEvalAtoms`, "inputTypes") = c('_p_OpenBabel__OBRotorList', '_p_OpenBabel__OBMol')
+class(`OBRotorList_IdentifyEvalAtoms`) = c("SWIGFunction", class('OBRotorList_IdentifyEvalAtoms'))
+
+# Start of OBRotorList_SetFixAtoms
+`OBRotorList_SetFixAtoms` = function(self, fix) { ;.Call('R_swig_OBRotorList_SetFixAtoms', self, fix, PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_SetFixAtoms`, 'returnType') = 'void'
+attr(`OBRotorList_SetFixAtoms`, "inputTypes") = c('_p_OpenBabel__OBRotorList', '_p_OpenBabel__OBBitVec')
+class(`OBRotorList_SetFixAtoms`) = c("SWIGFunction", class('OBRotorList_SetFixAtoms'))
+
+# Start of OBRotorList_HasFixedAtoms
+`OBRotorList_HasFixedAtoms` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBRotorList_HasFixedAtoms', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_HasFixedAtoms`, 'returnType') = 'logical'
+attr(`OBRotorList_HasFixedAtoms`, "inputTypes") = c('_p_OpenBabel__OBRotorList')
+class(`OBRotorList_HasFixedAtoms`) = c("SWIGFunction", class('OBRotorList_HasFixedAtoms'))
+
+# Start of OBRotorList_IgnoreSymmetryRemoval
+`OBRotorList_IgnoreSymmetryRemoval` = function(self) {
+  ;.Call('R_swig_OBRotorList_IgnoreSymmetryRemoval', self, PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_IgnoreSymmetryRemoval`, 'returnType') = 'void'
+attr(`OBRotorList_IgnoreSymmetryRemoval`, "inputTypes") = c('_p_OpenBabel__OBRotorList')
+class(`OBRotorList_IgnoreSymmetryRemoval`) = c("SWIGFunction", class('OBRotorList_IgnoreSymmetryRemoval'))
+
+# Start of OBRotorList_SetRotAtomsByFix
+`OBRotorList_SetRotAtomsByFix` = function(self, s_arg2) {
+  ;.Call('R_swig_OBRotorList_SetRotAtomsByFix', self, s_arg2, PACKAGE='ChemmineOB'); }
+attr(`OBRotorList_SetRotAtomsByFix`, 'returnType') = 'void'
+attr(`OBRotorList_SetRotAtomsByFix`, "inputTypes") = c('_p_OpenBabel__OBRotorList', '_p_OpenBabel__OBMol')
+class(`OBRotorList_SetRotAtomsByFix`) = c("SWIGFunction", class('OBRotorList_SetRotAtomsByFix'))
+
+# Start of accessor method for OpenBabel::OBRotorList
+setMethod('$', '_p_OpenBabel__OBRotorList', function(x, name) {
+  accessorFuns = list('Clear' = OBRotorList_Clear, 'Size' = OBRotorList_Size, 'IsFixedBond' = OBRotorList_IsFixedBond, 'HasFixedBonds' = OBRotorList_HasFixedBonds, 'RemoveSymVals' = OBRotorList_RemoveSymVals, 'Setup' = OBRotorList_Setup, 'SetFixedBonds' = OBRotorList_SetFixedBonds, 'Init' = OBRotorList_Init, 'SetQuiet' = OBRotorList_SetQuiet, 'SetRotAtoms' = OBRotorList_SetRotAtoms, 'FindRotors' = OBRotorList_FindRotors, 'SetEvalAtoms' = OBRotorList_SetEvalAtoms, 'AssignTorVals' = OBRotorList_AssignTorVals, 'BeginRotor' = OBRotorList_BeginRotor, 'NextRotor' = OBRotorList_NextRotor, 'BeginRotors' = OBRotorList_BeginRotors, 'EndRotors' = OBRotorList_EndRotors, 'IdentifyEvalAtoms' = OBRotorList_IdentifyEvalAtoms, 'SetFixAtoms' = OBRotorList_SetFixAtoms, 'HasFixedAtoms' = OBRotorList_HasFixedAtoms, 'IgnoreSymmetryRemoval' = OBRotorList_IgnoreSymmetryRemoval, 'SetRotAtomsByFix' = OBRotorList_SetRotAtomsByFix);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBRotorList
+setMethod('delete', '_p_OpenBabel__OBRotorList', function(obj) {delete_OpenBabel__OBRotorList(obj)})
+# Start of new_rotor_digit
+`rotor_digit__SWIG_0` = function(rs) { if(length(rs) > 1) { warning("using only the first element of rs"); } ;
+  ;ans = .Call('R_swig_new_rotor_digit__SWIG_0', rs, PACKAGE='ChemmineOB'); class(ans) <- "_p_OpenBabel__rotor_digit";
+  reg.finalizer(ans, delete_rotor_digit); ans }
+attr(`rotor_digit__SWIG_0`, 'returnType') = '_p_OpenBabel__rotor_digit'
+attr(`rotor_digit__SWIG_0`, "inputTypes") = c('integer')
+class(`rotor_digit__SWIG_0`) = c("SWIGFunction", class('rotor_digit__SWIG_0'))
+
+# Start of new_rotor_digit
+`rotor_digit__SWIG_1` = function() { ;ans = .Call('R_swig_new_rotor_digit__SWIG_1', PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__rotor_digit"; reg.finalizer(ans, delete_rotor_digit); ans }
+attr(`rotor_digit__SWIG_1`, 'returnType') = '_p_OpenBabel__rotor_digit'
+class(`rotor_digit__SWIG_1`) = c("SWIGFunction", class('rotor_digit__SWIG_1'))
+
+`rotor_digit` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 0) { f <- rotor_digit__SWIG_1; }  else if (argc == 1) {
+    if ((is.integer(argv[[1]]) || is.numeric(argv[[1]])) && length(argv[[1]]) == 1) { f <- rotor_digit__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for rotor_digit with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of rotor_digit_set_size
+`rotor_digit_set_size` = function(self, rs) { if(length(rs) > 1) { warning("using only the first element of rs"); } ;
+  ;.Call('R_swig_rotor_digit_set_size', self, rs, PACKAGE='ChemmineOB'); }
+attr(`rotor_digit_set_size`, 'returnType') = 'void'
+attr(`rotor_digit_set_size`, "inputTypes") = c('_p_OpenBabel__rotor_digit', 'integer')
+class(`rotor_digit_set_size`) = c("SWIGFunction", class('rotor_digit_set_size'))
+
+# Start of rotor_digit_set_state
+`rotor_digit_set_state` = function(self, st) { st = as.integer(st);  if(length(st) > 1) {
+    warning("using only the first element of st"); } ; ;.Call('R_swig_rotor_digit_set_state', self, st, PACKAGE='ChemmineOB'); }
+attr(`rotor_digit_set_state`, 'returnType') = 'void'
+attr(`rotor_digit_set_state`, "inputTypes") = c('_p_OpenBabel__rotor_digit', 'integer')
+class(`rotor_digit_set_state`) = c("SWIGFunction", class('rotor_digit_set_state'))
+
+# Start of rotor_digit_get_state
+`rotor_digit_get_state` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_rotor_digit_get_state', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`rotor_digit_get_state`, 'returnType') = 'integer'
+attr(`rotor_digit_get_state`, "inputTypes") = c('_p_OpenBabel__rotor_digit')
+class(`rotor_digit_get_state`) = c("SWIGFunction", class('rotor_digit_get_state'))
+
+# Start of rotor_digit_size
+`rotor_digit_size` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_rotor_digit_size', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`rotor_digit_size`, 'returnType') = 'integer'
+attr(`rotor_digit_size`, "inputTypes") = c('_p_OpenBabel__rotor_digit')
+class(`rotor_digit_size`) = c("SWIGFunction", class('rotor_digit_size'))
+
+# Start of rotor_digit__next
+`rotor_digit__next` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_rotor_digit__next', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`rotor_digit__next`, 'returnType') = 'logical'
+attr(`rotor_digit__next`, "inputTypes") = c('_p_OpenBabel__rotor_digit')
+class(`rotor_digit__next`) = c("SWIGFunction", class('rotor_digit__next'))
+
+# Start of delete_rotor_digit
+`delete_rotor_digit` = function(self) { ;.Call('R_swig_delete_rotor_digit', self, PACKAGE='ChemmineOB'); }
+attr(`delete_rotor_digit`, 'returnType') = 'void'
+attr(`delete_rotor_digit`, "inputTypes") = c('_p_OpenBabel__rotor_digit')
+class(`delete_rotor_digit`) = c("SWIGFunction", class('delete_rotor_digit'))
+
+# Start of accessor method for OpenBabel::rotor_digit
+setMethod('$', '_p_OpenBabel__rotor_digit', function(x, name) {
+  accessorFuns = list('set_size' = rotor_digit_set_size, 'set_state' = rotor_digit_set_state, 'get_state' = rotor_digit_get_state, 'size' = rotor_digit_size, '_next' = rotor_digit__next);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::rotor_digit
+setMethod('delete', '_p_OpenBabel__rotor_digit', function(obj) {delete_OpenBabel__rotor_digit(obj)})
+# Start of new_OBRotorKeys
+`OBRotorKeys` = function() { ;ans = .Call('R_swig_new_OBRotorKeys', PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBRotorKeys"; reg.finalizer(ans, delete_OBRotorKeys); ans }
+attr(`OBRotorKeys`, 'returnType') = '_p_OpenBabel__OBRotorKeys'
+class(`OBRotorKeys`) = c("SWIGFunction", class('OBRotorKeys'))
+
+# Start of OBRotorKeys_Clear
+`OBRotorKeys_Clear` = function(self) { ;.Call('R_swig_OBRotorKeys_Clear', self, PACKAGE='ChemmineOB'); }
+attr(`OBRotorKeys_Clear`, 'returnType') = 'void'
+attr(`OBRotorKeys_Clear`, "inputTypes") = c('_p_OpenBabel__OBRotorKeys')
+class(`OBRotorKeys_Clear`) = c("SWIGFunction", class('OBRotorKeys_Clear'))
+
+# Start of OBRotorKeys_NumKeys
+`OBRotorKeys_NumKeys` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBRotorKeys_NumKeys', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotorKeys_NumKeys`, 'returnType') = 'integer'
+attr(`OBRotorKeys_NumKeys`, "inputTypes") = c('_p_OpenBabel__OBRotorKeys')
+class(`OBRotorKeys_NumKeys`) = c("SWIGFunction", class('OBRotorKeys_NumKeys'))
+
+# Start of OBRotorKeys_AddRotor
+`OBRotorKeys_AddRotor` = function(self, size) { if(length(size) > 1) { warning("using only the first element of size"); } ;
+  ;.Call('R_swig_OBRotorKeys_AddRotor', self, size, PACKAGE='ChemmineOB'); }
+attr(`OBRotorKeys_AddRotor`, 'returnType') = 'void'
+attr(`OBRotorKeys_AddRotor`, "inputTypes") = c('_p_OpenBabel__OBRotorKeys', 'integer')
+class(`OBRotorKeys_AddRotor`) = c("SWIGFunction", class('OBRotorKeys_AddRotor'))
+
+# Start of OBRotorKeys_Next
+`OBRotorKeys_Next` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBRotorKeys_Next', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotorKeys_Next`, 'returnType') = 'logical'
+attr(`OBRotorKeys_Next`, "inputTypes") = c('_p_OpenBabel__OBRotorKeys')
+class(`OBRotorKeys_Next`) = c("SWIGFunction", class('OBRotorKeys_Next'))
+
+# Start of OBRotorKeys_GetKey
+`OBRotorKeys_GetKey` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotorKeys_GetKey', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_int_std__allocatorT_int_t_t"; ans }
+attr(`OBRotorKeys_GetKey`, 'returnType') = '_p_std__vectorT_int_std__allocatorT_int_t_t'
+attr(`OBRotorKeys_GetKey`, "inputTypes") = c('_p_OpenBabel__OBRotorKeys')
+class(`OBRotorKeys_GetKey`) = c("SWIGFunction", class('OBRotorKeys_GetKey'))
+
+# Start of delete_OBRotorKeys
+`delete_OBRotorKeys` = function(self) { ;.Call('R_swig_delete_OBRotorKeys', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBRotorKeys`, 'returnType') = 'void'
+attr(`delete_OBRotorKeys`, "inputTypes") = c('_p_OpenBabel__OBRotorKeys')
+class(`delete_OBRotorKeys`) = c("SWIGFunction", class('delete_OBRotorKeys'))
+
+# Start of accessor method for OpenBabel::OBRotorKeys
+setMethod('$', '_p_OpenBabel__OBRotorKeys', function(x, name) {
+  accessorFuns = list('Clear' = OBRotorKeys_Clear, 'NumKeys' = OBRotorKeys_NumKeys, 'AddRotor' = OBRotorKeys_AddRotor, 'Next' = OBRotorKeys_Next, 'GetKey' = OBRotorKeys_GetKey);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBRotorKeys
+setMethod('delete', '_p_OpenBabel__OBRotorKeys', function(obj) {delete_OpenBabel__OBRotorKeys(obj)})
+# Start of new_OBRotamerList
+`OBRotamerList` = function() { ;ans = .Call('R_swig_new_OBRotamerList', PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBRotamerList"; reg.finalizer(ans, delete_OBRotamerList); ans }
+attr(`OBRotamerList`, 'returnType') = '_p_OpenBabel__OBRotamerList'
+class(`OBRotamerList`) = c("SWIGFunction", class('OBRotamerList'))
+
+# Start of delete_OBRotamerList
+`delete_OBRotamerList` = function(self) { ;.Call('R_swig_delete_OBRotamerList', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBRotamerList`, 'returnType') = 'void'
+attr(`delete_OBRotamerList`, "inputTypes") = c('_p_OpenBabel__OBRotamerList')
+class(`delete_OBRotamerList`) = c("SWIGFunction", class('delete_OBRotamerList'))
+
+# Start of OBRotamerList_Setup
+`OBRotamerList_Setup__SWIG_0` = function(self, s_arg2, s_arg3) {
+  ;.Call('R_swig_OBRotamerList_Setup__SWIG_0', self, s_arg2, s_arg3, PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_Setup__SWIG_0`, 'returnType') = 'void'
+attr(`OBRotamerList_Setup__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBRotamerList', '_p_OpenBabel__OBMol', '_p_OpenBabel__OBRotorList')
+class(`OBRotamerList_Setup__SWIG_0`) = c("SWIGFunction", class('OBRotamerList_Setup__SWIG_0'))
+
+# Start of OBRotamerList_Setup
+`OBRotamerList_Setup__SWIG_1` = function(self, mol, ref, nrotors) { nrotors = as.integer(nrotors);  if(length(nrotors) > 1) {
+    warning("using only the first element of nrotors"); } ;
+  ;.Call('R_swig_OBRotamerList_Setup__SWIG_1', self, mol, ref, nrotors, PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_Setup__SWIG_1`, 'returnType') = 'void'
+attr(`OBRotamerList_Setup__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBRotamerList', '_p_OpenBabel__OBMol', '_p_unsigned_char', 'integer')
+class(`OBRotamerList_Setup__SWIG_1`) = c("SWIGFunction", class('OBRotamerList_Setup__SWIG_1'))
+
+`OBRotamerList_Setup` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBRotamerList') && extends(argtypes[2], '_p_OpenBabel__OBMol') && length(argv[[2]]) == 1 && extends(argtypes[3], '_p_OpenBabel__OBRotorList') && length(argv[[3]]) == 1) {
+      f <- OBRotamerList_Setup__SWIG_0; }  }  else if (argc == 4) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBRotamerList') && extends(argtypes[2], '_p_OpenBabel__OBMol') && length(argv[[2]]) == 1 && ( is.integer(argv[[3]]) || is.numeric(argv[[3]]) ) && ( (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1 )) {
+      f <- OBRotamerList_Setup__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for OBRotamerList_Setup with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of OBRotamerList_NumRotors
+`OBRotamerList_NumRotors` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBRotamerList_NumRotors', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_NumRotors`, 'returnType') = 'integer'
+attr(`OBRotamerList_NumRotors`, "inputTypes") = c('_p_OpenBabel__OBRotamerList')
+class(`OBRotamerList_NumRotors`) = c("SWIGFunction", class('OBRotamerList_NumRotors'))
+
+# Start of OBRotamerList_NumRotamers
+`OBRotamerList_NumRotamers` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBRotamerList_NumRotamers', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_NumRotamers`, 'returnType') = 'integer'
+attr(`OBRotamerList_NumRotamers`, "inputTypes") = c('_p_OpenBabel__OBRotamerList')
+class(`OBRotamerList_NumRotamers`) = c("SWIGFunction", class('OBRotamerList_NumRotamers'))
+
+# Start of OBRotamerList_AddRotamer
+`OBRotamerList_AddRotamer__SWIG_0` = function(self, s_arg2) {
+  ;.Call('R_swig_OBRotamerList_AddRotamer__SWIG_0', self, s_arg2, PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_AddRotamer__SWIG_0`, 'returnType') = 'void'
+attr(`OBRotamerList_AddRotamer__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBRotamerList', 'numeric')
+class(`OBRotamerList_AddRotamer__SWIG_0`) = c("SWIGFunction", class('OBRotamerList_AddRotamer__SWIG_0'))
+
+# Start of OBRotamerList_AddRotamer
+`OBRotamerList_AddRotamer__SWIG_1` = function(self, key) { key = as.integer(key); 
+  ;.Call('R_swig_OBRotamerList_AddRotamer__SWIG_1', self, key, PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_AddRotamer__SWIG_1`, 'returnType') = 'void'
+attr(`OBRotamerList_AddRotamer__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBRotamerList', 'integer')
+class(`OBRotamerList_AddRotamer__SWIG_1`) = c("SWIGFunction", class('OBRotamerList_AddRotamer__SWIG_1'))
+
+# Start of OBRotamerList_AddRotamer
+`OBRotamerList_AddRotamer__SWIG_2` = function(self, key) {
+  ;.Call('R_swig_OBRotamerList_AddRotamer__SWIG_2', self, key, PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_AddRotamer__SWIG_2`, 'returnType') = 'void'
+attr(`OBRotamerList_AddRotamer__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBRotamerList', '_p_std__vectorT_int_std__allocatorT_int_t_t')
+class(`OBRotamerList_AddRotamer__SWIG_2`) = c("SWIGFunction", class('OBRotamerList_AddRotamer__SWIG_2'))
+
+# Start of OBRotamerList_AddRotamer
+`OBRotamerList_AddRotamer__SWIG_3` = function(self, key) {
+  ;.Call('R_swig_OBRotamerList_AddRotamer__SWIG_3', self, key, PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_AddRotamer__SWIG_3`, 'returnType') = 'void'
+attr(`OBRotamerList_AddRotamer__SWIG_3`, "inputTypes") = c('_p_OpenBabel__OBRotamerList', '_p_unsigned_char')
+class(`OBRotamerList_AddRotamer__SWIG_3`) = c("SWIGFunction", class('OBRotamerList_AddRotamer__SWIG_3'))
+
+`OBRotamerList_AddRotamer` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 4
+   if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBRotamerList') && ( is.integer(argv[[2]]) || is.numeric(argv[[2]]) )) {
+      f <- OBRotamerList_AddRotamer__SWIG_3; } 
+    else if (extends(argtypes[1], '_p_OpenBabel__OBRotamerList') && extends(argtypes[2], '_p_std__vectorT_int_std__allocatorT_int_t_t') && length(argv[[2]]) == 1) {
+      f <- OBRotamerList_AddRotamer__SWIG_2; } 
+    else if (extends(argtypes[1], '_p_OpenBabel__OBRotamerList') && ( is.integer(argv[[2]]) || is.numeric(argv[[2]]) )) {
+      f <- OBRotamerList_AddRotamer__SWIG_1; } 
+    else if (extends(argtypes[1], '_p_OpenBabel__OBRotamerList') && ( is.numeric(argv[[2]]) )) {
+      f <- OBRotamerList_AddRotamer__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBRotamerList_AddRotamer with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of OBRotamerList_AddRotamers
+`OBRotamerList_AddRotamers` = function(self, arr, nconf) { nconf = as.integer(nconf);  if(length(nconf) > 1) {
+    warning("using only the first element of nconf"); } ;
+  ;.Call('R_swig_OBRotamerList_AddRotamers', self, arr, nconf, PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_AddRotamers`, 'returnType') = 'void'
+attr(`OBRotamerList_AddRotamers`, "inputTypes") = c('_p_OpenBabel__OBRotamerList', '_p_unsigned_char', 'integer')
+class(`OBRotamerList_AddRotamers`) = c("SWIGFunction", class('OBRotamerList_AddRotamers'))
+
+# Start of OBRotamerList_GetReferenceArray
+`OBRotamerList_GetReferenceArray` = function(self, s_arg2) {
+  ;.Call('R_swig_OBRotamerList_GetReferenceArray', self, s_arg2, PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_GetReferenceArray`, 'returnType') = 'void'
+attr(`OBRotamerList_GetReferenceArray`, "inputTypes") = c('_p_OpenBabel__OBRotamerList', '_p_unsigned_char')
+class(`OBRotamerList_GetReferenceArray`) = c("SWIGFunction", class('OBRotamerList_GetReferenceArray'))
+
+# Start of OBRotamerList_BeginRotamer
+`OBRotamerList_BeginRotamer` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotamerList_BeginRotamer', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_unsigned_char_p_std__allocatorT_unsigned_char_p_t_t__iterator"; ans }
+attr(`OBRotamerList_BeginRotamer`, 'returnType') = '_p_std__vectorT_unsigned_char_p_std__allocatorT_unsigned_char_p_t_t__iterator'
+attr(`OBRotamerList_BeginRotamer`, "inputTypes") = c('_p_OpenBabel__OBRotamerList')
+class(`OBRotamerList_BeginRotamer`) = c("SWIGFunction", class('OBRotamerList_BeginRotamer'))
+
+# Start of OBRotamerList_EndRotamer
+`OBRotamerList_EndRotamer` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotamerList_EndRotamer', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_unsigned_char_p_std__allocatorT_unsigned_char_p_t_t__iterator"; ans }
+attr(`OBRotamerList_EndRotamer`, 'returnType') = '_p_std__vectorT_unsigned_char_p_std__allocatorT_unsigned_char_p_t_t__iterator'
+attr(`OBRotamerList_EndRotamer`, "inputTypes") = c('_p_OpenBabel__OBRotamerList')
+class(`OBRotamerList_EndRotamer`) = c("SWIGFunction", class('OBRotamerList_EndRotamer'))
+
+# Start of OBRotamerList_CreateConformerList
+`OBRotamerList_CreateConformerList` = function(self, mol, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBRotamerList_CreateConformerList', self, mol, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_double_p_std__allocatorT_double_p_t_t"; ans }
+attr(`OBRotamerList_CreateConformerList`, 'returnType') = '_p_std__vectorT_double_p_std__allocatorT_double_p_t_t'
+attr(`OBRotamerList_CreateConformerList`, "inputTypes") = c('_p_OpenBabel__OBRotamerList', '_p_OpenBabel__OBMol')
+class(`OBRotamerList_CreateConformerList`) = c("SWIGFunction", class('OBRotamerList_CreateConformerList'))
+
+# Start of OBRotamerList_ExpandConformerList
+`OBRotamerList_ExpandConformerList` = function(self, mol, confs) {
+  ;.Call('R_swig_OBRotamerList_ExpandConformerList', self, mol, confs, PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_ExpandConformerList`, 'returnType') = 'void'
+attr(`OBRotamerList_ExpandConformerList`, "inputTypes") = c('_p_OpenBabel__OBRotamerList', '_p_OpenBabel__OBMol', '_p_std__vectorT_double_p_std__allocatorT_double_p_t_t')
+class(`OBRotamerList_ExpandConformerList`) = c("SWIGFunction", class('OBRotamerList_ExpandConformerList'))
+
+# Start of OBRotamerList_SetCurrentCoordinates
+`OBRotamerList_SetCurrentCoordinates` = function(self, mol, arr) {
+  ;.Call('R_swig_OBRotamerList_SetCurrentCoordinates', self, mol, arr, PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_SetCurrentCoordinates`, 'returnType') = 'void'
+attr(`OBRotamerList_SetCurrentCoordinates`, "inputTypes") = c('_p_OpenBabel__OBRotamerList', '_p_OpenBabel__OBMol', '_p_std__vectorT_int_std__allocatorT_int_t_t')
+class(`OBRotamerList_SetCurrentCoordinates`) = c("SWIGFunction", class('OBRotamerList_SetCurrentCoordinates'))
+
+# Start of OBRotamerList_SetBaseCoordinateSets
+`OBRotamerList_SetBaseCoordinateSets__SWIG_0` = function(self, mol) {
+  ;.Call('R_swig_OBRotamerList_SetBaseCoordinateSets__SWIG_0', self, mol, PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_SetBaseCoordinateSets__SWIG_0`, 'returnType') = 'void'
+attr(`OBRotamerList_SetBaseCoordinateSets__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBRotamerList', '_p_OpenBabel__OBMol')
+class(`OBRotamerList_SetBaseCoordinateSets__SWIG_0`) = c("SWIGFunction", class('OBRotamerList_SetBaseCoordinateSets__SWIG_0'))
+
+# Start of OBRotamerList_SetBaseCoordinateSets
+`OBRotamerList_SetBaseCoordinateSets__SWIG_1` = function(self, bc, N) { if(length(N) > 1) {
+    warning("using only the first element of N"); } ;
+  ;.Call('R_swig_OBRotamerList_SetBaseCoordinateSets__SWIG_1', self, bc, N, PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_SetBaseCoordinateSets__SWIG_1`, 'returnType') = 'void'
+attr(`OBRotamerList_SetBaseCoordinateSets__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBRotamerList', '_p_std__vectorT_double_p_std__allocatorT_double_p_t_t', 'integer')
+class(`OBRotamerList_SetBaseCoordinateSets__SWIG_1`) = c("SWIGFunction", class('OBRotamerList_SetBaseCoordinateSets__SWIG_1'))
+
+`OBRotamerList_SetBaseCoordinateSets` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBRotamerList') && extends(argtypes[2], '_p_OpenBabel__OBMol') && length(argv[[2]]) == 1) {
+      f <- OBRotamerList_SetBaseCoordinateSets__SWIG_0; }  }  else if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBRotamerList') && extends(argtypes[2], '_p_std__vectorT_double_p_std__allocatorT_double_p_t_t') && length(argv[[2]]) == 1 && (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1) {
+      f <- OBRotamerList_SetBaseCoordinateSets__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for OBRotamerList_SetBaseCoordinateSets with argtypes (",toString(argtypes),")"); } ;
+  f(...); }
+# Dispatch function
+# Start of OBRotamerList_NumBaseCoordinateSets
+`OBRotamerList_NumBaseCoordinateSets` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBRotamerList_NumBaseCoordinateSets', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_NumBaseCoordinateSets`, 'returnType') = 'integer'
+attr(`OBRotamerList_NumBaseCoordinateSets`, "inputTypes") = c('_p_OpenBabel__OBRotamerList')
+class(`OBRotamerList_NumBaseCoordinateSets`) = c("SWIGFunction", class('OBRotamerList_NumBaseCoordinateSets'))
+
+# Start of OBRotamerList_GetBaseCoordinateSet
+`OBRotamerList_GetBaseCoordinateSet` = function(self, i) { if(length(i) > 1) { warning("using only the first element of i"); } ;
+  ;ans = .Call('R_swig_OBRotamerList_GetBaseCoordinateSet', self, i, PACKAGE='ChemmineOB'); class(ans) <- "_p_double"; ans }
+attr(`OBRotamerList_GetBaseCoordinateSet`, 'returnType') = 'numeric'
+attr(`OBRotamerList_GetBaseCoordinateSet`, "inputTypes") = c('_p_OpenBabel__OBRotamerList', 'integer')
+class(`OBRotamerList_GetBaseCoordinateSet`) = c("SWIGFunction", class('OBRotamerList_GetBaseCoordinateSet'))
+
+# Start of OBRotamerList_NumAtoms
+`OBRotamerList_NumAtoms` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBRotamerList_NumAtoms', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBRotamerList_NumAtoms`, 'returnType') = 'integer'
+attr(`OBRotamerList_NumAtoms`, "inputTypes") = c('_p_OpenBabel__OBRotamerList')
+class(`OBRotamerList_NumAtoms`) = c("SWIGFunction", class('OBRotamerList_NumAtoms'))
+
+# Start of accessor method for OpenBabel::OBRotamerList
+setMethod('$', '_p_OpenBabel__OBRotamerList', function(x, name) {
+  accessorFuns = list('Setup' = OBRotamerList_Setup, 'NumRotors' = OBRotamerList_NumRotors, 'NumRotamers' = OBRotamerList_NumRotamers, 'AddRotamer' = OBRotamerList_AddRotamer, 'AddRotamers' = OBRotamerList_AddRotamers, 'GetReferenceArray' = OBRotamerList_GetReferenceArray, 'BeginRotamer' = OBRotamerList_BeginRotamer, 'EndRotamer' = OBRotamerList_EndRotamer, 'CreateConformerList' = OBRotamerList_CreateConformerList, 'ExpandConformerList' = OBRotamerList_ExpandConformerList, 'SetCurrentCoordinates' = OBRotamerList_SetCurrentCoordinates, 'SetBaseCoordinateSets' = OBRotamerList_SetBaseCoordinateSets, 'NumBaseCoordinateSets' = OBRotamerList_NumBaseCoordinateSets, 'GetBaseCoordinateSet' = OBRotamerList_GetBaseCoordinateSet, 'NumAtoms' = OBRotamerList_NumAtoms);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBRotamerList
+setMethod('delete', '_p_OpenBabel__OBRotamerList', function(obj) {delete_OpenBabel__OBRotamerList(obj)})
+defineEnumeration('_OpenBabel__OBSpectrophore__AccuracyOption',
+                    .values = c(
+                        'AngStepSize1' = 0, 
+                        'AngStepSize2' = 1, 
+                        'AngStepSize5' = 2, 
+                        'AngStepSize10' = 3, 
+                        'AngStepSize15' = 4, 
+                        'AngStepSize20' = 5, 
+                        'AngStepSize30' = 6, 
+                        'AngStepSize36' = 7, 
+                        'AngStepSize45' = 8, 
+                        'AngStepSize60' = 9
+))
+defineEnumeration('_OpenBabel__OBSpectrophore__NormalizationOption',
+                    .values = c(
+                        'NoNormalization' = 0, 
+                        'NormalizationTowardsZeroMean' = 1, 
+                        'NormalizationTowardsUnitStd' = 2, 
+                        'NormalizationTowardsZeroMeanAndUnitStd' = 3
+))
+defineEnumeration('_OpenBabel__OBSpectrophore__StereoOption',
+                    .values = c(
+                        'NoStereoSpecificProbes' = 0, 
+                        'UniqueStereoSpecificProbes' = 1, 
+                        'MirrorStereoSpecificProbes' = 2, 
+                        'AllStereoSpecificProbes' = 3
+))
+# Start of new_OBSpectrophore
+`OBSpectrophore__SWIG_0` = function() { ;ans = .Call('R_swig_new_OBSpectrophore__SWIG_0', PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBSpectrophore"; reg.finalizer(ans, delete_OBSpectrophore); ans }
+attr(`OBSpectrophore__SWIG_0`, 'returnType') = '_p_OpenBabel__OBSpectrophore'
+class(`OBSpectrophore__SWIG_0`) = c("SWIGFunction", class('OBSpectrophore__SWIG_0'))
+
+# Start of new_OBSpectrophore
+`OBSpectrophore__SWIG_1` = function(sphore) { ;ans = .Call('R_swig_new_OBSpectrophore__SWIG_1', sphore, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBSpectrophore"; reg.finalizer(ans, delete_OBSpectrophore); ans }
+attr(`OBSpectrophore__SWIG_1`, 'returnType') = '_p_OpenBabel__OBSpectrophore'
+attr(`OBSpectrophore__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore')
+class(`OBSpectrophore__SWIG_1`) = c("SWIGFunction", class('OBSpectrophore__SWIG_1'))
+
+`OBSpectrophore` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 0) { f <- OBSpectrophore__SWIG_0; }  else if (argc == 1) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBSpectrophore') && length(argv[[1]]) == 1) { f <- OBSpectrophore__SWIG_1; }  }
+   else { stop("cannot find overloaded function for OBSpectrophore with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of delete_OBSpectrophore
+`delete_OBSpectrophore` = function(self) { ;.Call('R_swig_delete_OBSpectrophore', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBSpectrophore`, 'returnType') = 'void'
+attr(`delete_OBSpectrophore`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore')
+class(`delete_OBSpectrophore`) = c("SWIGFunction", class('delete_OBSpectrophore'))
+
+# Start of OBSpectrophore_SetResolution
+`OBSpectrophore_SetResolution__SWIG_0` = function(self, r) {
+  ;.Call('R_swig_OBSpectrophore_SetResolution__SWIG_0', self, r, PACKAGE='ChemmineOB'); }
+attr(`OBSpectrophore_SetResolution__SWIG_0`, 'returnType') = 'void'
+attr(`OBSpectrophore_SetResolution__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore', 'numeric')
+class(`OBSpectrophore_SetResolution__SWIG_0`) = c("SWIGFunction", class('OBSpectrophore_SetResolution__SWIG_0'))
+
+# Start of OBSpectrophore_SetResolution
+`OBSpectrophore_SetResolution__SWIG_1` = function(self) {
+  ;.Call('R_swig_OBSpectrophore_SetResolution__SWIG_1', self, PACKAGE='ChemmineOB'); }
+attr(`OBSpectrophore_SetResolution__SWIG_1`, 'returnType') = 'void'
+attr(`OBSpectrophore_SetResolution__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore')
+class(`OBSpectrophore_SetResolution__SWIG_1`) = c("SWIGFunction", class('OBSpectrophore_SetResolution__SWIG_1'))
+
+`OBSpectrophore_SetResolution` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBSpectrophore')) { f <- OBSpectrophore_SetResolution__SWIG_1; }  }
+   else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBSpectrophore') && ( is.numeric(argv[[2]]) && length(argv[[2]]) == 1 )) {
+      f <- OBSpectrophore_SetResolution__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBSpectrophore_SetResolution with argtypes (",toString(argtypes),")"); } ;
+  f(...); }
+# Dispatch function
+# Start of OBSpectrophore_SetAccuracy
+`OBSpectrophore_SetAccuracy__SWIG_0` = function(self, a) { a = enumToInteger(a, "_OpenBabel__OBSpectrophore__AccuracyOption"); 
+  if(length(a) > 1) { warning("using only the first element of a"); } ;
+  ;.Call('R_swig_OBSpectrophore_SetAccuracy__SWIG_0', self, a, PACKAGE='ChemmineOB'); }
+attr(`OBSpectrophore_SetAccuracy__SWIG_0`, 'returnType') = 'void'
+attr(`OBSpectrophore_SetAccuracy__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore', 'character')
+class(`OBSpectrophore_SetAccuracy__SWIG_0`) = c("SWIGFunction", class('OBSpectrophore_SetAccuracy__SWIG_0'))
+
+# Start of OBSpectrophore_SetAccuracy
+`OBSpectrophore_SetAccuracy__SWIG_1` = function(self) {
+  ;.Call('R_swig_OBSpectrophore_SetAccuracy__SWIG_1', self, PACKAGE='ChemmineOB'); }
+attr(`OBSpectrophore_SetAccuracy__SWIG_1`, 'returnType') = 'void'
+attr(`OBSpectrophore_SetAccuracy__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore')
+class(`OBSpectrophore_SetAccuracy__SWIG_1`) = c("SWIGFunction", class('OBSpectrophore_SetAccuracy__SWIG_1'))
+
+`OBSpectrophore_SetAccuracy` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBSpectrophore')) { f <- OBSpectrophore_SetAccuracy__SWIG_1; }  }
+   else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBSpectrophore') && is.character(argv[[2]]) && length(argv[[2]]) == 1) {
+      f <- OBSpectrophore_SetAccuracy__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBSpectrophore_SetAccuracy with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of OBSpectrophore_SetStereo
+`OBSpectrophore_SetStereo__SWIG_0` = function(self, s) { s = enumToInteger(s, "_OpenBabel__OBSpectrophore__StereoOption"); 
+  if(length(s) > 1) { warning("using only the first element of s"); } ;
+  ;.Call('R_swig_OBSpectrophore_SetStereo__SWIG_0', self, s, PACKAGE='ChemmineOB'); }
+attr(`OBSpectrophore_SetStereo__SWIG_0`, 'returnType') = 'void'
+attr(`OBSpectrophore_SetStereo__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore', 'character')
+class(`OBSpectrophore_SetStereo__SWIG_0`) = c("SWIGFunction", class('OBSpectrophore_SetStereo__SWIG_0'))
+
+# Start of OBSpectrophore_SetStereo
+`OBSpectrophore_SetStereo__SWIG_1` = function(self) {
+  ;.Call('R_swig_OBSpectrophore_SetStereo__SWIG_1', self, PACKAGE='ChemmineOB'); }
+attr(`OBSpectrophore_SetStereo__SWIG_1`, 'returnType') = 'void'
+attr(`OBSpectrophore_SetStereo__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore')
+class(`OBSpectrophore_SetStereo__SWIG_1`) = c("SWIGFunction", class('OBSpectrophore_SetStereo__SWIG_1'))
+
+`OBSpectrophore_SetStereo` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBSpectrophore')) { f <- OBSpectrophore_SetStereo__SWIG_1; }  }
+   else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBSpectrophore') && is.character(argv[[2]]) && length(argv[[2]]) == 1) {
+      f <- OBSpectrophore_SetStereo__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBSpectrophore_SetStereo with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of OBSpectrophore_SetNormalization
+`OBSpectrophore_SetNormalization__SWIG_0` = function(self, n) {
+  n = enumToInteger(n, "_OpenBabel__OBSpectrophore__NormalizationOption");  if(length(n) > 1) {
+    warning("using only the first element of n"); } ;
+  ;.Call('R_swig_OBSpectrophore_SetNormalization__SWIG_0', self, n, PACKAGE='ChemmineOB'); }
+attr(`OBSpectrophore_SetNormalization__SWIG_0`, 'returnType') = 'void'
+attr(`OBSpectrophore_SetNormalization__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore', 'character')
+class(`OBSpectrophore_SetNormalization__SWIG_0`) = c("SWIGFunction", class('OBSpectrophore_SetNormalization__SWIG_0'))
+
+# Start of OBSpectrophore_SetNormalization
+`OBSpectrophore_SetNormalization__SWIG_1` = function(self) {
+  ;.Call('R_swig_OBSpectrophore_SetNormalization__SWIG_1', self, PACKAGE='ChemmineOB'); }
+attr(`OBSpectrophore_SetNormalization__SWIG_1`, 'returnType') = 'void'
+attr(`OBSpectrophore_SetNormalization__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore')
+class(`OBSpectrophore_SetNormalization__SWIG_1`) = c("SWIGFunction", class('OBSpectrophore_SetNormalization__SWIG_1'))
+
+`OBSpectrophore_SetNormalization` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBSpectrophore')) { f <- OBSpectrophore_SetNormalization__SWIG_1; }
+     }  else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBSpectrophore') && is.character(argv[[2]]) && length(argv[[2]]) == 1) {
+      f <- OBSpectrophore_SetNormalization__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBSpectrophore_SetNormalization with argtypes (",toString(argtypes),")"); } ;
+  f(...); }
+# Dispatch function
+# Start of OBSpectrophore_GetAccuracy
+`OBSpectrophore_GetAccuracy` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBSpectrophore_GetAccuracy', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans = enumFromInteger(ans, "_OpenBabel__OBSpectrophore__AccuracyOption"); ans }
+attr(`OBSpectrophore_GetAccuracy`, 'returnType') = 'character'
+attr(`OBSpectrophore_GetAccuracy`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore')
+class(`OBSpectrophore_GetAccuracy`) = c("SWIGFunction", class('OBSpectrophore_GetAccuracy'))
+
+# Start of OBSpectrophore_GetResolution
+`OBSpectrophore_GetResolution` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBSpectrophore_GetResolution', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBSpectrophore_GetResolution`, 'returnType') = 'numeric'
+attr(`OBSpectrophore_GetResolution`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore')
+class(`OBSpectrophore_GetResolution`) = c("SWIGFunction", class('OBSpectrophore_GetResolution'))
+
+# Start of OBSpectrophore_GetStereo
+`OBSpectrophore_GetStereo` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBSpectrophore_GetStereo', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans = enumFromInteger(ans, "_OpenBabel__OBSpectrophore__StereoOption"); ans }
+attr(`OBSpectrophore_GetStereo`, 'returnType') = 'character'
+attr(`OBSpectrophore_GetStereo`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore')
+class(`OBSpectrophore_GetStereo`) = c("SWIGFunction", class('OBSpectrophore_GetStereo'))
+
+# Start of OBSpectrophore_GetNormalization
+`OBSpectrophore_GetNormalization` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBSpectrophore_GetNormalization', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans = enumFromInteger(ans, "_OpenBabel__OBSpectrophore__NormalizationOption"); ans }
+attr(`OBSpectrophore_GetNormalization`, 'returnType') = 'character'
+attr(`OBSpectrophore_GetNormalization`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore')
+class(`OBSpectrophore_GetNormalization`) = c("SWIGFunction", class('OBSpectrophore_GetNormalization'))
+
+# Start of OBSpectrophore_GetSpectrophore
+`OBSpectrophore_GetSpectrophore` = function(self, mol, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBSpectrophore_GetSpectrophore', self, mol, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_double_std__allocatorT_double_t_t"; ans }
+attr(`OBSpectrophore_GetSpectrophore`, 'returnType') = '_p_std__vectorT_double_std__allocatorT_double_t_t'
+attr(`OBSpectrophore_GetSpectrophore`, "inputTypes") = c('_p_OpenBabel__OBSpectrophore', '_p_OpenBabel__OBMol')
+class(`OBSpectrophore_GetSpectrophore`) = c("SWIGFunction", class('OBSpectrophore_GetSpectrophore'))
+
+# Start of accessor method for OpenBabel::OBSpectrophore
+setMethod('$', '_p_OpenBabel__OBSpectrophore', function(x, name) {
+  accessorFuns = list('SetResolution' = OBSpectrophore_SetResolution, 'SetAccuracy' = OBSpectrophore_SetAccuracy, 'SetStereo' = OBSpectrophore_SetStereo, 'SetNormalization' = OBSpectrophore_SetNormalization, 'GetAccuracy' = OBSpectrophore_GetAccuracy, 'GetResolution' = OBSpectrophore_GetResolution, 'GetStereo' = OBSpectrophore_GetStereo, 'GetNormalization' = OBSpectrophore_GetNormalization, 'GetSpectrophore' = OBSpectrophore_GetSpectrophore);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBSpectrophore
+setMethod('delete', '_p_OpenBabel__OBSpectrophore', function(obj) {delete_OpenBabel__OBSpectrophore(obj)})
 # Start of new_OBMolAtomIter
 `OBMolAtomIter__SWIG_0` = function() { ;ans = .Call('R_swig_new_OBMolAtomIter__SWIG_0', PACKAGE='ChemmineOB');
   class(ans) <- "_p_OpenBabel__OBMolAtomIter"; reg.finalizer(ans, delete_OBMolAtomIter); ans }
@@ -26312,4 +26551,733 @@ setMethod('[[<-', c('_p_OpenBabel__OBMolRingIter', 'character'),function(x, i, j
 );
 # end of accessor method for OpenBabel::OBMolRingIter
 setMethod('delete', '_p_OpenBabel__OBMolRingIter', function(obj) {delete_OpenBabel__OBMolRingIter(obj)})
+# Start of delete_OBTetraNonPlanarStereo
+`delete_OBTetraNonPlanarStereo` = function(self) { ;.Call('R_swig_delete_OBTetraNonPlanarStereo', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBTetraNonPlanarStereo`, 'returnType') = 'void'
+attr(`delete_OBTetraNonPlanarStereo`, "inputTypes") = c('_p_OpenBabel__OBTetraNonPlanarStereo')
+class(`delete_OBTetraNonPlanarStereo`) = c("SWIGFunction", class('delete_OBTetraNonPlanarStereo'))
+
+setMethod('delete', '_p_OpenBabel__OBTetraNonPlanarStereo', function(obj) {delete_OpenBabel__OBTetraNonPlanarStereo(obj)})
+# Start of delete_OBTetraPlanarStereo
+`delete_OBTetraPlanarStereo` = function(self) { ;.Call('R_swig_delete_OBTetraPlanarStereo', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBTetraPlanarStereo`, 'returnType') = 'void'
+attr(`delete_OBTetraPlanarStereo`, "inputTypes") = c('_p_OpenBabel__OBTetraPlanarStereo')
+class(`delete_OBTetraPlanarStereo`) = c("SWIGFunction", class('delete_OBTetraPlanarStereo'))
+
+setMethod('delete', '_p_OpenBabel__OBTetraPlanarStereo', function(obj) {delete_OpenBabel__OBTetraPlanarStereo(obj)})
+# Start of new_OBTetrahedralStereo
+`OBTetrahedralStereo` = function(mol) { ;ans = .Call('R_swig_new_OBTetrahedralStereo', mol, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBTetrahedralStereo"; reg.finalizer(ans, delete_OBTetrahedralStereo); ans }
+attr(`OBTetrahedralStereo`, 'returnType') = '_p_OpenBabel__OBTetrahedralStereo'
+attr(`OBTetrahedralStereo`, "inputTypes") = c('_p_OpenBabel__OBMol')
+class(`OBTetrahedralStereo`) = c("SWIGFunction", class('OBTetrahedralStereo'))
+
+# Start of delete_OBTetrahedralStereo
+`delete_OBTetrahedralStereo` = function(self) { ;.Call('R_swig_delete_OBTetrahedralStereo', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBTetrahedralStereo`, 'returnType') = 'void'
+attr(`delete_OBTetrahedralStereo`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralStereo')
+class(`delete_OBTetrahedralStereo`) = c("SWIGFunction", class('delete_OBTetrahedralStereo'))
+
+# Start of OBTetrahedralStereo_IsValid
+`OBTetrahedralStereo_IsValid` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBTetrahedralStereo_IsValid', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBTetrahedralStereo_IsValid`, 'returnType') = 'logical'
+attr(`OBTetrahedralStereo_IsValid`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralStereo')
+class(`OBTetrahedralStereo_IsValid`) = c("SWIGFunction", class('OBTetrahedralStereo_IsValid'))
+
+# Start of OBTetrahedralStereo_SetConfig
+`OBTetrahedralStereo_SetConfig` = function(self, config) {
+  ;.Call('R_swig_OBTetrahedralStereo_SetConfig', self, config, PACKAGE='ChemmineOB'); }
+attr(`OBTetrahedralStereo_SetConfig`, 'returnType') = 'void'
+attr(`OBTetrahedralStereo_SetConfig`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralStereo', '_p_OpenBabel__OBTetrahedralConfig')
+class(`OBTetrahedralStereo_SetConfig`) = c("SWIGFunction", class('OBTetrahedralStereo_SetConfig'))
+
+# Start of OBTetrahedralStereo_GetConfig
+`OBTetrahedralStereo_GetConfig__SWIG_0` = function(self, winding, view, .copy = FALSE) {
+  winding = enumToInteger(winding, "_OpenBabel__OBStereo__Winding");  if(length(winding) > 1) {
+    warning("using only the first element of winding"); } ; view = enumToInteger(view, "_OpenBabel__OBStereo__View"); 
+  if(length(view) > 1) { warning("using only the first element of view"); } ;
+  ;ans = .Call('R_swig_OBTetrahedralStereo_GetConfig__SWIG_0', self, winding, view, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBTetrahedralConfig"; ans }
+attr(`OBTetrahedralStereo_GetConfig__SWIG_0`, 'returnType') = '_p_OpenBabel__OBTetrahedralConfig'
+attr(`OBTetrahedralStereo_GetConfig__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralStereo', 'character', 'character')
+class(`OBTetrahedralStereo_GetConfig__SWIG_0`) = c("SWIGFunction", class('OBTetrahedralStereo_GetConfig__SWIG_0'))
+
+# Start of OBTetrahedralStereo_GetConfig
+`OBTetrahedralStereo_GetConfig__SWIG_1` = function(self, winding, .copy = FALSE) {
+  winding = enumToInteger(winding, "_OpenBabel__OBStereo__Winding");  if(length(winding) > 1) {
+    warning("using only the first element of winding"); } ;
+  ;ans = .Call('R_swig_OBTetrahedralStereo_GetConfig__SWIG_1', self, winding, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBTetrahedralConfig"; ans }
+attr(`OBTetrahedralStereo_GetConfig__SWIG_1`, 'returnType') = '_p_OpenBabel__OBTetrahedralConfig'
+attr(`OBTetrahedralStereo_GetConfig__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralStereo', 'character')
+class(`OBTetrahedralStereo_GetConfig__SWIG_1`) = c("SWIGFunction", class('OBTetrahedralStereo_GetConfig__SWIG_1'))
+
+# Start of OBTetrahedralStereo_GetConfig
+`OBTetrahedralStereo_GetConfig__SWIG_2` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBTetrahedralStereo_GetConfig__SWIG_2', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBTetrahedralConfig"; ans }
+attr(`OBTetrahedralStereo_GetConfig__SWIG_2`, 'returnType') = '_p_OpenBabel__OBTetrahedralConfig'
+attr(`OBTetrahedralStereo_GetConfig__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralStereo')
+class(`OBTetrahedralStereo_GetConfig__SWIG_2`) = c("SWIGFunction", class('OBTetrahedralStereo_GetConfig__SWIG_2'))
+
+# Start of OBTetrahedralStereo_GetConfig
+`OBTetrahedralStereo_GetConfig__SWIG_3` = function(self, from_or_towards, winding, view, .copy = FALSE) {
+  if(length(from_or_towards) > 1) { warning("using only the first element of from_or_towards"); } ;
+  winding = enumToInteger(winding, "_OpenBabel__OBStereo__Winding");  if(length(winding) > 1) {
+    warning("using only the first element of winding"); } ; view = enumToInteger(view, "_OpenBabel__OBStereo__View"); 
+  if(length(view) > 1) { warning("using only the first element of view"); } ;
+  ;ans = .Call('R_swig_OBTetrahedralStereo_GetConfig__SWIG_3', self, from_or_towards, winding, view, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBTetrahedralConfig"; ans }
+attr(`OBTetrahedralStereo_GetConfig__SWIG_3`, 'returnType') = '_p_OpenBabel__OBTetrahedralConfig'
+attr(`OBTetrahedralStereo_GetConfig__SWIG_3`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralStereo', 'integer', 'character', 'character')
+class(`OBTetrahedralStereo_GetConfig__SWIG_3`) = c("SWIGFunction", class('OBTetrahedralStereo_GetConfig__SWIG_3'))
+
+# Start of OBTetrahedralStereo_GetConfig
+`OBTetrahedralStereo_GetConfig__SWIG_4` = function(self, from_or_towards, winding, .copy = FALSE) {
+  if(length(from_or_towards) > 1) { warning("using only the first element of from_or_towards"); } ;
+  winding = enumToInteger(winding, "_OpenBabel__OBStereo__Winding");  if(length(winding) > 1) {
+    warning("using only the first element of winding"); } ;
+  ;ans = .Call('R_swig_OBTetrahedralStereo_GetConfig__SWIG_4', self, from_or_towards, winding, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBTetrahedralConfig"; ans }
+attr(`OBTetrahedralStereo_GetConfig__SWIG_4`, 'returnType') = '_p_OpenBabel__OBTetrahedralConfig'
+attr(`OBTetrahedralStereo_GetConfig__SWIG_4`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralStereo', 'integer', 'character')
+class(`OBTetrahedralStereo_GetConfig__SWIG_4`) = c("SWIGFunction", class('OBTetrahedralStereo_GetConfig__SWIG_4'))
+
+# Start of OBTetrahedralStereo_GetConfig
+`OBTetrahedralStereo_GetConfig__SWIG_5` = function(self, from_or_towards, .copy = FALSE) { if(length(from_or_towards) > 1) {
+    warning("using only the first element of from_or_towards"); } ;
+  ;ans = .Call('R_swig_OBTetrahedralStereo_GetConfig__SWIG_5', self, from_or_towards, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBTetrahedralConfig"; ans }
+attr(`OBTetrahedralStereo_GetConfig__SWIG_5`, 'returnType') = '_p_OpenBabel__OBTetrahedralConfig'
+attr(`OBTetrahedralStereo_GetConfig__SWIG_5`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralStereo', 'integer')
+class(`OBTetrahedralStereo_GetConfig__SWIG_5`) = c("SWIGFunction", class('OBTetrahedralStereo_GetConfig__SWIG_5'))
+
+`OBTetrahedralStereo_GetConfig` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 6
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBTetrahedralStereo')) {
+      f <- OBTetrahedralStereo_GetConfig__SWIG_2; }  }  else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBTetrahedralStereo') && is.character(argv[[2]]) && length(argv[[2]]) == 1) {
+      f <- OBTetrahedralStereo_GetConfig__SWIG_1; } 
+    else if (extends(argtypes[1], '_p_OpenBabel__OBTetrahedralStereo') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1) {
+      f <- OBTetrahedralStereo_GetConfig__SWIG_5; }  }  else if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBTetrahedralStereo') && is.character(argv[[2]]) && length(argv[[2]]) == 1 && is.character(argv[[3]]) && length(argv[[3]]) == 1) {
+      f <- OBTetrahedralStereo_GetConfig__SWIG_0; } 
+    else if (extends(argtypes[1], '_p_OpenBabel__OBTetrahedralStereo') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 && is.character(argv[[3]]) && length(argv[[3]]) == 1) {
+      f <- OBTetrahedralStereo_GetConfig__SWIG_4; }  }  else if (argc == 4) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBTetrahedralStereo') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 && is.character(argv[[3]]) && length(argv[[3]]) == 1 && is.character(argv[[4]]) && length(argv[[4]]) == 1) {
+      f <- OBTetrahedralStereo_GetConfig__SWIG_3; }  }  else {
+    stop("cannot find overloaded function for OBTetrahedralStereo_GetConfig with argtypes (",toString(argtypes),")"); } ;
+  f(...); }
+# Dispatch function
+# Start of accessor method for OpenBabel::OBTetrahedralStereo
+setMethod('$', '_p_OpenBabel__OBTetrahedralStereo', function(x, name) {
+  accessorFuns = list('IsValid' = OBTetrahedralStereo_IsValid, 'SetConfig' = OBTetrahedralStereo_SetConfig, 'GetConfig' = OBTetrahedralStereo_GetConfig);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBTetrahedralStereo
+setMethod('delete', '_p_OpenBabel__OBTetrahedralStereo', function(obj) {delete_OpenBabel__OBTetrahedralStereo(obj)})
+# Start of new_OBCisTransStereo
+`OBCisTransStereo` = function(mol) { ;ans = .Call('R_swig_new_OBCisTransStereo', mol, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBCisTransStereo"; reg.finalizer(ans, delete_OBCisTransStereo); ans }
+attr(`OBCisTransStereo`, 'returnType') = '_p_OpenBabel__OBCisTransStereo'
+attr(`OBCisTransStereo`, "inputTypes") = c('_p_OpenBabel__OBMol')
+class(`OBCisTransStereo`) = c("SWIGFunction", class('OBCisTransStereo'))
+
+# Start of delete_OBCisTransStereo
+`delete_OBCisTransStereo` = function(self) { ;.Call('R_swig_delete_OBCisTransStereo', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBCisTransStereo`, 'returnType') = 'void'
+attr(`delete_OBCisTransStereo`, "inputTypes") = c('_p_OpenBabel__OBCisTransStereo')
+class(`delete_OBCisTransStereo`) = c("SWIGFunction", class('delete_OBCisTransStereo'))
+
+# Start of OBCisTransStereo_IsValid
+`OBCisTransStereo_IsValid` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBCisTransStereo_IsValid', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBCisTransStereo_IsValid`, 'returnType') = 'logical'
+attr(`OBCisTransStereo_IsValid`, "inputTypes") = c('_p_OpenBabel__OBCisTransStereo')
+class(`OBCisTransStereo_IsValid`) = c("SWIGFunction", class('OBCisTransStereo_IsValid'))
+
+# Start of OBCisTransStereo_IsOnSameAtom
+`OBCisTransStereo_IsOnSameAtom` = function(self, id1, id2, .copy = FALSE) { if(length(id1) > 1) {
+    warning("using only the first element of id1"); } ; if(length(id2) > 1) { warning("using only the first element of id2"); }
+  ; ;.Call('R_swig_OBCisTransStereo_IsOnSameAtom', self, id1, id2, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBCisTransStereo_IsOnSameAtom`, 'returnType') = 'logical'
+attr(`OBCisTransStereo_IsOnSameAtom`, "inputTypes") = c('_p_OpenBabel__OBCisTransStereo', 'integer', 'integer')
+class(`OBCisTransStereo_IsOnSameAtom`) = c("SWIGFunction", class('OBCisTransStereo_IsOnSameAtom'))
+
+# Start of OBCisTransStereo_IsTrans
+`OBCisTransStereo_IsTrans` = function(self, id1, id2, .copy = FALSE) { if(length(id1) > 1) {
+    warning("using only the first element of id1"); } ; if(length(id2) > 1) { warning("using only the first element of id2"); }
+  ; ;.Call('R_swig_OBCisTransStereo_IsTrans', self, id1, id2, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBCisTransStereo_IsTrans`, 'returnType') = 'logical'
+attr(`OBCisTransStereo_IsTrans`, "inputTypes") = c('_p_OpenBabel__OBCisTransStereo', 'integer', 'integer')
+class(`OBCisTransStereo_IsTrans`) = c("SWIGFunction", class('OBCisTransStereo_IsTrans'))
+
+# Start of OBCisTransStereo_IsCis
+`OBCisTransStereo_IsCis` = function(self, id1, id2, .copy = FALSE) { if(length(id1) > 1) {
+    warning("using only the first element of id1"); } ; if(length(id2) > 1) { warning("using only the first element of id2"); }
+  ; ;.Call('R_swig_OBCisTransStereo_IsCis', self, id1, id2, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBCisTransStereo_IsCis`, 'returnType') = 'logical'
+attr(`OBCisTransStereo_IsCis`, "inputTypes") = c('_p_OpenBabel__OBCisTransStereo', 'integer', 'integer')
+class(`OBCisTransStereo_IsCis`) = c("SWIGFunction", class('OBCisTransStereo_IsCis'))
+
+# Start of OBCisTransStereo_GetTransRef
+`OBCisTransStereo_GetTransRef` = function(self, id, .copy = FALSE) { if(length(id) > 1) {
+    warning("using only the first element of id"); } ;
+  ;.Call('R_swig_OBCisTransStereo_GetTransRef', self, id, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBCisTransStereo_GetTransRef`, 'returnType') = 'integer'
+attr(`OBCisTransStereo_GetTransRef`, "inputTypes") = c('_p_OpenBabel__OBCisTransStereo', 'integer')
+class(`OBCisTransStereo_GetTransRef`) = c("SWIGFunction", class('OBCisTransStereo_GetTransRef'))
+
+# Start of OBCisTransStereo_GetCisRef
+`OBCisTransStereo_GetCisRef` = function(self, id, .copy = FALSE) { if(length(id) > 1) {
+    warning("using only the first element of id"); } ;
+  ;.Call('R_swig_OBCisTransStereo_GetCisRef', self, id, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBCisTransStereo_GetCisRef`, 'returnType') = 'integer'
+attr(`OBCisTransStereo_GetCisRef`, "inputTypes") = c('_p_OpenBabel__OBCisTransStereo', 'integer')
+class(`OBCisTransStereo_GetCisRef`) = c("SWIGFunction", class('OBCisTransStereo_GetCisRef'))
+
+# Start of OBCisTransStereo_SetConfig
+`OBCisTransStereo_SetConfig` = function(self, config) {
+  ;.Call('R_swig_OBCisTransStereo_SetConfig', self, config, PACKAGE='ChemmineOB'); }
+attr(`OBCisTransStereo_SetConfig`, 'returnType') = 'void'
+attr(`OBCisTransStereo_SetConfig`, "inputTypes") = c('_p_OpenBabel__OBCisTransStereo', '_p_OpenBabel__OBCisTransConfig')
+class(`OBCisTransStereo_SetConfig`) = c("SWIGFunction", class('OBCisTransStereo_SetConfig'))
+
+# Start of OBCisTransStereo_GetConfig
+`OBCisTransStereo_GetConfig__SWIG_0` = function(self, shape, .copy = FALSE) {
+  shape = enumToInteger(shape, "_OpenBabel__OBStereo__Shape");  if(length(shape) > 1) {
+    warning("using only the first element of shape"); } ;
+  ;ans = .Call('R_swig_OBCisTransStereo_GetConfig__SWIG_0', self, shape, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBCisTransConfig"; ans }
+attr(`OBCisTransStereo_GetConfig__SWIG_0`, 'returnType') = '_p_OpenBabel__OBCisTransConfig'
+attr(`OBCisTransStereo_GetConfig__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBCisTransStereo', 'character')
+class(`OBCisTransStereo_GetConfig__SWIG_0`) = c("SWIGFunction", class('OBCisTransStereo_GetConfig__SWIG_0'))
+
+# Start of OBCisTransStereo_GetConfig
+`OBCisTransStereo_GetConfig__SWIG_1` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBCisTransStereo_GetConfig__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBCisTransConfig"; ans }
+attr(`OBCisTransStereo_GetConfig__SWIG_1`, 'returnType') = '_p_OpenBabel__OBCisTransConfig'
+attr(`OBCisTransStereo_GetConfig__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBCisTransStereo')
+class(`OBCisTransStereo_GetConfig__SWIG_1`) = c("SWIGFunction", class('OBCisTransStereo_GetConfig__SWIG_1'))
+
+# Start of OBCisTransStereo_GetConfig
+`OBCisTransStereo_GetConfig__SWIG_2` = function(self, start, shape, .copy = FALSE) { if(length(start) > 1) {
+    warning("using only the first element of start"); } ; shape = enumToInteger(shape, "_OpenBabel__OBStereo__Shape"); 
+  if(length(shape) > 1) { warning("using only the first element of shape"); } ;
+  ;ans = .Call('R_swig_OBCisTransStereo_GetConfig__SWIG_2', self, start, shape, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBCisTransConfig"; ans }
+attr(`OBCisTransStereo_GetConfig__SWIG_2`, 'returnType') = '_p_OpenBabel__OBCisTransConfig'
+attr(`OBCisTransStereo_GetConfig__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBCisTransStereo', 'integer', 'character')
+class(`OBCisTransStereo_GetConfig__SWIG_2`) = c("SWIGFunction", class('OBCisTransStereo_GetConfig__SWIG_2'))
+
+# Start of OBCisTransStereo_GetConfig
+`OBCisTransStereo_GetConfig__SWIG_3` = function(self, start, .copy = FALSE) { if(length(start) > 1) {
+    warning("using only the first element of start"); } ;
+  ;ans = .Call('R_swig_OBCisTransStereo_GetConfig__SWIG_3', self, start, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBCisTransConfig"; ans }
+attr(`OBCisTransStereo_GetConfig__SWIG_3`, 'returnType') = '_p_OpenBabel__OBCisTransConfig'
+attr(`OBCisTransStereo_GetConfig__SWIG_3`, "inputTypes") = c('_p_OpenBabel__OBCisTransStereo', 'integer')
+class(`OBCisTransStereo_GetConfig__SWIG_3`) = c("SWIGFunction", class('OBCisTransStereo_GetConfig__SWIG_3'))
+
+`OBCisTransStereo_GetConfig` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 4
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBCisTransStereo')) { f <- OBCisTransStereo_GetConfig__SWIG_1; }  }
+   else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBCisTransStereo') && is.character(argv[[2]]) && length(argv[[2]]) == 1) {
+      f <- OBCisTransStereo_GetConfig__SWIG_0; } 
+    else if (extends(argtypes[1], '_p_OpenBabel__OBCisTransStereo') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1) {
+      f <- OBCisTransStereo_GetConfig__SWIG_3; }  }  else if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBCisTransStereo') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 && is.character(argv[[3]]) && length(argv[[3]]) == 1) {
+      f <- OBCisTransStereo_GetConfig__SWIG_2; }  }  else {
+    stop("cannot find overloaded function for OBCisTransStereo_GetConfig with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of accessor method for OpenBabel::OBCisTransStereo
+setMethod('$', '_p_OpenBabel__OBCisTransStereo', function(x, name) {
+  accessorFuns = list('IsValid' = OBCisTransStereo_IsValid, 'IsOnSameAtom' = OBCisTransStereo_IsOnSameAtom, 'IsTrans' = OBCisTransStereo_IsTrans, 'IsCis' = OBCisTransStereo_IsCis, 'GetTransRef' = OBCisTransStereo_GetTransRef, 'GetCisRef' = OBCisTransStereo_GetCisRef, 'SetConfig' = OBCisTransStereo_SetConfig, 'GetConfig' = OBCisTransStereo_GetConfig);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBCisTransStereo
+setMethod('delete', '_p_OpenBabel__OBCisTransStereo', function(obj) {delete_OpenBabel__OBCisTransStereo(obj)})
+# Start of new_OBSquarePlanarStereo
+`OBSquarePlanarStereo` = function(mol) { ;ans = .Call('R_swig_new_OBSquarePlanarStereo', mol, PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBSquarePlanarStereo"; reg.finalizer(ans, delete_OBSquarePlanarStereo); ans }
+attr(`OBSquarePlanarStereo`, 'returnType') = '_p_OpenBabel__OBSquarePlanarStereo'
+attr(`OBSquarePlanarStereo`, "inputTypes") = c('_p_OpenBabel__OBMol')
+class(`OBSquarePlanarStereo`) = c("SWIGFunction", class('OBSquarePlanarStereo'))
+
+# Start of delete_OBSquarePlanarStereo
+`delete_OBSquarePlanarStereo` = function(self) { ;.Call('R_swig_delete_OBSquarePlanarStereo', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBSquarePlanarStereo`, 'returnType') = 'void'
+attr(`delete_OBSquarePlanarStereo`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarStereo')
+class(`delete_OBSquarePlanarStereo`) = c("SWIGFunction", class('delete_OBSquarePlanarStereo'))
+
+# Start of OBSquarePlanarStereo_IsValid
+`OBSquarePlanarStereo_IsValid` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBSquarePlanarStereo_IsValid', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBSquarePlanarStereo_IsValid`, 'returnType') = 'logical'
+attr(`OBSquarePlanarStereo_IsValid`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarStereo')
+class(`OBSquarePlanarStereo_IsValid`) = c("SWIGFunction", class('OBSquarePlanarStereo_IsValid'))
+
+# Start of OBSquarePlanarStereo_IsTrans
+`OBSquarePlanarStereo_IsTrans` = function(self, id1, id2, .copy = FALSE) { if(length(id1) > 1) {
+    warning("using only the first element of id1"); } ; if(length(id2) > 1) { warning("using only the first element of id2"); }
+  ; ;.Call('R_swig_OBSquarePlanarStereo_IsTrans', self, id1, id2, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBSquarePlanarStereo_IsTrans`, 'returnType') = 'logical'
+attr(`OBSquarePlanarStereo_IsTrans`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarStereo', 'integer', 'integer')
+class(`OBSquarePlanarStereo_IsTrans`) = c("SWIGFunction", class('OBSquarePlanarStereo_IsTrans'))
+
+# Start of OBSquarePlanarStereo_IsCis
+`OBSquarePlanarStereo_IsCis` = function(self, id1, id2, .copy = FALSE) { if(length(id1) > 1) {
+    warning("using only the first element of id1"); } ; if(length(id2) > 1) { warning("using only the first element of id2"); }
+  ; ;.Call('R_swig_OBSquarePlanarStereo_IsCis', self, id1, id2, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBSquarePlanarStereo_IsCis`, 'returnType') = 'logical'
+attr(`OBSquarePlanarStereo_IsCis`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarStereo', 'integer', 'integer')
+class(`OBSquarePlanarStereo_IsCis`) = c("SWIGFunction", class('OBSquarePlanarStereo_IsCis'))
+
+# Start of OBSquarePlanarStereo_GetTransRef
+`OBSquarePlanarStereo_GetTransRef` = function(self, id, .copy = FALSE) { if(length(id) > 1) {
+    warning("using only the first element of id"); } ;
+  ;.Call('R_swig_OBSquarePlanarStereo_GetTransRef', self, id, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBSquarePlanarStereo_GetTransRef`, 'returnType') = 'integer'
+attr(`OBSquarePlanarStereo_GetTransRef`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarStereo', 'integer')
+class(`OBSquarePlanarStereo_GetTransRef`) = c("SWIGFunction", class('OBSquarePlanarStereo_GetTransRef'))
+
+# Start of OBSquarePlanarStereo_GetCisRefs
+`OBSquarePlanarStereo_GetCisRefs` = function(self, id, .copy = FALSE) { if(length(id) > 1) {
+    warning("using only the first element of id"); } ;
+  ;ans = .Call('R_swig_OBSquarePlanarStereo_GetCisRefs', self, id, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t"; ans }
+attr(`OBSquarePlanarStereo_GetCisRefs`, 'returnType') = '_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t'
+attr(`OBSquarePlanarStereo_GetCisRefs`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarStereo', 'integer')
+class(`OBSquarePlanarStereo_GetCisRefs`) = c("SWIGFunction", class('OBSquarePlanarStereo_GetCisRefs'))
+
+# Start of OBSquarePlanarStereo_SetConfig
+`OBSquarePlanarStereo_SetConfig` = function(self, config) {
+  ;.Call('R_swig_OBSquarePlanarStereo_SetConfig', self, config, PACKAGE='ChemmineOB'); }
+attr(`OBSquarePlanarStereo_SetConfig`, 'returnType') = 'void'
+attr(`OBSquarePlanarStereo_SetConfig`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarStereo', '_p_OpenBabel__OBSquarePlanarConfig')
+class(`OBSquarePlanarStereo_SetConfig`) = c("SWIGFunction", class('OBSquarePlanarStereo_SetConfig'))
+
+# Start of OBSquarePlanarStereo_GetConfig
+`OBSquarePlanarStereo_GetConfig__SWIG_0` = function(self, shape, .copy = FALSE) {
+  shape = enumToInteger(shape, "_OpenBabel__OBStereo__Shape");  if(length(shape) > 1) {
+    warning("using only the first element of shape"); } ;
+  ;ans = .Call('R_swig_OBSquarePlanarStereo_GetConfig__SWIG_0', self, shape, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBSquarePlanarConfig"; ans }
+attr(`OBSquarePlanarStereo_GetConfig__SWIG_0`, 'returnType') = '_p_OpenBabel__OBSquarePlanarConfig'
+attr(`OBSquarePlanarStereo_GetConfig__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarStereo', 'character')
+class(`OBSquarePlanarStereo_GetConfig__SWIG_0`) = c("SWIGFunction", class('OBSquarePlanarStereo_GetConfig__SWIG_0'))
+
+# Start of OBSquarePlanarStereo_GetConfig
+`OBSquarePlanarStereo_GetConfig__SWIG_1` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBSquarePlanarStereo_GetConfig__SWIG_1', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBSquarePlanarConfig"; ans }
+attr(`OBSquarePlanarStereo_GetConfig__SWIG_1`, 'returnType') = '_p_OpenBabel__OBSquarePlanarConfig'
+attr(`OBSquarePlanarStereo_GetConfig__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarStereo')
+class(`OBSquarePlanarStereo_GetConfig__SWIG_1`) = c("SWIGFunction", class('OBSquarePlanarStereo_GetConfig__SWIG_1'))
+
+# Start of OBSquarePlanarStereo_GetConfig
+`OBSquarePlanarStereo_GetConfig__SWIG_2` = function(self, start, shape, .copy = FALSE) { if(length(start) > 1) {
+    warning("using only the first element of start"); } ; shape = enumToInteger(shape, "_OpenBabel__OBStereo__Shape"); 
+  if(length(shape) > 1) { warning("using only the first element of shape"); } ;
+  ;ans = .Call('R_swig_OBSquarePlanarStereo_GetConfig__SWIG_2', self, start, shape, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBSquarePlanarConfig"; ans }
+attr(`OBSquarePlanarStereo_GetConfig__SWIG_2`, 'returnType') = '_p_OpenBabel__OBSquarePlanarConfig'
+attr(`OBSquarePlanarStereo_GetConfig__SWIG_2`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarStereo', 'integer', 'character')
+class(`OBSquarePlanarStereo_GetConfig__SWIG_2`) = c("SWIGFunction", class('OBSquarePlanarStereo_GetConfig__SWIG_2'))
+
+# Start of OBSquarePlanarStereo_GetConfig
+`OBSquarePlanarStereo_GetConfig__SWIG_3` = function(self, start, .copy = FALSE) { if(length(start) > 1) {
+    warning("using only the first element of start"); } ;
+  ;ans = .Call('R_swig_OBSquarePlanarStereo_GetConfig__SWIG_3', self, start, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBSquarePlanarConfig"; ans }
+attr(`OBSquarePlanarStereo_GetConfig__SWIG_3`, 'returnType') = '_p_OpenBabel__OBSquarePlanarConfig'
+attr(`OBSquarePlanarStereo_GetConfig__SWIG_3`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarStereo', 'integer')
+class(`OBSquarePlanarStereo_GetConfig__SWIG_3`) = c("SWIGFunction", class('OBSquarePlanarStereo_GetConfig__SWIG_3'))
+
+`OBSquarePlanarStereo_GetConfig` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 4
+   if (argc == 1) { if (extends(argtypes[1], '_p_OpenBabel__OBSquarePlanarStereo')) {
+      f <- OBSquarePlanarStereo_GetConfig__SWIG_1; }  }  else if (argc == 2) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBSquarePlanarStereo') && is.character(argv[[2]]) && length(argv[[2]]) == 1) {
+      f <- OBSquarePlanarStereo_GetConfig__SWIG_0; } 
+    else if (extends(argtypes[1], '_p_OpenBabel__OBSquarePlanarStereo') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1) {
+      f <- OBSquarePlanarStereo_GetConfig__SWIG_3; }  }  else if (argc == 3) {
+    if (extends(argtypes[1], '_p_OpenBabel__OBSquarePlanarStereo') && (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 && is.character(argv[[3]]) && length(argv[[3]]) == 1) {
+      f <- OBSquarePlanarStereo_GetConfig__SWIG_2; }  }  else {
+    stop("cannot find overloaded function for OBSquarePlanarStereo_GetConfig with argtypes (",toString(argtypes),")"); } ;
+  f(...); }
+# Dispatch function
+# Start of accessor method for OpenBabel::OBSquarePlanarStereo
+setMethod('$', '_p_OpenBabel__OBSquarePlanarStereo', function(x, name) {
+  accessorFuns = list('IsValid' = OBSquarePlanarStereo_IsValid, 'IsTrans' = OBSquarePlanarStereo_IsTrans, 'IsCis' = OBSquarePlanarStereo_IsCis, 'GetTransRef' = OBSquarePlanarStereo_GetTransRef, 'GetCisRefs' = OBSquarePlanarStereo_GetCisRefs, 'SetConfig' = OBSquarePlanarStereo_SetConfig, 'GetConfig' = OBSquarePlanarStereo_GetConfig);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for OpenBabel::OBSquarePlanarStereo
+setMethod('delete', '_p_OpenBabel__OBSquarePlanarStereo', function(obj) {delete_OpenBabel__OBSquarePlanarStereo(obj)})
+# Start of OBTetrahedralConfig_center_set
+`OBTetrahedralConfig_center_set` = function(self, s_center) { if(length(s_center) > 1) {
+    warning("using only the first element of s_center"); } ;
+  ;.Call('R_swig_OBTetrahedralConfig_center_set', self, s_center, PACKAGE='ChemmineOB'); }
+attr(`OBTetrahedralConfig_center_set`, 'returnType') = 'void'
+attr(`OBTetrahedralConfig_center_set`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralConfig', 'integer')
+class(`OBTetrahedralConfig_center_set`) = c("SWIGFunction", class('OBTetrahedralConfig_center_set'))
+
+# Start of OBTetrahedralConfig_center_get
+`OBTetrahedralConfig_center_get` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBTetrahedralConfig_center_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBTetrahedralConfig_center_get`, 'returnType') = 'integer'
+attr(`OBTetrahedralConfig_center_get`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralConfig')
+class(`OBTetrahedralConfig_center_get`) = c("SWIGFunction", class('OBTetrahedralConfig_center_get'))
+
+# Start of OBTetrahedralConfig_from_or_towards_set
+`OBTetrahedralConfig_from_or_towards_set` = function(self, s_from_or_towards) { if(length(s_from_or_towards) > 1) {
+    warning("using only the first element of s_from_or_towards"); } ;
+  ;.Call('R_swig_OBTetrahedralConfig_from_or_towards_set', self, s_from_or_towards, PACKAGE='ChemmineOB'); }
+attr(`OBTetrahedralConfig_from_or_towards_set`, 'returnType') = 'void'
+attr(`OBTetrahedralConfig_from_or_towards_set`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralConfig', 'integer')
+class(`OBTetrahedralConfig_from_or_towards_set`) = c("SWIGFunction", class('OBTetrahedralConfig_from_or_towards_set'))
+
+# Start of OBTetrahedralConfig_from_or_towards_get
+`OBTetrahedralConfig_from_or_towards_get` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBTetrahedralConfig_from_or_towards_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBTetrahedralConfig_from_or_towards_get`, 'returnType') = 'integer'
+attr(`OBTetrahedralConfig_from_or_towards_get`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralConfig')
+class(`OBTetrahedralConfig_from_or_towards_get`) = c("SWIGFunction", class('OBTetrahedralConfig_from_or_towards_get'))
+
+# Start of OBTetrahedralConfig_refs_set
+`OBTetrahedralConfig_refs_set` = function(self, s_refs) {
+  ;.Call('R_swig_OBTetrahedralConfig_refs_set', self, s_refs, PACKAGE='ChemmineOB'); }
+attr(`OBTetrahedralConfig_refs_set`, 'returnType') = 'void'
+attr(`OBTetrahedralConfig_refs_set`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralConfig', '_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t')
+class(`OBTetrahedralConfig_refs_set`) = c("SWIGFunction", class('OBTetrahedralConfig_refs_set'))
+
+# Start of OBTetrahedralConfig_refs_get
+`OBTetrahedralConfig_refs_get` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBTetrahedralConfig_refs_get', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t"; ans }
+attr(`OBTetrahedralConfig_refs_get`, 'returnType') = '_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t'
+attr(`OBTetrahedralConfig_refs_get`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralConfig')
+class(`OBTetrahedralConfig_refs_get`) = c("SWIGFunction", class('OBTetrahedralConfig_refs_get'))
+
+# Start of OBTetrahedralConfig_winding_set
+`OBTetrahedralConfig_winding_set` = function(self, s_winding) {
+  s_winding = enumToInteger(s_winding, "_OpenBabel__OBStereo__Winding");  if(length(s_winding) > 1) {
+    warning("using only the first element of s_winding"); } ;
+  ;.Call('R_swig_OBTetrahedralConfig_winding_set', self, s_winding, PACKAGE='ChemmineOB'); }
+attr(`OBTetrahedralConfig_winding_set`, 'returnType') = 'void'
+attr(`OBTetrahedralConfig_winding_set`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralConfig', 'character')
+class(`OBTetrahedralConfig_winding_set`) = c("SWIGFunction", class('OBTetrahedralConfig_winding_set'))
+
+# Start of OBTetrahedralConfig_winding_get
+`OBTetrahedralConfig_winding_get` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBTetrahedralConfig_winding_get', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans = enumFromInteger(ans, "_OpenBabel__OBStereo__Winding"); ans }
+attr(`OBTetrahedralConfig_winding_get`, 'returnType') = 'character'
+attr(`OBTetrahedralConfig_winding_get`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralConfig')
+class(`OBTetrahedralConfig_winding_get`) = c("SWIGFunction", class('OBTetrahedralConfig_winding_get'))
+
+# Start of OBTetrahedralConfig_view_set
+`OBTetrahedralConfig_view_set` = function(self, s_view) { s_view = enumToInteger(s_view, "_OpenBabel__OBStereo__View"); 
+  if(length(s_view) > 1) { warning("using only the first element of s_view"); } ;
+  ;.Call('R_swig_OBTetrahedralConfig_view_set', self, s_view, PACKAGE='ChemmineOB'); }
+attr(`OBTetrahedralConfig_view_set`, 'returnType') = 'void'
+attr(`OBTetrahedralConfig_view_set`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralConfig', 'character')
+class(`OBTetrahedralConfig_view_set`) = c("SWIGFunction", class('OBTetrahedralConfig_view_set'))
+
+# Start of OBTetrahedralConfig_view_get
+`OBTetrahedralConfig_view_get` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBTetrahedralConfig_view_get', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans = enumFromInteger(ans, "_OpenBabel__OBStereo__View"); ans }
+attr(`OBTetrahedralConfig_view_get`, 'returnType') = 'character'
+attr(`OBTetrahedralConfig_view_get`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralConfig')
+class(`OBTetrahedralConfig_view_get`) = c("SWIGFunction", class('OBTetrahedralConfig_view_get'))
+
+# Start of OBTetrahedralConfig_specified_set
+`OBTetrahedralConfig_specified_set` = function(self, s_specified) { s_specified = as.logical(s_specified);
+  ;.Call('R_swig_OBTetrahedralConfig_specified_set', self, s_specified, PACKAGE='ChemmineOB'); }
+attr(`OBTetrahedralConfig_specified_set`, 'returnType') = 'void'
+attr(`OBTetrahedralConfig_specified_set`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralConfig', 'logical')
+class(`OBTetrahedralConfig_specified_set`) = c("SWIGFunction", class('OBTetrahedralConfig_specified_set'))
+
+# Start of OBTetrahedralConfig_specified_get
+`OBTetrahedralConfig_specified_get` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBTetrahedralConfig_specified_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBTetrahedralConfig_specified_get`, 'returnType') = 'logical'
+attr(`OBTetrahedralConfig_specified_get`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralConfig')
+class(`OBTetrahedralConfig_specified_get`) = c("SWIGFunction", class('OBTetrahedralConfig_specified_get'))
+
+# Start of new_OBTetrahedralConfig
+`OBTetrahedralConfig` = function() { ;ans = .Call('R_swig_new_OBTetrahedralConfig', PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBTetrahedralConfig"; reg.finalizer(ans, delete_OBTetrahedralConfig); ans }
+attr(`OBTetrahedralConfig`, 'returnType') = '_p_OpenBabel__OBTetrahedralConfig'
+class(`OBTetrahedralConfig`) = c("SWIGFunction", class('OBTetrahedralConfig'))
+
+# Start of delete_OBTetrahedralConfig
+`delete_OBTetrahedralConfig` = function(self) { ;.Call('R_swig_delete_OBTetrahedralConfig', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBTetrahedralConfig`, 'returnType') = 'void'
+attr(`delete_OBTetrahedralConfig`, "inputTypes") = c('_p_OpenBabel__OBTetrahedralConfig')
+class(`delete_OBTetrahedralConfig`) = c("SWIGFunction", class('delete_OBTetrahedralConfig'))
+
+# Start of accessor method for OpenBabel::OBTetrahedralConfig
+setMethod('$', '_p_OpenBabel__OBTetrahedralConfig', function(x, name) {
+  accessorFuns = list('center' = OBTetrahedralConfig_center_get, 'from_or_towards' = OBTetrahedralConfig_from_or_towards_get, 'refs' = OBTetrahedralConfig_refs_get, 'winding' = OBTetrahedralConfig_winding_get, 'view' = OBTetrahedralConfig_view_get, 'specified' = OBTetrahedralConfig_specified_get);
+  vaccessors = c('center', 'from_or_towards', 'refs', 'winding', 'view', 'specified');
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}  else f(x); }
+);
+# end of accessor method for OpenBabel::OBTetrahedralConfig
+# Start of accessor method for OpenBabel::OBTetrahedralConfig
+setMethod('$<-', '_p_OpenBabel__OBTetrahedralConfig', function(x, name, value) {
+  accessorFuns = list('center' = OBTetrahedralConfig_center_set, 'from_or_towards' = OBTetrahedralConfig_from_or_towards_set, 'refs' = OBTetrahedralConfig_refs_set, 'winding' = OBTetrahedralConfig_winding_set, 'view' = OBTetrahedralConfig_view_set, 'specified' = OBTetrahedralConfig_specified_set);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
+  f = accessorFuns[[idx]]; f(x, value); x; }
+);
+setMethod('[[<-', c('_p_OpenBabel__OBTetrahedralConfig', 'character'),function(x, i, j, ..., value) { name = i;
+  accessorFuns = list('center' = OBTetrahedralConfig_center_set, 'from_or_towards' = OBTetrahedralConfig_from_or_towards_set, 'refs' = OBTetrahedralConfig_refs_set, 'winding' = OBTetrahedralConfig_winding_set, 'view' = OBTetrahedralConfig_view_set, 'specified' = OBTetrahedralConfig_specified_set);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
+  f = accessorFuns[[idx]]; f(x, value); x; }
+);
+# end of accessor method for OpenBabel::OBTetrahedralConfig
+setMethod('delete', '_p_OpenBabel__OBTetrahedralConfig', function(obj) {delete_OpenBabel__OBTetrahedralConfig(obj)})
+# Start definition of copy functions & methods for OpenBabel::OBTetrahedralConfig
+CopyToR_OpenBabel__OBTetrahedralConfig = function(value, obj = new("OpenBabel::OBTetrahedralConfig")) {
+  obj@center = value$center; obj@from_or_towards = value$from_or_towards; obj@winding = value$winding; obj@view = value$view;
+  obj@specified = value$specified; obj; }
+CopyToC_OpenBabel__OBTetrahedralConfig = function(value, obj) { obj$center = value@center;
+  obj$from_or_towards = value@from_or_towards; obj$winding = value@winding; obj$view = value@view;
+  obj$specified = value@specified; obj }
+# Start definition of copy methods for OpenBabel::OBTetrahedralConfig
+setMethod('copyToR', '_p_OpenBabel::OBTetrahedralConfig', CopyToR_OpenBabel__OBTetrahedralConfig);
+setMethod('copyToC', 'OpenBabel::OBTetrahedralConfig', CopyToC_OpenBabel__OBTetrahedralConfig);
+
+# End definition of copy methods for OpenBabel::OBTetrahedralConfig
+# End definition of copy functions & methods for OpenBabel::OBTetrahedralConfig
+# Start of OBCisTransConfig_begin_set
+`OBCisTransConfig_begin_set` = function(self, s_begin) { if(length(s_begin) > 1) {
+    warning("using only the first element of s_begin"); } ;
+  ;.Call('R_swig_OBCisTransConfig_begin_set', self, s_begin, PACKAGE='ChemmineOB'); }
+attr(`OBCisTransConfig_begin_set`, 'returnType') = 'void'
+attr(`OBCisTransConfig_begin_set`, "inputTypes") = c('_p_OpenBabel__OBCisTransConfig', 'integer')
+class(`OBCisTransConfig_begin_set`) = c("SWIGFunction", class('OBCisTransConfig_begin_set'))
+
+# Start of OBCisTransConfig_begin_get
+`OBCisTransConfig_begin_get` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBCisTransConfig_begin_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBCisTransConfig_begin_get`, 'returnType') = 'integer'
+attr(`OBCisTransConfig_begin_get`, "inputTypes") = c('_p_OpenBabel__OBCisTransConfig')
+class(`OBCisTransConfig_begin_get`) = c("SWIGFunction", class('OBCisTransConfig_begin_get'))
+
+# Start of OBCisTransConfig_end_set
+`OBCisTransConfig_end_set` = function(self, s_end) { if(length(s_end) > 1) { warning("using only the first element of s_end"); }
+  ; ;.Call('R_swig_OBCisTransConfig_end_set', self, s_end, PACKAGE='ChemmineOB'); }
+attr(`OBCisTransConfig_end_set`, 'returnType') = 'void'
+attr(`OBCisTransConfig_end_set`, "inputTypes") = c('_p_OpenBabel__OBCisTransConfig', 'integer')
+class(`OBCisTransConfig_end_set`) = c("SWIGFunction", class('OBCisTransConfig_end_set'))
+
+# Start of OBCisTransConfig_end_get
+`OBCisTransConfig_end_get` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBCisTransConfig_end_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBCisTransConfig_end_get`, 'returnType') = 'integer'
+attr(`OBCisTransConfig_end_get`, "inputTypes") = c('_p_OpenBabel__OBCisTransConfig')
+class(`OBCisTransConfig_end_get`) = c("SWIGFunction", class('OBCisTransConfig_end_get'))
+
+# Start of OBCisTransConfig_refs_set
+`OBCisTransConfig_refs_set` = function(self, s_refs) {
+  ;.Call('R_swig_OBCisTransConfig_refs_set', self, s_refs, PACKAGE='ChemmineOB'); }
+attr(`OBCisTransConfig_refs_set`, 'returnType') = 'void'
+attr(`OBCisTransConfig_refs_set`, "inputTypes") = c('_p_OpenBabel__OBCisTransConfig', '_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t')
+class(`OBCisTransConfig_refs_set`) = c("SWIGFunction", class('OBCisTransConfig_refs_set'))
+
+# Start of OBCisTransConfig_refs_get
+`OBCisTransConfig_refs_get` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBCisTransConfig_refs_get', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t"; ans }
+attr(`OBCisTransConfig_refs_get`, 'returnType') = '_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t'
+attr(`OBCisTransConfig_refs_get`, "inputTypes") = c('_p_OpenBabel__OBCisTransConfig')
+class(`OBCisTransConfig_refs_get`) = c("SWIGFunction", class('OBCisTransConfig_refs_get'))
+
+# Start of OBCisTransConfig_shape_set
+`OBCisTransConfig_shape_set` = function(self, s_shape) { s_shape = enumToInteger(s_shape, "_OpenBabel__OBStereo__Shape"); 
+  if(length(s_shape) > 1) { warning("using only the first element of s_shape"); } ;
+  ;.Call('R_swig_OBCisTransConfig_shape_set', self, s_shape, PACKAGE='ChemmineOB'); }
+attr(`OBCisTransConfig_shape_set`, 'returnType') = 'void'
+attr(`OBCisTransConfig_shape_set`, "inputTypes") = c('_p_OpenBabel__OBCisTransConfig', 'character')
+class(`OBCisTransConfig_shape_set`) = c("SWIGFunction", class('OBCisTransConfig_shape_set'))
+
+# Start of OBCisTransConfig_shape_get
+`OBCisTransConfig_shape_get` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBCisTransConfig_shape_get', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans = enumFromInteger(ans, "_OpenBabel__OBStereo__Shape"); ans }
+attr(`OBCisTransConfig_shape_get`, 'returnType') = 'character'
+attr(`OBCisTransConfig_shape_get`, "inputTypes") = c('_p_OpenBabel__OBCisTransConfig')
+class(`OBCisTransConfig_shape_get`) = c("SWIGFunction", class('OBCisTransConfig_shape_get'))
+
+# Start of OBCisTransConfig_specified_set
+`OBCisTransConfig_specified_set` = function(self, s_specified) { s_specified = as.logical(s_specified);
+  ;.Call('R_swig_OBCisTransConfig_specified_set', self, s_specified, PACKAGE='ChemmineOB'); }
+attr(`OBCisTransConfig_specified_set`, 'returnType') = 'void'
+attr(`OBCisTransConfig_specified_set`, "inputTypes") = c('_p_OpenBabel__OBCisTransConfig', 'logical')
+class(`OBCisTransConfig_specified_set`) = c("SWIGFunction", class('OBCisTransConfig_specified_set'))
+
+# Start of OBCisTransConfig_specified_get
+`OBCisTransConfig_specified_get` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBCisTransConfig_specified_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBCisTransConfig_specified_get`, 'returnType') = 'logical'
+attr(`OBCisTransConfig_specified_get`, "inputTypes") = c('_p_OpenBabel__OBCisTransConfig')
+class(`OBCisTransConfig_specified_get`) = c("SWIGFunction", class('OBCisTransConfig_specified_get'))
+
+# Start of new_OBCisTransConfig
+`OBCisTransConfig` = function() { ;ans = .Call('R_swig_new_OBCisTransConfig', PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBCisTransConfig"; reg.finalizer(ans, delete_OBCisTransConfig); ans }
+attr(`OBCisTransConfig`, 'returnType') = '_p_OpenBabel__OBCisTransConfig'
+class(`OBCisTransConfig`) = c("SWIGFunction", class('OBCisTransConfig'))
+
+# Start of delete_OBCisTransConfig
+`delete_OBCisTransConfig` = function(self) { ;.Call('R_swig_delete_OBCisTransConfig', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBCisTransConfig`, 'returnType') = 'void'
+attr(`delete_OBCisTransConfig`, "inputTypes") = c('_p_OpenBabel__OBCisTransConfig')
+class(`delete_OBCisTransConfig`) = c("SWIGFunction", class('delete_OBCisTransConfig'))
+
+# Start of accessor method for OpenBabel::OBCisTransConfig
+setMethod('$', '_p_OpenBabel__OBCisTransConfig', function(x, name) {
+  accessorFuns = list('begin' = OBCisTransConfig_begin_get, 'end' = OBCisTransConfig_end_get, 'refs' = OBCisTransConfig_refs_get, 'shape' = OBCisTransConfig_shape_get, 'specified' = OBCisTransConfig_specified_get);
+  vaccessors = c('begin', 'end', 'refs', 'shape', 'specified'); ;        idx = pmatch(name, names(accessorFuns));
+  if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){
+    f(x, ...)}  else f(x); }
+);
+# end of accessor method for OpenBabel::OBCisTransConfig
+# Start of accessor method for OpenBabel::OBCisTransConfig
+setMethod('$<-', '_p_OpenBabel__OBCisTransConfig', function(x, name, value) {
+  accessorFuns = list('begin' = OBCisTransConfig_begin_set, 'end' = OBCisTransConfig_end_set, 'refs' = OBCisTransConfig_refs_set, 'shape' = OBCisTransConfig_shape_set, 'specified' = OBCisTransConfig_specified_set);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
+  f = accessorFuns[[idx]]; f(x, value); x; }
+);
+setMethod('[[<-', c('_p_OpenBabel__OBCisTransConfig', 'character'),function(x, i, j, ..., value) { name = i;
+  accessorFuns = list('begin' = OBCisTransConfig_begin_set, 'end' = OBCisTransConfig_end_set, 'refs' = OBCisTransConfig_refs_set, 'shape' = OBCisTransConfig_shape_set, 'specified' = OBCisTransConfig_specified_set);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
+  f = accessorFuns[[idx]]; f(x, value); x; }
+);
+# end of accessor method for OpenBabel::OBCisTransConfig
+setMethod('delete', '_p_OpenBabel__OBCisTransConfig', function(obj) {delete_OpenBabel__OBCisTransConfig(obj)})
+# Start definition of copy functions & methods for OpenBabel::OBCisTransConfig
+CopyToR_OpenBabel__OBCisTransConfig = function(value, obj = new("OpenBabel::OBCisTransConfig")) { obj@begin = value$begin;
+  obj@end = value$end; obj@shape = value$shape; obj@specified = value$specified; obj; }
+CopyToC_OpenBabel__OBCisTransConfig = function(value, obj) { obj$begin = value@begin; obj$end = value@end;
+  obj$shape = value@shape; obj$specified = value@specified; obj }
+# Start definition of copy methods for OpenBabel::OBCisTransConfig
+setMethod('copyToR', '_p_OpenBabel::OBCisTransConfig', CopyToR_OpenBabel__OBCisTransConfig);
+setMethod('copyToC', 'OpenBabel::OBCisTransConfig', CopyToC_OpenBabel__OBCisTransConfig);
+
+# End definition of copy methods for OpenBabel::OBCisTransConfig
+# End definition of copy functions & methods for OpenBabel::OBCisTransConfig
+# Start of OBSquarePlanarConfig_center_set
+`OBSquarePlanarConfig_center_set` = function(self, s_center) { if(length(s_center) > 1) {
+    warning("using only the first element of s_center"); } ;
+  ;.Call('R_swig_OBSquarePlanarConfig_center_set', self, s_center, PACKAGE='ChemmineOB'); }
+attr(`OBSquarePlanarConfig_center_set`, 'returnType') = 'void'
+attr(`OBSquarePlanarConfig_center_set`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarConfig', 'integer')
+class(`OBSquarePlanarConfig_center_set`) = c("SWIGFunction", class('OBSquarePlanarConfig_center_set'))
+
+# Start of OBSquarePlanarConfig_center_get
+`OBSquarePlanarConfig_center_get` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBSquarePlanarConfig_center_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBSquarePlanarConfig_center_get`, 'returnType') = 'integer'
+attr(`OBSquarePlanarConfig_center_get`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarConfig')
+class(`OBSquarePlanarConfig_center_get`) = c("SWIGFunction", class('OBSquarePlanarConfig_center_get'))
+
+# Start of OBSquarePlanarConfig_refs_set
+`OBSquarePlanarConfig_refs_set` = function(self, s_refs) {
+  ;.Call('R_swig_OBSquarePlanarConfig_refs_set', self, s_refs, PACKAGE='ChemmineOB'); }
+attr(`OBSquarePlanarConfig_refs_set`, 'returnType') = 'void'
+attr(`OBSquarePlanarConfig_refs_set`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarConfig', '_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t')
+class(`OBSquarePlanarConfig_refs_set`) = c("SWIGFunction", class('OBSquarePlanarConfig_refs_set'))
+
+# Start of OBSquarePlanarConfig_refs_get
+`OBSquarePlanarConfig_refs_get` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBSquarePlanarConfig_refs_get', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  class(ans) <- "_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t"; ans }
+attr(`OBSquarePlanarConfig_refs_get`, 'returnType') = '_p_std__vectorT_unsigned_long_std__allocatorT_unsigned_long_t_t'
+attr(`OBSquarePlanarConfig_refs_get`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarConfig')
+class(`OBSquarePlanarConfig_refs_get`) = c("SWIGFunction", class('OBSquarePlanarConfig_refs_get'))
+
+# Start of OBSquarePlanarConfig_shape_set
+`OBSquarePlanarConfig_shape_set` = function(self, s_shape) { s_shape = enumToInteger(s_shape, "_OpenBabel__OBStereo__Shape"); 
+  if(length(s_shape) > 1) { warning("using only the first element of s_shape"); } ;
+  ;.Call('R_swig_OBSquarePlanarConfig_shape_set', self, s_shape, PACKAGE='ChemmineOB'); }
+attr(`OBSquarePlanarConfig_shape_set`, 'returnType') = 'void'
+attr(`OBSquarePlanarConfig_shape_set`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarConfig', 'character')
+class(`OBSquarePlanarConfig_shape_set`) = c("SWIGFunction", class('OBSquarePlanarConfig_shape_set'))
+
+# Start of OBSquarePlanarConfig_shape_get
+`OBSquarePlanarConfig_shape_get` = function(self, .copy = FALSE) {
+  ;ans = .Call('R_swig_OBSquarePlanarConfig_shape_get', self, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans = enumFromInteger(ans, "_OpenBabel__OBStereo__Shape"); ans }
+attr(`OBSquarePlanarConfig_shape_get`, 'returnType') = 'character'
+attr(`OBSquarePlanarConfig_shape_get`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarConfig')
+class(`OBSquarePlanarConfig_shape_get`) = c("SWIGFunction", class('OBSquarePlanarConfig_shape_get'))
+
+# Start of OBSquarePlanarConfig_specified_set
+`OBSquarePlanarConfig_specified_set` = function(self, s_specified) { s_specified = as.logical(s_specified);
+  ;.Call('R_swig_OBSquarePlanarConfig_specified_set', self, s_specified, PACKAGE='ChemmineOB'); }
+attr(`OBSquarePlanarConfig_specified_set`, 'returnType') = 'void'
+attr(`OBSquarePlanarConfig_specified_set`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarConfig', 'logical')
+class(`OBSquarePlanarConfig_specified_set`) = c("SWIGFunction", class('OBSquarePlanarConfig_specified_set'))
+
+# Start of OBSquarePlanarConfig_specified_get
+`OBSquarePlanarConfig_specified_get` = function(self, .copy = FALSE) {
+  ;.Call('R_swig_OBSquarePlanarConfig_specified_get', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`OBSquarePlanarConfig_specified_get`, 'returnType') = 'logical'
+attr(`OBSquarePlanarConfig_specified_get`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarConfig')
+class(`OBSquarePlanarConfig_specified_get`) = c("SWIGFunction", class('OBSquarePlanarConfig_specified_get'))
+
+# Start of new_OBSquarePlanarConfig
+`OBSquarePlanarConfig` = function() { ;ans = .Call('R_swig_new_OBSquarePlanarConfig', PACKAGE='ChemmineOB');
+  class(ans) <- "_p_OpenBabel__OBSquarePlanarConfig"; reg.finalizer(ans, delete_OBSquarePlanarConfig); ans }
+attr(`OBSquarePlanarConfig`, 'returnType') = '_p_OpenBabel__OBSquarePlanarConfig'
+class(`OBSquarePlanarConfig`) = c("SWIGFunction", class('OBSquarePlanarConfig'))
+
+# Start of delete_OBSquarePlanarConfig
+`delete_OBSquarePlanarConfig` = function(self) { ;.Call('R_swig_delete_OBSquarePlanarConfig', self, PACKAGE='ChemmineOB'); }
+attr(`delete_OBSquarePlanarConfig`, 'returnType') = 'void'
+attr(`delete_OBSquarePlanarConfig`, "inputTypes") = c('_p_OpenBabel__OBSquarePlanarConfig')
+class(`delete_OBSquarePlanarConfig`) = c("SWIGFunction", class('delete_OBSquarePlanarConfig'))
+
+# Start of accessor method for OpenBabel::OBSquarePlanarConfig
+setMethod('$', '_p_OpenBabel__OBSquarePlanarConfig', function(x, name) {
+  accessorFuns = list('center' = OBSquarePlanarConfig_center_get, 'refs' = OBSquarePlanarConfig_refs_get, 'shape' = OBSquarePlanarConfig_shape_get, 'specified' = OBSquarePlanarConfig_specified_get);
+  vaccessors = c('center', 'refs', 'shape', 'specified'); ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx)) 
+  return(callNextMethod(x, name)); f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){ f(x, ...)}
+   else f(x); }
+);
+# end of accessor method for OpenBabel::OBSquarePlanarConfig
+# Start of accessor method for OpenBabel::OBSquarePlanarConfig
+setMethod('$<-', '_p_OpenBabel__OBSquarePlanarConfig', function(x, name, value) {
+  accessorFuns = list('center' = OBSquarePlanarConfig_center_set, 'refs' = OBSquarePlanarConfig_refs_set, 'shape' = OBSquarePlanarConfig_shape_set, 'specified' = OBSquarePlanarConfig_specified_set);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
+  f = accessorFuns[[idx]]; f(x, value); x; }
+);
+setMethod('[[<-', c('_p_OpenBabel__OBSquarePlanarConfig', 'character'),function(x, i, j, ..., value) { name = i;
+  accessorFuns = list('center' = OBSquarePlanarConfig_center_set, 'refs' = OBSquarePlanarConfig_refs_set, 'shape' = OBSquarePlanarConfig_shape_set, 'specified' = OBSquarePlanarConfig_specified_set);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name, value));
+  f = accessorFuns[[idx]]; f(x, value); x; }
+);
+# end of accessor method for OpenBabel::OBSquarePlanarConfig
+setMethod('delete', '_p_OpenBabel__OBSquarePlanarConfig', function(obj) {delete_OpenBabel__OBSquarePlanarConfig(obj)})
+# Start definition of copy functions & methods for OpenBabel::OBSquarePlanarConfig
+CopyToR_OpenBabel__OBSquarePlanarConfig = function(value, obj = new("OpenBabel::OBSquarePlanarConfig")) {
+  obj@center = value$center; obj@shape = value$shape; obj@specified = value$specified; obj; }
+CopyToC_OpenBabel__OBSquarePlanarConfig = function(value, obj) { obj$center = value@center; obj$shape = value@shape;
+  obj$specified = value@specified; obj }
+# Start definition of copy methods for OpenBabel::OBSquarePlanarConfig
+setMethod('copyToR', '_p_OpenBabel::OBSquarePlanarConfig', CopyToR_OpenBabel__OBSquarePlanarConfig);
+setMethod('copyToC', 'OpenBabel::OBSquarePlanarConfig', CopyToC_OpenBabel__OBSquarePlanarConfig);
+
+# End definition of copy methods for OpenBabel::OBSquarePlanarConfig
+# End definition of copy functions & methods for OpenBabel::OBSquarePlanarConfig
 
