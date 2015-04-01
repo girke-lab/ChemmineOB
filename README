@@ -1,9 +1,6 @@
-changelog
-        version 0.99.4
-                - vignette updates
 
 
-This package depends on Open Babel 2.3.0 or greater. On linux and mac it can be compiled 
+This package depends on Open Babel 2.3.2 or greater. On linux and mac it can be compiled 
 and run against the standard shared library version of Open Babel. On windows, the distributed
 binary has been compiled agains a static version of Open Babel 2.3.2. This was done because the 
 version downloadable from the Open Babel website was compiled with MSVC and is not 
