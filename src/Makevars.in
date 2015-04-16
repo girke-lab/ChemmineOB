@@ -1,0 +1,10 @@
+
+ifeq ($(shell uname),Darwin)
+     ifeq ($(shell R CMD config CXX),clang++)
+          PKG_CXXFLAGS += -stdlib=libstdc++
+          PKG_LIBS += -stdlib=libstdc++
+      endif
+endif 
+
+PKG_CXXFLAGS +=  @OPENBABEL_CFLAGS@  -I/usr/include/eigen3  -DUSE_BOOST
+PKG_LIBS += @OPENBABEL_LIBS@ 
