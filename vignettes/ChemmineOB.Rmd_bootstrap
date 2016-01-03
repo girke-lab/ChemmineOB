@@ -1,75 +1,50 @@
----
-title: "_ChemmineOB_: Interface to a Subset of OpenBabel Functionalities"
-author: "Authors: Kevin Horan, Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: `r format(Sys.time(), '%d %B, %Y')`" 
-package: "`r pkg_ver('ChemmineOB')`"
-output:
-  BiocStyle::html_document:
-    toc: true
-    toc_depth: 3
-    fig_caption: yes
-
-fontsize: 14pt
-bibliography: references.bib
----
+% ChemmineOB
+% Kevin Horan & Thomas Girke 
+% `r format(Sys.time(),"%B %d, %Y")`
 <!--
-%% \VignetteEngine{knitr::rmarkdown}
-%% \VignetteEncoding{UTF-8}
+\usepackage[utf8]{inputenc}
+%\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{ChemmineOB}
-%% \VignetteKeywords{cheminformatics, structural searching, clustering}
-%% \VignettePackage{ChemmineOB}
 -->
 
-<!---
-- Compile from command-line
-echo "rmarkdown::render('ChemmineOB.Rmd')" | R -slave; R CMD Stangle ChemmineOB.Rmd
-
-- Commit to github
-git commit -am "some edits"; git push -u origin master
-
-- To customize font size and other style features, add this line to output section in preamble:  
-    css: style.css
--->
-
-```{r style, echo = FALSE, results = 'asis'}
-BiocStyle::markdown()
-options(width=100, max.print=1000)
-knitr::opts_chunk$set(
-    eval=as.logical(Sys.getenv("KNITR_EVAL", "TRUE")),
-    cache=as.logical(Sys.getenv("KNITR_CACHE", "TRUE")))
+```{r echo=FALSE, results='hide',message=FALSE,warning=FALSE,error=FALSE}
+ library(ChemmineOB) 
+ library(knitcitations)
+ RefManageR:::BibOptions(style="markdown",no.print.fields=c("doi"))
+ sapply(read.bibtex(file="references.bib"),record_as_cited)
 ```
 
-```{r setup, echo=FALSE, messages=FALSE, warnings=FALSE}
-suppressPackageStartupMessages({
-    library(ChemmineOB)
-})
-```
+ChemmineOB
+==========
 
-Note: the most recent version of this tutorial can be found <a href="https://htmlpreview.github.io/?https://github.com/girke-lab/ChemmineOB/blob/master/vignettes/ChemmineOB.html">here</a> and a short overview slide show [here](http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_5_8_2014/Rcheminfo/Cheminfo.pdf).
+Kevin Horan & Thomas Girke 
 
+Last update: `r format(Sys.time(),"%B %d, %Y")`
 
-# Introduction
+Introduction
+-----------
 
-`ChemmineOB` provides an R interface to a subset of
+*ChemmineOB* provides an R interface to a subset of
 cheminformatics functionalities implemented by the OpelBabel C++ project
-[@18328109; @21982300]. OpenBabel is an open source
+`r citep(c("18328109","21982300"))`. OpenBabel is an open source
 cheminformatics toolbox that includes utilities for structure format
 interconversions, descriptor calculations, compound similarity searching
-and more. `ChemineOB` aims to make a subset of these
+and more. *ChemineOB* aims to make a subset of these
 utilities available from within R. For non-developers,
-`ChemineOB` is primarily intended to be used from
-`ChemmineR` [@Cao2008c; @Backman2011a; @Wang2013a] as an add-on package 
-rather than used directly.
+*ChemineOB* is primarily intended to be used from
+*ChemmineR* `r citep(c("Cao2008c", "Backman2011a","Wang2013a"))`
+as an add-on package rather than used directly.
 
-# Installation
+Installation
+-----------
 
-To use the `ChemmineOB` package on Linux or Mac, OpenBabel
+To use the *ChemmineOB* package on Linux or Mac, OpenBabel
 2.3.0 or greater needs to be installed on a system. On Linux systems,
-the OpenBabel header files are also required in order to compile `ChemmineOB`. The windows distribution
+the OpenBabel header files are also required in order to compile *ChemmineOB*. The windows distribution
 will include its own version of OpenBabel. The OpenBabel site
 (<http://openbabel.org/wiki/Get_Open_Babel>) provides excellent
 instructions for installing the OpenBabel software on Mac or Linux
-systems. The `ChemmineR` and `ChemmineOB`
+systems. The *ChemmineR* and *ChemmineOB*
 packages can be installed from within R with the
 `biocLite` install script.
 
@@ -92,29 +67,30 @@ $ R CMD INSTALL --configure-args='--with-openbabel-include=...  --with-openbabel
 where the '...' are replaced by the relevant paths. See the README file
 for more details.
 
-# User Manual in ChemmineR Vignette
+User Manual in ChemmineR Vignette
+-----------
 
-Detailed instructions for using `ChemmineOB` are provided
-in the vignette of the `ChemmineR` package instead of this
+Detailed instructions for using *ChemmineOB* are provided
+in the vignette of the *ChemmineR* package instead of this
 document. The main reason for consolidating the documentation in one
 central document rather than distributing it across several vignettes is
 that it helps minimizing duplications and inconsistencies. It also is
 the more suitable format for providing a task-oriented description of
 functionalities for users. To obtain an overview of the OpenBabel
-utilities supported by `ChemmineOB`, we recommend
+utilities supported by *ChemmineOB*, we recommend
 consulting the *OpenBabel Functions* section of the
-`ChemmineR` vignette. To open the `ChemmineR`
+*ChemmineR* vignette. To open the *ChemmineR*
 vignette from R, one can use the following command.
 
 ```{r eval=FALSE, tidy=FALSE}
  vignette("ChemmineR") 
 ```
 
-# SWIG Interface (For R developers)
-
-`ChemmineOB` now includes wrapper functions for all of OpenBabel, as genereted by
+SWIG Interface (For R developers)
+--------------
+*ChemmineOB* now includes wrapper functions for all of OpenBabel, as genereted by
 [SWIG](http://www.swig.org). We still maintain our own set of functions to provide 
-better integration with R in general and `ChemmineR` specifically. 
+better integration with R in general and *ChemmineR* specifically. 
 
 If you are familiar with the [Open Babel API](http://openbabel.org/api/2.3/), using the SWIG wrapper should be
 similar, once you know a few conventions used. You can look at the R code in this
@@ -148,9 +124,9 @@ we have:
 OBConversion_AddOption(x,...)
 ```
 
-- If you need a char* you can create one in R with the `stringp` function.
-  The char* pointer can be accessed with the `cast` slot. The value can
-  be retrieved from the `value` slot. For example:
+- If you need a char* you can create one in R with the *stringp* function.
+  The char* pointer can be accessed with the *cast* slot. The value can
+  be retrieved from the *value* slot. For example:
 
 ```
 result = stringp()
@@ -165,18 +141,36 @@ stringValue = result$value()
 There are still many special cases however. The [SWIG documentation](http://www.swig.org/Doc2.0/SWIGDocumentation.html)
 can help, as well as browsing the generated R code in R/ChemmineOB.R.
 
-# Version Information
+Version Information
+-----------
 
 ```{r sessionInfo, results='asis'}
 sessionInfo()
 ```
 
-# Funding
+Funding
+-----------
 
 This software was developed with funding from the National Science
 Foundation:
 [ABI-0957099](http://www.nsf.gov/awardsearch/showAward.do?AwardNumber=0957099),
 2010-0520325 and IGERT-0504249.
 
-# References
+References
+-----------
+```{r biblio, echo=FALSE, results='asis'}
+     #hack to get rid of latex code returned by certain doi sites (e.g. crosscite.org)
+      fix = function(t)  gsub("(\\$\\\\(l|r)brace\\$|\\\\textquotesingle)", "", t)
+      suppressWarnings({
+         sink(tempfile())
+         b<<-bibliography()
+         sink(NULL)
+      })   
+   
+      for(i in 1:length(b)){
+         b[i]$title = fix(b[i]$title)
+         b[i]$author= fix(b[i]$author)
+      }
+      b
 
+```
