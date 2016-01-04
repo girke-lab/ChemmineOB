@@ -1,6 +1,6 @@
 ---
 title: "_ChemmineOB_: Interface to a Subset of OpenBabel Functionalities"
-author: "Authors: Kevin Horan, [Thomas Girke](thomas.girke@ucr.edu)"
+author: "Authors: Kevin Horan, [Thomas Girke](mailto:thomas.girke@ucr.edu)"
 date: "Last update: `r format(Sys.time(), '%d %B, %Y')`" 
 package: "`r pkg_ver('ChemmineOB')`"
 output:
