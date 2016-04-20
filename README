@@ -42,14 +42,13 @@ c:\openbabel_build
      \x64
 
 Download the openbabel source and copy it into both c:\openbabel_src\i386 and c:\openbabel_src\x64.
+Download and install RTools and Cmake.
 
 Set up the following global environment variables: in control panel/system:
 
-D:\sandbox\ChemmineOB\src>echo %OPEN_BABEL_SRC%
-c:/openbabel_src
+OPEN_BABEL_SRC = c:/openbabel_src
 
-D:\sandbox\ChemmineOB\src>echo %OPEN_BABEL_BIN%
-c:/openbabel
+OPEN_BABEL_BIN = c:/openbabel
 
 Install the zlibbioc package. In R, do this:
 source("http://bioconductor.org/biocLite.R")
@@ -70,11 +69,48 @@ Get rid of the -L, the quotes, and the -lzlibbioc> and append /zlib1bioc.dll
 and now you have ZLIB_LIBRARY
 
 
-Then compile with cmake:
+For i386 builds:
+-----------------
+Make sure "c:/Rtools/mingw_32/bin" in the system PATH.
+Move into c:\openbabel_build\i386
 
-cmake -G "Unix Makefiles" -DBUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=c:/openbabel/i386 -DZLIB_INCLUDE_DIR=D:/biocbld/bbs-2.13-bioc/R/library/zlibbioc/include -DZLIB_LIBRARY=D:/biocbld/bbs-2.13-bioc/R/library/zlibbioc/libs/i386/zlib1bioc.dll c:/openbabel_src/i386
+run: 
 
-You can run this from c:/openbabel_build/i386
-Then:
+cmake -G "Unix Makefiles" -DCMAKE_C_FLAGS=-m32 -DCMAKE_CXX_FLAGS=-m32  -DCMAKE_RC_COMPILER=c:/Rtools/mingw_32/bin/gcc.exe -DBUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=c:/openbabel/i386 -DZLIB_INCLUDE_DIR=e:/biocbld/bbs-3.3-bioc/R/library/zlibbioc/include -DZLIB_LIBRARY=e:/biocbld/bbs-3.3-bioc/R/library/zlibbioc/libs/i386/zlib1bioc.dll c:/openbabel_src/i386
+
+replace the value of ZLIB_INCLUDE_DIR and ZLIB_LIBRARY with the values you found above.
+
+Then run:
 make
 make install
+copy c:\openbabel\i386\include\openbabel-2.0\openbabel\babelconfig.h c:\openbabel_src\i386\include\openbabel\babelconfig.h
+
+For x64 builds:
+------------------
+Make sure "c:/Rtools/mingw_64/bin" in the system PATH and make sure that "c:/Rtools/mingw_32/bin" IS NOT IN the system PATH, 
+otherwise cmake will choose the 32 bit version over the 64 bit version
+Move into c:\openbabel_build\x64
+
+Run: 
+cmake -G "Unix Makefiles" -DCMAKE_C_FLAGS=-m64 -DCMAKE_CXX_FLAGS=-m64  -DCMAKE_RC_COMPILER=c:/Rtools/mingw_64/bin/gcc.exe -DBUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=c:/openbabel/x64 -DZLIB_INCLUDE_DIR=e:/biocbld/bbs-3.3-bioc/R/library/zlibbioc/include -DZLIB_LIBRARY=e:/biocbld/bbs-3.3-bioc/R/library/zlibbioc/libs/x64/zlib1bioc.dll c:/openbabel_src/x64
+
+replace the value of ZLIB_INCLUDE_DIR and ZLIB_LIBRARY with the values you found above.
+
+Then run:
+make
+make install
+copy c:\openbabel\x64\include\openbabel-2.0\openbabel\babelconfig.h c:\openbabel_src\x64\include\openbabel\babelconfig.h
+
+
+Then for all architectures:
+------------------------------
+set environment variables:
+ OPEN_BABEL_BIN = c:/openbabel
+ OPEN_BABEL_SRC = c:/openbabel_src
+
+copy openbabel config header file into place: 
+
+
+ build ChemmineOB:
+ R CMD build --no-build-vignettes ChemmineOB
+ R CMD INSTALL --merge-multiarch ChemmineOB_1.9.3.tar.gz   #(replace version with whatever version you have)
