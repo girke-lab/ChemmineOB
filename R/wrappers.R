@@ -11,6 +11,7 @@ packageName = "ChemmineOB"
 
 	if(.Platform$OS == "windows")
 	 Sys.setenv(BABEL_DATADIR=system.file("openbabel_data",package=pkgname))
+	print("loaded ChemmineOB")
 
 }
 

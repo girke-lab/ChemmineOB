@@ -16426,23 +16426,52 @@ SWIGEXPORT SEXP R_swig_OBDescriptor_GetStringValue__SWIG_0 ( SEXP self, SEXP pOb
   r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
   return r_ans; }
 SWIGEXPORT SEXP R_swig_OBDescriptor_GetStringValue__SWIG_1 ( SEXP self, SEXP pOb, SEXP svalue, SEXP s_swig_copy) {
-  double result; OpenBabel::OBDescriptor *arg1 = (OpenBabel::OBDescriptor *) 0 ;
-  OpenBabel::OBBase *arg2 = (OpenBabel::OBBase *) 0 ; std::string *arg3 = 0 ; void *argp1 = 0 ; int res1 = 0 ; void *argp2 = 0 ;
-  int res2 = 0 ; void *argp3 = 0 ; int res3 = 0 ; unsigned int r_nprotect = 0; SEXP r_ans = R_NilValue ;
-  VMAXTYPE r_vmax = vmaxget() ; res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDescriptor, 0 |  0 );
+  double result;
+ OpenBabel::OBDescriptor *arg1 = (OpenBabel::OBDescriptor *) 0 ;
+
+  OpenBabel::OBBase *arg2 = (OpenBabel::OBBase *) 0 ;
+ std::string *arg3 = 0 ;
+ void *argp1 = 0 ;
+ int res1 = 0 ;
+ void *argp2 = 0 ;
+
+  int res2 = 0 ;
+ void *argp3 = 0 ;
+ int res3 = 0 ;
+ unsigned int r_nprotect = 0;
+ SEXP r_ans = R_NilValue ;
+
+  VMAXTYPE r_vmax = vmaxget() ;
+ res1 = SWIG_R_ConvertPtr(self, &argp1, SWIGTYPE_p_OpenBabel__OBDescriptor, 0 |  0 );
+
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDescriptor_GetStringValue" "', argument " "1"" of type '" "OpenBabel::OBDescriptor *""'");  }
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OBDescriptor_GetStringValue" "', argument " "1"" of type '" "OpenBabel::OBDescriptor *""'");
+  }
    arg1 = reinterpret_cast< OpenBabel::OBDescriptor * >(argp1);
-  res2 = SWIG_R_ConvertPtr(pOb, &argp2, SWIGTYPE_p_OpenBabel__OBBase, 0 |  0 ); if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OBDescriptor_GetStringValue" "', argument " "2"" of type '" "OpenBabel::OBBase *""'");  }
-   arg2 = reinterpret_cast< OpenBabel::OBBase * >(argp2); res3 = SWIG_R_ConvertPtr(svalue, &argp3, SWIGTYPE_p_std__string,  0 );
+
+  res2 = SWIG_R_ConvertPtr(pOb, &argp2, SWIGTYPE_p_OpenBabel__OBBase, 0 |  0 );
+ if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OBDescriptor_GetStringValue" "', argument " "2"" of type '" "OpenBabel::OBBase *""'");
+  }
+   arg2 = reinterpret_cast< OpenBabel::OBBase * >(argp2);
+ res3 = SWIG_R_ConvertPtr(svalue, &argp3, SWIGTYPE_p_std__string,  0 );
+
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "OBDescriptor_GetStringValue" "', argument " "3"" of type '" "std::string &""'");  }
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "OBDescriptor_GetStringValue" "', argument " "3"" of type '" "std::string &""'");
+  }
    if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OBDescriptor_GetStringValue" "', argument " "3"" of type '" "std::string &""'"); }
-   arg3 = reinterpret_cast< std::string * >(argp3); result = (double)(arg1)->GetStringValue(arg2,*arg3);
-  r_ans = SWIG_From_double(static_cast< double >(result)); vmaxset(r_vmax); if(r_nprotect)  Rf_unprotect(r_nprotect);
-  return r_ans; }
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OBDescriptor_GetStringValue" "', argument " "3"" of type '" "std::string &""'");
+ }
+   arg3 = reinterpret_cast< std::string * >(argp3);
+	printf("argp1: %p, arg1: %p, arg2: %p, arg3: %p\n",argp1,arg1,arg2,arg3);
+ result = (double)(arg1)->GetStringValue(arg2,*arg3);
+
+  r_ans = SWIG_From_double(static_cast< double >(result));
+ vmaxset(r_vmax);
+ if(r_nprotect)  Rf_unprotect(r_nprotect);
+
+  return r_ans;
+ }
 SWIGEXPORT SEXP R_swig_OBDescriptor_Compare__SWIG_0 ( SEXP self, SEXP pOb, SEXP ss, SEXP noEval, SEXP param, SEXP s_swig_copy) {
   bool result; OpenBabel::OBDescriptor *arg1 = (OpenBabel::OBDescriptor *) 0 ;
   OpenBabel::OBBase *arg2 = (OpenBabel::OBBase *) 0 ; std::istream *arg3 = 0 ; bool arg4 ;
