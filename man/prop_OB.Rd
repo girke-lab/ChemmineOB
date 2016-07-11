@@ -28,6 +28,8 @@ prop_OB(obmolRefs)
 }
 
 \examples{
-	molRefs = forEachMol("SMILES","C1CCCCC1\ttest-compound-name",identity)
-	prop_OB(molRefs)
+	\dontrun{ # remove when ubuntu 16.04 bug fixed
+		molRefs = forEachMol("SMILES","C1CCCCC1\ttest-compound-name",identity)
+		prop_OB(molRefs)
+	}
 }
