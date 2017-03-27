@@ -6,7 +6,7 @@
 \description{
 	Generates the following descriptors: 
   "cansmi", "cansmiNS", "formula", "HBA1", "HBA2", "HBD", "InChI", "InChIKey", 
-  "logP", "MR", "MW", "nF", "s", "smarts", "title", "TPSA".
+  "logP", "MR", "MW", "nF","title", "TPSA".
 }
 \usage{
 prop_OB(obmolRefs)
@@ -21,7 +21,7 @@ prop_OB(obmolRefs)
 \value{
 	Returns a data frame with the following OpenBabel descriptors:
   "cansmi", "cansmiNS", "formula", "HBA1", "HBA2", "HBD", "InChI", "InChIKey", 
-  "logP", "MR", "MW", "nF", "s", "smarts", "title", "TPSA".
+  "logP", "MR", "MW", "nF", "title", "TPSA".
 }
 \author{
 	Kevin Horan
