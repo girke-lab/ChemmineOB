@@ -3,6 +3,7 @@ import(zlibbioc,methods)
 
 export(
 	"convertFormat","convertFormatFile",
+	"convertToImage",
 	"prop_OB","fingerprint_OB","smartsSearch_OB",
 	"exactMass_OB","canonicalNumbering_OB",
 	"forEachMol"

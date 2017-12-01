@@ -50,6 +50,29 @@ convertFormatFile <- function(from,to,fromFile,toFile, options=data.frame(names=
 
 	closeOfstream(os)
 }
+convertToImage <- function(from,to,source,toFile,options=data.frame(names="gen2D",args=""),
+									out_options=data.frame(names=c("p"),args=c(300))){
+	
+	inStr = istreamFromString(source)
+	os= ostreamToFile(toFile)
+
+	conv = OBConversion(inStr,os)
+
+	if(!OBConversion_SetInAndOutFormats(conv,from,to))
+		stop("failed to set 'from' and
+			  'to' formats: ",from," ",to)
+
+	for(i in seq(to=nrow(options),length=nrow(options))){
+		OBConversion_AddOption(conv,as.character(options[i,1]),"GENOPTIONS",as.character(options[i,2]))
+	}
+	for(i in seq(to=nrow(out_options),length=nrow(out_options))){
+		OBConversion_AddOption(conv,as.character(out_options[i,1]),"OUTOPTIONS",as.character(out_options[i,2]))
+	}
+	#OBConversion_AddOption(conv,"gen2D","GENOPTIONS")
+	OBConversion_Convert(conv)
+
+	closeOfstream(os)
+}
 canonicalNumbering_OB <- function(obmolRefs) {
 
 	if(length(obmolRefs)==1)
