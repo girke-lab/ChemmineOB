@@ -74,8 +74,9 @@ packages can be installed from within R with the
 `biocLite` install script.
 
 ```{r eval=FALSE, tidy=FALSE}
-source("http://bioconductor.org/biocLite.R") 
-biocLite(c("ChemmineR", "ChemmineOB")) 
+if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+BiocManager::install(c("ChemmineR", "ChemmineOB")) 
 library("ChemmineR") 
 library("ChemmineOB") 
 ```
