@@ -53,8 +53,9 @@ Set up the following global environment variables: in control panel/system:
 
 Install the zlibbioc package. In R, do this:
 
-  source("http://bioconductor.org/biocLite.R")
-  biocLite("zlibbioc")
+  if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+  BiocManager::install("zlibbioc")
 
 Get the location of the zlib includes as follows (in R):
 

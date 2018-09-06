@@ -45,14 +45,14 @@ will include its own version of OpenBabel. The OpenBabel site
 (<http://openbabel.org/wiki/Get_Open_Babel>) provides excellent
 instructions for installing the OpenBabel software on Mac or Linux
 systems. The *ChemmineR* and *ChemmineOB*
-packages can be installed from within R with the
-`biocLite` install script.
+packages can be installed from within R with:
 
 ```{r eval=FALSE, tidy=FALSE}
-source("http://bioconductor.org/biocLite.R") 
-biocLite(c("ChemmineR", "ChemmineOB")) 
-library("ChemmineR") 
-library("ChemmineOB") 
+if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+BiocManager::install(c("ChemmineR", "ChemmineOB"))
+library("ChemmineR")
+library("ChemmineOB")
 ```
 
 
