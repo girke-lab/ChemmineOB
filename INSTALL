@@ -103,7 +103,7 @@ For x64 builds:
 ------------------
 Make sure "c:/Rtools/mingw_64/bin" in the system PATH and make sure that "c:/Rtools/mingw_32/bin" IS NOT IN the system PATH, 
 otherwise cmake will choose the 32 bit version over the 64 bit version
-Move into c:\openbabel_build\x64
+Move into c:\openbabel\build\x64
 
 Run: 
 
