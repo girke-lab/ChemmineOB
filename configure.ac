@@ -12,7 +12,7 @@ AS_IF([ test -n "$openbabel_include_path" ],
 			[ OPENBABEL_CFLAGS="-I${OPEN_BABEL_INCDIR}"],
 		[
 			AC_LANG_PUSH([C++])
-				 PKG_CHECK_MODULES([OPENBABEL],[openbabel-2.0],[],[A=2])
+				 PKG_CHECK_MODULES([OPENBABEL],[openbabel-3.0],[],[A=2])
 			AC_LANG_POP([C++])
 		]
 )
@@ -27,7 +27,7 @@ AS_IF([ test -n "$openbabel_lib_path" ],
 			[ OPENBABEL_LIBS="-L${OPEN_BABEL_LIBDIR} -lopenbabel"],
 		[
 			AC_LANG_PUSH([C++])
-				 PKG_CHECK_MODULES([OPENBABEL],[openbabel-2.0],[],[OPENBABEL_LIBS="-lopenbabel"])
+				 PKG_CHECK_MODULES([OPENBABEL],[openbabel-3.0],[],[OPENBABEL_LIBS="-lopenbabel"])
 			AC_LANG_POP([C++])
 		]
 )
