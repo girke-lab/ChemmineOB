@@ -79,7 +79,7 @@ canonicalNumbering_OB <- function(obmolRefs) {
 		obmolRefs=c(obmolRefs)
 
 	Map(function(mol){
-		.Call("canonicalReordering",mol,PACKAGE="ChemmineOB")
+		.Call("canonicalReordering",mol@ref,PACKAGE="ChemmineOB")
 	},obmolRefs)
 	
 }
@@ -132,8 +132,11 @@ fingerprint_OB <- function(obmolRefs, fingerprintName){
 
 	Reduce(rbind,Map(function(mol){
 		fp = vectorUnsignedInt(1)
+		#fp = numeric(1)
 
+		message("a")
 		OBFingerprint_GetFingerprint(fpHandle,mol,fp)
+		message("b")
 		if(numBits == -1)
 			numBits = vectorUnsignedInt_size(fp) * 4 * 8
 		row = unlist(Map(function(i){
