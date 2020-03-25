@@ -1,4 +1,4 @@
-debug =1
+debug =0
 library(ChemmineR)
 data(sdfsample)
 
@@ -36,14 +36,19 @@ test.fingerprintOB <-function(){
 
 test.smartsOB <- function(){
 	
+	message("start of smartsOB")
 	molRefs = forEachMol("SMI","C1CCCCC1\ncc1ccc1",identity)
 	molRefs = obmol(sdfsample)
 	x = smartsSearch_OB(molRefs,"[CH3X4]")
 	checkEquals(length(x[x>0]),80)
 
+	message("before smartsSearch_OB")
 	rotableBonds = smartsSearch_OB(molRefs[1:5],"[!$(*#*)&!D1]-!@[!$(*#*)&!D1]",uniqueMatches=FALSE)
+	message("rotable bonds:")
 	print(rotableBonds)
+	message("sdfid: ")
 	print(sdfid(sdfsample[1:5]))
+	message("checking equals...")
 	checkEquals(as.vector(rotableBonds[1:5]),c(24,20,14,30,10))
 }
 
@@ -86,4 +91,22 @@ test.canonicalLabels <- function() {
 										 39,36,35,43,44,41,42,31,20,21,13,14,28,26,10,11,
 										 45,51,52,53,54,1,56,59,60,61)[1:11])
 
+}
+test.formatConversions <- function(){
+	sdfFile = tempfile()
+	smiFile = tempfile()
+	write.SDF(sdfsample[1],sdfFile)
+	convertFormatFile("SDF","SMI",sdfFile,smiFile)
+	smi = read.SMIset(smiFile)
+	checkEquals(smi[[1]]@smiles,"O=C(NC1CCCC1)CN(c1cc2OCCOc2cc1)C(=O)CCC(=O)Nc1noc(c1)C")
+
+	pngFile = tempfile()
+	convertToImage("SMI","PNG",smi[[1]]@smiles,pngFile)
+	checkTrue(file.size(pngFile) > 0)
+}
+test.writeMols <- function(){
+	ref = obmol(sdfsample[1])
+	sdfFile = tempfile()
+	ChemmineOB:::writeMols(ref,sdfFile,"SDF")
+	checkTrue(file.size(sdfFile) > 0)
 }

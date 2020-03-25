@@ -162,6 +162,26 @@ function(fun, userData = NULL)
 
 
 setClass('C++Reference', contains = 'ExternalReference')
+setClass('_p_std__char_traitsT_char_t', contains = 'ExternalReference')
+setClass("std::char_traits<(char)>",
+    representation(
+),
+        contains = "RSWIGStruct")
+
+
+# End class std::char_traits<(char)>
+
+setClass('_p_std__ios_base', contains = 'C++Reference')
+setClass('_p_f_enum_std__ios_base__event_r_std__ios_base_int__void',
+        prototype = list(parameterTypes = c('_std__ios_base__event', '_p_std__ios_base', '_int'),
+                        returnType = '_p_f_enum_std__ios_base__event_r_std__ios_base_int__void'),
+        contains = 'CRoutinePointer')
+
+##
+setClass('_p_std__basic_iosT_char_std__char_traitsT_char_t_t', contains = c('_p_std__ios_base'))
+setClass('_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t', contains = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t'))
+setClass('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', contains = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t'))
+setClass('_p_std__basic_iostreamT_char_std__char_traitsT_char_t_t', contains = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'))
 setClass('_p_stringp', contains = 'ExternalReference')
 setClass("stringp",
     representation(
@@ -254,11 +274,6 @@ setClass("OpenBabel::CharPtrLess",
 
 setClass('_p_OpenBabel__OBPlugin', contains = 'C++Reference')
 setClass('_p_std__stringbuf', contains = 'C++Reference')
-
-setClass('_p_std__istream', contains = 'C++Reference')
-setClass('_p_std__ostream', contains = 'C++Reference')
-setClass('_p_std__string', contains = 'C++Reference')
-
 setClass('_p_OpenBabel__OBError', contains = 'C++Reference')
 setClass('_p_OpenBabel__OBMessageHandler', contains = 'C++Reference')
 setClass('_p_OpenBabel__obLogBuf', contains = c('_p_std__stringbuf'))
@@ -435,6 +450,1066 @@ function(from) {if (!is.null(from$"__str__")) from$"__str__"()})
 suppressMessages(suppressWarnings(setMethod('print', 'ExternalReference',
 function(x) {print(as(x, "character"))})))
 
+# Start definition of copy functions & methods for std::char_traits<(char)>
+CopyToR_std__char_traitsT_char_t = function(value, obj = new("std::char_traits<(char)>")) { obj; }
+CopyToC_std__char_traitsT_char_t = function(value, obj) { obj }
+# Start definition of copy methods for std::char_traits<(char)>
+setMethod('copyToR', '_p_std::char_traits<(char)>', CopyToR_std__char_traitsT_char_t);
+setMethod('copyToC', 'std::char_traits<(char)>', CopyToC_std__char_traitsT_char_t);
+
+# End definition of copy methods for std::char_traits<(char)>
+# End definition of copy functions & methods for std::char_traits<(char)>
+# Start of ios_base_boolalpha_get
+`ios_base_boolalpha_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_boolalpha_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_boolalpha_get`, 'returnType') = 'integer'
+class(`ios_base_boolalpha_get`) = c("SWIGFunction", class('ios_base_boolalpha_get'))
+
+ios_base_boolalpha = ios_base_boolalpha_get
+# Start of ios_base_dec_get
+`ios_base_dec_get` = function(.copy = FALSE) { ;.Call('R_swig_ios_base_dec_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_dec_get`, 'returnType') = 'integer'
+class(`ios_base_dec_get`) = c("SWIGFunction", class('ios_base_dec_get'))
+
+ios_base_dec = ios_base_dec_get
+# Start of ios_base_fixed_get
+`ios_base_fixed_get` = function(.copy = FALSE) { ;.Call('R_swig_ios_base_fixed_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_fixed_get`, 'returnType') = 'integer'
+class(`ios_base_fixed_get`) = c("SWIGFunction", class('ios_base_fixed_get'))
+
+ios_base_fixed = ios_base_fixed_get
+# Start of ios_base_hex_get
+`ios_base_hex_get` = function(.copy = FALSE) { ;.Call('R_swig_ios_base_hex_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_hex_get`, 'returnType') = 'integer'
+class(`ios_base_hex_get`) = c("SWIGFunction", class('ios_base_hex_get'))
+
+ios_base_hex = ios_base_hex_get
+# Start of ios_base_internal_get
+`ios_base_internal_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_internal_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_internal_get`, 'returnType') = 'integer'
+class(`ios_base_internal_get`) = c("SWIGFunction", class('ios_base_internal_get'))
+
+ios_base_internal = ios_base_internal_get
+# Start of ios_base_left_get
+`ios_base_left_get` = function(.copy = FALSE) { ;.Call('R_swig_ios_base_left_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_left_get`, 'returnType') = 'integer'
+class(`ios_base_left_get`) = c("SWIGFunction", class('ios_base_left_get'))
+
+ios_base_left = ios_base_left_get
+# Start of ios_base_oct_get
+`ios_base_oct_get` = function(.copy = FALSE) { ;.Call('R_swig_ios_base_oct_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_oct_get`, 'returnType') = 'integer'
+class(`ios_base_oct_get`) = c("SWIGFunction", class('ios_base_oct_get'))
+
+ios_base_oct = ios_base_oct_get
+# Start of ios_base_right_get
+`ios_base_right_get` = function(.copy = FALSE) { ;.Call('R_swig_ios_base_right_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_right_get`, 'returnType') = 'integer'
+class(`ios_base_right_get`) = c("SWIGFunction", class('ios_base_right_get'))
+
+ios_base_right = ios_base_right_get
+# Start of ios_base_scientific_get
+`ios_base_scientific_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_scientific_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_scientific_get`, 'returnType') = 'integer'
+class(`ios_base_scientific_get`) = c("SWIGFunction", class('ios_base_scientific_get'))
+
+ios_base_scientific = ios_base_scientific_get
+# Start of ios_base_showbase_get
+`ios_base_showbase_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_showbase_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_showbase_get`, 'returnType') = 'integer'
+class(`ios_base_showbase_get`) = c("SWIGFunction", class('ios_base_showbase_get'))
+
+ios_base_showbase = ios_base_showbase_get
+# Start of ios_base_showpoint_get
+`ios_base_showpoint_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_showpoint_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_showpoint_get`, 'returnType') = 'integer'
+class(`ios_base_showpoint_get`) = c("SWIGFunction", class('ios_base_showpoint_get'))
+
+ios_base_showpoint = ios_base_showpoint_get
+# Start of ios_base_showpos_get
+`ios_base_showpos_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_showpos_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_showpos_get`, 'returnType') = 'integer'
+class(`ios_base_showpos_get`) = c("SWIGFunction", class('ios_base_showpos_get'))
+
+ios_base_showpos = ios_base_showpos_get
+# Start of ios_base_skipws_get
+`ios_base_skipws_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_skipws_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_skipws_get`, 'returnType') = 'integer'
+class(`ios_base_skipws_get`) = c("SWIGFunction", class('ios_base_skipws_get'))
+
+ios_base_skipws = ios_base_skipws_get
+# Start of ios_base_unitbuf_get
+`ios_base_unitbuf_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_unitbuf_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_unitbuf_get`, 'returnType') = 'integer'
+class(`ios_base_unitbuf_get`) = c("SWIGFunction", class('ios_base_unitbuf_get'))
+
+ios_base_unitbuf = ios_base_unitbuf_get
+# Start of ios_base_uppercase_get
+`ios_base_uppercase_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_uppercase_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_uppercase_get`, 'returnType') = 'integer'
+class(`ios_base_uppercase_get`) = c("SWIGFunction", class('ios_base_uppercase_get'))
+
+ios_base_uppercase = ios_base_uppercase_get
+# Start of ios_base_adjustfield_get
+`ios_base_adjustfield_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_adjustfield_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_adjustfield_get`, 'returnType') = 'integer'
+class(`ios_base_adjustfield_get`) = c("SWIGFunction", class('ios_base_adjustfield_get'))
+
+ios_base_adjustfield = ios_base_adjustfield_get
+# Start of ios_base_basefield_get
+`ios_base_basefield_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_basefield_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_basefield_get`, 'returnType') = 'integer'
+class(`ios_base_basefield_get`) = c("SWIGFunction", class('ios_base_basefield_get'))
+
+ios_base_basefield = ios_base_basefield_get
+# Start of ios_base_floatfield_get
+`ios_base_floatfield_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_floatfield_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_floatfield_get`, 'returnType') = 'integer'
+class(`ios_base_floatfield_get`) = c("SWIGFunction", class('ios_base_floatfield_get'))
+
+ios_base_floatfield = ios_base_floatfield_get
+# Start of ios_base_badbit_get
+`ios_base_badbit_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_badbit_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_badbit_get`, 'returnType') = 'integer'
+class(`ios_base_badbit_get`) = c("SWIGFunction", class('ios_base_badbit_get'))
+
+ios_base_badbit = ios_base_badbit_get
+# Start of ios_base_eofbit_get
+`ios_base_eofbit_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_eofbit_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_eofbit_get`, 'returnType') = 'integer'
+class(`ios_base_eofbit_get`) = c("SWIGFunction", class('ios_base_eofbit_get'))
+
+ios_base_eofbit = ios_base_eofbit_get
+# Start of ios_base_failbit_get
+`ios_base_failbit_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_failbit_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_failbit_get`, 'returnType') = 'integer'
+class(`ios_base_failbit_get`) = c("SWIGFunction", class('ios_base_failbit_get'))
+
+ios_base_failbit = ios_base_failbit_get
+# Start of ios_base_goodbit_get
+`ios_base_goodbit_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_goodbit_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_goodbit_get`, 'returnType') = 'integer'
+class(`ios_base_goodbit_get`) = c("SWIGFunction", class('ios_base_goodbit_get'))
+
+ios_base_goodbit = ios_base_goodbit_get
+# Start of ios_base_app_get
+`ios_base_app_get` = function(.copy = FALSE) { ;.Call('R_swig_ios_base_app_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_app_get`, 'returnType') = 'integer'
+class(`ios_base_app_get`) = c("SWIGFunction", class('ios_base_app_get'))
+
+ios_base_app = ios_base_app_get
+# Start of ios_base_ate_get
+`ios_base_ate_get` = function(.copy = FALSE) { ;.Call('R_swig_ios_base_ate_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_ate_get`, 'returnType') = 'integer'
+class(`ios_base_ate_get`) = c("SWIGFunction", class('ios_base_ate_get'))
+
+ios_base_ate = ios_base_ate_get
+# Start of ios_base_binary_get
+`ios_base_binary_get` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_binary_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_binary_get`, 'returnType') = 'integer'
+class(`ios_base_binary_get`) = c("SWIGFunction", class('ios_base_binary_get'))
+
+ios_base_binary = ios_base_binary_get
+# Start of ios_base__in_get
+`ios_base__in_get` = function(.copy = FALSE) { ;.Call('R_swig_ios_base__in_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base__in_get`, 'returnType') = 'integer'
+class(`ios_base__in_get`) = c("SWIGFunction", class('ios_base__in_get'))
+
+ios_base__in = ios_base__in_get
+# Start of ios_base_out_get
+`ios_base_out_get` = function(.copy = FALSE) { ;.Call('R_swig_ios_base_out_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_out_get`, 'returnType') = 'integer'
+class(`ios_base_out_get`) = c("SWIGFunction", class('ios_base_out_get'))
+
+ios_base_out = ios_base_out_get
+# Start of ios_base_trunc_get
+`ios_base_trunc_get` = function(.copy = FALSE) { ;.Call('R_swig_ios_base_trunc_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_trunc_get`, 'returnType') = 'integer'
+class(`ios_base_trunc_get`) = c("SWIGFunction", class('ios_base_trunc_get'))
+
+ios_base_trunc = ios_base_trunc_get
+# Start of ios_base_beg_get
+`ios_base_beg_get` = function(.copy = FALSE) { ;.Call('R_swig_ios_base_beg_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_beg_get`, 'returnType') = 'integer'
+class(`ios_base_beg_get`) = c("SWIGFunction", class('ios_base_beg_get'))
+
+ios_base_beg = ios_base_beg_get
+# Start of ios_base_cur_get
+`ios_base_cur_get` = function(.copy = FALSE) { ;.Call('R_swig_ios_base_cur_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_cur_get`, 'returnType') = 'integer'
+class(`ios_base_cur_get`) = c("SWIGFunction", class('ios_base_cur_get'))
+
+ios_base_cur = ios_base_cur_get
+# Start of ios_base_end_get
+`ios_base_end_get` = function(.copy = FALSE) { ;.Call('R_swig_ios_base_end_get', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_end_get`, 'returnType') = 'integer'
+class(`ios_base_end_get`) = c("SWIGFunction", class('ios_base_end_get'))
+
+ios_base_end = ios_base_end_get
+# Start of ios_base_erase_event_get
+`ios_base_erase_event_get` = function(.copy = FALSE) {
+  ;ans = .Call('R_swig_ios_base_erase_event_get', as.logical(.copy), PACKAGE='ChemmineOB');
+  ans = enumFromInteger(ans, "_std__ios_base__event"); ans }
+attr(`ios_base_erase_event_get`, 'returnType') = 'character'
+class(`ios_base_erase_event_get`) = c("SWIGFunction", class('ios_base_erase_event_get'))
+
+# Start of ios_base_imbue_event_get
+`ios_base_imbue_event_get` = function(.copy = FALSE) {
+  ;ans = .Call('R_swig_ios_base_imbue_event_get', as.logical(.copy), PACKAGE='ChemmineOB');
+  ans = enumFromInteger(ans, "_std__ios_base__event"); ans }
+attr(`ios_base_imbue_event_get`, 'returnType') = 'character'
+class(`ios_base_imbue_event_get`) = c("SWIGFunction", class('ios_base_imbue_event_get'))
+
+# Start of ios_base_copyfmt_event_get
+`ios_base_copyfmt_event_get` = function(.copy = FALSE) {
+  ;ans = .Call('R_swig_ios_base_copyfmt_event_get', as.logical(.copy), PACKAGE='ChemmineOB');
+  ans = enumFromInteger(ans, "_std__ios_base__event"); ans }
+attr(`ios_base_copyfmt_event_get`, 'returnType') = 'character'
+class(`ios_base_copyfmt_event_get`) = c("SWIGFunction", class('ios_base_copyfmt_event_get'))
+
+# Start of ios_base_register_callback
+`ios_base_register_callback` = function(self, s__fn, s__index) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  if (inherits(s__fn, "ExternalReference")) s__fn = slot(s__fn,"ref");  s__index = as.integer(s__index);
+  if(length(s__index) > 1) { warning("using only the first element of s__index"); } ;
+  ;.Call('R_swig_ios_base_register_callback', self, s__fn, s__index, PACKAGE='ChemmineOB'); }
+attr(`ios_base_register_callback`, 'returnType') = 'void'
+attr(`ios_base_register_callback`, "inputTypes") = c('_p_std__ios_base', '_p_f_enum_std__ios_base__event_r_std__ios_base_int__void', 'integer')
+class(`ios_base_register_callback`) = c("SWIGFunction", class('ios_base_register_callback'))
+
+# Start of ios_base_flags
+`ios_base_flags__SWIG_0` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_ios_base_flags__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_flags__SWIG_0`, 'returnType') = 'integer'
+attr(`ios_base_flags__SWIG_0`, "inputTypes") = c('_p_std__ios_base')
+class(`ios_base_flags__SWIG_0`) = c("SWIGFunction", class('ios_base_flags__SWIG_0'))
+
+# Start of ios_base_flags
+`ios_base_flags__SWIG_1` = function(self, s__fmtfl, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref");  s__fmtfl = as.integer(s__fmtfl); if(length(s__fmtfl) > 1) {
+    warning("using only the first element of s__fmtfl"); } ;
+  ;.Call('R_swig_ios_base_flags__SWIG_1', self, s__fmtfl, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_flags__SWIG_1`, 'returnType') = 'integer'
+attr(`ios_base_flags__SWIG_1`, "inputTypes") = c('_p_std__ios_base', 'integer')
+class(`ios_base_flags__SWIG_1`) = c("SWIGFunction", class('ios_base_flags__SWIG_1'))
+
+`ios_base_flags` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if ((extends(argtypes[1], '_p_std__ios_base') || is.null(argv[[1]]))) { f <- ios_base_flags__SWIG_0; }  }
+   else if (argc == 2) {
+    if ((extends(argtypes[1], '_p_std__ios_base') || is.null(argv[[1]])) && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
+      f <- ios_base_flags__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for ios_base_flags with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of ios_base_setf
+`ios_base_setf__SWIG_0` = function(self, s__fmtfl, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref");  s__fmtfl = as.integer(s__fmtfl); if(length(s__fmtfl) > 1) {
+    warning("using only the first element of s__fmtfl"); } ;
+  ;.Call('R_swig_ios_base_setf__SWIG_0', self, s__fmtfl, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_setf__SWIG_0`, 'returnType') = 'integer'
+attr(`ios_base_setf__SWIG_0`, "inputTypes") = c('_p_std__ios_base', 'integer')
+class(`ios_base_setf__SWIG_0`) = c("SWIGFunction", class('ios_base_setf__SWIG_0'))
+
+# Start of ios_base_setf
+`ios_base_setf__SWIG_1` = function(self, s__fmtfl, s__mask, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref");  s__fmtfl = as.integer(s__fmtfl); if(length(s__fmtfl) > 1) {
+    warning("using only the first element of s__fmtfl"); } ; s__mask = as.integer(s__mask); if(length(s__mask) > 1) {
+    warning("using only the first element of s__mask"); } ;
+  ;.Call('R_swig_ios_base_setf__SWIG_1', self, s__fmtfl, s__mask, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_setf__SWIG_1`, 'returnType') = 'integer'
+attr(`ios_base_setf__SWIG_1`, "inputTypes") = c('_p_std__ios_base', 'integer', 'integer')
+class(`ios_base_setf__SWIG_1`) = c("SWIGFunction", class('ios_base_setf__SWIG_1'))
+
+`ios_base_setf` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 2) {
+    if ((extends(argtypes[1], '_p_std__ios_base') || is.null(argv[[1]])) && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
+      f <- ios_base_setf__SWIG_0; }  }  else if (argc == 3) {
+    if ((extends(argtypes[1], '_p_std__ios_base') || is.null(argv[[1]])) && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 )) {
+      f <- ios_base_setf__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for ios_base_setf with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of ios_base_unsetf
+`ios_base_unsetf` = function(self, s__mask) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  s__mask = as.integer(s__mask); if(length(s__mask) > 1) { warning("using only the first element of s__mask"); } ;
+  ;.Call('R_swig_ios_base_unsetf', self, s__mask, PACKAGE='ChemmineOB'); }
+attr(`ios_base_unsetf`, 'returnType') = 'void'
+attr(`ios_base_unsetf`, "inputTypes") = c('_p_std__ios_base', 'integer')
+class(`ios_base_unsetf`) = c("SWIGFunction", class('ios_base_unsetf'))
+
+# Start of ios_base_precision
+`ios_base_precision__SWIG_0` = function(self, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_ios_base_precision__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_precision__SWIG_0`, 'returnType') = 'integer'
+attr(`ios_base_precision__SWIG_0`, "inputTypes") = c('_p_std__ios_base')
+class(`ios_base_precision__SWIG_0`) = c("SWIGFunction", class('ios_base_precision__SWIG_0'))
+
+# Start of ios_base_precision
+`ios_base_precision__SWIG_1` = function(self, s__prec, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref");  s__prec = as.integer(s__prec); if(length(s__prec) > 1) {
+    warning("using only the first element of s__prec"); } ;
+  ;.Call('R_swig_ios_base_precision__SWIG_1', self, s__prec, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_precision__SWIG_1`, 'returnType') = 'integer'
+attr(`ios_base_precision__SWIG_1`, "inputTypes") = c('_p_std__ios_base', 'integer')
+class(`ios_base_precision__SWIG_1`) = c("SWIGFunction", class('ios_base_precision__SWIG_1'))
+
+`ios_base_precision` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if ((extends(argtypes[1], '_p_std__ios_base') || is.null(argv[[1]]))) { f <- ios_base_precision__SWIG_0; }  }
+   else if (argc == 2) {
+    if ((extends(argtypes[1], '_p_std__ios_base') || is.null(argv[[1]])) && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
+      f <- ios_base_precision__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for ios_base_precision with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of ios_base_width
+`ios_base_width__SWIG_0` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_ios_base_width__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_width__SWIG_0`, 'returnType') = 'integer'
+attr(`ios_base_width__SWIG_0`, "inputTypes") = c('_p_std__ios_base')
+class(`ios_base_width__SWIG_0`) = c("SWIGFunction", class('ios_base_width__SWIG_0'))
+
+# Start of ios_base_width
+`ios_base_width__SWIG_1` = function(self, s__wide, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref");  s__wide = as.integer(s__wide); if(length(s__wide) > 1) {
+    warning("using only the first element of s__wide"); } ;
+  ;.Call('R_swig_ios_base_width__SWIG_1', self, s__wide, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_width__SWIG_1`, 'returnType') = 'integer'
+attr(`ios_base_width__SWIG_1`, "inputTypes") = c('_p_std__ios_base', 'integer')
+class(`ios_base_width__SWIG_1`) = c("SWIGFunction", class('ios_base_width__SWIG_1'))
+
+`ios_base_width` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if ((extends(argtypes[1], '_p_std__ios_base') || is.null(argv[[1]]))) { f <- ios_base_width__SWIG_0; }  }
+   else if (argc == 2) {
+    if ((extends(argtypes[1], '_p_std__ios_base') || is.null(argv[[1]])) && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
+      f <- ios_base_width__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for ios_base_width with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of ios_base_sync_with_stdio
+`ios_base_sync_with_stdio__SWIG_0` = function(s__sync, .copy = FALSE) { s__sync = as.logical(s__sync);
+  ;.Call('R_swig_ios_base_sync_with_stdio__SWIG_0', s__sync, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_sync_with_stdio__SWIG_0`, 'returnType') = 'logical'
+attr(`ios_base_sync_with_stdio__SWIG_0`, "inputTypes") = c('logical')
+class(`ios_base_sync_with_stdio__SWIG_0`) = c("SWIGFunction", class('ios_base_sync_with_stdio__SWIG_0'))
+
+# Start of ios_base_sync_with_stdio
+`ios_base_sync_with_stdio__SWIG_1` = function(.copy = FALSE) {
+  ;.Call('R_swig_ios_base_sync_with_stdio__SWIG_1', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_sync_with_stdio__SWIG_1`, 'returnType') = 'logical'
+class(`ios_base_sync_with_stdio__SWIG_1`) = c("SWIGFunction", class('ios_base_sync_with_stdio__SWIG_1'))
+
+`ios_base_sync_with_stdio` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 0) { f <- ios_base_sync_with_stdio__SWIG_1; }  else if (argc == 1) {
+    if (( is.logical(argv[[1]]) && length(argv[[1]]) == 1 )) { f <- ios_base_sync_with_stdio__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for ios_base_sync_with_stdio with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of ios_base_imbue
+`ios_base_imbue` = function(self, s__loc, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  if (inherits(s__loc, "ExternalReference")) s__loc = slot(s__loc,"ref"); 
+  ;ans = .Call('R_swig_ios_base_imbue', self, s__loc, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__locale", ref=ans); ans }
+attr(`ios_base_imbue`, 'returnType') = '_p_std__locale'
+attr(`ios_base_imbue`, "inputTypes") = c('_p_std__ios_base', '_p_std__locale')
+class(`ios_base_imbue`) = c("SWIGFunction", class('ios_base_imbue'))
+
+# Start of ios_base_getloc
+`ios_base_getloc` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;ans = .Call('R_swig_ios_base_getloc', self, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__locale", ref=ans); ans }
+attr(`ios_base_getloc`, 'returnType') = '_p_std__locale'
+attr(`ios_base_getloc`, "inputTypes") = c('_p_std__ios_base')
+class(`ios_base_getloc`) = c("SWIGFunction", class('ios_base_getloc'))
+
+# Start of ios_base_xalloc
+`ios_base_xalloc` = function(.copy = FALSE) { ;.Call('R_swig_ios_base_xalloc', as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_xalloc`, 'returnType') = 'integer'
+class(`ios_base_xalloc`) = c("SWIGFunction", class('ios_base_xalloc'))
+
+# Start of ios_base_iword
+`ios_base_iword` = function(self, s__ix, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  s__ix = as.integer(s__ix); if(length(s__ix) > 1) { warning("using only the first element of s__ix"); } ;
+  ;.Call('R_swig_ios_base_iword', self, s__ix, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_base_iword`, 'returnType') = 'integer'
+attr(`ios_base_iword`, "inputTypes") = c('_p_std__ios_base', 'integer')
+class(`ios_base_iword`) = c("SWIGFunction", class('ios_base_iword'))
+
+# Start of ios_base_pword
+`ios_base_pword` = function(self, s__ix, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  s__ix = as.integer(s__ix); if(length(s__ix) > 1) { warning("using only the first element of s__ix"); } ;
+  ;ans = .Call('R_swig_ios_base_pword', self, s__ix, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_p_void", ref=ans); ans }
+attr(`ios_base_pword`, 'returnType') = '_p_p_void'
+attr(`ios_base_pword`, "inputTypes") = c('_p_std__ios_base', 'integer')
+class(`ios_base_pword`) = c("SWIGFunction", class('ios_base_pword'))
+
+# Start of delete_ios_base
+`delete_ios_base` = function(self) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_delete_ios_base', self, PACKAGE='ChemmineOB'); }
+attr(`delete_ios_base`, 'returnType') = 'void'
+attr(`delete_ios_base`, "inputTypes") = c('_p_std__ios_base')
+class(`delete_ios_base`) = c("SWIGFunction", class('delete_ios_base'))
+
+# Start of accessor method for std::ios_base
+setMethod('$', '_p_std__ios_base', function(x, name) {
+  accessorFuns = list('register_callback' = ios_base_register_callback, 'flags' = ios_base_flags, 'setf' = ios_base_setf, 'unsetf' = ios_base_unsetf, 'precision' = ios_base_precision, 'width' = ios_base_width, 'imbue' = ios_base_imbue, 'getloc' = ios_base_getloc, 'iword' = ios_base_iword, 'pword' = ios_base_pword);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for std::ios_base
+setMethod('delete', '_p_std__ios_base', function(obj) {delete_std__ios_base(obj)})
+# Start of ios_rdstate
+`ios_rdstate` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_ios_rdstate', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_rdstate`, 'returnType') = 'integer'
+attr(`ios_rdstate`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t')
+class(`ios_rdstate`) = c("SWIGFunction", class('ios_rdstate'))
+
+# Start of ios_clear
+`ios_clear__SWIG_0` = function(self, s__state) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  s__state = as.integer(s__state); if(length(s__state) > 1) { warning("using only the first element of s__state"); } ;
+  ;.Call('R_swig_ios_clear__SWIG_0', self, s__state, PACKAGE='ChemmineOB'); }
+attr(`ios_clear__SWIG_0`, 'returnType') = 'void'
+attr(`ios_clear__SWIG_0`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t', 'integer')
+class(`ios_clear__SWIG_0`) = c("SWIGFunction", class('ios_clear__SWIG_0'))
+
+# Start of ios_clear
+`ios_clear__SWIG_1` = function(self) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_ios_clear__SWIG_1', self, PACKAGE='ChemmineOB'); }
+attr(`ios_clear__SWIG_1`, 'returnType') = 'void'
+attr(`ios_clear__SWIG_1`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t')
+class(`ios_clear__SWIG_1`) = c("SWIGFunction", class('ios_clear__SWIG_1'))
+
+`ios_clear` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if ((extends(argtypes[1], '_p_std__basic_iosT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]]))) {
+      f <- ios_clear__SWIG_1; }  }  else if (argc == 2) {
+    if ((extends(argtypes[1], '_p_std__basic_iosT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
+      f <- ios_clear__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for ios_clear with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of ios_setstate
+`ios_setstate` = function(self, s__state) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  s__state = as.integer(s__state); if(length(s__state) > 1) { warning("using only the first element of s__state"); } ;
+  ;.Call('R_swig_ios_setstate', self, s__state, PACKAGE='ChemmineOB'); }
+attr(`ios_setstate`, 'returnType') = 'void'
+attr(`ios_setstate`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t', 'integer')
+class(`ios_setstate`) = c("SWIGFunction", class('ios_setstate'))
+
+# Start of ios_good
+`ios_good` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_ios_good', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_good`, 'returnType') = 'logical'
+attr(`ios_good`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t')
+class(`ios_good`) = c("SWIGFunction", class('ios_good'))
+
+# Start of ios_eof
+`ios_eof` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_ios_eof', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_eof`, 'returnType') = 'logical'
+attr(`ios_eof`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t')
+class(`ios_eof`) = c("SWIGFunction", class('ios_eof'))
+
+# Start of ios_fail
+`ios_fail` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_ios_fail', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_fail`, 'returnType') = 'logical'
+attr(`ios_fail`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t')
+class(`ios_fail`) = c("SWIGFunction", class('ios_fail'))
+
+# Start of ios_bad
+`ios_bad` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_ios_bad', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_bad`, 'returnType') = 'logical'
+attr(`ios_bad`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t')
+class(`ios_bad`) = c("SWIGFunction", class('ios_bad'))
+
+# Start of ios_exceptions
+`ios_exceptions__SWIG_0` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_ios_exceptions__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_exceptions__SWIG_0`, 'returnType') = 'integer'
+attr(`ios_exceptions__SWIG_0`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t')
+class(`ios_exceptions__SWIG_0`) = c("SWIGFunction", class('ios_exceptions__SWIG_0'))
+
+# Start of ios_exceptions
+`ios_exceptions__SWIG_1` = function(self, s__except) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  s__except = as.integer(s__except); if(length(s__except) > 1) { warning("using only the first element of s__except"); } ;
+  ;.Call('R_swig_ios_exceptions__SWIG_1', self, s__except, PACKAGE='ChemmineOB'); }
+attr(`ios_exceptions__SWIG_1`, 'returnType') = 'void'
+attr(`ios_exceptions__SWIG_1`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t', 'integer')
+class(`ios_exceptions__SWIG_1`) = c("SWIGFunction", class('ios_exceptions__SWIG_1'))
+
+`ios_exceptions` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if ((extends(argtypes[1], '_p_std__basic_iosT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]]))) {
+      f <- ios_exceptions__SWIG_0; }  }  else if (argc == 2) {
+    if ((extends(argtypes[1], '_p_std__basic_iosT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
+      f <- ios_exceptions__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for ios_exceptions with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of new_ios
+`ios` = function(s__sb) { if (inherits(s__sb, "ExternalReference")) s__sb = slot(s__sb,"ref"); 
+  ;ans = .Call('R_swig_new_ios', s__sb, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_iosT_char_std__char_traitsT_char_t_t", ref=ans); reg.finalizer(ans@ref, delete_ios); ans }
+attr(`ios`, 'returnType') = '_p_std__basic_iosT_char_std__char_traitsT_char_t_t'
+attr(`ios`, "inputTypes") = c('_p_std__basic_streambufT_char_std__char_traitsT_char_t_t')
+class(`ios`) = c("SWIGFunction", class('ios'))
+
+# Start of delete_ios
+`delete_ios` = function(self) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_delete_ios', self, PACKAGE='ChemmineOB'); }
+attr(`delete_ios`, 'returnType') = 'void'
+attr(`delete_ios`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t')
+class(`delete_ios`) = c("SWIGFunction", class('delete_ios'))
+
+# Start of ios_tie
+`ios_tie__SWIG_0` = function(self) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;ans = .Call('R_swig_ios_tie__SWIG_0', self, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`ios_tie__SWIG_0`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
+attr(`ios_tie__SWIG_0`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t')
+class(`ios_tie__SWIG_0`) = c("SWIGFunction", class('ios_tie__SWIG_0'))
+
+# Start of ios_tie
+`ios_tie__SWIG_1` = function(self, s__tiestr) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  if (inherits(s__tiestr, "ExternalReference")) s__tiestr = slot(s__tiestr,"ref"); 
+  ;ans = .Call('R_swig_ios_tie__SWIG_1', self, s__tiestr, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`ios_tie__SWIG_1`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
+attr(`ios_tie__SWIG_1`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
+class(`ios_tie__SWIG_1`) = c("SWIGFunction", class('ios_tie__SWIG_1'))
+
+`ios_tie` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if ((extends(argtypes[1], '_p_std__basic_iosT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]]))) {
+      f <- ios_tie__SWIG_0; }  }  else if (argc == 2) {
+    if ((extends(argtypes[1], '_p_std__basic_iosT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[2]]))) {
+      f <- ios_tie__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for ios_tie with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of ios_rdbuf
+`ios_rdbuf__SWIG_0` = function(self) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;ans = .Call('R_swig_ios_rdbuf__SWIG_0', self, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_streambufT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`ios_rdbuf__SWIG_0`, 'returnType') = '_p_std__basic_streambufT_char_std__char_traitsT_char_t_t'
+attr(`ios_rdbuf__SWIG_0`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t')
+class(`ios_rdbuf__SWIG_0`) = c("SWIGFunction", class('ios_rdbuf__SWIG_0'))
+
+# Start of ios_rdbuf
+`ios_rdbuf__SWIG_1` = function(self, s__sb) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  if (inherits(s__sb, "ExternalReference")) s__sb = slot(s__sb,"ref"); 
+  ;ans = .Call('R_swig_ios_rdbuf__SWIG_1', self, s__sb, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_streambufT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`ios_rdbuf__SWIG_1`, 'returnType') = '_p_std__basic_streambufT_char_std__char_traitsT_char_t_t'
+attr(`ios_rdbuf__SWIG_1`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t', '_p_std__basic_streambufT_char_std__char_traitsT_char_t_t')
+class(`ios_rdbuf__SWIG_1`) = c("SWIGFunction", class('ios_rdbuf__SWIG_1'))
+
+`ios_rdbuf` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if ((extends(argtypes[1], '_p_std__basic_iosT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]]))) {
+      f <- ios_rdbuf__SWIG_0; }  }  else if (argc == 2) {
+    if ((extends(argtypes[1], '_p_std__basic_iosT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__basic_streambufT_char_std__char_traitsT_char_t_t') || is.null(argv[[2]]))) {
+      f <- ios_rdbuf__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for ios_rdbuf with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of ios_copyfmt
+`ios_copyfmt` = function(self, s__rhs, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  if (inherits(s__rhs, "ExternalReference")) s__rhs = slot(s__rhs,"ref"); 
+  ;ans = .Call('R_swig_ios_copyfmt', self, s__rhs, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_iosT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`ios_copyfmt`, 'returnType') = '_p_std__basic_iosT_char_std__char_traitsT_char_t_t'
+attr(`ios_copyfmt`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t', '_p_std__basic_iosT_char_std__char_traitsT_char_t_t')
+class(`ios_copyfmt`) = c("SWIGFunction", class('ios_copyfmt'))
+
+# Start of ios_fill
+`ios_fill__SWIG_0` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_ios_fill__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_fill__SWIG_0`, 'returnType') = 'character'
+attr(`ios_fill__SWIG_0`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t')
+class(`ios_fill__SWIG_0`) = c("SWIGFunction", class('ios_fill__SWIG_0'))
+
+# Start of ios_fill
+`ios_fill__SWIG_1` = function(self, s__ch, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  s__ch = as(s__ch, "character");     
+  ;.Call('R_swig_ios_fill__SWIG_1', self, s__ch, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_fill__SWIG_1`, 'returnType') = 'character'
+attr(`ios_fill__SWIG_1`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t', 'character')
+class(`ios_fill__SWIG_1`) = c("SWIGFunction", class('ios_fill__SWIG_1'))
+
+`ios_fill` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 1) { if ((extends(argtypes[1], '_p_std__basic_iosT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]]))) {
+      f <- ios_fill__SWIG_0; }  }  else if (argc == 2) {
+    if ((extends(argtypes[1], '_p_std__basic_iosT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && is.character(argv[[2]]) && length(argv[[2]]) == 1) {
+      f <- ios_fill__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for ios_fill with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of ios_imbue
+`ios_imbue` = function(self, s__loc, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  if (inherits(s__loc, "ExternalReference")) s__loc = slot(s__loc,"ref"); 
+  ;ans = .Call('R_swig_ios_imbue', self, s__loc, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__locale", ref=ans); ans }
+attr(`ios_imbue`, 'returnType') = '_p_std__locale'
+attr(`ios_imbue`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t', '_p_std__locale')
+class(`ios_imbue`) = c("SWIGFunction", class('ios_imbue'))
+
+# Start of ios_narrow
+`ios_narrow` = function(self, s__c, s__dfault, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref");  s__c = as(s__c, "character");     
+  s__dfault = as(s__dfault, "character");     
+  ;.Call('R_swig_ios_narrow', self, s__c, s__dfault, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_narrow`, 'returnType') = 'character'
+attr(`ios_narrow`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t', 'character', 'character')
+class(`ios_narrow`) = c("SWIGFunction", class('ios_narrow'))
+
+# Start of ios_widen
+`ios_widen` = function(self, s__c, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  s__c = as(s__c, "character");      ;.Call('R_swig_ios_widen', self, s__c, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`ios_widen`, 'returnType') = 'character'
+attr(`ios_widen`, "inputTypes") = c('_p_std__basic_iosT_char_std__char_traitsT_char_t_t', 'character')
+class(`ios_widen`) = c("SWIGFunction", class('ios_widen'))
+
+# Start of accessor method for std::basic_ios<(char)>
+setMethod('$', '_p_std__basic_iosT_char_std__char_traitsT_char_t_t', function(x, name) {
+  accessorFuns = list('rdstate' = ios_rdstate, 'clear' = ios_clear, 'setstate' = ios_setstate, 'good' = ios_good, 'eof' = ios_eof, 'fail' = ios_fail, 'bad' = ios_bad, 'exceptions' = ios_exceptions, 'tie' = ios_tie, 'rdbuf' = ios_rdbuf, 'copyfmt' = ios_copyfmt, 'fill' = ios_fill, 'imbue' = ios_imbue, 'narrow' = ios_narrow, 'widen' = ios_widen);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for std::basic_ios<(char)>
+setMethod('delete', '_p_std__basic_iosT_char_std__char_traitsT_char_t_t', function(obj) {delete_std__basic_iosT_char_std__char_traitsT_char_t_t(obj)})
+# Start of cin_get
+`cin_get` = function(.copy = FALSE) { ;ans = .Call('R_swig_cin_get', as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`cin_get`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+class(`cin_get`) = c("SWIGFunction", class('cin_get'))
+
+cin =  function(value, .copy = FALSE) { if(missing(value)) { cin_get(.copy) }  else { cin_set(value) }  }
+# Start of cout_get
+`cout_get` = function(.copy = FALSE) { ;ans = .Call('R_swig_cout_get', as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`cout_get`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
+class(`cout_get`) = c("SWIGFunction", class('cout_get'))
+
+cout =  function(value, .copy = FALSE) { if(missing(value)) { cout_get(.copy) }  else { cout_set(value) }  }
+# Start of cerr_get
+`cerr_get` = function(.copy = FALSE) { ;ans = .Call('R_swig_cerr_get', as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`cerr_get`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
+class(`cerr_get`) = c("SWIGFunction", class('cerr_get'))
+
+cerr =  function(value, .copy = FALSE) { if(missing(value)) { cerr_get(.copy) }  else { cerr_set(value) }  }
+# Start of clog_get
+`clog_get` = function(.copy = FALSE) { ;ans = .Call('R_swig_clog_get', as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`clog_get`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
+class(`clog_get`) = c("SWIGFunction", class('clog_get'))
+
+clog =  function(value, .copy = FALSE) { if(missing(value)) { clog_get(.copy) }  else { clog_set(value) }  }
+# Start of new_ostream
+`ostream` = function(s__sb) { if (inherits(s__sb, "ExternalReference")) s__sb = slot(s__sb,"ref"); 
+  ;ans = .Call('R_swig_new_ostream', s__sb, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); reg.finalizer(ans@ref, delete_ostream); ans }
+attr(`ostream`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
+attr(`ostream`, "inputTypes") = c('_p_std__basic_streambufT_char_std__char_traitsT_char_t_t')
+class(`ostream`) = c("SWIGFunction", class('ostream'))
+
+# Start of delete_ostream
+`delete_ostream` = function(self) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_delete_ostream', self, PACKAGE='ChemmineOB'); }
+attr(`delete_ostream`, 'returnType') = 'void'
+attr(`delete_ostream`, "inputTypes") = c('_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
+class(`delete_ostream`) = c("SWIGFunction", class('delete_ostream'))
+
+# Start of ostream_put
+`ostream_put` = function(self, s__c, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  s__c = as(s__c, "character");      ;ans = .Call('R_swig_ostream_put', self, s__c, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`ostream_put`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
+attr(`ostream_put`, "inputTypes") = c('_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t', 'character')
+class(`ostream_put`) = c("SWIGFunction", class('ostream_put'))
+
+# Start of ostream_write
+`ostream_write` = function(self, s__s, s__n, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  s__s = as(s__s, "character");  s__n = as.integer(s__n); if(length(s__n) > 1) {
+    warning("using only the first element of s__n"); } ;
+  ;ans = .Call('R_swig_ostream_write', self, s__s, s__n, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`ostream_write`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
+attr(`ostream_write`, "inputTypes") = c('_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t', 'character', 'integer')
+class(`ostream_write`) = c("SWIGFunction", class('ostream_write'))
+
+# Start of ostream_flush
+`ostream_flush` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;ans = .Call('R_swig_ostream_flush', self, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`ostream_flush`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
+attr(`ostream_flush`, "inputTypes") = c('_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
+class(`ostream_flush`) = c("SWIGFunction", class('ostream_flush'))
+
+# Start of ostream_tellp
+`ostream_tellp` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;ans = .Call('R_swig_ostream_tellp', self, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_streampos", ref=ans); ans }
+attr(`ostream_tellp`, 'returnType') = '_p_streampos'
+attr(`ostream_tellp`, "inputTypes") = c('_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
+class(`ostream_tellp`) = c("SWIGFunction", class('ostream_tellp'))
+
+# Start of ostream_seekp
+`ostream_seekp__SWIG_0` = function(self, s_arg2, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  if (inherits(s_arg2, "ExternalReference")) s_arg2 = slot(s_arg2,"ref"); 
+  ;ans = .Call('R_swig_ostream_seekp__SWIG_0', self, s_arg2, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`ostream_seekp__SWIG_0`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
+attr(`ostream_seekp__SWIG_0`, "inputTypes") = c('_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t', '_p_streampos')
+class(`ostream_seekp__SWIG_0`) = c("SWIGFunction", class('ostream_seekp__SWIG_0'))
+
+# Start of ostream_seekp
+`ostream_seekp__SWIG_1` = function(self, s_arg2, s_arg3, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  if (inherits(s_arg2, "ExternalReference")) s_arg2 = slot(s_arg2,"ref");  s_arg3 = as.integer(s_arg3); if(length(s_arg3) > 1) {
+    warning("using only the first element of s_arg3"); } ;
+  ;ans = .Call('R_swig_ostream_seekp__SWIG_1', self, s_arg2, s_arg3, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`ostream_seekp__SWIG_1`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
+attr(`ostream_seekp__SWIG_1`, "inputTypes") = c('_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t', '_p_streamoff', 'integer')
+class(`ostream_seekp__SWIG_1`) = c("SWIGFunction", class('ostream_seekp__SWIG_1'))
+
+`ostream_seekp` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 2) {
+    if ((extends(argtypes[1], '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && extends(argtypes[2], '_p_streampos') && length(argv[[2]]) == 1) {
+      f <- ostream_seekp__SWIG_0; }  }  else if (argc == 3) {
+    if ((extends(argtypes[1], '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && extends(argtypes[2], '_p_streamoff') && length(argv[[2]]) == 1 && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 )) {
+      f <- ostream_seekp__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for ostream_seekp with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of accessor method for std::basic_ostream<(char)>
+setMethod('$', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t', function(x, name) {
+  accessorFuns = list('put' = ostream_put, 'write' = ostream_write, 'flush' = ostream_flush, 'tellp' = ostream_tellp, 'seekp' = ostream_seekp);
+  ;        idx = pmatch(name, names(accessorFuns)); if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]];
+  function(...){ f(x, ...)} ; }
+);
+# end of accessor method for std::basic_ostream<(char)>
+setMethod('delete', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t', function(obj) {delete_std__basic_ostreamT_char_std__char_traitsT_char_t_t(obj)})
+# Start of new_istream
+`istream` = function(s__sb) { if (inherits(s__sb, "ExternalReference")) s__sb = slot(s__sb,"ref"); 
+  ;ans = .Call('R_swig_new_istream', s__sb, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); reg.finalizer(ans@ref, delete_istream); ans }
+attr(`istream`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream`, "inputTypes") = c('_p_std__basic_streambufT_char_std__char_traitsT_char_t_t')
+class(`istream`) = c("SWIGFunction", class('istream'))
+
+# Start of delete_istream
+`delete_istream` = function(self) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_delete_istream', self, PACKAGE='ChemmineOB'); }
+attr(`delete_istream`, 'returnType') = 'void'
+attr(`delete_istream`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t')
+class(`delete_istream`) = c("SWIGFunction", class('delete_istream'))
+
+# Start of istream_gcount
+`istream_gcount` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_istream_gcount', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`istream_gcount`, 'returnType') = 'integer'
+attr(`istream_gcount`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t')
+class(`istream_gcount`) = c("SWIGFunction", class('istream_gcount'))
+
+# Start of istream_get
+`istream_get__SWIG_0` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_istream_get__SWIG_0', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`istream_get__SWIG_0`, 'returnType') = 'integer'
+attr(`istream_get__SWIG_0`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t')
+class(`istream_get__SWIG_0`) = c("SWIGFunction", class('istream_get__SWIG_0'))
+
+# Start of istream_get
+`istream_get__SWIG_1` = function(self, s__c, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  s__c = as(s__c, "character");     
+  ;ans = .Call('R_swig_istream_get__SWIG_1', self, s__c, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_get__SWIG_1`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_get__SWIG_1`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', '_p_char')
+class(`istream_get__SWIG_1`) = c("SWIGFunction", class('istream_get__SWIG_1'))
+
+# Start of istream_get
+`istream_get__SWIG_2` = function(self, s__s, s__n, s__delim, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref");  s__s = as(s__s, "character");  s__n = as.integer(s__n);
+  if(length(s__n) > 1) { warning("using only the first element of s__n"); } ; s__delim = as(s__delim, "character");     
+  ;ans = .Call('R_swig_istream_get__SWIG_2', self, s__s, s__n, s__delim, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_get__SWIG_2`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_get__SWIG_2`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', 'character', 'integer', 'character')
+class(`istream_get__SWIG_2`) = c("SWIGFunction", class('istream_get__SWIG_2'))
+
+# Start of istream_get
+`istream_get__SWIG_3` = function(self, s__s, s__n, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref");  s__s = as(s__s, "character");  s__n = as.integer(s__n);
+  if(length(s__n) > 1) { warning("using only the first element of s__n"); } ;
+  ;ans = .Call('R_swig_istream_get__SWIG_3', self, s__s, s__n, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_get__SWIG_3`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_get__SWIG_3`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', 'character', 'integer')
+class(`istream_get__SWIG_3`) = c("SWIGFunction", class('istream_get__SWIG_3'))
+
+# Start of istream_get
+`istream_get__SWIG_4` = function(self, s__sb, s__delim, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  if (inherits(s__sb, "ExternalReference")) s__sb = slot(s__sb,"ref");  s__delim = as(s__delim, "character");     
+  ;ans = .Call('R_swig_istream_get__SWIG_4', self, s__sb, s__delim, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_get__SWIG_4`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_get__SWIG_4`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', '_p_std__basic_streambufT_char_std__char_traitsT_char_t_t', 'character')
+class(`istream_get__SWIG_4`) = c("SWIGFunction", class('istream_get__SWIG_4'))
+
+# Start of istream_get
+`istream_get__SWIG_5` = function(self, s__sb, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  if (inherits(s__sb, "ExternalReference")) s__sb = slot(s__sb,"ref"); 
+  ;ans = .Call('R_swig_istream_get__SWIG_5', self, s__sb, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_get__SWIG_5`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_get__SWIG_5`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', '_p_std__basic_streambufT_char_std__char_traitsT_char_t_t')
+class(`istream_get__SWIG_5`) = c("SWIGFunction", class('istream_get__SWIG_5'))
+
+`istream_get` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 6
+   if (argc == 1) {
+    if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]]))) {
+      f <- istream_get__SWIG_0; }  }  else if (argc == 2) {
+    if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && extends(argtypes[2], '_p_char') && length(argv[[2]]) == 1) {
+      f <- istream_get__SWIG_1; } 
+    else if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && extends(argtypes[2], '_p_std__basic_streambufT_char_std__char_traitsT_char_t_t') && length(argv[[2]]) == 1) {
+      f <- istream_get__SWIG_5; }  }  else if (argc == 3) {
+    if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && extends(argtypes[2], '_p_std__basic_streambufT_char_std__char_traitsT_char_t_t') && length(argv[[2]]) == 1 && is.character(argv[[3]]) && length(argv[[3]]) == 1) {
+      f <- istream_get__SWIG_4; } 
+    else if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && is.character(argv[[2]]) && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 )) {
+      f <- istream_get__SWIG_3; }  }  else if (argc == 4) {
+    if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && is.character(argv[[2]]) && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 ) && is.character(argv[[4]]) && length(argv[[4]]) == 1) {
+      f <- istream_get__SWIG_2; }  }  else {
+    stop("cannot find overloaded function for istream_get with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of istream_getline
+`istream_getline__SWIG_0` = function(self, s__s, s__n, s__delim, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref");  s__s = as(s__s, "character");  s__n = as.integer(s__n);
+  if(length(s__n) > 1) { warning("using only the first element of s__n"); } ; s__delim = as(s__delim, "character");     
+  ;ans = .Call('R_swig_istream_getline__SWIG_0', self, s__s, s__n, s__delim, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_getline__SWIG_0`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_getline__SWIG_0`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', 'character', 'integer', 'character')
+class(`istream_getline__SWIG_0`) = c("SWIGFunction", class('istream_getline__SWIG_0'))
+
+# Start of istream_getline
+`istream_getline__SWIG_1` = function(self, s__s, s__n, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref");  s__s = as(s__s, "character");  s__n = as.integer(s__n);
+  if(length(s__n) > 1) { warning("using only the first element of s__n"); } ;
+  ;ans = .Call('R_swig_istream_getline__SWIG_1', self, s__s, s__n, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_getline__SWIG_1`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_getline__SWIG_1`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', 'character', 'integer')
+class(`istream_getline__SWIG_1`) = c("SWIGFunction", class('istream_getline__SWIG_1'))
+
+`istream_getline` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 3) {
+    if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && is.character(argv[[2]]) && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 )) {
+      f <- istream_getline__SWIG_1; }  }  else if (argc == 4) {
+    if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && is.character(argv[[2]]) && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 ) && is.character(argv[[4]]) && length(argv[[4]]) == 1) {
+      f <- istream_getline__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for istream_getline with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of istream_ignore
+`istream_ignore__SWIG_0` = function(self, s__n, s__delim, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref");  s__n = as.integer(s__n); if(length(s__n) > 1) {
+    warning("using only the first element of s__n"); } ; s__delim = as.integer(s__delim); if(length(s__delim) > 1) {
+    warning("using only the first element of s__delim"); } ;
+  ;ans = .Call('R_swig_istream_ignore__SWIG_0', self, s__n, s__delim, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_ignore__SWIG_0`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_ignore__SWIG_0`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', 'integer', 'integer')
+class(`istream_ignore__SWIG_0`) = c("SWIGFunction", class('istream_ignore__SWIG_0'))
+
+# Start of istream_ignore
+`istream_ignore__SWIG_1` = function(self, s__n, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref");  s__n = as.integer(s__n); if(length(s__n) > 1) {
+    warning("using only the first element of s__n"); } ;
+  ;ans = .Call('R_swig_istream_ignore__SWIG_1', self, s__n, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_ignore__SWIG_1`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_ignore__SWIG_1`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', 'integer')
+class(`istream_ignore__SWIG_1`) = c("SWIGFunction", class('istream_ignore__SWIG_1'))
+
+# Start of istream_ignore
+`istream_ignore__SWIG_2` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;ans = .Call('R_swig_istream_ignore__SWIG_2', self, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_ignore__SWIG_2`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_ignore__SWIG_2`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t')
+class(`istream_ignore__SWIG_2`) = c("SWIGFunction", class('istream_ignore__SWIG_2'))
+
+`istream_ignore` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 3
+   if (argc == 1) {
+    if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]]))) {
+      f <- istream_ignore__SWIG_2; }  }  else if (argc == 2) {
+    if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 )) {
+      f <- istream_ignore__SWIG_1; }  }  else if (argc == 3) {
+    if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && ( (is.integer(argv[[2]]) || is.numeric(argv[[2]])) && length(argv[[2]]) == 1 ) && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 )) {
+      f <- istream_ignore__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for istream_ignore with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of istream_peek
+`istream_peek` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_istream_peek', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`istream_peek`, 'returnType') = 'integer'
+attr(`istream_peek`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t')
+class(`istream_peek`) = c("SWIGFunction", class('istream_peek'))
+
+# Start of istream_read
+`istream_read` = function(self, s__s, s__n, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  s__s = as(s__s, "character");  s__n = as.integer(s__n); if(length(s__n) > 1) {
+    warning("using only the first element of s__n"); } ;
+  ;ans = .Call('R_swig_istream_read', self, s__s, s__n, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_read`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_read`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', 'character', 'integer')
+class(`istream_read`) = c("SWIGFunction", class('istream_read'))
+
+# Start of istream_readsome
+`istream_readsome` = function(self, s__s, s__n, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref");  s__s = as(s__s, "character");  s__n = as.integer(s__n);
+  if(length(s__n) > 1) { warning("using only the first element of s__n"); } ;
+  ;.Call('R_swig_istream_readsome', self, s__s, s__n, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`istream_readsome`, 'returnType') = 'integer'
+attr(`istream_readsome`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', 'character', 'integer')
+class(`istream_readsome`) = c("SWIGFunction", class('istream_readsome'))
+
+# Start of istream_putback
+`istream_putback` = function(self, s__c, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  s__c = as(s__c, "character");     
+  ;ans = .Call('R_swig_istream_putback', self, s__c, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_putback`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_putback`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', 'character')
+class(`istream_putback`) = c("SWIGFunction", class('istream_putback'))
+
+# Start of istream_unget
+`istream_unget` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;ans = .Call('R_swig_istream_unget', self, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_unget`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_unget`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t')
+class(`istream_unget`) = c("SWIGFunction", class('istream_unget'))
+
+# Start of istream_sync
+`istream_sync` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_istream_sync', self, as.logical(.copy), PACKAGE='ChemmineOB'); }
+attr(`istream_sync`, 'returnType') = 'integer'
+attr(`istream_sync`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t')
+class(`istream_sync`) = c("SWIGFunction", class('istream_sync'))
+
+# Start of istream_tellg
+`istream_tellg` = function(self, .copy = FALSE) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;ans = .Call('R_swig_istream_tellg', self, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_streampos", ref=ans); ans }
+attr(`istream_tellg`, 'returnType') = '_p_streampos'
+attr(`istream_tellg`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t')
+class(`istream_tellg`) = c("SWIGFunction", class('istream_tellg'))
+
+# Start of istream_seekg
+`istream_seekg__SWIG_0` = function(self, s_arg2, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  if (inherits(s_arg2, "ExternalReference")) s_arg2 = slot(s_arg2,"ref"); 
+  ;ans = .Call('R_swig_istream_seekg__SWIG_0', self, s_arg2, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_seekg__SWIG_0`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_seekg__SWIG_0`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', '_p_streampos')
+class(`istream_seekg__SWIG_0`) = c("SWIGFunction", class('istream_seekg__SWIG_0'))
+
+# Start of istream_seekg
+`istream_seekg__SWIG_1` = function(self, s_arg2, s_arg3, .copy = FALSE) {
+  if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  if (inherits(s_arg2, "ExternalReference")) s_arg2 = slot(s_arg2,"ref");  s_arg3 = as.integer(s_arg3); if(length(s_arg3) > 1) {
+    warning("using only the first element of s_arg3"); } ;
+  ;ans = .Call('R_swig_istream_seekg__SWIG_1', self, s_arg2, s_arg3, as.logical(.copy), PACKAGE='ChemmineOB');
+  ans <- if (is.null(ans)) ans else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istream_seekg__SWIG_1`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
+attr(`istream_seekg__SWIG_1`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', '_p_streamoff', 'integer')
+class(`istream_seekg__SWIG_1`) = c("SWIGFunction", class('istream_seekg__SWIG_1'))
+
+`istream_seekg` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
+# dispatch functions 2
+   if (argc == 2) {
+    if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && extends(argtypes[2], '_p_streampos') && length(argv[[2]]) == 1) {
+      f <- istream_seekg__SWIG_0; }  }  else if (argc == 3) {
+    if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && extends(argtypes[2], '_p_streamoff') && length(argv[[2]]) == 1 && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 )) {
+      f <- istream_seekg__SWIG_1; }  }  else {
+    stop("cannot find overloaded function for istream_seekg with argtypes (",toString(argtypes),")"); } ; f(...); }
+# Dispatch function
+# Start of accessor method for std::basic_istream<(char)>
+setMethod('$', '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', function(x, name) {
+  accessorFuns = list('gcount' = istream_gcount, 'get' = istream_get, 'getline' = istream_getline, 'ignore' = istream_ignore, 'peek' = istream_peek, 'read' = istream_read, 'readsome' = istream_readsome, 'putback' = istream_putback, 'unget' = istream_unget, 'sync' = istream_sync, 'tellg' = istream_tellg, 'seekg' = istream_seekg);
+  vaccessors = c('get', 'get', 'get', 'get', 'get', 'get', 'unget'); ;        idx = pmatch(name, names(accessorFuns));
+  if(is.na(idx))  return(callNextMethod(x, name)); f = accessorFuns[[idx]]; if (is.na(match(name, vaccessors))) function(...){
+    f(x, ...)}  else f(x); }
+);
+# end of accessor method for std::basic_istream<(char)>
+setMethod('delete', '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', function(obj) {delete_std__basic_istreamT_char_std__char_traitsT_char_t_t(obj)})
+# Start of new_iostream
+`iostream` = function(s__sb) { if (inherits(s__sb, "ExternalReference")) s__sb = slot(s__sb,"ref"); 
+  ;ans = .Call('R_swig_new_iostream', s__sb, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_iostreamT_char_std__char_traitsT_char_t_t", ref=ans); reg.finalizer(ans@ref, delete_iostream); ans }
+attr(`iostream`, 'returnType') = '_p_std__basic_iostreamT_char_std__char_traitsT_char_t_t'
+attr(`iostream`, "inputTypes") = c('_p_std__basic_streambufT_char_std__char_traitsT_char_t_t')
+class(`iostream`) = c("SWIGFunction", class('iostream'))
+
+# Start of delete_iostream
+`delete_iostream` = function(self) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
+  ;.Call('R_swig_delete_iostream', self, PACKAGE='ChemmineOB'); }
+attr(`delete_iostream`, 'returnType') = 'void'
+attr(`delete_iostream`, "inputTypes") = c('_p_std__basic_iostreamT_char_std__char_traitsT_char_t_t')
+class(`delete_iostream`) = c("SWIGFunction", class('delete_iostream'))
+
+setMethod('delete', '_p_std__basic_iostreamT_char_std__char_traitsT_char_t_t', function(obj) {delete_std__basic_iostreamT_char_std__char_traitsT_char_t_t(obj)})
+# Start of endl
+`endl` = function(value, .copy = FALSE) { if (inherits(value, "ExternalReference")) value = slot(value,"ref"); 
+  ;ans = .Call('R_swig_endl', value, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`endl`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
+attr(`endl`, "inputTypes") = c('_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
+class(`endl`) = c("SWIGFunction", class('endl'))
+
+# Start of ends
+`ends` = function(value, .copy = FALSE) { if (inherits(value, "ExternalReference")) value = slot(value,"ref"); 
+  ;ans = .Call('R_swig_ends', value, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`ends`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
+attr(`ends`, "inputTypes") = c('_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
+class(`ends`) = c("SWIGFunction", class('ends'))
+
+# Start of flush
+`flush` = function(value, .copy = FALSE) { if (inherits(value, "ExternalReference")) value = slot(value,"ref"); 
+  ;ans = .Call('R_swig_flush', value, as.logical(.copy), PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
+  else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`flush`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
+attr(`flush`, "inputTypes") = c('_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
+class(`flush`) = c("SWIGFunction", class('flush'))
+
 # Start of new_stringp
 `stringp` = function() { ;ans = .Call('R_swig_new_stringp', PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
   else new("_p_stringp", ref=ans); reg.finalizer(ans@ref, delete_stringp); ans }
@@ -497,30 +1572,30 @@ setMethod('copyToC', 'stringp', CopyToC_stringp);
 # Start of istreamFromString
 `istreamFromString` = function(str) { str = as(str, "character"); 
   ;ans = .Call('R_swig_istreamFromString', str, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
-  else new("_p_std__istream", ref=ans); ans }
-attr(`istreamFromString`, 'returnType') = '_p_std__istream'
+  else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istreamFromString`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
 attr(`istreamFromString`, "inputTypes") = c('character')
 class(`istreamFromString`) = c("SWIGFunction", class('istreamFromString'))
 
 # Start of istreamFromFile
 `istreamFromFile` = function(filename) { filename = as(filename, "character"); 
   ;ans = .Call('R_swig_istreamFromFile', filename, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
-  else new("_p_std__istream", ref=ans); ans }
-attr(`istreamFromFile`, 'returnType') = '_p_std__istream'
+  else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`istreamFromFile`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
 attr(`istreamFromFile`, "inputTypes") = c('character')
 class(`istreamFromFile`) = c("SWIGFunction", class('istreamFromFile'))
 
 # Start of ostreamToString
 `ostreamToString` = function() { ;ans = .Call('R_swig_ostreamToString', PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
-  else new("_p_std__ostream", ref=ans); ans }
-attr(`ostreamToString`, 'returnType') = '_p_std__ostream'
+  else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`ostreamToString`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
 class(`ostreamToString`) = c("SWIGFunction", class('ostreamToString'))
 
 # Start of ostreamToFile
 `ostreamToFile` = function(filename) { filename = as(filename, "character"); 
   ;ans = .Call('R_swig_ostreamToFile', filename, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
-  else new("_p_std__ostream", ref=ans); ans }
-attr(`ostreamToFile`, 'returnType') = '_p_std__ostream'
+  else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`ostreamToFile`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
 attr(`ostreamToFile`, "inputTypes") = c('character')
 class(`ostreamToFile`) = c("SWIGFunction", class('ostreamToFile'))
 
@@ -768,16 +1843,11 @@ class(`vectorUnsignedInt__SWIG_3`) = c("SWIGFunction", class('vectorUnsignedInt_
 
 `vectorUnsignedInt` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
 # dispatch functions 4
-   if (argc == 0) { 
-	 f <- vectorUnsignedInt__SWIG_0; 
-	}  
-	else if (argc == 1) {
+   if (argc == 0) { f <- vectorUnsignedInt__SWIG_0; }  else if (argc == 1) {
     if (( (is.integer(argv[[1]]) || is.numeric(argv[[1]])) && length(argv[[1]]) == 1 )) { f <- vectorUnsignedInt__SWIG_2; } 
-    else if (( is.integer(argv[[1]]) || is.numeric(argv[[1]]) )) { f <- vectorUnsignedInt__SWIG_1; }  
-	}else if (argc == 2) {
+    else if (( is.integer(argv[[1]]) || is.numeric(argv[[1]]) )) { f <- vectorUnsignedInt__SWIG_1; }  }  else if (argc == 2) {
     if (( (is.integer(argv[[1]]) || is.numeric(argv[[1]])) && length(argv[[1]]) == 1 ) && extends(argtypes[2], '_p_unsigned_int') && length(argv[[2]]) == 1) {
-      f <- vectorUnsignedInt__SWIG_3; }  
-	}  else {
+      f <- vectorUnsignedInt__SWIG_3; }  }  else {
     stop("cannot find overloaded function for vectorUnsignedInt with argtypes (",toString(argtypes),")"); } ; f(...); }
 # Dispatch function
 # Start of delete_vectorUnsignedInt
@@ -8684,7 +9754,7 @@ class(`OBPlugin_ListAsVector`) = c("SWIGFunction", class('OBPlugin_ListAsVector'
   param = as(param, "character");  if (inherits(os, "ExternalReference")) os = slot(os,"ref"); 
   ;.Call('R_swig_OBPlugin_List__SWIG_0', PluginID, param, os, PACKAGE='ChemmineOB'); }
 attr(`OBPlugin_List__SWIG_0`, 'returnType') = 'void'
-attr(`OBPlugin_List__SWIG_0`, "inputTypes") = c('character', 'character', '_p_std__ostream')
+attr(`OBPlugin_List__SWIG_0`, "inputTypes") = c('character', 'character', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
 class(`OBPlugin_List__SWIG_0`) = c("SWIGFunction", class('OBPlugin_List__SWIG_0'))
 
 # Start of OBPlugin_List
@@ -8705,7 +9775,7 @@ class(`OBPlugin_List__SWIG_2`) = c("SWIGFunction", class('OBPlugin_List__SWIG_2'
 # dispatch functions 3
    if (argc == 1) { if (is.character(argv[[1]])) { f <- OBPlugin_List__SWIG_2; }  }  else if (argc == 2) {
     if (is.character(argv[[1]]) && is.character(argv[[2]])) { f <- OBPlugin_List__SWIG_1; }  }  else if (argc == 3) {
-    if (is.character(argv[[1]]) && is.character(argv[[2]]) && (extends(argtypes[3], '_p_std__ostream') || is.null(argv[[3]]))) {
+    if (is.character(argv[[1]]) && is.character(argv[[2]]) && (extends(argtypes[3], '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[3]]))) {
       f <- OBPlugin_List__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBPlugin_List with argtypes (",toString(argtypes),")"); } ; f(...); }
 # Dispatch function
@@ -9136,14 +10206,14 @@ class(`OBMessageHandler_GetOutputLevel`) = c("SWIGFunction", class('OBMessageHan
   if (inherits(os, "ExternalReference")) os = slot(os,"ref"); 
   ;.Call('R_swig_OBMessageHandler_SetOutputStream', self, os, PACKAGE='ChemmineOB'); }
 attr(`OBMessageHandler_SetOutputStream`, 'returnType') = 'void'
-attr(`OBMessageHandler_SetOutputStream`, "inputTypes") = c('_p_OpenBabel__OBMessageHandler', '_p_std__ostream')
+attr(`OBMessageHandler_SetOutputStream`, "inputTypes") = c('_p_OpenBabel__OBMessageHandler', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
 class(`OBMessageHandler_SetOutputStream`) = c("SWIGFunction", class('OBMessageHandler_SetOutputStream'))
 
 # Start of OBMessageHandler_GetOutputStream
 `OBMessageHandler_GetOutputStream` = function(self) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
   ;ans = .Call('R_swig_OBMessageHandler_GetOutputStream', self, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
-  else new("_p_std__ostream", ref=ans); ans }
-attr(`OBMessageHandler_GetOutputStream`, 'returnType') = '_p_std__ostream'
+  else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`OBMessageHandler_GetOutputStream`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
 attr(`OBMessageHandler_GetOutputStream`, "inputTypes") = c('_p_OpenBabel__OBMessageHandler')
 class(`OBMessageHandler_GetOutputStream`) = c("SWIGFunction", class('OBMessageHandler_GetOutputStream'))
 
@@ -9435,7 +10505,7 @@ setMethod('delete', '_p_OpenBabel__OBFormat', function(obj) {delete_OpenBabel__O
   ;ans = .Call('R_swig_new_OBConversion__SWIG_0', is, os, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
   else new("_p_OpenBabel__OBConversion", ref=ans); reg.finalizer(ans@ref, delete_OBConversion); ans }
 attr(`OBConversion__SWIG_0`, 'returnType') = '_p_OpenBabel__OBConversion'
-attr(`OBConversion__SWIG_0`, "inputTypes") = c('_p_std__istream', '_p_std__ostream')
+attr(`OBConversion__SWIG_0`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
 class(`OBConversion__SWIG_0`) = c("SWIGFunction", class('OBConversion__SWIG_0'))
 
 # Start of new_OBConversion
@@ -9443,7 +10513,7 @@ class(`OBConversion__SWIG_0`) = c("SWIGFunction", class('OBConversion__SWIG_0'))
   ;ans = .Call('R_swig_new_OBConversion__SWIG_1', is, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
   else new("_p_OpenBabel__OBConversion", ref=ans); reg.finalizer(ans@ref, delete_OBConversion); ans }
 attr(`OBConversion__SWIG_1`, 'returnType') = '_p_OpenBabel__OBConversion'
-attr(`OBConversion__SWIG_1`, "inputTypes") = c('_p_std__istream')
+attr(`OBConversion__SWIG_1`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t')
 class(`OBConversion__SWIG_1`) = c("SWIGFunction", class('OBConversion__SWIG_1'))
 
 # Start of new_OBConversion
@@ -9481,10 +10551,11 @@ class(`OBConversion__SWIG_5`) = c("SWIGFunction", class('OBConversion__SWIG_5'))
 `OBConversion` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
 # dispatch functions 6
    if (argc == 0) { f <- OBConversion__SWIG_2; }  else if (argc == 1) {
-    if ((extends(argtypes[1], '_p_std__istream') || is.null(argv[[1]]))) { f <- OBConversion__SWIG_1; } 
-    else if (extends(argtypes[1], '_p_OpenBabel__OBConversion') && length(argv[[1]]) == 1) { f <- OBConversion__SWIG_5; } 
-    else if (is.character(argv[[1]]) && length(argv[[1]]) == 1) { f <- OBConversion__SWIG_4; }  }  else if (argc == 2) {
-    if ((extends(argtypes[1], '_p_std__istream') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__ostream') || is.null(argv[[2]]))) {
+    if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]]))) {
+      f <- OBConversion__SWIG_1; }  else if (extends(argtypes[1], '_p_OpenBabel__OBConversion') && length(argv[[1]]) == 1) {
+      f <- OBConversion__SWIG_5; }  else if (is.character(argv[[1]]) && length(argv[[1]]) == 1) { f <- OBConversion__SWIG_4; }  }
+   else if (argc == 2) {
+    if ((extends(argtypes[1], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[2]]))) {
       f <- OBConversion__SWIG_0; } 
     else if (is.character(argv[[1]]) && length(argv[[1]]) == 1 && is.character(argv[[2]]) && length(argv[[2]]) == 1) {
       f <- OBConversion__SWIG_3; }  }  else {
@@ -9581,16 +10652,16 @@ class(`OBConversion_Description`) = c("SWIGFunction", class('OBConversion_Descri
 # Start of OBConversion_GetInStream
 `OBConversion_GetInStream` = function(self) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
   ;ans = .Call('R_swig_OBConversion_GetInStream', self, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
-  else new("_p_std__istream", ref=ans); ans }
-attr(`OBConversion_GetInStream`, 'returnType') = '_p_std__istream'
+  else new("_p_std__basic_istreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`OBConversion_GetInStream`, 'returnType') = '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t'
 attr(`OBConversion_GetInStream`, "inputTypes") = c('_p_OpenBabel__OBConversion')
 class(`OBConversion_GetInStream`) = c("SWIGFunction", class('OBConversion_GetInStream'))
 
 # Start of OBConversion_GetOutStream
 `OBConversion_GetOutStream` = function(self) { if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
   ;ans = .Call('R_swig_OBConversion_GetOutStream', self, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
-  else new("_p_std__ostream", ref=ans); ans }
-attr(`OBConversion_GetOutStream`, 'returnType') = '_p_std__ostream'
+  else new("_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t", ref=ans); ans }
+attr(`OBConversion_GetOutStream`, 'returnType') = '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t'
 attr(`OBConversion_GetOutStream`, "inputTypes") = c('_p_OpenBabel__OBConversion')
 class(`OBConversion_GetOutStream`) = c("SWIGFunction", class('OBConversion_GetOutStream'))
 
@@ -9600,7 +10671,7 @@ class(`OBConversion_GetOutStream`) = c("SWIGFunction", class('OBConversion_GetOu
   if (inherits(pIn, "ExternalReference")) pIn = slot(pIn,"ref");  takeOwnership = as.logical(takeOwnership);
   ;.Call('R_swig_OBConversion_SetInStream__SWIG_0', self, pIn, takeOwnership, PACKAGE='ChemmineOB'); }
 attr(`OBConversion_SetInStream__SWIG_0`, 'returnType') = 'void'
-attr(`OBConversion_SetInStream__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBConversion', '_p_std__istream', 'logical')
+attr(`OBConversion_SetInStream__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBConversion', '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', 'logical')
 class(`OBConversion_SetInStream__SWIG_0`) = c("SWIGFunction", class('OBConversion_SetInStream__SWIG_0'))
 
 # Start of OBConversion_SetInStream
@@ -9608,15 +10679,15 @@ class(`OBConversion_SetInStream__SWIG_0`) = c("SWIGFunction", class('OBConversio
   if (inherits(pIn, "ExternalReference")) pIn = slot(pIn,"ref"); 
   ;.Call('R_swig_OBConversion_SetInStream__SWIG_1', self, pIn, PACKAGE='ChemmineOB'); }
 attr(`OBConversion_SetInStream__SWIG_1`, 'returnType') = 'void'
-attr(`OBConversion_SetInStream__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBConversion', '_p_std__istream')
+attr(`OBConversion_SetInStream__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBConversion', '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t')
 class(`OBConversion_SetInStream__SWIG_1`) = c("SWIGFunction", class('OBConversion_SetInStream__SWIG_1'))
 
 `OBConversion_SetInStream` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
 # dispatch functions 2
    if (argc == 2) {
-    if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__istream') || is.null(argv[[2]]))) {
+    if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[2]]))) {
       f <- OBConversion_SetInStream__SWIG_1; }  }  else if (argc == 3) {
-    if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__istream') || is.null(argv[[2]])) && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
+    if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[2]])) && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
       f <- OBConversion_SetInStream__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBConversion_SetInStream with argtypes (",toString(argtypes),")"); } ; f(...); }
 # Dispatch function
@@ -9626,7 +10697,7 @@ class(`OBConversion_SetInStream__SWIG_1`) = c("SWIGFunction", class('OBConversio
   if (inherits(pOut, "ExternalReference")) pOut = slot(pOut,"ref");  takeOwnership = as.logical(takeOwnership);
   ;.Call('R_swig_OBConversion_SetOutStream__SWIG_0', self, pOut, takeOwnership, PACKAGE='ChemmineOB'); }
 attr(`OBConversion_SetOutStream__SWIG_0`, 'returnType') = 'void'
-attr(`OBConversion_SetOutStream__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBConversion', '_p_std__ostream', 'logical')
+attr(`OBConversion_SetOutStream__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBConversion', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t', 'logical')
 class(`OBConversion_SetOutStream__SWIG_0`) = c("SWIGFunction", class('OBConversion_SetOutStream__SWIG_0'))
 
 # Start of OBConversion_SetOutStream
@@ -9634,15 +10705,15 @@ class(`OBConversion_SetOutStream__SWIG_0`) = c("SWIGFunction", class('OBConversi
   if (inherits(pOut, "ExternalReference")) pOut = slot(pOut,"ref"); 
   ;.Call('R_swig_OBConversion_SetOutStream__SWIG_1', self, pOut, PACKAGE='ChemmineOB'); }
 attr(`OBConversion_SetOutStream__SWIG_1`, 'returnType') = 'void'
-attr(`OBConversion_SetOutStream__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBConversion', '_p_std__ostream')
+attr(`OBConversion_SetOutStream__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBConversion', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
 class(`OBConversion_SetOutStream__SWIG_1`) = c("SWIGFunction", class('OBConversion_SetOutStream__SWIG_1'))
 
 `OBConversion_SetOutStream` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
 # dispatch functions 2
    if (argc == 2) {
-    if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__ostream') || is.null(argv[[2]]))) {
+    if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[2]]))) {
       f <- OBConversion_SetOutStream__SWIG_1; }  }  else if (argc == 3) {
-    if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__ostream') || is.null(argv[[2]])) && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
+    if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[2]])) && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
       f <- OBConversion_SetOutStream__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBConversion_SetOutStream with argtypes (",toString(argtypes),")"); } ; f(...); }
 # Dispatch function
@@ -10121,7 +11192,7 @@ class(`OBConversion_GetSupportedOutputFormat`) = c("SWIGFunction", class('OBConv
   if (inherits(is, "ExternalReference")) is = slot(is,"ref");  if (inherits(os, "ExternalReference")) os = slot(os,"ref"); 
   ;.Call('R_swig_OBConversion_Convert__SWIG_0', self, is, os, as.logical(.copy), PACKAGE='ChemmineOB'); }
 attr(`OBConversion_Convert__SWIG_0`, 'returnType') = 'integer'
-attr(`OBConversion_Convert__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBConversion', '_p_std__istream', '_p_std__ostream')
+attr(`OBConversion_Convert__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBConversion', '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
 class(`OBConversion_Convert__SWIG_0`) = c("SWIGFunction", class('OBConversion_Convert__SWIG_0'))
 
 # Start of OBConversion_Convert
@@ -10136,7 +11207,7 @@ class(`OBConversion_Convert__SWIG_1`) = c("SWIGFunction", class('OBConversion_Co
 # dispatch functions 2
    if (argc == 1) { if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]]))) {
       f <- OBConversion_Convert__SWIG_1; }  }  else if (argc == 3) {
-    if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__istream') || is.null(argv[[2]])) && (extends(argtypes[3], '_p_std__ostream') || is.null(argv[[3]]))) {
+    if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[2]])) && (extends(argtypes[3], '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[3]]))) {
       f <- OBConversion_Convert__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBConversion_Convert with argtypes (",toString(argtypes),")"); } ; f(...); }
 # Dispatch function
@@ -10284,7 +11355,7 @@ class(`OBConversion_GetDefaultFormat`) = c("SWIGFunction", class('OBConversion_G
   if (inherits(pout, "ExternalReference")) pout = slot(pout,"ref"); 
   ;.Call('R_swig_OBConversion_Write__SWIG_0', self, pOb, pout, as.logical(.copy), PACKAGE='ChemmineOB'); }
 attr(`OBConversion_Write__SWIG_0`, 'returnType') = 'logical'
-attr(`OBConversion_Write__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBConversion', '_p_OpenBabel__OBBase', '_p_std__ostream')
+attr(`OBConversion_Write__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBConversion', '_p_OpenBabel__OBBase', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
 class(`OBConversion_Write__SWIG_0`) = c("SWIGFunction", class('OBConversion_Write__SWIG_0'))
 
 # Start of OBConversion_Write
@@ -10301,7 +11372,7 @@ class(`OBConversion_Write__SWIG_1`) = c("SWIGFunction", class('OBConversion_Writ
    if (argc == 2) {
     if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_OpenBabel__OBBase') || is.null(argv[[2]]))) {
       f <- OBConversion_Write__SWIG_1; }  }  else if (argc == 3) {
-    if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_OpenBabel__OBBase') || is.null(argv[[2]])) && (extends(argtypes[3], '_p_std__ostream') || is.null(argv[[3]]))) {
+    if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_OpenBabel__OBBase') || is.null(argv[[2]])) && (extends(argtypes[3], '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[3]]))) {
       f <- OBConversion_Write__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBConversion_Write with argtypes (",toString(argtypes),")"); } ; f(...); }
 # Dispatch function
@@ -10355,7 +11426,7 @@ class(`OBConversion_CloseOutFile`) = c("SWIGFunction", class('OBConversion_Close
   if (inherits(pin, "ExternalReference")) pin = slot(pin,"ref"); 
   ;.Call('R_swig_OBConversion_Read__SWIG_0', self, pOb, pin, as.logical(.copy), PACKAGE='ChemmineOB'); }
 attr(`OBConversion_Read__SWIG_0`, 'returnType') = 'logical'
-attr(`OBConversion_Read__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBConversion', '_p_OpenBabel__OBBase', '_p_std__istream')
+attr(`OBConversion_Read__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBConversion', '_p_OpenBabel__OBBase', '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t')
 class(`OBConversion_Read__SWIG_0`) = c("SWIGFunction", class('OBConversion_Read__SWIG_0'))
 
 # Start of OBConversion_Read
@@ -10372,7 +11443,7 @@ class(`OBConversion_Read__SWIG_1`) = c("SWIGFunction", class('OBConversion_Read_
    if (argc == 2) {
     if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_OpenBabel__OBBase') || is.null(argv[[2]]))) {
       f <- OBConversion_Read__SWIG_1; }  }  else if (argc == 3) {
-    if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_OpenBabel__OBBase') || is.null(argv[[2]])) && (extends(argtypes[3], '_p_std__istream') || is.null(argv[[3]]))) {
+    if ((extends(argtypes[1], '_p_OpenBabel__OBConversion') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_OpenBabel__OBBase') || is.null(argv[[2]])) && (extends(argtypes[3], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[3]]))) {
       f <- OBConversion_Read__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBConversion_Read with argtypes (",toString(argtypes),")"); } ; f(...); }
 # Dispatch function
@@ -15568,10 +16639,10 @@ class(`OBSmartsPattern_Match__SWIG_3`) = c("SWIGFunction", class('OBSmartsPatter
    if (argc == 2) {
     if ((extends(argtypes[1], '_p_OpenBabel__OBSmartsPattern') || is.null(argv[[1]])) && extends(argtypes[2], '_p_OpenBabel__OBMol') && length(argv[[2]]) == 1) {
       f <- OBSmartsPattern_Match__SWIG_1; }  }  else if (argc == 3) {
-    if ((extends(argtypes[1], '_p_OpenBabel__OBSmartsPattern') || is.null(argv[[1]])) && extends(argtypes[2], '_p_OpenBabel__OBMol') && length(argv[[2]]) == 1 && ( is.list(argv[[3]]) && all(sapply(argv[[3]] , is.integer) || sapply(argv[[3]], is.numeric)) )) {
-      f <- OBSmartsPattern_Match__SWIG_3; } 
-    else if ((extends(argtypes[1], '_p_OpenBabel__OBSmartsPattern') || is.null(argv[[1]])) && extends(argtypes[2], '_p_OpenBabel__OBMol') && length(argv[[2]]) == 1 && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
-      f <- OBSmartsPattern_Match__SWIG_0; }  }  else if (argc == 4) {
+    if ((extends(argtypes[1], '_p_OpenBabel__OBSmartsPattern') || is.null(argv[[1]])) && extends(argtypes[2], '_p_OpenBabel__OBMol') && length(argv[[2]]) == 1 && ( is.logical(argv[[3]]) && length(argv[[3]]) == 1 )) {
+      f <- OBSmartsPattern_Match__SWIG_0; } 
+    else if ((extends(argtypes[1], '_p_OpenBabel__OBSmartsPattern') || is.null(argv[[1]])) && extends(argtypes[2], '_p_OpenBabel__OBMol') && length(argv[[2]]) == 1 && ( is.list(argv[[3]]) && all(sapply(argv[[3]] , is.integer) || sapply(argv[[3]], is.numeric)) )) {
+      f <- OBSmartsPattern_Match__SWIG_3; }  }  else if (argc == 4) {
     if ((extends(argtypes[1], '_p_OpenBabel__OBSmartsPattern') || is.null(argv[[1]])) && extends(argtypes[2], '_p_OpenBabel__OBMol') && length(argv[[2]]) == 1 && ( is.list(argv[[3]]) && all(sapply(argv[[3]] , is.integer) || sapply(argv[[3]], is.numeric)) ) && is.character(argv[[4]]) && length(argv[[4]]) == 1) {
       f <- OBSmartsPattern_Match__SWIG_2; }  }  else {
     stop("cannot find overloaded function for OBSmartsPattern_Match with argtypes (",toString(argtypes),")"); } ; f(...); }
@@ -15687,7 +16758,7 @@ class(`OBSmartsPattern_GetUMapList`) = c("SWIGFunction", class('OBSmartsPattern_
   if (inherits(s_arg2, "ExternalReference")) s_arg2 = slot(s_arg2,"ref"); 
   ;.Call('R_swig_OBSmartsPattern_WriteMapList', self, s_arg2, PACKAGE='ChemmineOB'); }
 attr(`OBSmartsPattern_WriteMapList`, 'returnType') = 'void'
-attr(`OBSmartsPattern_WriteMapList`, "inputTypes") = c('_p_OpenBabel__OBSmartsPattern', '_p_std__ostream')
+attr(`OBSmartsPattern_WriteMapList`, "inputTypes") = c('_p_OpenBabel__OBSmartsPattern', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
 class(`OBSmartsPattern_WriteMapList`) = c("SWIGFunction", class('OBSmartsPattern_WriteMapList'))
 
 # Start of accessor method for OpenBabel::OBSmartsPattern
@@ -15973,14 +17044,7 @@ class(`OBFingerprint_GetFingerprint__SWIG_0`) = c("SWIGFunction", class('OBFinge
 # Start of OBFingerprint_GetFingerprint
 `OBFingerprint_GetFingerprint__SWIG_1` = function(self, pOb, fp, .copy = FALSE) {
   if (inherits(self, "ExternalReference")) self = slot(self,"ref"); 
-  if (inherits(pOb, "ExternalReference")) pOb = slot(pOb,"ref");  
-  message("original fp class: ")
-  print(class(fp))
-  print(str(fp))
- # fp = as.integer(fp);
-  message("after as.integer fp class: ")
-  print(class(fp))
-  print(str(fp))
+  if (inherits(pOb, "ExternalReference")) pOb = slot(pOb,"ref");  fp = as.integer(fp);
   ;.Call('R_swig_OBFingerprint_GetFingerprint__SWIG_1', self, pOb, fp, as.logical(.copy), PACKAGE='ChemmineOB'); }
 attr(`OBFingerprint_GetFingerprint__SWIG_1`, 'returnType') = 'logical'
 attr(`OBFingerprint_GetFingerprint__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBFingerprint', '_p_OpenBabel__OBBase', 'integer')
@@ -15989,27 +17053,12 @@ class(`OBFingerprint_GetFingerprint__SWIG_1`) = c("SWIGFunction", class('OBFinge
 `OBFingerprint_GetFingerprint` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
 # dispatch functions 2
    if (argc == 3) {
-    if ((extends(argtypes[1], '_p_OpenBabel__OBFingerprint') || 
-			is.null(argv[[1]])) && (extends(argtypes[2], '_p_OpenBabel__OBBase') || 
-			is.null(argv[[2]])) && ( is.integer(argv[[3]]) || is.numeric(argv[[3]]) )) 
-	 {
-		message("calling GetFingerprint__SWIG_1")
-      f <- OBFingerprint_GetFingerprint__SWIG_1; 
-	 }  
-	} else if (argc == 4) {
-    if ((extends(argtypes[1], '_p_OpenBabel__OBFingerprint') || 
-			is.null(argv[[1]])) && (extends(argtypes[2], '_p_OpenBabel__OBBase') || 
-			is.null(argv[[2]])) && 
-		   ( is.integer(argv[[3]]) || is.numeric(argv[[3]]) ) && 
-			( (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1 )) 
-	 {
-      f <- OBFingerprint_GetFingerprint__SWIG_0; 
-	 }  
-	}else {
-    stop("cannot find overloaded function for OBFingerprint_GetFingerprint with argtypes (",toString(argtypes),")"); 
-	} ;
-   f(...);
-}
+    if ((extends(argtypes[1], '_p_OpenBabel__OBFingerprint') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_OpenBabel__OBBase') || is.null(argv[[2]])) && ( is.integer(argv[[3]]) || is.numeric(argv[[3]]) )) {
+      f <- OBFingerprint_GetFingerprint__SWIG_1; }  }  else if (argc == 4) {
+    if ((extends(argtypes[1], '_p_OpenBabel__OBFingerprint') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_OpenBabel__OBBase') || is.null(argv[[2]])) && ( is.integer(argv[[3]]) || is.numeric(argv[[3]]) ) && ( (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1 )) {
+      f <- OBFingerprint_GetFingerprint__SWIG_0; }  }  else {
+    stop("cannot find overloaded function for OBFingerprint_GetFingerprint with argtypes (",toString(argtypes),")"); } ;
+  f(...); }
 # Dispatch function
 # Start of OBFingerprint_FPT_UNIQUEBITS_get
 `OBFingerprint_FPT_UNIQUEBITS_get` = function(.copy = FALSE) {
@@ -16267,7 +17316,7 @@ class(`FastSearch_ReadIndexFile`) = c("SWIGFunction", class('FastSearch_ReadInde
   if (inherits(pIndexstream, "ExternalReference")) pIndexstream = slot(pIndexstream,"ref"); 
   ;.Call('R_swig_FastSearch_ReadIndex', self, pIndexstream, as.logical(.copy), PACKAGE='ChemmineOB'); }
 attr(`FastSearch_ReadIndex`, 'returnType') = 'character'
-attr(`FastSearch_ReadIndex`, "inputTypes") = c('_p_OpenBabel__FastSearch', '_p_std__istream')
+attr(`FastSearch_ReadIndex`, "inputTypes") = c('_p_OpenBabel__FastSearch', '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t')
 class(`FastSearch_ReadIndex`) = c("SWIGFunction", class('FastSearch_ReadIndex'))
 
 # Start of delete_FastSearch
@@ -16396,7 +17445,7 @@ setMethod('delete', '_p_OpenBabel__FastSearch', function(obj) {delete_OpenBabel_
   ans <- if (is.null(ans)) ans else new("_p_OpenBabel__FastSearchIndexer", ref=ans);
   reg.finalizer(ans@ref, delete_FastSearchIndexer); ans }
 attr(`FastSearchIndexer__SWIG_0`, 'returnType') = '_p_OpenBabel__FastSearchIndexer'
-attr(`FastSearchIndexer__SWIG_0`, "inputTypes") = c('_p_std__string', '_p_std__ostream', '_p_std__string', 'integer', 'integer')
+attr(`FastSearchIndexer__SWIG_0`, "inputTypes") = c('_p_std__string', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t', '_p_std__string', 'integer', 'integer')
 class(`FastSearchIndexer__SWIG_0`) = c("SWIGFunction", class('FastSearchIndexer__SWIG_0'))
 
 # Start of new_FastSearchIndexer
@@ -16409,7 +17458,7 @@ class(`FastSearchIndexer__SWIG_0`) = c("SWIGFunction", class('FastSearchIndexer_
   ans <- if (is.null(ans)) ans else new("_p_OpenBabel__FastSearchIndexer", ref=ans);
   reg.finalizer(ans@ref, delete_FastSearchIndexer); ans }
 attr(`FastSearchIndexer__SWIG_1`, 'returnType') = '_p_OpenBabel__FastSearchIndexer'
-attr(`FastSearchIndexer__SWIG_1`, "inputTypes") = c('_p_std__string', '_p_std__ostream', '_p_std__string', 'integer')
+attr(`FastSearchIndexer__SWIG_1`, "inputTypes") = c('_p_std__string', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t', '_p_std__string', 'integer')
 class(`FastSearchIndexer__SWIG_1`) = c("SWIGFunction", class('FastSearchIndexer__SWIG_1'))
 
 # Start of new_FastSearchIndexer
@@ -16421,7 +17470,7 @@ class(`FastSearchIndexer__SWIG_1`) = c("SWIGFunction", class('FastSearchIndexer_
   ans <- if (is.null(ans)) ans else new("_p_OpenBabel__FastSearchIndexer", ref=ans);
   reg.finalizer(ans@ref, delete_FastSearchIndexer); ans }
 attr(`FastSearchIndexer__SWIG_2`, 'returnType') = '_p_OpenBabel__FastSearchIndexer'
-attr(`FastSearchIndexer__SWIG_2`, "inputTypes") = c('_p_std__string', '_p_std__ostream', '_p_std__string')
+attr(`FastSearchIndexer__SWIG_2`, "inputTypes") = c('_p_std__string', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t', '_p_std__string')
 class(`FastSearchIndexer__SWIG_2`) = c("SWIGFunction", class('FastSearchIndexer__SWIG_2'))
 
 # Start of new_FastSearchIndexer
@@ -16432,7 +17481,7 @@ class(`FastSearchIndexer__SWIG_2`) = c("SWIGFunction", class('FastSearchIndexer_
   ;ans = .Call('R_swig_new_FastSearchIndexer__SWIG_3', pindex, os, nmols, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
   else new("_p_OpenBabel__FastSearchIndexer", ref=ans); reg.finalizer(ans@ref, delete_FastSearchIndexer); ans }
 attr(`FastSearchIndexer__SWIG_3`, 'returnType') = '_p_OpenBabel__FastSearchIndexer'
-attr(`FastSearchIndexer__SWIG_3`, "inputTypes") = c('_p_OpenBabel__FptIndex', '_p_std__ostream', 'integer')
+attr(`FastSearchIndexer__SWIG_3`, "inputTypes") = c('_p_OpenBabel__FptIndex', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t', 'integer')
 class(`FastSearchIndexer__SWIG_3`) = c("SWIGFunction", class('FastSearchIndexer__SWIG_3'))
 
 # Start of new_FastSearchIndexer
@@ -16441,21 +17490,21 @@ class(`FastSearchIndexer__SWIG_3`) = c("SWIGFunction", class('FastSearchIndexer_
   ;ans = .Call('R_swig_new_FastSearchIndexer__SWIG_4', pindex, os, PACKAGE='ChemmineOB'); ans <- if (is.null(ans)) ans
   else new("_p_OpenBabel__FastSearchIndexer", ref=ans); reg.finalizer(ans@ref, delete_FastSearchIndexer); ans }
 attr(`FastSearchIndexer__SWIG_4`, 'returnType') = '_p_OpenBabel__FastSearchIndexer'
-attr(`FastSearchIndexer__SWIG_4`, "inputTypes") = c('_p_OpenBabel__FptIndex', '_p_std__ostream')
+attr(`FastSearchIndexer__SWIG_4`, "inputTypes") = c('_p_OpenBabel__FptIndex', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
 class(`FastSearchIndexer__SWIG_4`) = c("SWIGFunction", class('FastSearchIndexer__SWIG_4'))
 
 `FastSearchIndexer` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
 # dispatch functions 5
    if (argc == 2) {
-    if ((extends(argtypes[1], '_p_OpenBabel__FptIndex') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__ostream') || is.null(argv[[2]]))) {
+    if ((extends(argtypes[1], '_p_OpenBabel__FptIndex') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[2]]))) {
       f <- FastSearchIndexer__SWIG_4; }  }  else if (argc == 3) {
-    if ((extends(argtypes[1], '_p_OpenBabel__FptIndex') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__ostream') || is.null(argv[[2]])) && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 )) {
+    if ((extends(argtypes[1], '_p_OpenBabel__FptIndex') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[2]])) && ( (is.integer(argv[[3]]) || is.numeric(argv[[3]])) && length(argv[[3]]) == 1 )) {
       f <- FastSearchIndexer__SWIG_3; } 
-    else if (extends(argtypes[1], '_p_std__string') && length(argv[[1]]) == 1 && (extends(argtypes[2], '_p_std__ostream') || is.null(argv[[2]])) && extends(argtypes[3], '_p_std__string') && length(argv[[3]]) == 1) {
+    else if (extends(argtypes[1], '_p_std__string') && length(argv[[1]]) == 1 && (extends(argtypes[2], '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[2]])) && extends(argtypes[3], '_p_std__string') && length(argv[[3]]) == 1) {
       f <- FastSearchIndexer__SWIG_2; }  }  else if (argc == 4) {
-    if (extends(argtypes[1], '_p_std__string') && length(argv[[1]]) == 1 && (extends(argtypes[2], '_p_std__ostream') || is.null(argv[[2]])) && extends(argtypes[3], '_p_std__string') && length(argv[[3]]) == 1 && ( (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1 )) {
+    if (extends(argtypes[1], '_p_std__string') && length(argv[[1]]) == 1 && (extends(argtypes[2], '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[2]])) && extends(argtypes[3], '_p_std__string') && length(argv[[3]]) == 1 && ( (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1 )) {
       f <- FastSearchIndexer__SWIG_1; }  }  else if (argc == 5) {
-    if (extends(argtypes[1], '_p_std__string') && length(argv[[1]]) == 1 && (extends(argtypes[2], '_p_std__ostream') || is.null(argv[[2]])) && extends(argtypes[3], '_p_std__string') && length(argv[[3]]) == 1 && ( (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1 ) && ( (is.integer(argv[[5]]) || is.numeric(argv[[5]])) && length(argv[[5]]) == 1 )) {
+    if (extends(argtypes[1], '_p_std__string') && length(argv[[1]]) == 1 && (extends(argtypes[2], '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t') || is.null(argv[[2]])) && extends(argtypes[3], '_p_std__string') && length(argv[[3]]) == 1 && ( (is.integer(argv[[4]]) || is.numeric(argv[[4]])) && length(argv[[4]]) == 1 ) && ( (is.integer(argv[[5]]) || is.numeric(argv[[5]])) && length(argv[[5]]) == 1 )) {
       f <- FastSearchIndexer__SWIG_0; }  }  else {
     stop("cannot find overloaded function for FastSearchIndexer with argtypes (",toString(argtypes),")"); } ; f(...); }
 # Dispatch function
@@ -16612,7 +17661,7 @@ class(`OBDescriptor_GetStringValue__SWIG_1`) = c("SWIGFunction", class('OBDescri
   noEval = as.logical(noEval); if (inherits(param, "ExternalReference")) param = slot(param,"ref"); 
   ;.Call('R_swig_OBDescriptor_Compare__SWIG_0', self, pOb, ss, noEval, param, as.logical(.copy), PACKAGE='ChemmineOB'); }
 attr(`OBDescriptor_Compare__SWIG_0`, 'returnType') = 'logical'
-attr(`OBDescriptor_Compare__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBDescriptor', '_p_OpenBabel__OBBase', '_p_std__istream', 'logical', '_p_std__string')
+attr(`OBDescriptor_Compare__SWIG_0`, "inputTypes") = c('_p_OpenBabel__OBDescriptor', '_p_OpenBabel__OBBase', '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', 'logical', '_p_std__string')
 class(`OBDescriptor_Compare__SWIG_0`) = c("SWIGFunction", class('OBDescriptor_Compare__SWIG_0'))
 
 # Start of OBDescriptor_Compare
@@ -16622,15 +17671,15 @@ class(`OBDescriptor_Compare__SWIG_0`) = c("SWIGFunction", class('OBDescriptor_Co
   noEval = as.logical(noEval);
   ;.Call('R_swig_OBDescriptor_Compare__SWIG_1', self, pOb, ss, noEval, as.logical(.copy), PACKAGE='ChemmineOB'); }
 attr(`OBDescriptor_Compare__SWIG_1`, 'returnType') = 'logical'
-attr(`OBDescriptor_Compare__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBDescriptor', '_p_OpenBabel__OBBase', '_p_std__istream', 'logical')
+attr(`OBDescriptor_Compare__SWIG_1`, "inputTypes") = c('_p_OpenBabel__OBDescriptor', '_p_OpenBabel__OBBase', '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', 'logical')
 class(`OBDescriptor_Compare__SWIG_1`) = c("SWIGFunction", class('OBDescriptor_Compare__SWIG_1'))
 
 `OBDescriptor_Compare` <- function(...) { argtypes <- mapply(class, list(...)); argv <- list(...);argc <- length(argtypes);
 # dispatch functions 2
    if (argc == 4) {
-    if ((extends(argtypes[1], '_p_OpenBabel__OBDescriptor') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_OpenBabel__OBBase') || is.null(argv[[2]])) && extends(argtypes[3], '_p_std__istream') && length(argv[[3]]) == 1 && ( is.logical(argv[[4]]) && length(argv[[4]]) == 1 )) {
+    if ((extends(argtypes[1], '_p_OpenBabel__OBDescriptor') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_OpenBabel__OBBase') || is.null(argv[[2]])) && extends(argtypes[3], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') && length(argv[[3]]) == 1 && ( is.logical(argv[[4]]) && length(argv[[4]]) == 1 )) {
       f <- OBDescriptor_Compare__SWIG_1; }  }  else if (argc == 5) {
-    if ((extends(argtypes[1], '_p_OpenBabel__OBDescriptor') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_OpenBabel__OBBase') || is.null(argv[[2]])) && extends(argtypes[3], '_p_std__istream') && length(argv[[3]]) == 1 && ( is.logical(argv[[4]]) && length(argv[[4]]) == 1 ) && (extends(argtypes[5], '_p_std__string') || is.null(argv[[5]]))) {
+    if ((extends(argtypes[1], '_p_OpenBabel__OBDescriptor') || is.null(argv[[1]])) && (extends(argtypes[2], '_p_OpenBabel__OBBase') || is.null(argv[[2]])) && extends(argtypes[3], '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t') && length(argv[[3]]) == 1 && ( is.logical(argv[[4]]) && length(argv[[4]]) == 1 ) && (extends(argtypes[5], '_p_std__string') || is.null(argv[[5]]))) {
       f <- OBDescriptor_Compare__SWIG_0; }  }  else {
     stop("cannot find overloaded function for OBDescriptor_Compare with argtypes (",toString(argtypes),")"); } ; f(...); }
 # Dispatch function
@@ -16692,7 +17741,7 @@ class(`OBDescriptor_Order__SWIG_1`) = c("SWIGFunction", class('OBDescriptor_Orde
   noEval = as.logical(noEval);
   ;.Call('R_swig_OBDescriptor_FilterCompare', pOb, ss, noEval, as.logical(.copy), PACKAGE='ChemmineOB'); }
 attr(`OBDescriptor_FilterCompare`, 'returnType') = 'logical'
-attr(`OBDescriptor_FilterCompare`, "inputTypes") = c('_p_OpenBabel__OBBase', '_p_std__istream', 'logical')
+attr(`OBDescriptor_FilterCompare`, "inputTypes") = c('_p_OpenBabel__OBBase', '_p_std__basic_istreamT_char_std__char_traitsT_char_t_t', 'logical')
 class(`OBDescriptor_FilterCompare`) = c("SWIGFunction", class('OBDescriptor_FilterCompare'))
 
 # Start of OBDescriptor_AddProperties
@@ -16725,7 +17774,7 @@ class(`OBDescriptor_GetValues`) = c("SWIGFunction", class('OBDescriptor_GetValue
   ;ans = .Call('R_swig_OBDescriptor_GetIdentifier', optionText, as.logical(.copy), PACKAGE='ChemmineOB');
   ans <- if (is.null(ans)) ans else new("_p_std__pairT_std__string_std__string_t", ref=ans); ans }
 attr(`OBDescriptor_GetIdentifier`, 'returnType') = '_p_std__pairT_std__string_std__string_t'
-attr(`OBDescriptor_GetIdentifier`, "inputTypes") = c('_p_std__istream')
+attr(`OBDescriptor_GetIdentifier`, "inputTypes") = c('_p_std__basic_istreamT_char_std__char_traitsT_char_t_t')
 class(`OBDescriptor_GetIdentifier`) = c("SWIGFunction", class('OBDescriptor_GetIdentifier'))
 
 # Start of delete_OBDescriptor
@@ -21965,7 +23014,7 @@ class(`OBForceField_PrintVelocities`) = c("SWIGFunction", class('OBForceField_Pr
   if (inherits(pos, "ExternalReference")) pos = slot(pos,"ref"); 
   ;.Call('R_swig_OBForceField_SetLogFile', self, pos, as.logical(.copy), PACKAGE='ChemmineOB'); }
 attr(`OBForceField_SetLogFile`, 'returnType') = 'logical'
-attr(`OBForceField_SetLogFile`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_std__ostream')
+attr(`OBForceField_SetLogFile`, "inputTypes") = c('_p_OpenBabel__OBForceField', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
 class(`OBForceField_SetLogFile`) = c("SWIGFunction", class('OBForceField_SetLogFile'))
 
 # Start of OBForceField_SetLogLevel
@@ -23477,7 +24526,7 @@ class(`OBConformerSearch_GetConformers`) = c("SWIGFunction", class('OBConformerS
   if (inherits(sptr, "ExternalReference")) sptr = slot(sptr,"ref"); 
   ;.Call('R_swig_OBConformerSearch_SetLogStream', self, sptr, PACKAGE='ChemmineOB'); }
 attr(`OBConformerSearch_SetLogStream`, 'returnType') = 'void'
-attr(`OBConformerSearch_SetLogStream`, "inputTypes") = c('_p_OpenBabel__OBConformerSearch', '_p_std__ostream')
+attr(`OBConformerSearch_SetLogStream`, "inputTypes") = c('_p_OpenBabel__OBConformerSearch', '_p_std__basic_ostreamT_char_std__char_traitsT_char_t_t')
 class(`OBConformerSearch_SetLogStream`) = c("SWIGFunction", class('OBConformerSearch_SetLogStream'))
 
 # Start of OBConformerSearch_SetSharing
@@ -34939,6 +35988,11 @@ setMethod('copyToC', 'OpenBabel::OBSquarePlanarConfig', CopyToC_OpenBabel__OBSqu
 
 # End definition of copy methods for OpenBabel::OBSquarePlanarConfig
 # End definition of copy functions & methods for OpenBabel::OBSquarePlanarConfig
+
+defineEnumeration("_std__ios_base__event",
+ .values=c("erase_event" = .Call('R_swig_ios_base_erase_event_get',FALSE, PACKAGE='ChemmineOB'),
+"imbue_event" = .Call('R_swig_ios_base_imbue_event_get',FALSE, PACKAGE='ChemmineOB'),
+"copyfmt_event" = .Call('R_swig_ios_base_copyfmt_event_get',FALSE, PACKAGE='ChemmineOB')))
 
 defineEnumeration("_OpenBabel__DataOrigin",
  .values=c("any" = .Call('R_swig_DataOrigin_any_get',FALSE, PACKAGE='ChemmineOB'),
