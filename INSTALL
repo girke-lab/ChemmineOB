@@ -64,7 +64,7 @@ Get the location of the zlib includes as follows (in R):
 
 That will print out something like:
 
-  -I"C:/Users/biocbuild/bbs-3.5-bioc/R/library/zlibbioc/include"
+  -I"C:/Users/biocbuild/bbs-3.11-bioc/R/library/zlibbioc/include"
 
 Get rid of the -I and the quotes and there is your ZLIB_INCLUDE_DIR
 
@@ -74,19 +74,19 @@ Then get the location of the zlib library as follows:
 
 That will print out something like:
 
-  -L"C:/Users/biocbuild/bbs-3.5-bioc/R/library/zlibbioc/libs/i386" -lzlib1bioc>
+  -L"C:/Users/biocbuild/bbs-3.11-bioc/R/library/zlibbioc/libs/i386" -lzlib1bioc>
 
 Get rid of the -L, the quotes, and the -lzlibbioc> and append /zlib1bioc.dll
 and now you have ZLIB_LIBRARY
 
 For i386 builds:
 -----------------
-Make sure "c:/Rtools/mingw_32/bin" in the system PATH.
+Make sure "c:/Rtools40/mingw32/bin" is in the system PATH.
 Move into c:\openbabel\build\i386
 
 Run: 
 
- cmake -G "Unix Makefiles" -DCMAKE_C_FLAGS=-m32 -DCMAKE_CXX_FLAGS=-m32  -DCMAKE_RC_COMPILER=c:/Rtools/mingw_32/bin/gcc.exe -DBUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=c:\openbabel\bin\i386 -DZLIB_INCLUDE_DIR=C:/Users/biocbuild/bbs-3.5-bioc/R/library/zlibbioc/include -DZLIB_LIBRARY=C:/Users/biocbuild/bbs-3.5-bioc/R/library/zlibbioc/libs/i386/zlib1bioc.dll C:/openbabel/src/i386
+ cmake -G "Unix Makefiles" -DCMAKE_C_FLAGS=-m32 -DCMAKE_CXX_FLAGS=-m32  -DCMAKE_RC_COMPILER=c:/Rtools40/mingw32/bin/gcc.exe -DBUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=c:\openbabel\bin\i386 -DZLIB_INCLUDE_DIR=C:/Users/biocbuild/bbs-3.11-bioc/R/library/zlibbioc/include -DZLIB_LIBRARY=C:/Users/biocbuild/bbs-3.11-bioc/R/library/zlibbioc/libs/i386/zlib1bioc.dll C:/openbabel/src/i386
 
 Replace the value of ZLIB_INCLUDE_DIR and ZLIB_LIBRARY with the values you
 found above.
@@ -102,13 +102,14 @@ Copy openbabel config header file into place:
 
 For x64 builds:
 ------------------
-Make sure "c:/Rtools/mingw_64/bin" in the system PATH and make sure that "c:/Rtools/mingw_32/bin" IS NOT IN the system PATH, 
-otherwise cmake will choose the 32 bit version over the 64 bit version
+Make sure "c:/Rtools40/mingw64/bin" is in the system PATH and make sure that "c:/Rtools40/mingw32/bin" IS NOT IN the system PATH, otherwise cmake will choose
+the 32 bit version over the 64 bit version (simple test is to do `which gcc`).
+
 Move into c:\openbabel\build\x64
 
 Run: 
 
-  cmake -G "Unix Makefiles" -DCMAKE_C_FLAGS=-m64 -DCMAKE_CXX_FLAGS=-m64  -DCMAKE_RC_COMPILER=c:/Rtools/mingw_64/bin/gcc.exe -DBUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=c:/openbabel/bin/x64 -DZLIB_INCLUDE_DIR=C:/Users/biocbuild/bbs-3.5-bioc/R/library/zlibbioc/include -DZLIB_LIBRARY=C:/Users/biocbuild/bbs-3.5-bioc/R/library/zlibbioc/libs/x64/zlib1bioc.dll c:/openbabel/src/x64
+  cmake -G "Unix Makefiles" -DCMAKE_C_FLAGS=-m64 -DCMAKE_CXX_FLAGS=-m64  -DCMAKE_RC_COMPILER=c:/Rtools40/mingw64/bin/gcc.exe -DBUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=c:/openbabel/bin/x64 -DZLIB_INCLUDE_DIR=C:/Users/biocbuild/bbs-3.11-bioc/R/library/zlibbioc/include -DZLIB_LIBRARY=C:/Users/biocbuild/bbs-3.11-bioc/R/library/zlibbioc/libs/x64/zlib1bioc.dll c:/openbabel/src/x64
 
 Replace the value of ZLIB_INCLUDE_DIR and ZLIB_LIBRARY with the values you
 found above.
@@ -122,7 +123,7 @@ Copy openbabel config header file into place:
 
   copy c:\openbabel\bin\x64\include\openbabel-2.0\openbabel\babelconfig.h c:\openbabel\src\x64\include\openbabel\babelconfig.h
 
-Remember to add c:/Rtools/mingw_32/bin back into the system PATH if you
+Remember to add c:/Rtools40/mingw32/bin back into the system PATH if you
 temporarily took it away.
 
 
@@ -137,4 +138,4 @@ Set environment variables:
 Build ChemmineOB:
 
   R CMD build --no-build-vignettes ChemmineOB
-  R CMD INSTALL --merge-multiarch ChemmineOB_1.13.0.tar.gz   #(replace version with whatever version you have)
+  R CMD INSTALL --merge-multiarch ChemmineOB_1.25.0.tar.gz   #(replace version with whatever version you have)
