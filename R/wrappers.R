@@ -79,7 +79,7 @@ canonicalNumbering_OB <- function(obmolRefs) {
 		obmolRefs=c(obmolRefs)
 
 	Map(function(mol){
-		.Call("canonicalReordering",mol,PACKAGE="ChemmineOB")
+		.Call("canonicalReordering",mol@ref,PACKAGE="ChemmineOB")
 	},obmolRefs)
 	
 }
@@ -131,13 +131,13 @@ fingerprint_OB <- function(obmolRefs, fingerprintName){
 		stop("fingerprint ",fingerprintName," not found")
 
 	Reduce(rbind,Map(function(mol){
-		fp = vectorUnsignedInt(1)
+		fp = numeric(1)
 
-		OBFingerprint_GetFingerprint(fpHandle,mol,fp)
+		fp=OBFingerprint_GetFingerprint(fpHandle,mol,fp)[[2]] # new fp arg is returned as second element of a list
 		if(numBits == -1)
-			numBits = vectorUnsignedInt_size(fp) * 4 * 8
+			numBits = length(fp) * 4 * 8
 		row = unlist(Map(function(i){
-					 r=OBFingerprint_GetBit(fpHandle,fp,i-1)
+					 r=OBFingerprint_GetBit(fpHandle,fp,i-1)[[1]]
 					 if(r) 1 else 0
 				},seq(1,numBits,length.out=numBits)))
 		if(debug) print(row)
@@ -194,7 +194,7 @@ smartsSearch_OB<- function(obmolRefs,smartsPattern,uniqueMatches=TRUE){
 		OBSmartsPattern_Match(sp,mol)
 		if(uniqueMatches){
 			umap = OBSmartsPattern_GetUMapList(sp)
-			vectorvInt_size(umap)
+			length(umap)
 		}else
 			OBSmartsPattern_NumMatches(sp)
 
