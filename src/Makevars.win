@@ -1,4 +1,4 @@
-PKG_CXXFLAGS +=  -I${OPEN_BABEL_SRC}${R_ARCH}/include
+PKG_CXXFLAGS +=  -I${OPEN_BABEL_SRC}${R_ARCH}/include -IC:\openbabel3\deps\eigin-3.3.7
 PKG_LIBS += -L${OPEN_BABEL_BIN}${R_ARCH}/bin -lopenbabel 
 
 PKG_LIBS += $(shell echo 'zlibbioc::pkgconfig("PKG_LIBS_shared")' | "${R_HOME}/bin/R" --vanilla --slave)
