@@ -79,6 +79,8 @@ OpenBabel  http://openbabel.org
 
 \examples{
    # Convert the given smiles string to a PNG image with size 500x500.
-	sdfStr = convertToImage("SMI","PNG","CC(=O)OC1=CC=CC=C1C(=O)O\ttest_name","out_iamge.png",
+	\dontrun{
+		sdfStr = convertToImage("SMI","PNG","CC(=O)OC1=CC=CC=C1C(=O)O\ttest_name","out_image.png",
                           out_options=data.frame(names="p",args="500"))
+	}
 }

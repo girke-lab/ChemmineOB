@@ -30,7 +30,8 @@ smartsSearch_OB(obmolRefs, smartsPattern, uniqueMatches = TRUE)
    Kevin Horan
 }
 \examples{
-
+\dontrun{
 	molRefs = forEachMol("SMILES","C1CCCCC1\ttest-compound-name",identity)
 	smartsSearch_OB(molRefs,"[CH3X4]")
+}
 }

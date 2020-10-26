@@ -3,7 +3,13 @@ debug=1
 
 test.formatConversions <- function(){
  
-	smiles = "OC(=O)C(Br)(Cl)N\ttest1\n"
+	smiles = "OC(=O)C(Br)(Cl)N\ttest1"
+	if(.Platform$OS.type == "windows"){
+		smiles = paste(smiles,"\r\n",sep="")
+	}else{
+		smiles = paste(smiles,"\n",sep="")
+	}
+
 
 	sdf=convertFormat("SMI","SDF",smiles)
 	s2 = convertFormat("SDF","SMI",sdf)

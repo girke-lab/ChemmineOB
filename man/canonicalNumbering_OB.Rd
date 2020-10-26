@@ -41,9 +41,11 @@ canonicalNumbering_OB(obmolRefs)
 
 }
 \examples{
+\dontrun{
    library(ChemmineR)
    data(sdfsample)
    labels = canonicalNumbering_OB(obmol(sdfsample[[1]]))
+}
 
 }
 \keyword{canonical}

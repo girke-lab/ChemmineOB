@@ -23,8 +23,10 @@ exactMass_OB(obmolRefs)
 }
 
 \examples{
+\dontrun{
 	molRefs = forEachMol("SMILES","C1CCCCC1\ttest-compound-name",identity)
 	exactMass_OB(molRefs)
+}
 }
 \keyword{monoisotopic}
 \keyword{mass}

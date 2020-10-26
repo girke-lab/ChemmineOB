@@ -49,7 +49,8 @@ forEachMol(inFormat, inString, f, reduce)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-
+\dontrun{
 	molRefs = forEachMol("SMILES","C1CCCCC1\ttest-compound-name",
                         identity,c)
+}
 }

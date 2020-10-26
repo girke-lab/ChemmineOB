@@ -32,7 +32,8 @@ fingerprint_OB(obmolRefs, fingerprintName)
 }
 
 \examples{
-
+\dontrun{
 	molRefs = forEachMol("SMILES","C1CCCCC1\ttest-compound-name",identity)
 	fingerprint_OB(molRefs,"FP3")
+}
 }

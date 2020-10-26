@@ -100,9 +100,11 @@ test.formatConversions <- function(){
 	smi = read.SMIset(smiFile)
 	checkEquals(smi[[1]]@smiles,"O=C(NC1CCCC1)CN(c1cc2OCCOc2cc1)C(=O)CCC(=O)Nc1noc(c1)C")
 
-	pngFile = tempfile()
-	convertToImage("SMI","PNG",smi[[1]]@smiles,pngFile)
-	checkTrue(file.size(pngFile) > 0)
+	if(.Platform$OS.type != "windows"){
+		pngFile = tempfile()
+		convertToImage("SMI","PNG",smi[[1]]@smiles,pngFile)
+		checkTrue(file.size(pngFile) > 0)
+	}
 }
 test.writeMols <- function(){
 	ref = obmol(sdfsample[1])

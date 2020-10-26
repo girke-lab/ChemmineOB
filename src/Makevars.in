@@ -6,5 +6,5 @@
 #      endif
 #endif 
 
-PKG_CPPFLAGS =  @OPENBABEL_CFLAGS@ -I/usr/include/openbabel3  -I/usr/include/eigen3  -DUSE_BOOST -DHAVE_EIGEN
-PKG_LIBS = @OPENBABEL_LIBS@
+PKG_CPPFLAGS = -I/usr/include/openbabel3  -I/usr/include/eigen3  -DUSE_BOOST -DHAVE_EIGEN  -I/usr/local/Cellar/eigen/3.3.8_1/include/eigen3 -I/usr/local/Cellar/open-babel/3.1.1_1/include/openbabel3  @OPENBABEL_CFLAGS@ 
+PKG_LIBS =  -L/usr/local/Cellar/open-babel/3.1.1_1/lib  @OPENBABEL_LIBS@
