@@ -27,6 +27,11 @@ where the '...' are replaced by the relevant paths.
 Compiling on Windows
 ---------------------
 
+Pre-compiled binaries of Openbabel 3.0.0, build with the mingw toolchain, can be found here:
+https://github.com/girke-lab/ChemmineOB/releases/tag/3.0.0
+
+To compile yourself, proceed with these instructions:
+
 Set up directory structure like this:
 
 C:\openbabel\src
