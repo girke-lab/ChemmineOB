@@ -163,6 +163,7 @@ function(fun, userData = NULL)
 
 setClass('C++Reference', contains = 'ExternalReference')
 setClass('_p_std__char_traitsT_char_t', contains = 'ExternalReference')
+setClass('_p_std__string', contains = 'C++Reference')
 setClass("std::char_traits<(char)>",
     representation(
 ),
