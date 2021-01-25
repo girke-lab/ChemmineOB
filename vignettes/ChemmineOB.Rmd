@@ -6,6 +6,7 @@ package: "`r pkg_ver('ChemmineOB')`"
 output:
   BiocStyle::html_document:
     toc: true
+    toc_float: true
     toc_depth: 3
     fig_caption: yes
 
