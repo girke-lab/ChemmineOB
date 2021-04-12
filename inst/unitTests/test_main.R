@@ -3,7 +3,6 @@ library(ChemmineR)
 data(sdfsample)
 
 test.propOB <-function(){
-	DEACTIVATED()
 	numDescs = 13 # this can change
 
 	molRefs = forEachMol("SMI","C1CCCCC1",identity)
@@ -25,7 +24,6 @@ test.propOB <-function(){
 
 }
 test.fingerprintOB <-function(){
-	DEACTIVATED()
 
 	molRefs = forEachMol("SMI","C1CCCCC1\ncc1ccc1",identity)
 	f1 = fingerprint_OB(molRefs,"FP2")
@@ -36,7 +34,6 @@ test.fingerprintOB <-function(){
 
 
 test.smartsOB <- function(){
-	DEACTIVATED()
 	
 	message("start of smartsOB")
 	molRefs = forEachMol("SMI","C1CCCCC1\ncc1ccc1",identity)
@@ -55,7 +52,6 @@ test.smartsOB <- function(){
 }
 
 test.exactMassOB <- function(){
-	DEACTIVATED()
 	#molRefs = forEachMol("SMI","C1CCCCC1\ncc1ccc1",identity)
 	#masses = exactMass_OB(molRefs)
 	#print("masses:")
@@ -67,7 +63,6 @@ test.exactMassOB <- function(){
 
 }
 test.canonicalize <- function(){
-	DEACTIVATED()
 
 	sdfstrList=as(as(sdfsample[1],"SDFstr"),"list")
 	sdfDef= paste(Map(function(x) paste(x,collapse="\n"),
@@ -82,7 +77,6 @@ test.canonicalize <- function(){
 	checkEqualsNumeric(bb[2,1:3],c(2,4,1))
 }
 test.canonicalLabels <- function() {
-	DEACTIVATED()
 
 	labels=canonicalNumbering_OB(obmol(sdfsample[[1]]))
 	print("labels:")
@@ -98,7 +92,6 @@ test.canonicalLabels <- function() {
 
 }
 test.formatConversions <- function(){
-	DEACTIVATED()
 	sdfFile = tempfile()
 	smiFile = tempfile()
 	write.SDF(sdfsample[1],sdfFile)
@@ -113,7 +106,6 @@ test.formatConversions <- function(){
 	}
 }
 test.writeMols <- function(){
-	DEACTIVATED()
 	ref = obmol(sdfsample[1])
 	sdfFile = tempfile()
 	ChemmineOB:::writeMols(ref,sdfFile,"SDF")

@@ -2,7 +2,6 @@
 debug=1
 
 test.formatConversions <- function(){
-	DEACTIVATED()
  
 	smiles = "OC(=O)C(Br)(Cl)N\ttest1"
 	if(.Platform$OS.type == "windows"){
