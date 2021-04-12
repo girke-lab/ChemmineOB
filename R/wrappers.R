@@ -6,6 +6,10 @@ packageName = "ChemmineOB"
 	# the openbabel plugins to load properly. Further, when calling
 	# functions from this library, you must set PACKAGE=packageName in the .Call function
 	# or it will not find any of the symbols.
+  
+  if(! .supportedPlatform()){
+    warning("ChemmineOB is not fully supported on this platform. ", .Platform$OS," ", .Platform$r_arch)
+  }
 
 	library.dynam(pkgname,package=pkgname,lib.loc=libname,local=FALSE)
 
@@ -13,7 +17,9 @@ packageName = "ChemmineOB"
 	 Sys.setenv(BABEL_DATADIR=system.file("openbabel_data",package=pkgname))
 
 }
-
+.supportedPlatform <- function(){
+  !(.Platform$OS == "windows" && .Platform$r_arch == "i386")
+}
 convertFormat <- function(from,to,source,options=data.frame(names="gen2D",args="")){
 	
 	inStr = istreamFromString(source)
