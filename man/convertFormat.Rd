@@ -4,7 +4,8 @@
 	Convert Formats
 }
 \description{
-	Converts compound data from one format to another.
+	Converts compound data from one format to another. Some formats are not supported on windows.
+	This currently includes "INCHI" and "INCHIKEY".
 }
 \usage{
 convertFormat(from, to, source,options=data.frame(names="gen2D",args=""))

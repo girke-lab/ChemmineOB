@@ -4,7 +4,8 @@
 	Convert Format of Files
 }
 \description{
-	Convert a file from one format to another
+	Convert a file from one format to another. Some formats are not supported on windows.
+	This currently includes "INCHI" and "INCHIKEY".
 }
 \usage{
 convertFormatFile(from, to, fromFile, toFile,options=data.frame(names="gen2D",args=""))

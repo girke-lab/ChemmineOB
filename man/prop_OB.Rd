@@ -20,8 +20,9 @@ prop_OB(obmolRefs)
 }
 \value{
 	Returns a data frame with the following OpenBabel descriptors:
-  "cansmi", "cansmiNS", "formula", "HBA1", "HBA2", "HBD", "InChI", "InChIKey", 
-  "logP", "MR", "MW", "nF", "title", "TPSA".
+  "cansmi", "cansmiNS", "formula", "HBA1", "HBA2", "HBD", "InChI",  
+  "logP", "MR", "MW", "nF", "title", "TPSA". The "InChI" descriptor is not supported on windows currently, so 
+  that column will always be blank. 
 }
 \author{
 	Kevin Horan
