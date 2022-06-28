@@ -93,6 +93,11 @@ $ R CMD INSTALL --configure-args='--with-openbabel-include=...  --with-openbabel
 where the '...' are replaced by the relevant paths. See the README file
 for more details.
 
+# Limitations on Windows
+
+Some OpenBabel modules are not avaible through ChemmineOB on windows. These currently include
+"MACCS" and "InChi".
+
 # User Manual in ChemmineR Vignette
 
 Detailed instructions for using `ChemmineOB` are provided
