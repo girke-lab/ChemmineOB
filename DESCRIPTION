@@ -2,7 +2,7 @@ Package: ChemmineOB
 Type: Package
 Title: R interface to a subset of OpenBabel functionalities
 Date: 2022-06-28
-Version: 1.35.2
+Version: 1.36.0
 Author: Kevin Horan, Thomas Girke
 Maintainer: Thomas Girke <thomas.girke@ucr.edu>
 Suggests: ChemmineR, BiocStyle, knitr,  knitrBootstrap, BiocManager, rmarkdown
