@@ -9,7 +9,7 @@
 	The fingerprint name can also be specified.
 }
 \usage{
-fingerprint_OB(obmolRefs, fingerprintName)
+fingerprint_OB(obmolRefs, fingerprintName,reverse=FALSE)
 }
 \arguments{
   \item{obmolRefs}{
@@ -22,6 +22,19 @@ fingerprint_OB(obmolRefs, fingerprintName)
 	  The name of the fingerprint to generate. A list of available names can be found with 
 	  "obabel -L fingerprints". Currently that list is: "FP2", "FP3", "FP4", and "MACCS". Currently "MACCS"
 	  is not supported on windows.
+	}
+	\item{reverse}{
+		Reverse the order of bits in each fingerprint. The fingerprints
+		returned by this function are in reverse order to those returned by
+		obabel when using the same fingerprint calculation. As long as all
+		fingerprings being compared came from the same source (ie, all from
+		obabel, or all from ChemmineOB) the results should be correct. But if
+		you need to mix fingerprints from different sources, care muse be
+		taken to make sure they are all in the same direction. To make
+		ChemmineOB match obabel output, set \code{reverse=TRUE}.
+
+		We cannot set this to TRUE by default at this point as that could
+		break code written prior to this change.
 	}
 }
 \value{

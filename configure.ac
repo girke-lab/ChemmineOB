@@ -27,7 +27,7 @@ AS_IF([ test -n "$openbabel_lib_path" ],
 			[ OPENBABEL_LIBS="-L${OPEN_BABEL_LIBDIR} -lopenbabel"],
 		[
 			AC_LANG_PUSH([C++])
-				 PKG_CHECK_MODULES([OPENBABEL],[openbabel-3.0],[],[OPENBABEL_LIBS="-lopenbabel"])
+				 PKG_CHECK_MODULES([OPENBABEL],[openbabel-3.1],[],[OPENBABEL_LIBS="-lopenbabel"])
 			AC_LANG_POP([C++])
 		]
 )

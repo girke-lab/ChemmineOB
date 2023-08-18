@@ -127,7 +127,7 @@ prop_OB<- function(obmolRefs) {
 	},obmolRefs))
 }
 
-fingerprint_OB <- function(obmolRefs, fingerprintName){
+fingerprint_OB <- function(obmolRefs, fingerprintName,reverse=FALSE){
 
 	OBConversion()
 
@@ -147,6 +147,11 @@ fingerprint_OB <- function(obmolRefs, fingerprintName){
 					 if(r) 1 else 0
 				},seq(1,numBits,length.out=numBits)))
 		if(debug) print(row)
+
+		# for some reason the fingerpints computed here are the 
+		# reverse bit string of what obabel outputs. 
+		if(reverse) 
+			row = rev(row)
 		row
 	  },obmolRefs))
 }
