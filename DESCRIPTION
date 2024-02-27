@@ -1,14 +1,14 @@
 Package: ChemmineOB
 Type: Package
 Title: R interface to a subset of OpenBabel functionalities
-Date: 2024-1-19
-Version: 1.41.1
+Date: 2024-2-27
+Version: 1.41.2
 Author: Kevin Horan, Thomas Girke
 Maintainer: Thomas Girke <thomas.girke@ucr.edu>
 Suggests: ChemmineR, BiocStyle, knitr,  knitrBootstrap, BiocManager, rmarkdown,RUnit
 Imports: BiocGenerics, zlibbioc, Rcpp (>= 0.11.0)
 Description: ChemmineOB provides an R interface to a subset of cheminformatics functionalities implemented by the OpelBabel C++ project. OpenBabel is an open source cheminformatics toolbox that includes utilities for structure format interconversions, descriptor calculations, compound similarity searching and more. ChemineOB aims to make a subset of these utilities available from within R. For non-developers, ChemineOB is primarily intended to be used from ChemmineR as an add-on package rather than used directly.
-License: file LICENSE
+License: Artistic-2.0
 Depends: R (>= 2.15.1), methods
 SystemRequirements: OpenBabel (>= 3.0.0) with headers (http://openbabel.org). Eigen3 with headers.
 Enhances: ChemmineR (>= 2.13.0)
