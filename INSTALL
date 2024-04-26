@@ -20,7 +20,7 @@ OPEN_BABEL_LIBDIR = path to shared (.so) library file
 
 These values can also be set through command line switches to the configure scripts:
 
-R CMD INSTALL --configure-args='--with-openbabel-include=... --with-openbabel-lib=...' ChemmineOB.tgz
+R CMD INSTALL --configure-args='--with-openbabel-include=...' --configure-args='--with-openbabel-lib=...' ChemmineOB.tgz
 
 where the '...' are replaced by the relevant paths.
 
