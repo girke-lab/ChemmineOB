@@ -7,4 +7,4 @@
 #endif 
 
 PKG_CPPFLAGS = -I/usr/include/openbabel3  -I/usr/include/eigen3  -DUSE_BOOST -DHAVE_EIGEN -D_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION  -I/usr/local/include/eigen3 -I/usr/local/include/openbabel3  @OPENBABEL_CFLAGS@ 
-PKG_LIBS =  -L/usr/local/lib/openbabel3  @OPENBABEL_LIBS@
+PKG_LIBS =  -L/usr/local/lib/openbabel3  @OPENBABEL_LIBS@ -lz
