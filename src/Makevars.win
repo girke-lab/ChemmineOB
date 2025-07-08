@@ -3,5 +3,5 @@ PKG_LIBS += -L${OPEN_BABEL_BIN}${R_ARCH}/bin -lopenbabel
 
 PKG_CXXFLAGS +=  -IC:/openbabel3/deps/eigen-3.4.0  -DHAVE_EIGEN -DHAVE_ISFINITE
 PKG_CXXFLAGS += -Wno-misleading-indentation -fPIC
-#PKG_LIBS += $(shell echo 'zlibbioc::pkgconfig("PKG_LIBS_shared")' | "${R_HOME}/bin/R" --vanilla --slave)
-PKG_LIBS += -lz
+PKG_LIBS += $(shell echo 'zlibbioc::pkgconfig("PKG_LIBS_shared")' | "${R_HOME}/bin/R" --vanilla --slave)
+#PKG_LIBS += -lz
