@@ -56,34 +56,6 @@ Set up the following global environment variables: in control panel/system:
 
   OPEN_BABEL_BIN = c:/openbabel/bin
 
-Install the zlibbioc package. In R, do this:
-
-  if (!requireNamespace("BiocManager", quietly=TRUE))
-    install.packages("BiocManager")
-  BiocManager::install("zlibbioc")
-
-Get the location of the zlib includes as follows (in R):
-
-  > library(zlibbioc)
-  > pkgconfig("PKG_CFLAGS")
-
-That will print out something like:
-
-  -I"C:/Users/biocbuild/bbs-3.11-bioc/R/library/zlibbioc/include"
-
-Get rid of the -I and the quotes and there is your ZLIB_INCLUDE_DIR
-
-Then get the location of the zlib library as follows:
-
-  > pkgconfig("PKG_LIBS_shared")
-
-That will print out something like:
-
-  -L"C:/Users/biocbuild/bbs-3.11-bioc/R/library/zlibbioc/libs/i386" -lzlib1bioc>
-
-Get rid of the -L, the quotes, and the -lzlibbioc> and append /zlib1bioc.dll
-and now you have ZLIB_LIBRARY
-
 For i386 builds:
 -----------------
 Make sure "c:/Rtools40/mingw32/bin" is in the system PATH.
@@ -91,10 +63,7 @@ Move into c:\openbabel\build\i386
 
 Run: 
 
- cmake -G "Unix Makefiles" -DCMAKE_C_FLAGS=-m32 -DCMAKE_CXX_FLAGS=-m32  -DCMAKE_RC_COMPILER=c:/Rtools40/mingw32/bin/gcc.exe -DBUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=c:\openbabel\bin\i386 -DZLIB_INCLUDE_DIR=C:/Users/biocbuild/bbs-3.11-bioc/R/library/zlibbioc/include -DZLIB_LIBRARY=C:/Users/biocbuild/bbs-3.11-bioc/R/library/zlibbioc/libs/i386/zlib1bioc.dll C:/openbabel/src/i386
-
-Replace the value of ZLIB_INCLUDE_DIR and ZLIB_LIBRARY with the values you
-found above.
+ cmake -G "Unix Makefiles" -DCMAKE_C_FLAGS=-m32 -DCMAKE_CXX_FLAGS=-m32  -DCMAKE_RC_COMPILER=c:/Rtools40/mingw32/bin/gcc.exe -DBUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=c:\openbabel\bin\i386 C:/openbabel/src/i386
 
 Then run:
 
@@ -114,10 +83,7 @@ Move into c:\openbabel\build\x64
 
 Run: 
 
-  cmake -G "Unix Makefiles" -DCMAKE_C_FLAGS=-m64 -DCMAKE_CXX_FLAGS=-m64  -DCMAKE_RC_COMPILER=c:/Rtools40/mingw64/bin/gcc.exe -DBUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=c:/openbabel/bin/x64 -DZLIB_INCLUDE_DIR=C:/Users/biocbuild/bbs-3.11-bioc/R/library/zlibbioc/include -DZLIB_LIBRARY=C:/Users/biocbuild/bbs-3.11-bioc/R/library/zlibbioc/libs/x64/zlib1bioc.dll c:/openbabel/src/x64
-
-Replace the value of ZLIB_INCLUDE_DIR and ZLIB_LIBRARY with the values you
-found above.
+  cmake -G "Unix Makefiles" -DCMAKE_C_FLAGS=-m64 -DCMAKE_CXX_FLAGS=-m64  -DCMAKE_RC_COMPILER=c:/Rtools40/mingw64/bin/gcc.exe -DBUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=c:/openbabel/bin/x64  c:/openbabel/src/x64
 
 Then run:
 
