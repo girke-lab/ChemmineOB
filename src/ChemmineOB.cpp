@@ -2461,7 +2461,8 @@ namespace swig {
          PROTECT(result = Rf_allocVector(STRSXP, val->size()));
          for (unsigned pos = 0; pos < val->size(); pos++)
            {
-             CHARACTER_POINTER(result)[pos] = Rf_mkChar(((*val)[pos]).c_str());
+             //CHARACTER_POINTER(result)[pos] = Rf_mkChar(((*val)[pos]).c_str());
+             SET_STRING_ELT(result,pos, Rf_mkChar(((*val)[pos]).c_str()));
            }
         UNPROTECT(1);
         return(result);
