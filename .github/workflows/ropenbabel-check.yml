@@ -1,0 +1,63 @@
+# TEMPORARY: until Ropenbabel is on Bioconductor (or an r-universe), the
+# R-universe workflow can't resolve it. This installs Ropenbabel from GitHub,
+# then builds and checks ChemmineOB against it on Linux, macOS and Windows.
+# Remove once ChemmineOB can use the standard R-universe workflow.
+name: Check against Ropenbabel (temporary)
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: ${{ matrix.os }} (R ${{ matrix.r }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        r: [release]
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_KEEP_PKG_SOURCE: yes
+      OB_JOBS: 4
+    steps:
+      - uses: actions/checkout@v4
+
+      # Cairo (optional in Ropenbabel) gives PNG output, which the unit
+      # tests use. pkg-config is how Ropenbabel finds it.
+      - name: Install Cairo (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libcairo2-dev pkg-config cmake
+      - name: Install Cairo (macOS)
+        if: runner.os == 'macOS'
+        run: brew install cairo pkg-config cmake || true
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: ${{ matrix.r }}
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          dependencies: '"hard"'
+          extra-packages: |
+            github::girke-lab/Ropenbabel@devel
+            any::rcmdcheck
+            any::RUnit
+          needs: check
+
+      - name: Ropenbabel info
+        shell: Rscript {0}
+        run: |
+          cat("Open Babel", Ropenbabel::obVersion(), "\n")
+          Ropenbabel::pkgconfig("PKG_CPPFLAGS"); cat("\n")
+          Ropenbabel::pkgconfig("PKG_LIBS"); cat("\n")
+
+      - uses: r-lib/actions/check-r-package@v2
+        with:
+          build_args: 'c("--no-manual", "--no-build-vignettes")'
+          args: 'c("--no-manual", "--ignore-vignettes")'
+          error-on: '"error"'
+          upload-snapshots: false

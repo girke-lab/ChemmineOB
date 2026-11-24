@@ -1,0 +1,10 @@
+## Open Babel comes from the Ropenbabel package (static build) on every platform.
+## obsharedptr: the SWIG wrapper was generated against Open Babel 3.0/3.1,
+## which had this alias for std::shared_ptr; 3.2 removed it.
+RSCRIPT = "$(R_HOME)/bin/Rscript"
+
+PKG_CPPFLAGS = $(shell $(RSCRIPT) -e "Ropenbabel::pkgconfig(\"PKG_CPPFLAGS\")") \
+               -DHAVE_EIGEN -DHAVE_ISFINITE \
+               -Dobsharedptr=std::shared_ptr
+PKG_CXXFLAGS = -Wno-misleading-indentation
+PKG_LIBS     = $(shell $(RSCRIPT) -e "Ropenbabel::pkgconfig(\"PKG_LIBS\")")

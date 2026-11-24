@@ -1,112 +1,15 @@
+ChemmineOB links to the Open Babel C++ library. Open Babel is not a system
+requirement: it is provided, as a static library together with its headers and
+data files, by the Bioconductor package Ropenbabel. Installing ChemmineOB from
+source only needs Ropenbabel, Rcpp, RcppEigen and BH to be installed, plus a
+C++17 compiler and GNU make:
 
+  BiocManager::install("ChemmineOB")
 
-This package depends on Open Babel 2.3.2 or greater. On linux and mac it can be compiled 
-and run against the standard shared library version of Open Babel. On windows, the distributed
-binary has been compiled agains a static version of Open Babel 2.3.2. This was done because the 
-version downloadable from the Open Babel website was compiled with MSVC and is not 
-compatible with GNU based toolchain used by BioConductor. This means that on  windows
-there is no need to install Open Babel seperataly, but also that Open Babel cannot be 
-updated outside of the ChemmineOB package. If you need to compile ChemmineOB from source
-on windows you can follow the instructions below.
+or, from a source tarball:
 
-Compling with OpenBabel in a non-standard location
----------------------------------------------------
-If the OpenBabel include and/or library files are not in one of the default
-search paths (e.g., /usr/lib,/usr/include, /usr/local/lib,/usr/local/include), then you must set the
-following environment variables before installing the ChemmineOB package:
+  R CMD INSTALL ChemmineOB_x.y.z.tar.gz
 
-OPEN_BABEL_INCDIR = path to header files
-OPEN_BABEL_LIBDIR = path to shared (.so) library file
-
-These values can also be set through command line switches to the configure scripts:
-
-R CMD INSTALL --configure-args='--with-openbabel-include=... --with-openbabel-lib=...' ChemmineOB.tgz
-
-where the '...' are replaced by the relevant paths.
-
-Compiling on Windows
----------------------
-
-Pre-compiled binaries of Openbabel 3.0.0, build with the mingw toolchain, can be found here:
-https://github.com/girke-lab/ChemmineOB/releases/tag/3.0.0
-
-To compile yourself, proceed with these instructions:
-
-Set up directory structure like this:
-
-C:\openbabel\src
-    \i386
-     \x64
-
-c:\openbabel\bin
-     \i386
-      \x64
-
-c:\openbabel\build
-     \i386
-     \x64
-
-Download the openbabel source and copy it into both c:\openbabel\src\i386 and
-c:\openbabel\src\x64.
-Download and install RTools and Cmake.
-
-Set up the following global environment variables: in control panel/system:
-
-  OPEN_BABEL_SRC = c:/openbabel/src
-
-  OPEN_BABEL_BIN = c:/openbabel/bin
-
-For i386 builds:
------------------
-Make sure "c:/Rtools40/mingw32/bin" is in the system PATH.
-Move into c:\openbabel\build\i386
-
-Run: 
-
- cmake -G "Unix Makefiles" -DCMAKE_C_FLAGS=-m32 -DCMAKE_CXX_FLAGS=-m32  -DCMAKE_RC_COMPILER=c:/Rtools40/mingw32/bin/gcc.exe -DBUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=c:\openbabel\bin\i386 C:/openbabel/src/i386
-
-Then run:
-
-  make
-  make install
-
-Copy openbabel config header file into place:
-
-  copy c:\openbabel\bin\i386\include\openbabel-2.0\openbabel\babelconfig.h c:\openbabel\src\i386\include\openbabel\babelconfig.h
-
-For x64 builds:
-------------------
-Make sure "c:/Rtools40/mingw64/bin" is in the system PATH and make sure that "c:/Rtools40/mingw32/bin" IS NOT IN the system PATH, otherwise cmake will choose
-the 32 bit version over the 64 bit version (simple test is to do `which gcc`).
-
-Move into c:\openbabel\build\x64
-
-Run: 
-
-  cmake -G "Unix Makefiles" -DCMAKE_C_FLAGS=-m64 -DCMAKE_CXX_FLAGS=-m64  -DCMAKE_RC_COMPILER=c:/Rtools40/mingw64/bin/gcc.exe -DBUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=c:/openbabel/bin/x64  c:/openbabel/src/x64
-
-Then run:
-
-  make
-  make install
-
-Copy openbabel config header file into place:
-
-  copy c:\openbabel\bin\x64\include\openbabel-2.0\openbabel\babelconfig.h c:\openbabel\src\x64\include\openbabel\babelconfig.h
-
-Remember to add c:/Rtools40/mingw32/bin back into the system PATH if you
-temporarily took it away.
-
-
-Then for all architectures:
-------------------------------
-
-Set environment variables:
-
-  OPEN_BABEL_BIN = c:/openbabel/bin
-  OPEN_BABEL_SRC = c:/openbabel/src
-
-Build ChemmineOB:
-
-  R CMD build --no-build-vignettes ChemmineOB
-  R CMD INSTALL --merge-multiarch ChemmineOB_1.25.0.tar.gz   #(replace version with whatever version you have)
+Compiler and linker flags come from Ropenbabel::pkgconfig() (see
+src/Makevars). At load time ChemmineOB sets BABEL_DATADIR to
+Ropenbabel::dataDir() unless BABEL_DATADIR is already set.

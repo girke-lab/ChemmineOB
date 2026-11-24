@@ -1,7 +1,10 @@
-PKG_CXXFLAGS +=  -I${OPEN_BABEL_SRC}${R_ARCH}/include
-PKG_LIBS += -L${OPEN_BABEL_BIN}${R_ARCH}/bin -lopenbabel
+## Open Babel comes from the Ropenbabel package (static build) on every platform.
+## obsharedptr: the SWIG wrapper was generated against Open Babel 3.0/3.1,
+## which had this alias for std::shared_ptr; 3.2 removed it.
+RSCRIPT = "$(R_HOME)/bin$(R_ARCH_BIN)/Rscript.exe"
 
-PKG_CXXFLAGS +=  -IC:/openbabel3/deps/eigen-3.4.0  -DHAVE_EIGEN -DHAVE_ISFINITE
-PKG_CXXFLAGS += -Wno-misleading-indentation -fPIC
-#PKG_LIBS += $(shell echo 'zlibbioc::pkgconfig("PKG_LIBS_shared")' | "${R_HOME}/bin/R" --vanilla --slave)
-PKG_LIBS += -lz
+PKG_CPPFLAGS = $(shell $(RSCRIPT) -e "Ropenbabel::pkgconfig(\"PKG_CPPFLAGS\")") \
+               -DHAVE_EIGEN -DHAVE_ISFINITE \
+               -Dobsharedptr=std::shared_ptr
+PKG_CXXFLAGS = -Wno-misleading-indentation
+PKG_LIBS     = $(shell $(RSCRIPT) -e "Ropenbabel::pkgconfig(\"PKG_LIBS\")")
