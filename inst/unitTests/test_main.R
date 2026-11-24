@@ -99,11 +99,21 @@ test.formatConversions <- function(){
 	smi = read.SMIset(smiFile)
 	checkEquals(smi[[1]]@smiles,"O=C(NC1CCCC1)CN(c1cc2OCCOc2cc1)C(=O)CCC(=O)Nc1noc(c1)C")
 
-	if(.Platform$OS.type != "windows"){
-		pngFile = tempfile()
-		convertToImage("SMI","PNG",smi[[1]]@smiles,pngFile)
-		checkTrue(file.size(pngFile) > 0)
-	}
+	# PNG needs Cairo, which Ropenbabel now links on all platforms
+	# (previously skipped on Windows).
+	pngFile = tempfile()
+	convertToImage("SMI","PNG",smi[[1]]@smiles,pngFile)
+	checkTrue(file.size(pngFile) > 0)
+}
+test.inchi <- function(){
+	# InChI support is built from bundled sources by Ropenbabel on every
+	# platform (it used to be unreliable on Windows).
+	inchi = "InChI=1S/C6H12/c1-2-4-6-5-3-1/h1-6H2"
+	checkEquals(trimws(convertFormat("SMI","INCHI","C1CCCCC1")), inchi)
+	checkEquals(trimws(convertFormat("SMI","INCHIKEY","C1CCCCC1")),
+				"XDTMQSROBMDMFD-UHFFFAOYSA-N")
+	checkEquals(trimws(convertFormat("INCHI","SMI",inchi)), "C1CCCCC1")
+	checkEquals(prop_OB(forEachMol("SMI","C1CCCCC1",identity))$InChI, inchi)
 }
 test.writeMols <- function(){
 	ref = obmol(sdfsample[1])
