@@ -13,9 +13,8 @@ packageName = "ChemmineOB"
 
 	library.dynam(pkgname,package=pkgname,lib.loc=libname,local=FALSE)
 
-	## Open Babel data files ship in Ropenbabel, on every platform.
-	if(!nzchar(Sys.getenv("BABEL_DATADIR")))
-	 Sys.setenv(BABEL_DATADIR=dataDir())
+	## Open Babel data files ship in Ropenbabel, whose .onLoad (run first,
+	## since it is imported) points BABEL_DATADIR at them.
 
 }
 .supportedPlatform <- function(){

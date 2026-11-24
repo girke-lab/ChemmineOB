@@ -13,6 +13,7 @@ jobs:
   check:
     name: ${{ matrix.os }} (R ${{ matrix.r }})
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 120
     strategy:
       fail-fast: false
       matrix:
@@ -39,14 +40,17 @@ jobs:
           r-version: ${{ matrix.r }}
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          dependencies: '"hard"'
-          extra-packages: |
-            github::girke-lab/Ropenbabel@devel
-            any::rcmdcheck
-            any::RUnit
-          needs: check
+      # pak can't resolve Ropenbabel from DESCRIPTION (it isn't in any repo
+      # yet, and Bioconductor forbids Remotes:), so install deps explicitly.
+      - name: Install dependencies
+        shell: Rscript {0}
+        run: |
+          install.packages("pak", repos = sprintf(
+            "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
+            .Platform$pkgType, R.Version()$os, R.Version()$arch))
+          pak::pak("girke-lab/Ropenbabel@devel")
+          pak::pak(c("BiocGenerics", "Rcpp", "BH", "RcppEigen",
+                     "rcmdcheck", "RUnit"))
 
       - name: Ropenbabel info
         shell: Rscript {0}
