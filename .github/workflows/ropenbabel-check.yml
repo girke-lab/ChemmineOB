@@ -50,7 +50,7 @@ jobs:
             .Platform$pkgType, R.Version()$os, R.Version()$arch))
           pak::pak("girke-lab/Ropenbabel@devel")
           pak::pak(c("BiocGenerics", "Rcpp", "BH", "RcppEigen",
-                     "rcmdcheck", "RUnit"))
+                     "rcmdcheck", "RUnit", "ChemmineR"))
 
       - name: Ropenbabel info
         shell: Rscript {0}

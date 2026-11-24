@@ -6,5 +6,4 @@ RSCRIPT = "$(R_HOME)/bin/Rscript"
 PKG_CPPFLAGS = $(shell $(RSCRIPT) -e "Ropenbabel::pkgconfig(\"PKG_CPPFLAGS\")") \
                -DHAVE_EIGEN -DHAVE_ISFINITE \
                -Dobsharedptr=std::shared_ptr
-PKG_CXXFLAGS = -Wno-misleading-indentation
 PKG_LIBS     = $(shell $(RSCRIPT) -e "Ropenbabel::pkgconfig(\"PKG_LIBS\")")
