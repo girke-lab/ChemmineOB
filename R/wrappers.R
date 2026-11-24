@@ -99,7 +99,8 @@ prop_OB<- function(obmolRefs) {
 							  "cansmiNS",
 							  "formula",
 							  "title",
-							  "InChI")
+							  "InChI",
+							  "InChIKey")
 	descriptorNames = c(
 							  "HBA1",
 							  "HBA2",

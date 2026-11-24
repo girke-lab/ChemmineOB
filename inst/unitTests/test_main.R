@@ -3,7 +3,7 @@ library(ChemmineR)
 data(sdfsample)
 
 test.propOB <-function(){
-	numDescs = 13 # this can change
+	numDescs = 14 # this can change
 
 	molRefs = forEachMol("SMI","C1CCCCC1",identity)
 
@@ -113,7 +113,9 @@ test.inchi <- function(){
 	checkEquals(trimws(convertFormat("SMI","INCHIKEY","C1CCCCC1")),
 				"XDTMQSROBMDMFD-UHFFFAOYSA-N")
 	checkEquals(trimws(convertFormat("INCHI","SMI",inchi)), "C1CCCCC1")
-	checkEquals(prop_OB(forEachMol("SMI","C1CCCCC1",identity))$InChI, inchi)
+	p = prop_OB(forEachMol("SMI","C1CCCCC1",identity))
+	checkEquals(p$InChI, inchi)
+	checkEquals(p$InChIKey, "XDTMQSROBMDMFD-UHFFFAOYSA-N")
 }
 test.writeMols <- function(){
 	ref = obmol(sdfsample[1])
